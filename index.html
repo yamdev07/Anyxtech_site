@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>AnyxTech Bénin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        :root {
+            --anyxtech-one-blue: #1db9ff;
+            --anyxtech-two-blue: #1f429b;
+            --anyxtech-three-blue: #1e4d9f;
+            --light-black: #2a2a2a;
+            --black-black: #121212;
+        }
+
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-slide-up {
+            animation: fadeSlideUp 0.8s ease forwards;
+        }
+
+        .hero-title {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="mt-10 text-center px-6 pt-48 pb-32 bg-cover bg-no-repeat relative"
+        style="background-image: url('images/portrait-du-professionnel-masculin-d-afro-américain-probablement-président-entreprise-de-cadre-commercial-finances-mandataire-155546880.webp'); background-position: center top;">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="relative z-10">
+            <div
+                class="inline-flex items-center gap-3 px-6 py-3 bg-gray-700 text-white rounded-full text-lg font-semibold mb-6 fade-slide-up hero-subtitle">
+                <span class="w-4 h-4 bg-white rounded-full"></span>
+                Vos besoins avant les nôtres
+            </div>
+            <h1 id="hero-text"
+                class="text-white text-5xl md:text-7xl font-extrabold leading-tight hero-title opacity-100">
+                Toujours plus<br><span class="text-[var(--anyxtech-one-blue)]">proche de vous</span><br>pour une
+                meilleure satisfaction
+            </h1>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 hero-buttons">
+                <!-- Bouton principal -->
+                <a href="/contact"
+                    class="px-6 py-3 rounded-full font-semibold text-white bg-[var(--anyxtech-two-blue)] transition-transform duration-300 ease-in-out hover:bg-[var(--anyxtech-three-blue)] hover:scale-105">
+                    J’ai une idée de projet
+                </a>
+
+                <!-- Bouton secondaire avec animation -->
+                <a href="/societe.html"
+                    class="px-6 py-3 rounded-full font-semibold border-2 border-white text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-[var(--anyxtech-two-blue)] hover:border-[var(--anyxtech-two-blue)] hover:scale-105">
+                    En savoir plus
+                </a>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <section class="px-10 mt-20 fade-slide-up" style="animation-delay: 0.2s;">
+        <h2 class="text-5xl font-bold text-[var(--light-black)] leading-snug text-left">
+            Nos domaines <br> d'expertise technique
+        </h2>
+        <p class="mt-5 text-left w-11/12 md:w-7/12 text-gray-700 text-xl">
+            Nous accompagnons entreprises, particuliers et structures dans leur transformation numérique et énergétique
+            en proposant des services innovants et sur mesure.
+            De la connectivité au digital, notre objectif reste le même : vous fournir une solution fiable, performante
+            et parfaitement adaptée à vos besoins.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 text-center">
+            <div class="flex flex-col items-center service-item service-delay-1">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-bullhorn text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Communication digitale</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Nous créons des stratégies de communication
+                    adaptées à chaque marque.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Une équipe aguerrie met en œuvre vos projets avec
+                    expertise.</p>
+            </div>
+
+            <div class="flex flex-col items-center service-item service-delay-2">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-network-wired text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Réseautage & connectivité</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Interconnexion, virtualisation, vente
+                    d’équipements et mise en réseau.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Une infrastructure performante et évolutive pour vos
+                    systèmes.</p>
+            </div>
+
+            <div class="flex flex-col items-center service-item service-delay-3">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-wifi text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Installation Wi-Fi</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Installation et configuration de vos réseaux
+                    sans fil.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Des performances réseau optimales et stables.</p>
+            </div>
+
+            <div class="flex flex-col items-center service-item service-delay-4">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-bolt text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Énergie</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Étude, exécution et maintenance de projets
+                    électriques.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Pour bâtiments, industries et énergies renouvelables.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center service-item service-delay-5">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-bullseye text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Marketing digital</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Identité visuelle, site web, réseaux sociaux,
+                    pub en ligne.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Stratégies personnalisées pour renforcer votre image.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center service-item service-delay-6">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-headset text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Suivi clientèle</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Un accompagnement personnalisé et une
+                    assistance 7j/7.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Jusqu’à la satisfaction complète du client.</p>
+            </div>
+
+            <div class="flex flex-col items-center service-item service-delay-7">
+                <div class="group group-hover-scale cursor-pointer">
+                    <i class="fas fa-server text-[var(--light-black)] text-5xl mb-2"></i>
+                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Hébergement & domaines</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Stockage, hébergement web et gestion de
+                    domaines.</p>
+                <p class="text-sm text-gray-800 italic w-11/12">Une visibilité fiable et sécurisée pour vos données.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-20 py-20 bg-white fade-slide-up" style="animation-delay: 1.6s;">
+        <h2 class="text-4xl font-extrabold text-4xl text-center text-[var(--anyxtech-two-blue)] mb-10">Qui sommes-nous ?
+        </h2>
+        <p class="text-center text-gray-700 max-w-4xl mx-auto text-lg">
+            ANYXTECH est une entreprise béninoise spécialisée dans le numérique, les télécoms et les solutions
+            digitales.
+            Elle regroupe des professionnels passionnés par les technologies modernes et l’innovation.
+            Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
+            En mettant vos besoins avant les nôtres, nous construisons un partenariat durable.
+        </p>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Header/Footer Fetch -->
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("header-placeholder").innerHTML = html;
+                document.getElementById("header-placeholder").style.opacity = 1;
+            });
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("footer-placeholder").innerHTML = html;
+                document.getElementById("footer-placeholder").style.opacity = 1;
+            });
+    </script>
+
+    <!-- Texte rotatif -->
+    <script>
+        const heroText = document.getElementById("hero-text");
+        const phrases = [
+            `Toujours plus<br><span class="text-[var(--anyxtech-one-blue)]">proche de vous</span><br>pour une meilleure satisfaction`,
+            `UN SERVICE DE CONSEIL<br><span class="text-[var(--anyxtech-one-blue)]">ET D'EXPERTISE</span><br>AnyxTech, c’est aussi un service clientèle de qualité`,
+            `SERVICE CLIENTÈLE<br><span class="text-[var(--anyxtech-one-blue)]">24H/7J</span><br>Une assistance toujours disponible pour vous`,
+            `ANYXTECH<br><span class="text-[var(--anyxtech-one-blue)]">Connexion haut débit</span><br>à moindre coût pour tous`,
+            `TÉLÉCOMS & INFORMATIQUE<br><span class="text-[var(--anyxtech-one-blue)]">Services de qualité</span><br>pour votre croissance numérique`
+        ];
+        let i = 0;
+
+        setInterval(() => {
+            heroText.classList.add("opacity-0");
+            setTimeout(() => {
+                i = (i + 1) % phrases.length;
+                heroText.innerHTML = phrases[i];
+                heroText.classList.remove("opacity-0");
+                heroText.classList.add("opacity-100");
+            }, 500);
+        }, 5000);
+    </script>
+
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("header-placeholder").innerHTML = html;
+                document.getElementById("header-placeholder").style.opacity = 1;
+            });
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("footer-placeholder").innerHTML = html;
+                document.getElementById("footer-placeholder").style.opacity = 1;
+            });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const services = document.querySelectorAll(".service-item");
+            const directions = ["translateY(60px)", "translateY(-60px)", "translateX(-60px)", "translateX(60px)"];
+
+            services.forEach((el) => {
+                const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+                el.style.opacity = 0;
+                el.style.transform = randomDirection;
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = "all 0.8s ease";
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translate(0)";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            services.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
