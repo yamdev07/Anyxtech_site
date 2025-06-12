@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            animation: za 2s ease-in-out forwards;
+        }
+        @keyframes za {
+      to {
+        opacity: 1;
+      }
+    }
+
+        header{
+            display: flex;
+           justify-content: space-between;
+          margin-bottom:5px;
+          padding: 20px 20px;
+        }
+        header img{
+            width:10em;
+        }
+        .b{
+            display: flex;
+        }
+        .b a{
+            font-size: 25px;
+            font-family: arial;
+            text-decoration: none;
+            padding: 10px;
+            color:black;
+            margin: 0 10px;
+        }
+        .c a{
+            color: white;
+            background-color: #1f429b;
+            text-decoration: none;
+            padding: 12px 15px;
+            font-size: 15px;
+            font-family: arial;
+            border-radius: 8px;
+           
+        }
+        .c a:hover{
+            background-color: #1db9ff;
+        }
+        .d{
+            width: 100%;
+          
+        }
+        .d img{
+            width: 100%;
+            object-fit: cover;
+           height: 85vh;
+        }
+        .e{
+            padding-bottom: 30px;
+            
+            
+        }
+        .h1{
+            color:rgb(47, 47, 173);
+            font-size: 50px;
+            font-family: sans-serif;
+            text-align: center;
+            padding-bottom: 15%;
+            padding-top: 8%;
+        }
+        .p{
+            font-family: sans-serif;
+            font-size: 25px;
+            
+        }
+        form{
+           text-align: center; 
+           background:linear-gradient(50deg,rgb(225, 225, 255),rgb(45, 45, 173));
+           border: 5px 5px 5px solid black;
+           padding: 20px 10px;
+           width: 500px;
+           border-radius: 20px;
+           margin-bottom: 20px;
+        }
+        form label{
+            text-align: left;
+            padding: 10px;
+            display: block;
+            font-family: arial;
+            font-size: 20px;
+            
+        }
+        form input[type=email]{ 
+            width: 90%;
+            height: 30px;
+            border-radius:8px;
+        }
+        form input[type=text]{ 
+            width: 90%;
+            height: 30px;
+            border-radius: 8px;
+        }
+        form input[type=tel]{ 
+            width: 90%;
+            height: 30px;
+            border-radius: 8px;
+        }
+        form textarea{ 
+            width: 90%;
+            height: 80px;
+            border-radius: 8px;
+        }
+        form ::placeholder{
+            font-size: 15px;
+        }
+        form input[type=submit]{
+            background-color: white;
+            font-size: 20px;
+            width: 90%;
+            padding:10px 150px;
+            background: linear-gradient(to right,rgb(45, 45, 173),rgb(225, 225, 255));
+            color:black;
+            border-radius: 10px;
+        }
+        .f{
+            background-color:#1e4d9f;
+            background-attachment: fixed;
+            width: 100%;
+            color: white;
+            font-family: arial;
+            border-bottom: 1px solid rgba(10, 10, 10,0.5);
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+            flex-grow: 1;
+        }
+        .f .f1{
+            display: flex;
+            gap:50px;
+        }
+        .f .fc a{
+            text-decoration: none;
+            color:white
+        }
+        .g{
+            display: flex;
+            justify-content: center;
+            
+        }
+        .aq{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 5%;
+        }
+        .s{
+            display: flex;
+        }
+        .ss{
+            display: flex;
+            gap: 10px;
+        }
+        .sss{
+            display: flex;
+            gap: 10px;
+        }
+        footer{
+            font-family: arial;
+            background-color:#1e4d9f;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        @media screen and (max-width:600px){
+            body{
+                margin: 0;
+                overflow-x: hidden;
+            }
+            .aq{
+            display: flex;
+            flex-direction: column;
+        }
+            header{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+            }
+            .a{
+                text-align: center;
+            }
+            header img{
+                width: 90%;
+                object-fit: cover;
+            }
+            .b{
+                display: inline;
+                justify-content: center;
+                text-align: center;
+            }
+            .b p{
+                font-size: 20px;
+                padding: 10px 5px;
+            }
+            .c p{
+              text-align: center;
+
+            }
+            .d{
+                width: 100%;
+            }
+            .d img{
+                width: 100%;
+            }
+            .g{
+                 width: 100%;
+            }
+            form{
+                width: 100%;
+            }
+            form label{
+                font-size: 20px;
+            }
+            .p{
+                font-size: 20px;
+            }
+            .h1{
+                font-size: 25px;
+            }
+            .f{
+                display: none;
+            }
+            .e{
+                text-align: center;
+            }
+            .g{
+                width: 100%;
+            }
+            .g form{
+                 width: 90%;
+            }
+            form label{
+            text-align: left;
+            padding: 10px;
+            display: block;
+            font-family: arial;
+            font-size: 15px;
+            
+        }
+        form input[type=email]{ 
+            width: 90%;
+            height: 30px;
+        }
+        form input[type=text]{ 
+            width: 90%;
+            height: 30px;
+        }
+        form input[type=tel]{ 
+            width: 90%;
+            height: 30px;
+        }
+        form textarea{ 
+            width: 90%;
+            height: 70px;
+        }
+        form input[type=submit]{
+           height: 40px;
+           font-size: 15px;
+        }
+        form{
+            padding: 2px;
+        }
+        form ::placeholder{
+            font-size: 15px;
+        }
+        footer{
+            padding: 5px;
+            font-size: 15px;
+        }
+        }
+        @media screen and (max-width:1100px) and (min-width:601px){
+            .aq{
+            display: flex;
+            flex-direction: column;
+        }
+            .g{
+                width: 100%;
+            }
+            .g form{
+                 width: 50%;
+            }
+            header{
+                
+               display: flex;
+               flex-wrap: wrap;
+               flex-direction: row;
+            }
+            header .b a{
+                font-size: 20px;
+            }
+            header .c a{
+               padding: 5px;
+               font-size: 15px;
+            }
+            header img{
+                 width:8em;
+            }
+            
+            .e{
+                 text-align: center;
+            }
+            .f{
+                display: none;
+            }
+            form input[type=submit]{
+           text-align: center;
+           padding: 5px 5px;
+        }
+        footer{
+            padding: 10px;
+            font-size: 15px;
+        }
+        }
+        @media screen and (orientation: landscape){}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="a">
+<img src="logo.png" alt="f">
+        </div>
+        <div class="b">
+<p><a href="index.html">Acceuil</a></p>
+<p><a href="societe.html">Societe</a></p>
+<p><a href="a">Service</a></p>
+<p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="c">
+            <p><a href="a">Demande de devis</a></p>
+        </div>
+    </header>
+    <div class="d">
+        <img src="a.jpg" alt="">
+    </div>
+    <div class="aq">
+    <div class="e">
+    <h1 class="h1">Contact</h1>
+    <p class="p">Vous pouvez nous contactez via ce formulaire:</p>
+    <p class="p">une réponse vous sera adressée dans les meilleurs délais.</p>
+    </div>
+    <div class="g">
+    <form action="">
+        <label for="">Email</label>
+        <input type="email" placeholder="exemple@gmail.com" required="required" autocomplete="autocomplete"><br>
+        <label for="">Nom</label>
+        <input type="text" placeholder="Votre Nom" required="required" autocomplete="autocomplete"><br>
+        <label for="">Prénom</label>
+        <input type="text" placeholder="Votre Prénom" required="required" autocomplete="autocomplete"><br>
+        <label for="">Téléphone</label>
+        <input type="tel" placeholder="+229..." required="required" autocomplete="autocomplete"><br>
+        <label for="">Pays</label>
+        <input type="text" placeholder="Votre Pays" required="required" autocomplete="autocomplete"><br>
+        <label for="">Message</label>
+        <textarea name="" id=""  placeholder="Envoyez-nous un message" autocomplete="on"></textarea><br><br>
+        <input type="submit" value="Envoyez">
+    </form>
+</div>
+</div>
+    <div class="f">
+        <div class="f1">
+       <div class="fa">
+        <img src="logo-removebg-preview.png" alt="" width="150">
+        <p>Nous vous accompagnons dans votre stratégie numérique,<br> marketing digital et solutions informatiques innovantes.</p>
+        <div class="s">
+        <img src="facebook.png" alt="" width="30"> <img src="appel.png" alt="" width="30">
+        </div>
+       </div>
+       <div class="fb">
+        <h3>Naviguation</h3>
+        <p>A propos</p>
+        <p>Nos service</p>
+        <p>Réalisation</p>
+        <p>Nous contacter</p>
+       </div>
+       </div>
+       <div class="fc">
+        <div>
+
+        </div>
+         <h3>Naviguation</h3>
+         <div class="sss">
+           <img src="appel.png" alt="" width="30"> <p>Cotonou-Bénin, Saint Michel,en face de l'immeuble Nasuba</p>
+         </div>
+        <p>contact@anyxtech.com</p>
+        <div class="ss">
+        <img src="appel.png" alt="" width="30"><a href="">(+229) 52 41 52 41</a>
+         </div>
+       </div>
+    </div>
+    <footer>
+        <p>© 2025 AnyxTech Bénin. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
