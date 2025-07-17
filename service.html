@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>AnyxTech Bénin</title>
+    <title> Nos Services - AnyxTech Bénin </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
             --anyxtech-one-blue: #1db9ff;
@@ -36,34 +37,274 @@
         .hero-title {
             transition: opacity 0.5s ease;
         }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .gradient-anyxtech {
+            background: linear-gradient(135deg, var(--anyxtech-one-blue) 0%, var(--anyxtech-two-blue) 100%);
+        }
+
+        .text-anyxtech {
+            color: var(--anyxtech-one-blue);
+        }
+
+        .border-anyxtech {
+            border-color: var(--anyxtech-one-blue);
+        }
+
+        .bg-anyxtech {
+            background-color: var(--anyxtech-one-blue);
+        }
+
+        .hover-anyxtech:hover {
+            background-color: var(--anyxtech-two-blue);
+        }
     </style>
 </head>
 
-<body>
+<body class="bg-gray-50">
     <div id="header-placeholder"></div>
 
+    <!-- Hero Section -->
+    <section class="gradient-anyxtech text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-slide-up">Nos Services</h1>
+            <p class="text-xl opacity-90 fade-slide-up">Solutions technologiques complètes pour votre entreprise</p>
+        </div>
+    </section>
 
+    <!-- Services Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Filter Section -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8" data-aos="fade-up">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-200 hover:border-anyxtech hover:bg-anyxtech hover:text-white transition-all duration-300 active bg-anyxtech text-white border-anyxtech" data-filter="all">
+                        <i class="fas fa-globe mr-2"></i>Tous
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-200 hover:border-anyxtech hover:bg-anyxtech hover:text-white transition-all duration-300" data-filter="communication">
+                        <i class="fas fa-bullhorn mr-2"></i>Communication
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-200 hover:border-anyxtech hover:bg-anyxtech hover:text-white transition-all duration-300" data-filter="infrastructure">
+                        <i class="fas fa-network-wired mr-2"></i>Infrastructure
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-200 hover:border-anyxtech hover:bg-anyxtech hover:text-white transition-all duration-300" data-filter="support">
+                        <i class="fas fa-headset mr-2"></i>Support
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-200 hover:border-anyxtech hover:bg-anyxtech hover:text-white transition-all duration-300" data-filter="hosting">
+                        <i class="fas fa-server mr-2"></i>Hébergement
+                    </button>
+                </div>
+            </div>
 
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
+                <!-- Les services seront générés par JavaScript -->
+            </div>
 
-    
+            <!-- No Results -->
+            <div class="text-center py-12 hidden" id="noResults">
+                <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+                <h3 class="text-2xl text-gray-600 mb-2">Aucun service trouvé</h3>
+                <p class="text-gray-500">Essayez un autre filtre ou consultez tous nos services.</p>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
 
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+    <script>
+        // Données des services AnyxTech
+        const services = [
+            {
+                id: 1,
+                category: 'communication',
+                icon: 'fas fa-bullhorn',
+                title: 'Communication Digitale',
+                description: 'Nous créons des stratégies digitales sur mesure pour renforcer votre marque en ligne, engager votre audience et optimiser votre visibilité sur les canaux numériques.',
+                features: ['Création de contenus (visuels, vidéos, articles SEO)','Gestion des réseaux sociaux','Calendriers éditoriaux personnalisés','Publicité en ligne (Google Ads, Meta Ads)','Référencement naturel (SEO)','Suivi des performances (reportings)'],
+            },
+            {
+                id: 2,
+                category: 'infrastructure',
+                icon: 'fas fa-network-wired',
+                title: 'Réseautage et Connectivité',
+                description: 'Nous concevons des réseaux informatiques sécurisés, stables et évolutifs pour assurer une connectivité fluide et adaptée à votre structure.',
+                features: [	'Virtualisation et segmentation réseau (VLAN, SDN)','Vente & installation de matériel (switchs, routeurs, firewalls)','Câblage structuré & fibre/ethernet','Maintenance, supervision, audit réseau','Sécurité réseau (VPN, pare-feu, surveillance)']
+            },
+            {
+                id: 3,
+                category: 'infrastructure',
+                icon: 'fas fa-wifi',
+                title: 'Installation WiFi',
+                description: 'Déploiement de réseaux LAN, WLAN et WAN robustes, pour une couverture Wi-Fi rapide, stable et sécurisée dans tous types d’environnements.',
+                features: ['Conception & mise en place de réseaux LAN/WLAN/WAN','Virtualisation & sécurité réseau','Fourniture et installation de matériel','Surveillance et maintenance continue'],
+            },
 
-    fetch("footer.html")
-      .then(response => response.text())
-      .then(html => document.getElementById("footer-placeholder").innerHTML = html);
-  </script>
+            {
+                id: 4,
+                category: 'infrastructure',
+                icon: 'fas fa-bolt',
+                title: 'Solutions Énergétiques',
+                description: 'Nous réalisons vos projets électriques de A à Z, avec une approche fiable, sécurisée et durable, adaptée aux besoins industriels ou résidentiels.',
+                features: ['Études techniques et dimensionnement','Réseaux basse et moyenne tension','Tableaux électriques, groupes électrogènes, onduleurs','Maintenance préventive et corrective','Énergies renouvelables (solaire, hybride)'],
+            },
+            {
+                id: 5,
+                category: 'communication',
+                icon: 'fas fa-chart-line',
+                title: 'Marketing Digital',
+                description: 'Nous mettons en œuvre des campagnes digitales ciblées pour renforcer votre image, attirer des prospects et fidéliser vos clients.',
+                features: ['	Création/refonte de sites web optimisés','Identité visuelle (logo, charte graphique)','Community management','Campagnes publicitaires (Google, Facebook, LinkedIn)','Rédaction de contenus SEO','Emailing & tunnels de conversion'],
+            },
+            {
+                id: 6,
+                category: 'support',
+                icon: 'fas fa-users',
+                title: 'Suivi Clientèle',
+                description: 'Un accompagnement humain, constant et réactif pour garantir la satisfaction totale à chaque étape de votre projet.',
+                features: ['Accompagnement personnalisé','Assistance 7j/7 (technique & fonctionnelle)','Suivi régulier des projets','Réponses rapides (mail, téléphone, messagerie)','Gestion proactive des demandes','Mesure de satisfaction'],
+            },
+            {
+                id: 7,
+                category: 'hosting',
+                icon: 'fas fa-server',
+                title: 'Hébergement & Domaine',
+                description: 'Nous vous offrons un hébergement web rapide et sécurisé, ainsi qu’une gestion complète de vos noms de domaine.',
+                features: ['Hébergement (mutualisé, dédié, cloud)','Enregistrement et gestion de domaines','Certificats SSL','Sauvegardes restaurations automatiques','Monitoring et support technique','Sécurité (anti-DDoS, pare-feu applicatif)']
+            }
+        ];
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 800,
-      easing: 'ease-in-out'
-    });
-  </script>
+        // Fonction pour créer une carte de service
+        function createServiceCard(service) {
+            const featuresHTML = service.features.map(feature => 
+                `<li class="flex items-center mb-2">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    <span class="text-sm">${feature}</span>
+                </li>`
+            ).join('');
+
+            return `
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl" data-category="${service.category}" data-aos="fade-up">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
+                            <i class="${service.icon} text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">${service.title}</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">${service.description}</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-700 mb-3">Nos prestations :</h4>
+                        <ul class="text-gray-600">
+                            ${featuresHTML}
+                        </ul>
+                    </div>
+                    
+                    <button class="w-full gradient-anyxtech text-white py-3 px-6 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:transform hover:-translate-y-1" onclick="contactService('${service.title}')">
+                        <i class="fas fa-phone mr-2"></i>Nous contacter
+                    </button>
+                </div>
+            `;
+        }
+
+        // Fonction pour afficher les services
+        function displayServices(servicesToShow = services) {
+            const servicesGrid = document.getElementById('servicesGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (servicesToShow.length === 0) {
+                servicesGrid.innerHTML = '';
+                noResults.classList.remove('hidden');
+            } else {
+                servicesGrid.innerHTML = servicesToShow.map(createServiceCard).join('');
+                noResults.classList.add('hidden');
+                // Réinitialiser AOS pour les nouveaux éléments
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }
+        }
+
+        // Fonction de filtrage
+        function filterServices(category) {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+     // Fonction pour contacter pour un service
+              function contactService(serviceName) {
+    // Redirige vers la page contact avec le nom du service en paramètre GET
+    window.location.href = `contact.html?service=${encodeURIComponent(serviceName)}`;
+}
+
+        // Gestionnaire d'événements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Charger header et footer
+            fetch("header.html")
+                .then(response => response.text())
+                .then(html => document.getElementById("header-placeholder").innerHTML = html)
+                .catch(error => console.log('Header non trouvé:', error));
+
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(html => document.getElementById("footer-placeholder").innerHTML = html)
+                .catch(error => console.log('Footer non trouvé:', error));
+
+            // Afficher tous les services au chargement
+            displayServices();
+
+            // Ajouter les événements aux boutons de filtre
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Retirer la classe active de tous les boutons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-anyxtech', 'text-white', 'border-anyxtech');
+                        btn.classList.add('border-gray-200');
+                    });
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active', 'bg-anyxtech', 'text-white', 'border-anyxtech');
+                    this.classList.remove('border-gray-200');
+                    
+                    // Filtrer les services
+                    const category = this.getAttribute('data-filter');
+                    filterServices(category);
+                });
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+    </script>
 </body>
+</html>
