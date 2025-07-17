@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>AnyxTech Bénin</title>
+    <title>AnyxTech Bénin - Excellence Numérique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -15,252 +15,551 @@
             --anyxtech-three-blue: #1e4d9f;
             --light-black: #2a2a2a;
             --black-black: #121212;
+            --neon-glow: 0 0 20px rgba(29, 185, 255, 0.3);
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .fade-slide-up {
-            animation: fadeSlideUp 0.8s ease forwards;
+        /* Neon button effect */
+        .neon-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
+            box-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .hero-title {
-            transition: opacity 0.5s ease;
+        .neon-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .neon-button:hover::before {
+            left: 100%;
+        }
+
+        .neon-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(29, 185, 255, 0.8);
+        }
+
+        /* Hero text gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffffff, #f0f9ff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--anyxtech-one-blue);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Service cards hover effect */
+        .service-card {
+            position: relative;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(29, 185, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(29, 185, 255, 0.15);
+            border-color: var(--anyxtech-one-blue);
+        }
+
+        .service-icon {
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--anyxtech-one-blue);
+        }
+
+        /* Animated background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(29, 185, 255, 0.1), rgba(31, 66, 155, 0.1));
+            animation: backgroundMove 20s ease infinite;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: translateX(0%) translateY(0%); }
+            25% { transform: translateX(5%) translateY(-5%); }
+            50% { transform: translateX(-5%) translateY(5%); }
+            75% { transform: translateX(5%) translateY(5%); }
+        }
+
+        /* Pulse animation */
+        .pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* Smooth reveal animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reveal-up.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
+            border-radius: 4px;
+        }
+
+        /* Typing effect */
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid var(--anyxtech-one-blue);
+            animation: typing 3s steps(40, end), blink 1s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--anyxtech-one-blue); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(45deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue), #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
     </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 overflow-x-hidden">
 
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="mt-10 text-center px-6 pt-48 pb-32 bg-cover bg-no-repeat relative"
-        style="background-image: url('images/portrait-du-professionnel-masculin-d-afro-américain-probablement-président-entreprise-de-cadre-commercial-finances-mandataire-155546880.webp'); background-position: center top;">
-        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <!-- Hero Section with Enhanced Visual Effects -->
+    <section class="relative mt-10 text-center px-6 pt-48 pb-32 bg-cover bg-no-repeat overflow-hidden"
+        style="background-image: url('images/image_reseau.jpg'); background-position: center top;">
+        
+        <!-- Animated background overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-blue-900/50 to-black/70 animated-bg"></div>
+        
+        <!-- Floating particles -->
+        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 40%; left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 80%; left: 60%; animation-delay: 3s;"></div>
+        <div class="particle" style="top: 30%; left: 70%; animation-delay: 4s;"></div>
+        
         <div class="relative z-10">
-            <div
-                class="inline-flex items-center gap-3 px-6 py-3 bg-gray-700 text-white rounded-full text-lg font-semibold mb-6 fade-slide-up hero-subtitle">
-                <span class="w-4 h-4 bg-white rounded-full"></span>
-                Vos besoins avant les nôtres
+            <!-- Enhanced badge -->
+            <div class="inline-flex items-center gap-3 px-8 py-4 glass rounded-full text-lg font-semibold mb-8 reveal-up pulse-slow">
+                <div class="w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full animate-pulse"></div>
+                <span class="text-white">Vos besoins avant les nôtres</span>
             </div>
-            <h1 id="hero-text"
-                class="text-white text-5xl md:text-7xl font-extrabold leading-tight hero-title opacity-100">
-                Toujours plus<br><span class="text-[var(--anyxtech-one-blue)]">proche de vous</span><br>pour une
-                meilleure satisfaction
+            
+            <!-- Hero title with enhanced effects -->
+            <h1 id="hero-text" class="text-white text-5xl md:text-7xl font-extrabold leading-tight reveal-up hero-gradient" style="animation-delay: 0.2s;">
+                Toujours plus<br><span class="gradient-text">proche de vous</span><br>pour une meilleure satisfaction
             </h1>
-            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 hero-buttons">
-                <!-- Bouton principal -->
-                <a href="/contact"
-                    class="px-6 py-3 rounded-full font-semibold text-white bg-[var(--anyxtech-two-blue)] transition-transform duration-300 ease-in-out hover:bg-[var(--anyxtech-three-blue)] hover:scale-105">
-                    J’ai une idée de projet
+            
+            <!-- Enhanced buttons -->
+            <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6 reveal-up" style="animation-delay: 0.4s;">
+                <!-- Primary button with neon effect -->
+                <a href="/contact" class="neon-button px-8 py-4 rounded-full font-bold text-white text-lg shadow-2xl relative z-10 transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-rocket mr-2"></i>
+                    J'ai une idée de projet
                 </a>
 
-                <!-- Bouton secondaire avec animation -->
-                <a href="/societe.html"
-                    class="px-6 py-3 rounded-full font-semibold border-2 border-white text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-[var(--anyxtech-two-blue)] hover:border-[var(--anyxtech-two-blue)] hover:scale-105">
+                <!-- Secondary button with glass effect -->
+                <a href="/societe.html" class="glass px-8 py-4 rounded-full font-semibold text-white text-lg border-2 border-white/30 hover:border-blue-400 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                    <i class="fas fa-info-circle mr-2"></i>
                     En savoir plus
                 </a>
             </div>
-
-
-
         </div>
     </section>
 
-    <section class="px-10 mt-20 fade-slide-up" style="animation-delay: 0.2s;">
-        <h2 class="text-5xl font-bold text-[var(--light-black)] leading-snug text-left">
-            Nos domaines <br> d'expertise technique
-        </h2>
-        <p class="mt-5 text-left w-11/12 md:w-7/12 text-gray-700 text-xl">
-            Nous accompagnons entreprises, particuliers et structures dans leur transformation numérique et énergétique
-            en proposant des services innovants et sur mesure.
-            De la connectivité au digital, notre objectif reste le même : vous fournir une solution fiable, performante
-            et parfaitement adaptée à vos besoins.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 text-center">
-            <div class="flex flex-col items-center service-item service-delay-1">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-bullhorn text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Communication digitale</h3>
-                </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Nous créons des stratégies de communication
-                    adaptées à chaque marque.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Une équipe aguerrie met en œuvre vos projets avec
-                    expertise.</p>
-            </div>
-
-            <div class="flex flex-col items-center service-item service-delay-2">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-network-wired text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Réseautage & connectivité</h3>
-                </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Interconnexion, virtualisation, vente
-                    d’équipements et mise en réseau.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Une infrastructure performante et évolutive pour vos
-                    systèmes.</p>
-            </div>
-
-            <div class="flex flex-col items-center service-item service-delay-3">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-wifi text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Installation Wi-Fi</h3>
-                </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Installation et configuration de vos réseaux
-                    sans fil.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Des performances réseau optimales et stables.</p>
-            </div>
-
-            <div class="flex flex-col items-center service-item service-delay-4">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-bolt text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Énergie</h3>
-                </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Étude, exécution et maintenance de projets
-                    électriques.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Pour bâtiments, industries et énergies renouvelables.
+    <!-- Enhanced Services Section -->
+    <section class="px-6 md:px-20 py-20 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-5xl md:text-6xl font-bold gradient-text leading-tight mb-6">
+                    Nos domaines <br> d'expertise technique
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Nous accompagnons entreprises, particuliers et structures dans leur transformation numérique et énergétique
+                    en proposant des services innovants et sur mesure.
                 </p>
             </div>
 
-            <div class="flex flex-col items-center service-item service-delay-5">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-bullseye text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Marketing digital</h3>
+            <!-- Enhanced service cards grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                <!-- Service 1 -->
+                <div class="service-card reveal-up" style="animation-delay: 0.1s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Communication digitale</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Nous créons des stratégies de communication adaptées à chaque marque.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Une équipe aguerrie met en œuvre vos projets avec expertise.
+                        </p>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Identité visuelle, site web, réseaux sociaux,
-                    pub en ligne.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Stratégies personnalisées pour renforcer votre image.
-                </p>
-            </div>
 
-            <div class="flex flex-col items-center service-item service-delay-6">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-headset text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Suivi clientèle</h3>
+                <!-- Service 2 -->
+                <div class="service-card reveal-up" style="animation-delay: 0.2s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Réseautage & connectivité</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Interconnexion, virtualisation, vente d'équipements et mise en réseau.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Une infrastructure performante et évolutive pour vos systèmes.
+                        </p>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Un accompagnement personnalisé et une
-                    assistance 7j/7.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Jusqu’à la satisfaction complète du client.</p>
-            </div>
 
-            <div class="flex flex-col items-center service-item service-delay-7">
-                <div class="group group-hover-scale cursor-pointer">
-                    <i class="fas fa-server text-[var(--light-black)] text-5xl mb-2"></i>
-                    <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Hébergement & domaines</h3>
+                <!-- Service 3 -->
+                <div class="service-card reveal-up" style="animation-delay: 0.3s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Installation Wi-Fi</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Installation et configuration de vos réseaux sans fil.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Des performances réseau optimales et stables.
+                        </p>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed w-11/12">Stockage, hébergement web et gestion de
-                    domaines.</p>
-                <p class="text-sm text-gray-800 italic w-11/12">Une visibilité fiable et sécurisée pour vos données.</p>
+
+                <!-- Service 4 -->
+                <div class="service-card reveal-up" style="animation-delay: 0.4s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Énergie</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Étude, exécution et maintenance de projets électriques.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Pour bâtiments, industries et énergies renouvelables.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card reveal-up" style="animation-delay: 0.5s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Marketing digital</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Identité visuelle, site web, réseaux sociaux, pub en ligne.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Stratégies personnalisées pour renforcer votre image.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card reveal-up" style="animation-delay: 0.6s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Suivi clientèle</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Un accompagnement personnalisé et une assistance 7j/7.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Jusqu'à la satisfaction complète du client.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card reveal-up md:col-span-2 lg:col-span-1 mx-auto" style="animation-delay: 0.7s;">
+                    <div class="text-center">
+                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Hébergement & domaines</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Stockage, hébergement web et gestion de domaines.
+                        </p>
+                        <p class="text-sm text-blue-600 font-semibold">
+                            Une visibilité fiable et sécurisée pour vos données.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    
 
-    <section class="px-6 md:px-20 py-20 bg-white fade-slide-up" style="animation-delay: 1.6s;">
-        <h2 class="text-4xl font-extrabold text-4xl text-center text-[var(--anyxtech-two-blue)] mb-10">Qui sommes-nous ?
-        </h2>
-        <p class="text-center text-gray-700 max-w-4xl mx-auto text-lg">
-            ANYXTECH est une entreprise béninoise spécialisée dans le numérique, les télécoms et les solutions
-            digitales.
-            Elle regroupe des professionnels passionnés par les technologies modernes et l’innovation.
-            Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
-            En mettant vos besoins avant les nôtres, nous construisons un partenariat durable.
-        </p>
+
+
+    
+    <!-- Enhanced About Section -->
+    <section class="relative px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 to-purple-600"></div>
+        </div>
+        
+        <div class="relative z-10 text-center reveal-up">
+            <h2 class="text-5xl md:text-6xl font-extrabold gradient-text mb-8">
+                Qui sommes-nous ?
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                    <strong class="text-blue-600">ANYXTECH</strong> est une entreprise béninoise spécialisée dans le numérique, les télécoms et les solutions digitales.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    Elle regroupe des professionnels passionnés par les technologies modernes et l'innovation.
+                    Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
+                </p>
+                <p class="text-xl text-blue-600 font-semibold">
+                    En mettant vos besoins avant les nôtres, nous construisons un partenariat durable.
+                </p>
+            </div>
+        </div>
     </section>
+</section>
+
+
+
+        
+
+
 
     <div id="footer-placeholder"></div>
 
-
-    <!-- Header/Footer Fetch -->
+    <!-- Enhanced JavaScript -->
     <script>
+        // Header/Footer loading
         fetch("header.html")
             .then(response => response.text())
             .then(html => {
                 document.getElementById("header-placeholder").innerHTML = html;
                 document.getElementById("header-placeholder").style.opacity = 1;
             });
+        
         fetch("footer.html")
             .then(response => response.text())
             .then(html => {
                 document.getElementById("footer-placeholder").innerHTML = html;
                 document.getElementById("footer-placeholder").style.opacity = 1;
             });
-    </script>
 
-    <!-- Texte rotatif -->
-    <script>
+        // Enhanced rotating text with smooth transitions
         const heroText = document.getElementById("hero-text");
         const phrases = [
-            `Toujours plus<br><span class="text-[var(--anyxtech-one-blue)]">proche de vous</span><br>pour une meilleure satisfaction`,
-            `UN SERVICE DE CONSEIL<br><span class="text-[var(--anyxtech-one-blue)]">ET D'EXPERTISE</span><br>AnyxTech, c’est aussi un service clientèle de qualité`,
-            `SERVICE CLIENTÈLE<br><span class="text-[var(--anyxtech-one-blue)]">24H/7J</span><br>Une assistance toujours disponible pour vous`,
-            `ANYXTECH<br><span class="text-[var(--anyxtech-one-blue)]">Connexion haut débit</span><br>à moindre coût pour tous`,
-            `TÉLÉCOMS & INFORMATIQUE<br><span class="text-[var(--anyxtech-one-blue)]">Services de qualité</span><br>pour votre croissance numérique`
+            `Toujours plus<br><span class="gradient-text">proche de vous</span><br>pour une meilleure satisfaction`,
+            `UN SERVICE DE CONSEIL<br><span class="gradient-text">ET D'EXPERTISE</span><br>AnyxTech, c'est aussi un service clientèle de qualité`,
+            `SERVICE CLIENTÈLE<br><span class="gradient-text">24H/7J</span><br>Une assistance toujours disponible pour vous`,
+            `ANYXTECH<br><span class="gradient-text">Connexion haut débit</span><br>à moindre coût pour tous`,
+            `TÉLÉCOMS & INFORMATIQUE<br><span class="gradient-text">Services de qualité</span><br>pour votre croissance numérique`
         ];
-        let i = 0;
+        let currentPhrase = 0;
 
-        setInterval(() => {
-            heroText.classList.add("opacity-0");
+        function rotateText() {
+            heroText.style.opacity = '0';
+            heroText.style.transform = 'translateY(-20px)';
+            
             setTimeout(() => {
-                i = (i + 1) % phrases.length;
-                heroText.innerHTML = phrases[i];
-                heroText.classList.remove("opacity-0");
-                heroText.classList.add("opacity-100");
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+                heroText.innerHTML = phrases[currentPhrase];
+                heroText.style.opacity = '1';
+                heroText.style.transform = 'translateY(0)';
             }, 500);
-        }, 5000);
-    </script>
+        }
 
-    <script>
-        fetch("header.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("header-placeholder").innerHTML = html;
-                document.getElementById("header-placeholder").style.opacity = 1;
+        setInterval(rotateText, 6000);
+
+        // Smooth reveal animations on scroll
+        const revealElements = document.querySelectorAll('.reveal-up');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
             });
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
-                document.getElementById("footer-placeholder").style.opacity = 1;
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Enhanced service cards animation
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02) rotateY(5deg)';
+                this.style.boxShadow = '0 25px 50px rgba(29, 185, 255, 0.2)';
             });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const services = document.querySelectorAll(".service-item");
-            const directions = ["translateY(60px)", "translateY(-60px)", "translateX(-60px)", "translateX(60px)"];
-
-            services.forEach((el) => {
-                const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-                el.style.opacity = 0;
-                el.style.transform = randomDirection;
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
             });
+        });
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transition = "all 0.8s ease";
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = "translate(0)";
-                        observer.unobserve(entry.target);
-                    }
+        // Add floating animation to particles
+        function createFloatingParticles() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const randomX = Math.random() * 100;
+                const randomY = Math.random() * 100;
+                const randomDelay = Math.random() * 5;
+                
+                particle.style.left = randomX + '%';
+                particle.style.top = randomY + '%';
+                particle.style.animationDelay = randomDelay + 's';
+            });
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingParticles();
+            
+            // Add entrance animation to hero elements
+            setTimeout(() => {
+                const heroElements = document.querySelectorAll('.reveal-up');
+                heroElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('revealed');
+                    }, index * 200);
                 });
-            }, {
-                threshold: 0.2
-            });
+            }, 500);
+        });
 
-            services.forEach(el => observer.observe(el));
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add parallax effect to background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animated-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
         });
     </script>
+
 </body>
 
 </html>

@@ -22,79 +22,108 @@
   </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="bg-gradient-to-br from-blue-50 via-white to-indigo-100 min-h-screen text-gray-800 relative overflow-x-hidden">
+  <!-- Fond animé -->
+  <div class="fixed inset-0 -z-10 pointer-events-none">
+    <div class="absolute w-full h-full bg-gradient-to-br from-blue-200 via-white to-indigo-200 opacity-60 animate-pulse"></div>
+    <div class="absolute top-0 left-0 w-80 h-80 bg-blue-300 rounded-full blur-3xl opacity-30 animate-bounce-slow"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20 animate-bounce-slow2"></div>
+  </div>
+
   <div id="header-placeholder"></div>
 
   <main class="px-6 md:px-20 py-16 max-w-6xl mx-auto">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-center text-[var(--anyxtech-two-blue)] mb-12" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-700 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-12 drop-shadow-lg" data-aos="fade-down">
       Contactez-nous
     </h1>
 
     <div class="grid md:grid-cols-2 gap-12">
       <!-- Formulaire -->
-      <form class="space-y-6 bg-gray-50 p-8 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+      <form action="https://formspree.io/f/xblkllnr" method="POST" class="space-y-6 glass p-10 rounded-2xl shadow-2xl border border-blue-100 backdrop-blur-lg" data-aos="fade-right" id="contactForm">
         <div>
           <label for="nom" class="block font-semibold text-gray-700">Nom complet</label>
           <input type="text" id="nom" name="nom" required
-            class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--anyxtech-one-blue)] focus:outline-none" />
+            class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white/70" />
         </div>
-
         <div>
           <label for="email" class="block font-semibold text-gray-700">Adresse email</label>
           <input type="email" id="email" name="email" required
-            class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--anyxtech-one-blue)] focus:outline-none" />
+            class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white/70" />
         </div>
-
         <div>
           <label for="message" class="block font-semibold text-gray-700">Message</label>
           <textarea id="message" name="message" rows="6" required
-            class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--anyxtech-one-blue)] focus:outline-none"></textarea>
+            class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white/70"></textarea>
         </div>
-
         <button type="submit"
-          class="bg-[var(--anyxtech-one-blue)] text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-500 transition">
-          Envoyer le message
+          class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300">
+          <i class="fas fa-paper-plane mr-2"></i> Envoyer le message
         </button>
       </form>
 
+         <div id="form-success" class="hidden text-green-600 font-bold text-center mt-6">
+                 Merci, votre message a bien été envoyé !
+        </div>
+
       <!-- Infos de contact -->
-      <div class="space-y-6 text-gray-700" data-aos="fade-up" data-aos-delay="200">
+      <div class="space-y-8 text-gray-700 glass p-10 rounded-2xl shadow-2xl border border-blue-100 backdrop-blur-lg flex flex-col justify-center" data-aos="fade-left">
         <div class="flex items-start gap-4">
-          <i class="fa-solid fa-map-marker-alt text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
+          <i class="fa-solid fa-map-marker-alt text-blue-500 text-3xl mt-1"></i>
           <div>
             <h3 class="font-bold">Adresse</h3>
             <p>Cadjehoun, Maison Djidohokpin Nicolas, Cotonou, Bénin</p>
           </div>
         </div>
-
         <div class="flex items-start gap-4">
-          <i class="fa-solid fa-envelope text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
+          <i class="fa-solid fa-envelope text-indigo-500 text-3xl mt-1"></i>
           <div>
             <h3 class="font-bold">Email</h3>
             <p>contact@anyxtech.com</p>
           </div>
         </div>
-
         <div class="flex items-start gap-4">
-          <i class="fa-solid fa-phone text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
+          <i class="fa-solid fa-phone text-purple-500 text-3xl mt-1"></i>
           <div>
             <h3 class="font-bold">Téléphone</h3>
-            <p>+229 41 42 15 70</p>
+            <p>+229 01 41 42 15 70</p>
           </div>
         </div>
-
         <div class="flex items-start gap-4">
-          <i class="fa-brands fa-whatsapp text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
+          <i class="fa-brands fa-whatsapp text-green-500 text-3xl mt-1"></i>
           <div>
             <h3 class="font-bold">WhatsApp</h3>
-            <p><a href="https://wa.me/22952415241" target="_blank" class="text-[var(--anyxtech-two-blue)] underline">Discuter sur WhatsApp</a></p>
+            <p><a href="https://wa.me/22952415241" target="_blank" class="text-blue-700 underline">Discuter sur WhatsApp</a></p>
           </div>
+        </div>
+        <div class="flex gap-4 mt-6 justify-center">
+          <a href="https://facebook.com" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl transition"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com" target="_blank" class="text-blue-400 hover:text-blue-600 text-2xl transition"><i class="fab fa-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="text-blue-700 hover:text-blue-900 text-2xl transition"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
   </main>
 
   <div id="footer-placeholder"></div>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-30px);}
+    }
+    .animate-bounce-slow { animation: bounce-slow 8s infinite; }
+    @keyframes bounce-slow2 {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(30px);}
+    }
+    .animate-bounce-slow2 { animation: bounce-slow2 10s infinite; }
+  </style>
 
   <script>
     fetch("header.html")
@@ -114,6 +143,27 @@
       easing: 'ease-in-out'
     });
   </script>
+
+    <!-- ...avant la fin de ton body... -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.reset();
+      document.getElementById('form-success').classList.remove('hidden');
+    } else {
+      alert("Une erreur est survenue. Merci de réessayer.");
+    }
+  });
+</script>
+</body>
 </body>
 
 </html>
