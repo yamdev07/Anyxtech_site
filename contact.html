@@ -5,9 +5,40 @@
   <meta charset="UTF-8" />
   <title>Contact | AnyxTech Bénin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contactez AnyxTech Bénin pour vos besoins en solutions digitales, réseaux informatiques et communication digitale. Notre équipe est à votre écoute.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'anyxtech-blue': '#1f429b',
+            'anyxtech-lightblue': '#1db9ff',
+            'anyxtech-darkblue': '#1e4d9f',
+          },
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -18,152 +49,593 @@
 
     body {
       font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .input-glow:focus {
+      box-shadow: 0 0 20px rgba(29, 185, 255, 0.3);
+      border-color: var(--anyxtech-one-blue);
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, var(--anyxtech-two-blue) 0%, var(--anyxtech-one-blue) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-glow:hover::before {
+      left: 100%;
+    }
+
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .pulse-ring {
+      animation: pulse-ring 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.33); }
+      40%, 50% { opacity: 1; }
+      100% { opacity: 0; transform: scale(1.03); }
+    }
+
+    .bounce-slow {
+      animation: bounce-slow 8s infinite;
+    }
+
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    .bounce-slow2 {
+      animation: bounce-slow2 10s infinite;
+    }
+
+    @keyframes bounce-slow2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(30px) rotate(-5deg); }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.5s ease-in forwards;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .success-message {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-icon {
+      transition: all 0.3s ease;
+    }
+
+    .contact-icon:hover {
+      transform: scale(1.1) rotate(5deg);
+      color: var(--anyxtech-one-blue);
+    }
+
+    .social-icon {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-icon::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: currentColor;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover::after {
+      opacity: 0.2;
+      transform: scale(1.5);
+    }
+
+    .morphing-bg {
+      background: linear-gradient(-45deg, var(--anyxtech-two-blue), var(--anyxtech-darkblue), var(--anyxtech-one-blue), #23d5ab);
+      background-size: 400% 400%;
+      animation: morphing 15s ease-in-out infinite;
+    }
+
+    @keyframes morphing {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--anyxtech-two-blue), var(--anyxtech-one-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Back to top button */
+    #back-to-top {
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu styles */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--anyxtech-one-blue);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
     }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 via-white to-indigo-100 min-h-screen text-gray-800 relative overflow-x-hidden">
-  <!-- Fond animé -->
+  <!-- Fond animé amélioré -->
   <div class="fixed inset-0 -z-10 pointer-events-none">
-    <div class="absolute w-full h-full bg-gradient-to-br from-blue-200 via-white to-indigo-200 opacity-60 animate-pulse"></div>
-    <div class="absolute top-0 left-0 w-80 h-80 bg-blue-300 rounded-full blur-3xl opacity-30 animate-bounce-slow"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20 animate-bounce-slow2"></div>
+    <div class="absolute w-full h-full morphing-bg opacity-20"></div>
+    <div class="absolute top-10 left-10 w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-3xl opacity-30 bounce-slow"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-3xl opacity-20 bounce-slow2"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-indigo-400 to-cyan-500 rounded-full blur-2xl opacity-15 floating-animation"></div>
   </div>
 
-  <div id="header-placeholder"></div>
+  <!-- Header -->
+  <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
+    <div class="flex items-center justify-between">
+      <div>
+        <a href="/"><img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech"></a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-x-8">
+          <li><a href="/" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Accueil</a></li>
+          <li><a href="/societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Société</a></li>
+          <li><a href="/service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Services</a></li>
+          <li><a href="/contact.html" class="nav-link text-lg font-medium text-anyxtech-blue transition-colors">Contact</a></li>
+          <li><a href="#" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors">Devis</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg rounded-lg mt-4">
+      <ul class="p-4 space-y-4">
+        <li><a href="/" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Accueil</a></li>
+        <li><a href="/societe.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Société</a></li>
+        <li><a href="/service.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Services</a></li>
+        <li><a href="/contact.html" class="block px-4 py-2 bg-blue-50 text-anyxtech-blue rounded font-medium">Contact</a></li>
+        <li><a href="#" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors mt-2">Demande de devis</a></li>
+      </ul>
+    </div>
+  </header>
 
   <main class="px-6 md:px-20 py-16 max-w-6xl mx-auto">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-700 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-12 drop-shadow-lg" data-aos="fade-down">
-      Contactez-nous
-    </h1>
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-6" data-aos="fade-down">
+        Contactez-nous
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Nous sommes là pour vous accompagner dans tous vos projets technologiques. 
+        <span class="font-semibold text-anyxtech-blue">Parlons de vos idées !</span>
+      </p>
+    </div>
 
-    <div class="grid md:grid-cols-2 gap-12">
-      <!-- Formulaire -->
-      <form action="https://formspree.io/f/xblkllnr" method="POST" class="space-y-6 glass p-10 rounded-2xl shadow-2xl border border-blue-100 backdrop-blur-lg" data-aos="fade-right" id="contactForm">
-        <div>
-          <label for="nom" class="block font-semibold text-gray-700">Nom complet</label>
-          <input type="text" id="nom" name="nom" required
-            class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white/70" />
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Formulaire amélioré -->
+      <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500" data-aos="fade-right">
+        <div class="flex items-center justify-center mb-8">
+          <div class="relative">
+            <div class="absolute inset-0 bg-anyxtech-blue rounded-full pulse-ring"></div>
+            <div class="relative bg-gradient-to-r from-anyxtech-blue to-anyxtech-darkblue text-white p-4 rounded-full">
+              <i class="fas fa-envelope text-2xl"></i>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="email" class="block font-semibold text-gray-700">Adresse email</label>
-          <input type="email" id="email" name="email" required
-            class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white/70" />
-        </div>
-        <div>
-          <label for="message" class="block font-semibold text-gray-700">Message</label>
-          <textarea id="message" name="message" rows="6" required
-            class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white/70"></textarea>
-        </div>
-        <button type="submit"
-          class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300">
-          <i class="fas fa-paper-plane mr-2"></i> Envoyer le message
-        </button>
-      </form>
+        
+        <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Envoyez-nous un message</h2>
+        
+        <form action="https://formspree.io/f/xblkllnr" method="POST" class="space-y-6" id="contactForm">
+          <div class="group">
+            <label for="nom" class="block font-semibold text-gray-700 mb-2 group-hover:text-anyxtech-blue transition-colors">
+              <i class="fas fa-user mr-2"></i>Nom complet
+            </label>
+            <input type="text" id="nom" name="nom" required
+              class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:outline-none bg-white/80 input-glow transition-all duration-300 hover:border-anyxtech-lightblue" 
+              placeholder="Votre nom complet..." />
+          </div>
+          
+          <div class="group">
+            <label for="email" class="block font-semibold text-gray-700 mb-2 group-hover:text-anyxtech-blue transition-colors">
+              <i class="fas fa-envelope mr-2"></i>Adresse email
+            </label>
+            <input type="email" id="email" name="email" required
+              class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:outline-none bg-white/80 input-glow transition-all duration-300 hover:border-anyxtech-lightblue" 
+              placeholder="votre@email.com..." />
+          </div>
+          
+          <div class="group">
+            <label for="message" class="block font-semibold text-gray-700 mb-2 group-hover:text-anyxtech-blue transition-colors">
+              <i class="fas fa-comment mr-2"></i>Message
+            </label>
+            <textarea id="message" name="message" rows="6" required
+              class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:outline-none bg-white/80 input-glow transition-all duration-300 hover:border-anyxtech-lightblue resize-none" 
+              placeholder="Décrivez votre projet ou posez votre question..."></textarea>
+          </div>
+          
+          <button type="submit"
+            class="w-full btn-glow text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 relative overflow-hidden">
+            <span class="relative z-10">
+              <i class="fas fa-paper-plane mr-3"></i>Envoyer le message
+            </span>
+          </button>
+        </form>
 
-         <div id="form-success" class="hidden text-green-600 font-bold text-center mt-6">
-                 Merci, votre message a bien été envoyé !
+        <!-- Message de succès amélioré -->
+        <div id="form-success" class="hidden mt-8 text-center slide-in">
+          <div class="success-message inline-block">
+            <i class="fas fa-check-circle mr-3 text-2xl"></i>
+            <span class="font-bold">Message envoyé avec succès !</span>
+            <p class="text-sm mt-2 opacity-90">Nous vous répondrons dans les plus brefs délais.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informations de contact améliorées -->
+      <div class="space-y-8" data-aos="fade-left">
+        <div class="glass-card p-8 rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500">
+          <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Nos coordonnées</h2>
+          
+          <div class="space-y-8">
+            <div class="flex items-start gap-6 group">
+              <div class="bg-gradient-to-r from-anyxtech-blue to-anyxtech-darkblue text-white p-4 rounded-2xl contact-icon">
+                <i class="fa-solid fa-map-marker-alt text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2">Adresse</h3>
+                <p class="text-gray-600 leading-relaxed">Cadjehoun, Maison Djidohokpin Nicolas<br>Cotonou, Bénin</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-6 group">
+              <div class="bg-gradient-to-r from-anyxtech-blue to-anyxtech-lightblue text-white p-4 rounded-2xl contact-icon">
+                <i class="fa-solid fa-envelope text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2">Email</h3>
+                <p class="text-gray-600">
+                  <a href="mailto:contact@anyxtech.com" class="hover:text-anyxtech-blue transition-colors">
+                    contact@anyxtech.com
+                  </a>
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-6 group">
+              <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-2xl contact-icon">
+                <i class="fa-solid fa-phone text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2">Téléphone</h3>
+                <p class="text-gray-600">
+                  <a href="tel:+22901414215670" class="hover:text-anyxtech-blue transition-colors">
+                    +229 01 41 42 15 70
+                  </a>
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-6 group">
+              <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4 rounded-2xl contact-icon">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2">WhatsApp</h3>
+                <p class="text-gray-600">
+                  <a href="https://wa.me/22952415241" target="_blank" 
+                     class="inline-flex items-center bg-green-100 text-green-700 px-4 py-2 rounded-full hover:bg-green-200 transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Discuter maintenant
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-      <!-- Infos de contact -->
-      <div class="space-y-8 text-gray-700 glass p-10 rounded-2xl shadow-2xl border border-blue-100 backdrop-blur-lg flex flex-col justify-center" data-aos="fade-left">
-        <div class="flex items-start gap-4">
-          <i class="fa-solid fa-map-marker-alt text-blue-500 text-3xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">Adresse</h3>
-            <p>Cadjehoun, Maison Djidohokpin Nicolas, Cotonou, Bénin</p>
+        <!-- Réseaux sociaux améliorés -->
+        <div class="glass-card p-8 rounded-3xl shadow-2xl text-center">
+          <h3 class="text-xl font-bold text-gray-800 mb-6">Suivez-nous</h3>
+          <div class="flex justify-center gap-6">
+            <a href="https://facebook.com/anyxtech" target="_blank" 
+               class="social-icon bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 text-xl transition-all duration-300">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/anyxtech" target="_blank" 
+               class="social-icon bg-blue-400 text-white p-4 rounded-full hover:bg-blue-500 text-xl transition-all duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/company/anyxtech" target="_blank" 
+               class="social-icon bg-blue-800 text-white p-4 rounded-full hover:bg-blue-900 text-xl transition-all duration-300">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/anyxtech" target="_blank" 
+               class="social-icon bg-pink-600 text-white p-4 rounded-full hover:bg-pink-700 text-xl transition-all duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <i class="fa-solid fa-envelope text-indigo-500 text-3xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">Email</h3>
-            <p>contact@anyxtech.com</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <i class="fa-solid fa-phone text-purple-500 text-3xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">Téléphone</h3>
-            <p>+229 01 41 42 15 70</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <i class="fa-brands fa-whatsapp text-green-500 text-3xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">WhatsApp</h3>
-            <p><a href="https://wa.me/22952415241" target="_blank" class="text-blue-700 underline">Discuter sur WhatsApp</a></p>
-          </div>
-        </div>
-        <div class="flex gap-4 mt-6 justify-center">
-          <a href="https://facebook.com" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl transition"><i class="fab fa-facebook"></i></a>
-          <a href="https://twitter.com" target="_blank" class="text-blue-400 hover:text-blue-600 text-2xl transition"><i class="fab fa-twitter"></i></a>
-          <a href="https://linkedin.com" target="_blank" class="text-blue-700 hover:text-blue-900 text-2xl transition"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
   </main>
 
-  <div id="footer-placeholder"></div>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-6 md:px-20">
+    <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- Column 1 -->
+      <div>
+        <img src="images/logo-removebg-preview.png" alt="AnyxTech Logo" class="w-32 mb-4">
+        <p class="text-gray-400 mb-4">
+          Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
+        </p>
+        <div class="flex space-x-4">
+          <a href="https://facebook.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com/company/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://instagram.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Column 2 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+          <li><a href="/societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a></li>
+          <li><a href="/service.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+          <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 3 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="/service.html#communication" class="text-gray-400 hover:text-white transition-colors">Communication Digitale</a></li>
+          <li><a href="/service.html#infrastructure" class="text-gray-400 hover:text-white transition-colors">Réseaux Informatiques</a></li>
+          <li><a href="/service.html#energy" class="text-gray-400 hover:text-white transition-colors">Solutions Énergétiques</a></li>
+          <li><a href="/service.html#marketing" class="text-gray-400 hover:text-white transition-colors">Marketing Digital</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 4 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <address class="not-italic text-gray-400 space-y-2">
+          <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue"></i> Cotonou, Bénin</p>
+          <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue"></i> +229 01 41 42 15 70</p>
+          <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue"></i> contact@anyxtech.com</p>
+          <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue"></i> Lun-Ven: 8h-18h</p>
+        </address>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+      <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés.</p>
+    </div>
+  </footer>
 
-  <style>
-    .glass {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    }
-    @keyframes bounce-slow {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(-30px);}
-    }
-    .animate-bounce-slow { animation: bounce-slow 8s infinite; }
-    @keyframes bounce-slow2 {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(30px);}
-    }
-    .animate-bounce-slow2 { animation: bounce-slow2 10s infinite; }
-  </style>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
-
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("footer-placeholder").innerHTML = html);
-  </script>
-
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS animation library
     AOS.init({
-      once: true,
       duration: 800,
+      once: true,
       easing: 'ease-in-out'
     });
-  </script>
 
-    <!-- ...avant la fin de ton body... -->
-<script>
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      mobileMenuButton.innerHTML = mobileMenu.classList.contains('open') ? 
+        '<i class="fas fa-times text-2xl"></i>' : 
+        '<i class="fas fa-bars text-2xl"></i>';
     });
-    if (response.ok) {
-      form.reset();
-      document.getElementById('form-success').classList.remove('hidden');
-    } else {
-      alert("Une erreur est survenue. Merci de réessayer.");
-    }
-  });
-</script>
-</body>
-</body>
 
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Animation du bouton pendant l'envoi
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Envoi en cours...';
+      submitBtn.disabled = true;
+      
+      try {
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          form.reset();
+          const successMsg = document.getElementById('form-success');
+          successMsg.classList.remove('hidden');
+          
+          // Faire disparaître le message après 15 secondes
+          setTimeout(() => {
+            successMsg.classList.add('fade-out');
+            setTimeout(() => {
+              successMsg.classList.add('hidden');
+              successMsg.classList.remove('fade-out');
+            }, 500);
+          }, 15000);
+          
+          // Réinitialiser le bouton
+          submitBtn.innerHTML = '<span class="relative z-10"><i class="fas fa-check mr-3"></i>Message envoyé !</span>';
+          submitBtn.classList.add('bg-green-500');
+          
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.classList.remove('bg-green-500');
+            submitBtn.disabled = false;
+          }, 3000);
+          
+        } else {
+          throw new Error('Erreur réseau');
+        }
+      } catch (error) {
+        submitBtn.innerHTML = '<span class="relative z-10"><i class="fas fa-exclamation-triangle mr-3"></i>Erreur</span>';
+        submitBtn.classList.add('bg-red-500');
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.classList.remove('bg-red-500');
+          submitBtn.disabled = false;
+        }, 3000);
+        
+        alert("Une erreur est survenue. Merci de réessayer.");
+      }
+    });
+    
+    // Effet de parallaxe léger
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.morphing-bg');
+      const speed = scrolled * 0.5;
+      if (parallax) {
+        parallax.style.transform = `translateY(${speed}px)`;
+      }
+    });
+  </script>
+</body>
 </html>

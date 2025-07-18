@@ -3,17 +3,41 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>AnyxTech Bénin</title>
+  <title>AnyxTech Bénin - Société</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez AnyxTech, votre partenaire en transformation numérique au Bénin. Expertise en développement web, réseaux informatiques et solutions digitales.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'anyxtech-blue': '#1f429b',
+            'anyxtech-lightblue': '#1db9ff',
+            'anyxtech-darkblue': '#1e4d9f',
+          },
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
     :root {
       --anyxtech-one-blue: #1db9ff;
@@ -25,6 +49,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     .hero-gradient {
@@ -38,10 +63,6 @@
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
-    }
-
-    .pulse-animation {
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
     .card-hover {
@@ -61,21 +82,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .progress-bar {
-      width: 0%;
-      transition: width 2s ease-in-out;
-    }
-
-    .progress-bar.animate {
-      width: 100%;
-    }
-
-    .team-card {
-      backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
     .stats-counter {
       font-size: 2.5rem;
       font-weight: 800;
@@ -83,7 +89,7 @@
     }
 
     .morphing-bg {
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background: linear-gradient(-45deg, #1f429b, #1e4d9f, #1db9ff, #23d5ab);
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
     }
@@ -110,19 +116,8 @@
       100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
     }
 
-    .section-reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease;
-    }
-
-    .section-reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     .icon-bounce {
-      animation: bounce 1s infinite;
+      animation: bounce 2s infinite;
     }
 
     @keyframes bounce {
@@ -139,26 +134,95 @@
     .glow-effect:hover {
       box-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
     }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--anyxtech-one-blue);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--anyxtech-two-blue), var(--anyxtech-one-blue));
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    /* Mobile menu styles */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800">
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800 font-poppins">
 
   <!-- Header AnyxTech -->
-  <header class="pt-6 px-10  z-20 relative mb-6">
+  <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
     <div class="flex items-center justify-between">
       <div>
         <a href="/"><img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech"></a>
       </div>
-      <nav class="text-[var(--black-black)] font-medium">
-        <span class="flex items-center gap-x-6 text-2xl">
-          <a href="/">Accueil</a>
-          <a href="/societe.html">Société</a>
-          <a href="/service.html">Services</a>
-          <a href="/contact.html">Contact</a>
-        </span>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-x-8">
+          <li><a href="/" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Accueil</a></li>
+          <li><a href="/societe.html" class="nav-link text-lg font-medium text-anyxtech-blue transition-colors">Société</a></li>
+          <li><a href="/service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Services</a></li>
+          <li><a href="/contact.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Contact</a></li>
+          <li><a href="#" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors">Devis</a></li>
+        </ul>
       </nav>
-      <a href="#" class="bg-[var(--anyxtech-two-blue)] text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-400">Demande de devis</a>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg rounded-lg mt-4">
+      <ul class="p-4 space-y-4">
+        <li><a href="/" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Accueil</a></li>
+        <li><a href="/societe.html" class="block px-4 py-2 bg-blue-50 text-anyxtech-blue rounded font-medium">Société</a></li>
+        <li><a href="/service.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Services</a></li>
+        <li><a href="/contact.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Contact</a></li>
+        <li><a href="#" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors mt-2">Demande de devis</a></li>
+      </ul>
     </div>
   </header>
   <!-- Fin Header -->
@@ -175,53 +239,87 @@
     <div class="absolute bottom-20 right-20 w-48 h-48 bg-white bg-opacity-5 rounded-full floating-animation" style="animation-delay: -2s;"></div>
     <div class="absolute top-1/2 left-10 w-24 h-24 bg-white bg-opacity-10 rounded-full floating-animation" style="animation-delay: -4s;"></div>
     
-    <div class="relative z-10 text-center text-white px-6 max-w-4xl">
-      <h1 class="text-6xl md:text-8xl font-extrabold mb-6 section-reveal">
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl" data-aos="fade-up" data-aos-duration="800">
+      <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight">
         Qui sommes-nous ?
       </h1>
-      <p class="text-xl md:text-2xl mb-8 font-light section-reveal" style="animation-delay: 0.3s;">
-        Découvrez l'histoire et la passion derrière AnyxTech
+      <p class="text-xl md:text-2xl mb-8 font-light opacity-90 max-w-2xl mx-auto">
+        Découvrez l'histoire et la passion derrière AnyxTech, votre partenaire de confiance pour la transformation numérique
       </p>
-      <div class="flex justify-center space-x-4 section-reveal" style="animation-delay: 0.6s;">
-        <div class="stats-counter" data-target="50">0</div>
-        <span class="text-xl self-end">+ Projets réalisés</span>
+      <div class="flex justify-center space-x-4 items-baseline">
+        <div class="stats-counter text-4xl md:text-5xl" data-target="50">0</div>
+        <span class="text-xl md:text-2xl">+ Projets réalisés</span>
       </div>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white icon-bounce">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white icon-bounce cursor-pointer" onclick="smoothScroll('#about-section')">
       <i class="fas fa-chevron-down text-2xl"></i>
     </div>
   </section>
 
   <main class="relative z-10 bg-white">
+    <!-- About Section -->
+    <section id="about-section" class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-6">Notre Histoire</h2>
+          <p class="text-gray-700 leading-relaxed text-lg mb-6">
+            Fondée en 2020 à Cotonou, AnyxTech est née de la passion pour les technologies innovantes et du désir d'accompagner les entreprises béninoises dans leur transformation numérique.
+          </p>
+          <p class="text-gray-700 leading-relaxed text-lg mb-8">
+            Depuis nos débuts, nous avons évolué pour devenir une référence dans le domaine des solutions digitales, avec une approche centrée sur l'innovation et l'excellence opérationnelle.
+          </p>
+          <div class="flex space-x-4">
+            <div class="bg-anyxtech-blue text-white px-6 py-3 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors cursor-pointer">
+              <i class="fas fa-book-open mr-2"></i> Lire notre histoire
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative" data-aos="fade-left" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+               alt="Bureau AnyxTech" 
+               class="rounded-2xl shadow-xl w-full h-auto">
+          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+            <div class="text-4xl font-bold text-anyxtech-blue">3+</div>
+            <div class="text-gray-600">Ans d'expérience</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mission & Vision Section -->
-    <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
+    <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl my-12">
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="section-reveal card-hover bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg glow-effect">
+        <div data-aos="zoom-in" class="card-hover bg-white p-8 rounded-2xl shadow-lg glow-effect">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
               <i class="fas fa-rocket text-white text-xl"></i>
             </div>
             <h2 class="text-3xl font-bold text-gradient">Notre Mission</h2>
           </div>
-          <p class="text-gray-700 leading-relaxed text-lg">
+          <p class="text-gray-700 leading-relaxed text-lg mb-6">
             Rendre la transformation numérique accessible, durable et sécurisée pour toutes les structures. Nous créons des solutions sur mesure pour des besoins en connectivité, performance et visibilité digitale.
           </p>
-          <div class="mt-6 bg-gradient-to-r from-blue-500 to-indigo-600 h-1 rounded-full progress-bar"></div>
+          <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
         </div>
 
-        <div class="section-reveal card-hover bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg glow-effect" style="animation-delay: 0.2s;">
+        <div data-aos="zoom-in" data-aos-delay="200" class="card-hover bg-white p-8 rounded-2xl shadow-lg glow-effect">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mr-4">
               <i class="fas fa-eye text-white text-xl"></i>
             </div>
             <h2 class="text-3xl font-bold text-gradient">Notre Vision</h2>
           </div>
-          <p class="text-gray-700 leading-relaxed text-lg">
+          <p class="text-gray-700 leading-relaxed text-lg mb-6">
             Être une référence en accompagnement digital au Bénin et en Afrique de l'Ouest, avec des services à forte valeur ajoutée portés par l'expertise locale et l'innovation continue.
           </p>
-          <div class="mt-6 bg-gradient-to-r from-purple-500 to-pink-600 h-1 rounded-full progress-bar"></div>
+          <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -229,99 +327,157 @@
     <!-- Values Section -->
     <section class="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
       <div class="px-6 md:px-20 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold text-center text-gradient mb-16 section-reveal">Nos Valeurs</h2>
-        <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
-          <div class="section-reveal card-hover text-center p-6 bg-white rounded-2xl shadow-lg glow-effect">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-star text-white text-xl"></i>
+        <h2 class="text-4xl font-bold text-center text-gradient mb-16" data-aos="fade-up">Nos Valeurs Fondamentales</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Value 1 -->
+          <div data-aos="fade-up" data-aos-delay="0" class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-2xl">
+              <i class="fas fa-star"></i>
             </div>
-            <h3 class="font-bold text-lg text-gray-800 mb-2">Excellence</h3>
-            <p class="text-gray-600 text-sm">Garantir la qualité à chaque étape</p>
+            <h3 class="font-bold text-xl text-gray-800 mb-3">Excellence</h3>
+            <p class="text-gray-600">Nous nous engageons à fournir des solutions de qualité supérieure, avec un souci du détail qui fait la différence.</p>
           </div>
-
-          <div class="section-reveal card-hover text-center p-6 bg-white rounded-2xl shadow-lg glow-effect" style="animation-delay: 0.1s;">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-lightbulb text-white text-xl"></i>
+          
+          <!-- Value 2 -->
+          <div data-aos="fade-up" data-aos-delay="100" class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl">
+              <i class="fas fa-lightbulb"></i>
             </div>
-            <h3 class="font-bold text-lg text-gray-800 mb-2">Innovation</h3>
-            <p class="text-gray-600 text-sm">Anticiper les besoins de demain</p>
+            <h3 class="font-bold text-xl text-gray-800 mb-3">Innovation</h3>
+            <p class="text-gray-600">Nous anticipons les besoins futurs et adoptons les technologies émergentes pour rester à la pointe.</p>
           </div>
-
-          <div class="section-reveal card-hover text-center p-6 bg-white rounded-2xl shadow-lg glow-effect" style="animation-delay: 0.2s;">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-handshake text-white text-xl"></i>
+          
+          <!-- Value 3 -->
+          <div data-aos="fade-up" data-aos-delay="200" class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl">
+              <i class="fas fa-handshake"></i>
             </div>
-            <h3 class="font-bold text-lg text-gray-800 mb-2">Engagement</h3>
-            <p class="text-gray-600 text-sm">Respecter nos promesses</p>
+            <h3 class="font-bold text-xl text-gray-800 mb-3">Engagement</h3>
+            <p class="text-gray-600">Votre succès est notre priorité. Nous honorons nos promesses et dépassons vos attentes.</p>
           </div>
-
-          <div class="section-reveal card-hover text-center p-6 bg-white rounded-2xl shadow-lg glow-effect" style="animation-delay: 0.3s;">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-shield-alt text-white text-xl"></i>
+          
+          <!-- Value 4 -->
+          <div data-aos="fade-up" data-aos-delay="300" class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-2xl">
+              <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="font-bold text-lg text-gray-800 mb-2">Confiance</h3>
-            <p class="text-gray-600 text-sm">Bâtir des relations durables</p>
-          </div>
-
-          <div class="section-reveal card-hover text-center p-6 bg-white rounded-2xl shadow-lg glow-effect" style="animation-delay: 0.4s;">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-heart text-white text-xl"></i>
-            </div>
-            <h3 class="font-bold text-lg text-gray-800 mb-2">Proximité</h3>
-            <p class="text-gray-600 text-sm">Comprendre les réalités locales</p>
+            <h3 class="font-bold text-xl text-gray-800 mb-3">Intégrité</h3>
+            <p class="text-gray-600">Nous agissons avec transparence et éthique dans toutes nos relations professionnelles.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Team & Services Section -->
+    <!-- Process Section -->
     <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="section-reveal">
-          <h2 class="text-3xl font-bold text-gradient mb-8 flex items-center">
-            <i class="fas fa-users mr-4 text-blue-500"></i>
-            Notre Équipe
-          </h2>
-          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg card-hover glow-effect">
-            <p class="text-gray-700 leading-relaxed text-lg mb-6">
-              Une synergie de développeurs, ingénieurs réseau et consultants digitaux. Nos compétences variées servent un objectif commun : la réussite de vos projets.
-            </p>
-            <div class="flex space-x-4">
-              <div class="team-card p-4 rounded-lg text-center">
-                <i class="fas fa-code text-2xl text-blue-500 mb-2"></i>
-                <p class="text-sm font-semibold">Développeurs</p>
-              </div>
-              <div class="team-card p-4 rounded-lg text-center">
-                <i class="fas fa-network-wired text-2xl text-green-500 mb-2"></i>
-                <p class="text-sm font-semibold">Ingénieurs</p>
-              </div>
-            </div>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gradient mb-4" data-aos="fade-up">Notre Processus de Travail</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Une méthodologie éprouvée pour garantir le succès de vos projets
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div data-aos="fade-up" data-aos-delay="0" class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">1</div>
+          <h3 class="font-bold text-xl text-gray-800 mb-3">Écoute & Analyse</h3>
+          <p class="text-gray-600">Nous prenons le temps de comprendre vos besoins et vos objectifs spécifiques.</p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">2</div>
+          <h3 class="font-bold text-xl text-gray-800 mb-3">Conception</h3>
+          <p class="text-gray-600">Nous élaborons une solution sur mesure adaptée à votre contexte.</p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">3</div>
+          <h3 class="font-bold text-xl text-gray-800 mb-3">Développement</h3>
+          <p class="text-gray-600">Nous implémentons la solution avec les meilleures technologies disponibles.</p>
+        </div>
+        
+        <!-- Step 4 -->
+        <div data-aos="fade-up" data-aos-delay="300" class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">4</div>
+          <h3 class="font-bold text-xl text-gray-800 mb-3">Accompagnement</h3>
+          <p class="text-gray-600">Nous assurons un suivi post-déploiement pour garantir votre satisfaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-anyxtech-blue to-anyxtech-darkblue text-white">
+      <div class="px-6 md:px-20 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+          <!-- Stat 1 -->
+          <div data-aos="fade-up" data-aos-delay="0" class="p-6">
+            <div class="text-5xl font-bold mb-3 stats-counter" data-target="50">0</div>
+            <div class="text-xl font-medium">Projets réalisés</div>
+          </div>
+          
+          <!-- Stat 2 -->
+          <div data-aos="fade-up" data-aos-delay="100" class="p-6">
+            <div class="text-5xl font-bold mb-3 stats-counter" data-target="30">0</div>
+            <div class="text-xl font-medium">Clients satisfaits</div>
+          </div>
+          
+          <!-- Stat 3 -->
+          <div data-aos="fade-up" data-aos-delay="200" class="p-6">
+            <div class="text-5xl font-bold mb-3 stats-counter" data-target="15">0</div>
+            <div class="text-xl font-medium">Partenariats</div>
+          </div>
+          
+          <!-- Stat 4 -->
+          <div data-aos="fade-up" data-aos-delay="300" class="p-6">
+            <div class="text-5xl font-bold mb-3 stats-counter" data-target="5">0</div>
+            <div class="text-xl font-medium">Prix remportés</div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="section-reveal" style="animation-delay: 0.2s;">
-          <h2 class="text-3xl font-bold text-gradient mb-8 flex items-center">
-            <i class="fas fa-cogs mr-4 text-purple-500"></i>
-            Nos Services
-          </h2>
-          <div class="space-y-4">
-            <div class="flex items-center p-4 bg-white rounded-lg shadow-md card-hover glow-effect">
-              <i class="fas fa-globe text-blue-500 text-xl mr-4"></i>
-              <span class="text-gray-700">Conception de sites web et plateformes métiers</span>
-            </div>
-            <div class="flex items-center p-4 bg-white rounded-lg shadow-md card-hover glow-effect">
-              <i class="fas fa-wifi text-green-500 text-xl mr-4"></i>
-              <span class="text-gray-700">Déploiement de réseaux informatiques et Wi-Fi</span>
-            </div>
-            <div class="flex items-center p-4 bg-white rounded-lg shadow-md card-hover glow-effect">
-              <i class="fas fa-shield-alt text-red-500 text-xl mr-4"></i>
-              <span class="text-gray-700">Solutions Énergétiques</span>
-            </div>
-            <div class="flex items-center p-4 bg-white rounded-lg shadow-md card-hover glow-effect">
-              <i class="fas fa-bullhorn text-purple-500 text-xl mr-4"></i>
-              <span class="text-gray-700">Stratégies de communication digitale</span>
-            </div>
-          </div>
+    <!-- Technologies Section -->
+    <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto bg-gray-50 rounded-3xl">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gradient mb-4" data-aos="fade-up">Technologies & Partenaires</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Nous travaillons avec les meilleures technologies du marché
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-8">
+        <!-- Tech 1 -->
+        <div data-aos="zoom-in" data-aos-delay="0" class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md card-hover">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" class="h-12 object-contain">
+        </div>
+        
+        <!-- Tech 2 -->
+        <div data-aos="zoom-in" data-aos-delay="100" class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md card-hover">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" class="h-12 object-contain">
+        </div>
+        
+        <!-- Tech 3 -->
+        <div data-aos="zoom-in" data-aos-delay="200" class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md card-hover">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" class="h-12 object-contain">
+        </div>
+        
+        <!-- Tech 4 -->
+        <div data-aos="zoom-in" data-aos-delay="300" class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md card-hover">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-12 object-contain">
+        </div>
+        
+        <!-- Tech 5 -->
+        <div data-aos="zoom-in" data-aos-delay="400" class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md card-hover">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL" class="h-12 object-contain">
+        </div>
+        
+        <!-- Tech 6 -->
+        <div data-aos="zoom-in" data-aos-delay="500" class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md card-hover">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg" alt="WordPress" class="h-12 object-contain">
         </div>
       </div>
     </section>
@@ -329,13 +485,15 @@
     <!-- Quote Section -->
     <section class="py-20 morphing-bg text-white text-center">
       <div class="px-6 md:px-20 max-w-4xl mx-auto">
-        <div class="section-reveal">
+        <div data-aos="zoom-in">
           <i class="fas fa-quote-left text-4xl mb-6 opacity-50"></i>
           <blockquote class="text-2xl md:text-3xl font-light italic mb-8">
-            "Chez AnyxTech, votre réussite digitale est notre priorité."
+            "Chez AnyxTech, nous croyons que la technologie doit servir le développement économique et social. Votre réussite digitale est notre priorité absolue."
           </blockquote>
           <div class="w-24 h-1 bg-white mx-auto mb-8 opacity-50"></div>
-          <a href="/contact" class="inline-block px-8 py-4 bg-white text-blue-600 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <a href="/contact" 
+             class="inline-block px-8 py-4 bg-white text-anyxtech-blue rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+             data-aos="zoom-in" data-aos-delay="200">
             <i class="fas fa-comments mr-2"></i>
             Discutons de votre projet
           </a>
@@ -346,77 +504,158 @@
     <!-- CTA Section -->
     <section class="bg-gradient-to-r from-gray-800 to-blue-900 py-16 text-white text-center relative overflow-hidden">
       <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-      <div class="relative z-10 px-6 md:px-20">
-        <h2 class="text-4xl font-bold mb-6 section-reveal">
+      <div class="relative z-10 px-6 md:px-20 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
           Prêt à booster votre transformation numérique ?
         </h2>
-        <p class="text-xl mb-8 section-reveal" style="animation-delay: 0.2s;">
-          Rejoignez nos clients satisfaits et découvrez ce que nous pouvons faire pour vous
+        <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Rejoignez nos clients satisfaits et découvrez ce que nous pouvons faire pour propulser votre entreprise à l'ère digitale
         </p>
-        <a href="/contact" class="section-reveal inline-block px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg" style="animation-delay: 0.4s;">
-          <i class="fas fa-rocket mr-2"></i>
-          Discutons maintenant
-        </a>
+        <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="/contact" class="px-8 py-3 bg-gradient-to-r from-anyxtech-lightblue to-anyxtech-blue text-white font-semibold rounded-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+            <i class="fas fa-envelope mr-2"></i> Nous contacter
+          </a>
+          <a href="tel:+22912345678" class="px-8 py-3 bg-white text-anyxtech-blue font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+            <i class="fas fa-phone mr-2"></i> +229 12 34 56 78
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-6 md:px-20">
+    <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- Column 1 -->
+      <div>
+        <img src="images/logo-removebg-preview.png" alt="AnyxTech Logo" class="w-32 mb-4">
+        <p class="text-gray-400 mb-4">
+          Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Column 2 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+          <li><a href="/societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a></li>
+          <li><a href="/service.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+          <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 3 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Développement Web</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Réseaux Informatiques</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Solutions Cloud</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Marketing Digital</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Formations</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 4 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <address class="not-italic text-gray-400 space-y-2">
+          <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue"></i> Cotonou, Bénin</p>
+          <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue"></i> +229 12 34 56 78</p>
+          <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue"></i> contact@anyxtech.com</p>
+          <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue"></i> Lun-Ven: 8h-18h</p>
+        </address>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+      <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out'
+    });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.section-reveal').forEach(el => {
-      observer.observe(el);
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      mobileMenuButton.innerHTML = mobileMenu.classList.contains('open') ? 
+        '<i class="fas fa-times text-2xl"></i>' : 
+        '<i class="fas fa-bars text-2xl"></i>';
     });
 
     // Counter animation
-    function animateCounter(element, target, duration = 2000) {
-      const start = 0;
-      const increment = target / (duration / 16);
-      let current = start;
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stats-counter');
+      const speed = 200;
       
-      const timer = setInterval(() => {
-        current += increment;
-        element.textContent = Math.floor(current);
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
         
-        if (current >= target) {
-          element.textContent = target;
-          clearInterval(timer);
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(animateCounters, 1);
+        } else {
+          counter.innerText = target;
         }
-      }, 16);
+      });
     }
 
-    // Trigger counter when visible
-    const counterElement = document.querySelector('.stats-counter');
-    if (counterElement) {
-      const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(counterElement, 50);
-            counterObserver.unobserve(entry.target);
-          }
-        });
+    // Trigger counters when visible
+    const statsSection = document.querySelector('section.bg-gradient-to-r');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
       });
-      counterObserver.observe(counterElement);
+    }, { threshold: 0.5 });
+
+    if (statsSection) {
+      observer.observe(statsSection);
     }
 
     // Progress bars animation
-    setTimeout(() => {
-      document.querySelectorAll('.progress-bar').forEach(bar => {
-        bar.classList.add('animate');
+    document.addEventListener('DOMContentLoaded', () => {
+      const progressBars = document.querySelectorAll('.progress-bar');
+      progressBars.forEach(bar => {
+        bar.style.width = '100%';
       });
-    }, 1000);
+    });
 
     // Particles animation
     function createParticle() {
@@ -425,6 +664,8 @@
       particle.style.left = Math.random() * 100 + '%';
       particle.style.animationDelay = Math.random() * 8 + 's';
       particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      particle.style.width = (Math.random() * 6 + 2) + 'px';
+      particle.style.height = particle.style.width;
       
       document.getElementById('particles-container').appendChild(particle);
       
@@ -436,9 +677,29 @@
     // Create particles periodically
     setInterval(createParticle, 300);
 
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -450,14 +711,16 @@
       });
     });
 
-    // Add scroll indicator functionality
-    document.querySelector('.icon-bounce').addEventListener('click', () => {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-      });
-    });
+    // Smooth scroll function
+    function smoothScroll(target) {
+      const element = document.querySelector(target);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 100,
+          behavior: 'smooth'
+        });
+      }
+    }
   </script>
-
 </body>
 </html>

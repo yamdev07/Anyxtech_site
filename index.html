@@ -2,564 +2,679 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>AnyxTech Bénin - Excellence Numérique</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AnyxTech, votre partenaire en solutions digitales innovantes au Bénin. Expertise en communication digitale, réseaux informatiques et transformation numérique.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anyxtech-blue': '#1f429b',
+                        'anyxtech-lightblue': '#1db9ff',
+                        'anyxtech-darkblue': '#1e4d9f',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
             --anyxtech-one-blue: #1db9ff;
             --anyxtech-two-blue: #1f429b;
             --anyxtech-three-blue: #1e4d9f;
-            --light-black: #2a2a2a;
-            --black-black: #121212;
-            --neon-glow: 0 0 20px rgba(29, 185, 255, 0.3);
-            --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        /* Glassmorphism effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Neon button effect */
-        .neon-button {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(45deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
-            box-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .neon-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .neon-button:hover::before {
-            left: 100%;
-        }
-
-        .neon-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 40px rgba(29, 185, 255, 0.8);
-        }
-
-        /* Hero text gradient */
         .hero-gradient {
-            background: linear-gradient(135deg, #ffffff, #f0f9ff, #e0f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
+            background: linear-gradient(135deg, var(--anyxtech-two-blue) 0%, var(--anyxtech-one-blue) 100%);
         }
 
-        /* Floating particles */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--anyxtech-two-blue), var(--anyxtech-one-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(31, 66, 155, 0.15);
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(29, 185, 255, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
         .particle {
             position: absolute;
             width: 4px;
             height: 4px;
             background: var(--anyxtech-one-blue);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: particle-float 8s linear infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Service cards hover effect */
-        .service-card {
+        .morphing-bg {
+            background: linear-gradient(-45deg, #1f429b, #1e4d9f, #1db9ff, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .nav-link {
             position: relative;
-            background: linear-gradient(135deg, #ffffff, #f8fafc);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(29, 185, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            overflow: hidden;
         }
 
-        .service-card::before {
+        .nav-link::after {
             content: '';
             position: absolute;
-            top: 0;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            background-color: var(--anyxtech-one-blue);
+            transition: width 0.3s ease;
         }
 
-        .service-card:hover::before {
-            transform: scaleX(1);
+        .nav-link:hover::after {
+            width: 100%;
         }
 
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(29, 185, 255, 0.15);
-            border-color: var(--anyxtech-one-blue);
+        /* Mobile menu styles */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
         }
 
-        .service-icon {
-            transition: all 0.3s ease;
-            display: inline-block;
+        .mobile-menu.open {
+            max-height: 500px;
         }
 
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(5deg);
-            color: var(--anyxtech-one-blue);
+        /* Hero section styles */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/Business_tech.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* Animated background */
-        .animated-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Service image container */
+        .service-img-container {
+            height: 180px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(29, 185, 255, 0.1), rgba(31, 66, 155, 0.1));
-            animation: backgroundMove 20s ease infinite;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        @keyframes backgroundMove {
-            0%, 100% { transform: translateX(0%) translateY(0%); }
-            25% { transform: translateX(5%) translateY(-5%); }
-            50% { transform: translateX(-5%) translateY(5%); }
-            75% { transform: translateX(5%) translateY(5%); }
+        .service-card:hover .service-img {
+            transform: scale(1.1);
         }
 
-        /* Pulse animation */
-        .pulse-slow {
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        /* Smooth reveal animations */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .reveal-up.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
-            border-radius: 4px;
-        }
-
-        /* Typing effect */
-        .typing-effect {
-            overflow: hidden;
-            border-right: 3px solid var(--anyxtech-one-blue);
-            animation: typing 3s steps(40, end), blink 1s infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            0%, 50% { border-color: var(--anyxtech-one-blue); }
-            51%, 100% { border-color: transparent; }
-        }
-
-        /* Gradient text effect */
-        .gradient-text {
-            background: linear-gradient(45deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue), #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 4s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .service-img-container {
+                height: 150px;
+            }
         }
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800 font-poppins">
 
-    <div id="header-placeholder"></div>
-
-    <!-- Hero Section with Enhanced Visual Effects -->
-    <section class="relative mt-10 text-center px-6 pt-48 pb-32 bg-cover bg-no-repeat overflow-hidden"
-        style="background-image: url('images/image_reseau.jpg'); background-position: center top;">
-        
-        <!-- Animated background overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-blue-900/50 to-black/70 animated-bg"></div>
-        
-        <!-- Floating particles -->
-        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
-        <div class="particle" style="top: 40%; left: 20%; animation-delay: 2s;"></div>
-        <div class="particle" style="top: 80%; left: 60%; animation-delay: 3s;"></div>
-        <div class="particle" style="top: 30%; left: 70%; animation-delay: 4s;"></div>
-        
-        <div class="relative z-10">
-            <!-- Enhanced badge -->
-            <div class="inline-flex items-center gap-3 px-8 py-4 glass rounded-full text-lg font-semibold mb-8 reveal-up pulse-slow">
-                <div class="w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full animate-pulse"></div>
-                <span class="text-white">Vos besoins avant les nôtres</span>
+    <!-- Header -->
+    <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <a href="/"><img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech"></a>
             </div>
             
-            <!-- Hero title with enhanced effects -->
-            <h1 id="hero-text" class="text-white text-5xl md:text-7xl font-extrabold leading-tight reveal-up hero-gradient" style="animation-delay: 0.2s;">
-                Toujours plus<br><span class="gradient-text">proche de vous</span><br>pour une meilleure satisfaction
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+                <ul class="flex items-center gap-x-8">
+                    <li><a href="/" class="nav-link text-lg font-medium text-anyxtech-blue transition-colors">Accueil</a></li>
+                    <li><a href="/societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Société</a></li>
+                    <li><a href="/service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Services</a></li>
+                    <li><a href="/contact.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Contact</a></li>
+                    <li><a href="#" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors">Devis</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg rounded-lg mt-4">
+            <ul class="p-4 space-y-4">
+                <li><a href="/" class="block px-4 py-2 bg-blue-50 text-anyxtech-blue rounded font-medium">Accueil</a></li>
+                <li><a href="/societe.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Société</a></li>
+                <li><a href="/service.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Services</a></li>
+                <li><a href="/contact.html" class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors">Contact</a></li>
+                <li><a href="#" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors mt-2">Demande de devis</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Particles Background -->
+        <div id="particles-container" class="absolute inset-0 pointer-events-none z-0"></div>
+        
+        <!-- Animated shapes -->
+        <div class="absolute top-20 left-20 w-32 h-32 bg-white bg-opacity-10 rounded-full floating-animation"></div>
+        <div class="absolute bottom-20 right-20 w-48 h-48 bg-white bg-opacity-5 rounded-full floating-animation" style="animation-delay: -2s;"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-lg font-semibold mb-8 text-white border border-white/20" data-aos="fade-up">
+                <div class="w-3 h-3 bg-anyxtech-lightblue rounded-full animate-pulse"></div>
+                <span>Vos besoins avant les nôtres</span>
+            </div>
+            
+            <!-- Hero title -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                Toujours plus <span class="text-gradient">proche de vous</span><br>pour une meilleure satisfaction
             </h1>
             
-            <!-- Enhanced buttons -->
-            <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6 reveal-up" style="animation-delay: 0.4s;">
-                <!-- Primary button with neon effect -->
-                <a href="/contact" class="neon-button px-8 py-4 rounded-full font-bold text-white text-lg shadow-2xl relative z-10 transform hover:scale-105 transition-all duration-300">
-                    <i class="fas fa-rocket mr-2"></i>
-                    J'ai une idée de projet
+            <!-- Hero subtitle -->
+            <p class="text-xl text-white/90 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+                Des solutions numériques innovantes pour propulser votre entreprise vers l'excellence
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+                <a href="/contact.html" class="px-8 py-4 bg-gradient-to-r from-anyxtech-lightblue to-anyxtech-blue text-white font-semibold rounded-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i> J'ai une idée de projet
                 </a>
-
-                <!-- Secondary button with glass effect -->
-                <a href="/societe.html" class="glass px-8 py-4 rounded-full font-semibold text-white text-lg border-2 border-white/30 hover:border-blue-400 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                    <i class="fas fa-info-circle mr-2"></i>
-                    En savoir plus
+                <a href="/societe.html" class="px-8 py-4 bg-white text-anyxtech-blue font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-info-circle mr-2"></i> En savoir plus
                 </a>
             </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-chevron-down text-xl cursor-pointer" onclick="smoothScroll('#services-section')"></i>
+            </div>
+        </div>
+        
+        <!-- Wave divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" class="fill-current text-white">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+            </svg>
         </div>
     </section>
 
-    <!-- Enhanced Services Section -->
-    <section class="px-6 md:px-20 py-20 relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute top-0 left-0 w-full h-full opacity-5">
-            <div class="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 right-10 w-80 h-80 bg-purple-500 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="relative z-10">
-            <div class="text-center mb-16 reveal-up">
-                <h2 class="text-5xl md:text-6xl font-bold gradient-text leading-tight mb-6">
-                    Nos domaines <br> d'expertise technique
-                </h2>
-                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Nous accompagnons entreprises, particuliers et structures dans leur transformation numérique et énergétique
-                    en proposant des services innovants et sur mesure.
+    <!-- Services Section -->
+    <section id="services-section" class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gradient mb-6">Nos domaines d'expertise</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Solutions complètes pour votre transformation numérique et énergétique
                 </p>
             </div>
 
-            <!-- Enhanced service cards grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-                <!-- Service 1 -->
-                <div class="service-card reveal-up" style="animation-delay: 0.1s;">
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 - Communication digitale -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Communication digitale" 
+                             class="service-img">
+                    </div>
                     <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                        <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
                             <i class="fas fa-bullhorn"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Communication digitale</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Nous créons des stratégies de communication adaptées à chaque marque.
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Communication digitale</h3>
+                        <p class="text-gray-600 mb-6">
+                            Stratégies de communication adaptées à chaque marque avec une équipe aguerrie.
                         </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Une équipe aguerrie met en œuvre vos projets avec expertise.
-                        </p>
+                        <a href="/service.html#communication" class="text-anyxtech-blue font-medium hover:underline">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="service-card reveal-up" style="animation-delay: 0.2s;">
+                <!-- Service 2 - Réseautage & connectivité -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Réseautage et connectivité" 
+                             class="service-img">
+                    </div>
                     <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                        <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
                             <i class="fas fa-network-wired"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Réseautage & connectivité</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Interconnexion, virtualisation, vente d'équipements et mise en réseau.
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Réseautage & connectivité</h3>
+                        <p class="text-gray-600 mb-6">
+                            Infrastructure performante et évolutive pour vos systèmes d'interconnexion.
                         </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Une infrastructure performante et évolutive pour vos systèmes.
-                        </p>
+                        <a href="/service.html#infrastructure" class="text-anyxtech-blue font-medium hover:underline">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="service-card reveal-up" style="animation-delay: 0.3s;">
+                <!-- Service 3 - Installation Wi-Fi -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Installation Wi-Fi" 
+                             class="service-img">
+                    </div>
                     <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                        <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
                             <i class="fas fa-wifi"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Installation Wi-Fi</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Installation et configuration de vos réseaux sans fil.
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Installation Wi-Fi</h3>
+                        <p class="text-gray-600 mb-6">
+                            Installation et configuration de réseaux sans fil performants et stables.
                         </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Des performances réseau optimales et stables.
-                        </p>
+                        <a href="/service.html#infrastructure" class="text-anyxtech-blue font-medium hover:underline">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Service 4 -->
-                <div class="service-card reveal-up" style="animation-delay: 0.4s;">
+                <!-- Service 4 - Solutions Énergétiques -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Solutions Énergétiques" 
+                             class="service-img">
+                    </div>
                     <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                        <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Énergie</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Étude, exécution et maintenance de projets électriques.
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Solutions Énergétiques</h3>
+                        <p class="text-gray-600 mb-6">
+                            Étude, exécution et maintenance de projets électriques pour tous besoins.
                         </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Pour bâtiments, industries et énergies renouvelables.
-                        </p>
+                        <a href="/service.html#infrastructure" class="text-anyxtech-blue font-medium hover:underline">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Service 5 -->
-                <div class="service-card reveal-up" style="animation-delay: 0.5s;">
+                <!-- Service 5 - Marketing Digital -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Marketing Digital" 
+                             class="service-img">
+                    </div>
                     <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                        <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
                             <i class="fas fa-bullseye"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Marketing digital</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Identité visuelle, site web, réseaux sociaux, pub en ligne.
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Marketing Digital</h3>
+                        <p class="text-gray-600 mb-6">
+                            Stratégies personnalisées pour renforcer votre image en ligne.
                         </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Stratégies personnalisées pour renforcer votre image.
-                        </p>
+                        <a href="/service.html#communication" class="text-anyxtech-blue font-medium hover:underline">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Service 6 -->
-                <div class="service-card reveal-up" style="animation-delay: 0.6s;">
+                <!-- Service 6 - Suivi Clientèle -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Suivi Clientèle" 
+                             class="service-img">
+                    </div>
                     <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
+                        <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
                             <i class="fas fa-headset"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Suivi clientèle</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Un accompagnement personnalisé et une assistance 7j/7.
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Suivi Clientèle</h3>
+                        <p class="text-gray-600 mb-6">
+                            Accompagnement personnalisé et assistance 7j/7 jusqu'à satisfaction.
                         </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Jusqu'à la satisfaction complète du client.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="service-card reveal-up md:col-span-2 lg:col-span-1 mx-auto" style="animation-delay: 0.7s;">
-                    <div class="text-center">
-                        <div class="service-icon text-6xl mb-6 text-gray-700">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Hébergement & domaines</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">
-                            Stockage, hébergement web et gestion de domaines.
-                        </p>
-                        <p class="text-sm text-blue-600 font-semibold">
-                            Une visibilité fiable et sécurisée pour vos données.
-                        </p>
+                        <a href="/service.html#support" class="text-anyxtech-blue font-medium hover:underline">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-
-
-
-    
-    <!-- Enhanced About Section -->
-    <section class="relative px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 to-purple-600"></div>
-        </div>
-        
-        <div class="relative z-10 text-center reveal-up">
-            <h2 class="text-5xl md:text-6xl font-extrabold gradient-text mb-8">
-                Qui sommes-nous ?
-            </h2>
-            <div class="max-w-4xl mx-auto">
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">
-                    <strong class="text-blue-600">ANYXTECH</strong> est une entreprise béninoise spécialisée dans le numérique, les télécoms et les solutions digitales.
-                </p>
-                <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                    Elle regroupe des professionnels passionnés par les technologies modernes et l'innovation.
-                    Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
-                </p>
-                <p class="text-xl text-blue-600 font-semibold">
-                    En mettant vos besoins avant les nôtres, nous construisons un partenariat durable.
-                </p>
+            
+            <!-- CTA Section -->
+            <div class="mt-16 text-center" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Prêt à transformer votre entreprise ?</h3>
+                <a href="/contact.html" class="inline-block px-8 py-4 gradient-anyxtech text-white font-semibold rounded-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> Contactez-nous dès maintenant
+                </a>
             </div>
         </div>
     </section>
-</section>
 
+    <!-- About Section -->
+    <section class="py-16 md:py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gradient mb-6">Qui sommes-nous ?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    ANYXTECH est une entreprise béninoise spécialisée dans le numérique et les solutions digitales
+                </p>
+            </div>
 
-
-        
-
-
-
-    <div id="footer-placeholder"></div>
-
-    <!-- Enhanced JavaScript -->
-    <script>
-        // Header/Footer loading
-        fetch("header.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("header-placeholder").innerHTML = html;
-                document.getElementById("header-placeholder").style.opacity = 1;
-            });
-        
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
-                document.getElementById("footer-placeholder").style.opacity = 1;
-            });
-
-        // Enhanced rotating text with smooth transitions
-        const heroText = document.getElementById("hero-text");
-        const phrases = [
-            `Toujours plus<br><span class="gradient-text">proche de vous</span><br>pour une meilleure satisfaction`,
-            `UN SERVICE DE CONSEIL<br><span class="gradient-text">ET D'EXPERTISE</span><br>AnyxTech, c'est aussi un service clientèle de qualité`,
-            `SERVICE CLIENTÈLE<br><span class="gradient-text">24H/7J</span><br>Une assistance toujours disponible pour vous`,
-            `ANYXTECH<br><span class="gradient-text">Connexion haut débit</span><br>à moindre coût pour tous`,
-            `TÉLÉCOMS & INFORMATIQUE<br><span class="gradient-text">Services de qualité</span><br>pour votre croissance numérique`
-        ];
-        let currentPhrase = 0;
-
-        function rotateText() {
-            heroText.style.opacity = '0';
-            heroText.style.transform = 'translateY(-20px)';
-            
-            setTimeout(() => {
-                currentPhrase = (currentPhrase + 1) % phrases.length;
-                heroText.innerHTML = phrases[currentPhrase];
-                heroText.style.opacity = '1';
-                heroText.style.transform = 'translateY(0)';
-            }, 500);
-        }
-
-        setInterval(rotateText, 6000);
-
-        // Smooth reveal animations on scroll
-        const revealElements = document.querySelectorAll('.reveal-up');
-        
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Enhanced service cards animation
-        const serviceCards = document.querySelectorAll('.service-card');
-        
-        serviceCards.forEach((card, index) => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02) rotateY(5deg)';
-                this.style.boxShadow = '0 25px 50px rgba(29, 185, 255, 0.2)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
-                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
-            });
-        });
-
-        // Add floating animation to particles
-        function createFloatingParticles() {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const randomX = Math.random() * 100;
-                const randomY = Math.random() * 100;
-                const randomDelay = Math.random() * 5;
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                        Nous regroupons des professionnels passionnés par les technologies modernes et l'innovation. Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed text-lg mb-8">
+                        En mettant vos besoins avant les nôtres, nous construisons un partenariat durable pour votre réussite digitale.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/societe.html" class="inline-block px-8 py-3 bg-anyxtech-blue text-white rounded-lg font-medium hover:bg-anyxtech-lightblue transition-colors shadow-md">
+                            <i class="fas fa-users mr-2"></i> Découvrir notre équipe
+                        </a>
+                        <a href="/service.html" class="inline-block px-8 py-3 bg-white text-anyxtech-blue rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-md border border-gray-200">
+                            <i class="fas fa-cogs mr-2"></i> Nos services
+                        </a>
+                    </div>
+                </div>
                 
-                particle.style.left = randomX + '%';
-                particle.style.top = randomY + '%';
-                particle.style.animationDelay = randomDelay + 's';
-            });
+                <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                    <div class="rounded-xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Équipe AnyxTech au travail" 
+                             class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+                        <div class="text-4xl font-bold text-anyxtech-blue">3+</div>
+                        <div class="text-gray-600">Ans d'expérience</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-anyxtech-blue mb-2">50+</div>
+                    <div class="text-gray-600">Clients satisfaits</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-anyxtech-blue mb-2">20+</div>
+                    <div class="text-gray-600">Projets réalisés</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl font-bold text-anyxtech-blue mb-2">10+</div>
+                    <div class="text-gray-600">Experts techniques</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl font-bold text-anyxtech-blue mb-2">24/7</div>
+                    <div class="text-gray-600">Support client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-20 morphing-bg text-white text-center">
+        <div class="container mx-auto px-4">
+            <div data-aos="zoom-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Prêt à démarrer votre projet ?</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">
+                    Contactez-nous dès aujourd'hui pour discuter de vos besoins en solutions digitales
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/contact.html" class="px-8 py-4 bg-white text-anyxtech-blue rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-envelope mr-2"></i> Nous écrire
+                    </a>
+                    <a href="tel:+22912345678" class="px-8 py-4 bg-black/20 text-white rounded-lg font-semibold hover:bg-black/30 transition-all transform hover:scale-105 shadow-lg border border-white/20">
+                        <i class="fas fa-phone mr-2"></i> +229 12 34 56 78
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 md:px-20">
+        <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <!-- Column 1 -->
+            <div>
+                <img src="images/logo-removebg-preview.png" alt="AnyxTech Logo" class="w-32 mb-4">
+                <p class="text-gray-400 mb-4">
+                    Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Column 2 -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+                <ul class="space-y-2">
+                    <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+                    <li><a href="/societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a></li>
+                    <li><a href="/service.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                    <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3 -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Communication Digitale</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Réseaux Informatiques</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Solutions Énergétiques</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Marketing Digital</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 4 -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                <address class="not-italic text-gray-400 space-y-2">
+                    <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue"></i> Cotonou, Bénin</p>
+                    <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue"></i> +229 12 34 56 78</p>
+                    <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue"></i> contact@anyxtech.com</p>
+                    <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue"></i> Lun-Ven: 8h-18h</p>
+                </address>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            mobileMenuButton.innerHTML = mobileMenu.classList.contains('open') ? 
+                '<i class="fas fa-times text-2xl"></i>' : 
+                '<i class="fas fa-bars text-2xl"></i>';
+        });
+
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Random size
+                const size = Math.random() * 3 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 5 + 5;
+                const delay = Math.random() * 5;
+                particle.style.animationDuration = duration + 's';
+                particle.style.animationDelay = delay + 's';
+                
+                container.appendChild(particle);
+            }
         }
 
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', function() {
-            createFloatingParticles();
-            
-            // Add entrance animation to hero elements
-            setTimeout(() => {
-                const heroElements = document.querySelectorAll('.reveal-up');
-                heroElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.add('revealed');
-                    }, index * 200);
+        // Smooth scroll function
+        function smoothScroll(target) {
+            const element = document.querySelector(target);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 100,
+                                        behavior: 'smooth'
                 });
-            }, 500);
+            }
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Initialize particles when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
                 });
             });
         });
 
-        // Add parallax effect to background
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.animated-bg');
-            
-            parallaxElements.forEach(element => {
-                const speed = 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
+        // Gradient for service icons
+        const serviceIcons = document.querySelectorAll('.gradient-anyxtech');
+        serviceIcons.forEach(icon => {
+            icon.style.background = 'linear-gradient(135deg, var(--anyxtech-two-blue), var(--anyxtech-one-blue))';
         });
     </script>
-
 </body>
-
 </html>
