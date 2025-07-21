@@ -2,118 +2,735 @@
 <html lang="fr">
 
 <head>
+  <!-- Métadonnées -->
   <meta charset="UTF-8" />
   <title>Contact | AnyxTech Bénin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Ressources externes -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Style CSS -->
   <style>
     :root {
-      --anyxtech-one-blue: #1db9ff;
-      --anyxtech-two-blue: #1f429b;
-      --light-black: #2a2a2a;
+      --primary: #1db9ff;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --glow: rgba(29, 185, 255, 0.15);
+    }
+
+    /* Base */
+    * {
+      margin: 0;
+      padding: 0; 
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Arrière-plan simplifié avec lumière douce */
+    .soft-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, var(--glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Quelques particules légères (réduites) */
+    .light-particles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      animation: gentleFloat 8s infinite ease-in-out;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px); opacity: 0.3; }
+      50% { transform: translateY(-20px); opacity: 0.6; }
+    }
+
+    /* Contenu principal */
+    main {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      margin: 2rem auto;
+      max-width: 1400px;
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    /* Titre principal avec lumière douce */
+    .main-header {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.3));
+    }
+
+    /* Cartes en verre optimisées */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      animation: rotateGlow 8s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Conteneur du formulaire */
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    /* Groupes de formulaire */
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border: 2px solid rgba(29, 185, 255, 0.2);
+      border-radius: 1rem;
+      font-size: 1rem;
+      background: rgba(248, 250, 252, 0.9);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      color: var(--dark);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(29, 185, 255, 0.1);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .form-label {
+      position: absolute;
+      top: 1rem;
+      left: 1.25rem;
+      font-weight: 500;
+      color: #64748b;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .form-input:focus + .form-label,
+    .form-input:not(:placeholder-shown) + .form-label {
+      transform: translateY(-2.5rem) scale(0.85);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Bouton de soumission */
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s ease;
+    }
+
+    .submit-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(29, 185, 255, 0.3);
+    }
+
+    /* Cartes de témoignages */
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .testimonial-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      margin: 0 auto 1rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover .testimonial-avatar {
+      transform: scale(1.1);
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(29, 185, 255, 0.3);
+    }
+
+    /* Cartes de contact */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .contact-card:hover::before {
+      transform: translateY(0);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card:hover .contact-icon,
+    .contact-card:hover .contact-title,
+    .contact-card:hover .contact-text {
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Animations douces */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.15s; }
+    .fade-in-delay-2 { animation-delay: 0.3s; }
+    .fade-in-delay-3 { animation-delay: 0.45s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .loader {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .success-message {
+      text-align: center;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, var(--success), #34d399);
+      color: white;
+      border-radius: 1.5rem;
+      animation: successScale 0.6s ease;
+    }
+
+    @keyframes successScale {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .pulse-soft {
+      animation: pulseSoft 3s infinite;
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        margin: 1rem;
+        border-radius: 1.5rem;
+      }
+      
+      .form-container {
+        padding: 1.5rem;
+      }
+      
+      .main-header {
+        font-size: 2.5rem;
+      }
+      
+      .contact-card {
+        padding: 1.25rem;
+      }
+    }
+
+    /* Réduction pour économiser les données */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body>
+  <!-- Arrière-plan avec lumière douce -->
+  <div class="soft-glow"></div>
+  
+  <!-- Quelques particules légères -->
+  <div class="light-particles" id="particles"></div>
+
+  <!-- En-tête -->
   <div id="header-placeholder"></div>
 
-  <main class="px-6 md:px-20 py-16 max-w-6xl mx-auto">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-center text-[var(--anyxtech-two-blue)] mb-12" data-aos="fade-up">
-      Contactez-nous
-    </h1>
+  <!-- Contenu principal -->
+  <main class="px-6 py-16">
+    <section class="text-center mb-16">
+      <h1 class="main-header text-5xl md:text-6xl font-black fade-in">
+        Contactez-nous
+      </h1>
+      <p class="text-xl text-gray-300 mt-4 fade-in fade-in-delay-1">
+        Nous sommes là pour répondre à toutes vos questions
+      </p>
+    </section>
 
-    <div class="grid md:grid-cols-2 gap-12">
-      <!-- Formulaire -->
-      <form class="space-y-6 bg-gray-50 p-8 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
-        <div>
-          <label for="nom" class="block font-semibold text-gray-700">Nom complet</label>
-          <input type="text" id="nom" name="nom" required
-            class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--anyxtech-one-blue)] focus:outline-none" />
-        </div>
-
-        <div>
-          <label for="email" class="block font-semibold text-gray-700">Adresse email</label>
-          <input type="email" id="email" name="email" required
-            class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--anyxtech-one-blue)] focus:outline-none" />
-        </div>
-
-        <div>
-          <label for="message" class="block font-semibold text-gray-700">Message</label>
-          <textarea id="message" name="message" rows="6" required
-            class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--anyxtech-one-blue)] focus:outline-none"></textarea>
-        </div>
-
-        <button type="submit"
-          class="bg-[var(--anyxtech-one-blue)] text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-500 transition">
-          Envoyer le message
-        </button>
-      </form>
-
-      <!-- Infos de contact -->
-      <div class="space-y-6 text-gray-700" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-start gap-4">
-          <i class="fa-solid fa-map-marker-alt text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">Adresse</h3>
-            <p>Cadjehoun, Maison Djidohokpin Nicolas, Cotonou, Bénin</p>
+    <div class="grid lg:grid-cols-2 gap-12 mb-16">
+      <!-- Formulaire de contact -->
+      <section class="fade-in fade-in-delay-1">
+        <div class="form-container">
+          <div class="mb-8 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Parlons de votre projet</h2>
+            <p class="text-lg text-gray-600">Transformons vos idées en réalité digitale</p>
           </div>
-        </div>
+          
+          <form id="contactForm" action="https://formspree.io/f/xnnznpnw" method="POST" novalidate>
+            <div class="form-group">
+              <input type="text" id="nom" name="nom" class="form-input" placeholder=" " required>
+              <label for="nom" class="form-label">Nom complet</label>
+            </div>
 
-        <div class="flex items-start gap-4">
-          <i class="fa-solid fa-envelope text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">Email</h3>
-            <p>contact@anyxtech.com</p>
-          </div>
-        </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+              <label for="email" class="form-label">Adresse email</label>
+            </div>
 
-        <div class="flex items-start gap-4">
-          <i class="fa-solid fa-phone text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">Téléphone</h3>
-            <p>+229 41 42 15 70</p>
-          </div>
-        </div>
+            <div class="form-group">
+              <select id="service" name="service" class="form-input" required>
+                <option value="">Choisir un service</option>
+                <option value="web">Développement Web</option>
+                <option value="mobile">Application Mobile</option>
+                <option value="design">Design UI/UX</option>
+                <option value="consulting">Consulting IT</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
 
-        <div class="flex items-start gap-4">
-          <i class="fa-brands fa-whatsapp text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
-          <div>
-            <h3 class="font-bold">WhatsApp</h3>
-            <p><a href="https://wa.me/22952415241" target="_blank" class="text-[var(--anyxtech-two-blue)] underline">Discuter sur WhatsApp</a></p>
-          </div>
+            <div class="form-group">
+              <textarea id="message" name="message" rows="4" class="form-input" placeholder=" " required></textarea>
+              <label for="message" class="form-label">Décrivez votre projet</label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Envoyer le message</span>
+              <div class="loader"></div>
+            </button>
+          </form>
         </div>
-      </div>
+      </section>
+
+      <!-- Témoignages -->
+      <section class="fade-in fade-in-delay-2">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-bold mb-4 text-white">Témoignages clients</h2>
+          <p class="text-lg text-gray-300">Ce que nos clients disent de nous</p>
+        </div>
+        
+        <div id="testimonials-container" class="space-y-6">
+          <!-- Témoignages seront chargés dynamiquement -->
+        </div>
+      </section>
     </div>
+
+    <!-- Informations de contact -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in fade-in-delay-3">
+      <article class="contact-card text-center glass-card">
+        <i class="fas fa-map-marker-alt contact-icon"></i>
+        <h3 class="contact-title text-lg font-bold mb-2">Notre adresse</h3>
+        <p class="contact-text text-sm">Cadjehoun, Maison Djidohokpin Nicolas<br>Cotonou, Bénin</p>
+      </article>
+
+      <article class="contact-card text-center glass-card">
+        <i class="fas fa-envelope contact-icon"></i>
+        <h3 class="contact-title text-lg font-bold mb-2">Email</h3>
+        <p class="contact-text text-sm">
+          <a href="mailto:contact@anyxtech.com" class="hover:underline">
+            contact@anyxtech.com
+          </a>
+        </p>
+      </article>
+
+      <article class="contact-card text-center glass-card">
+        <i class="fas fa-phone contact-icon"></i>
+        <h3 class="contact-title text-lg font-bold mb-2">Téléphone</h3>
+        <p class="contact-text text-sm">
+          <a href="tel:+22941421570" class="hover:underline">
+            +229 41 42 15 70
+          </a>
+        </p>
+      </article>
+
+      <article class="contact-card text-center glass-card">
+        <i class="fab fa-whatsapp contact-icon"></i>
+        <h3 class="contact-title text-lg font-bold mb-2">WhatsApp</h3>
+        <p class="contact-text text-sm">
+          <a href="https://wa.me/22952415241" target="_blank" class="hover:underline pulse-soft">
+            Discuter maintenant
+          </a>
+        </p>
+      </article>
+    </section>
   </main>
 
+  <!-- Pied de page -->
   <div id="footer-placeholder"></div>
 
+  <!-- Scripts JavaScript optimisés -->
   <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+    // =============================================
+    // EFFETS VISUELS LÉGERS
+    // =============================================
+    
+    /**
+     * Crée quelques particules légères (réduites de 80 à 20)
+     */
+    function createLightParticles() {
+      const particles = document.getElementById('particles');
+      const particleCount = 20; // Réduction significative
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (Math.random() * 6 + 8) + 's';
+        particles.appendChild(particle);
+      }
+    }
 
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("footer-placeholder").innerHTML = html);
-  </script>
+    // =============================================
+    // DONNÉES STATIQUES (évite les requêtes)
+    // =============================================
+    
+    const testimonials = [
+      {
+        nom: "Sarah Konaté",
+        poste: "CEO - InnovateTech",
+        avis: "Une équipe exceptionnelle qui a dépassé nos attentes. Résultats spectaculaires !",
+        photo: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=70&h=70&fit=crop&crop=face"
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 800,
-      easing: 'ease-in-out'
+      },
+      {
+        nom: "Marc Adjoua",
+        poste: "Directeur Digital",
+        avis: "Professionnalisme et innovation au rendez-vous. Je recommande vivement !",
+        photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=70&h=70&fit=crop&crop=face"
+      },
+      {
+        nom: "Aminata Traoré",
+        poste: "Fondatrice - TechSolutions",
+        avis: "Expertise technique remarquable et accompagnement personnalisé.",
+        photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=70&h=70&fit=crop&crop=face"
+      }
+    ];
+
+    // =============================================
+    // FONCTIONS OPTIMISÉES
+    // =============================================
+    
+    /**
+     * Charge les témoignages (statique, pas de requête)
+     */
+    function loadTestimonials() {
+      const container = document.getElementById('testimonials-container');
+      
+      testimonials.forEach((testimonial, index) => {
+        const card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML = `
+          <img src="${testimonial.photo}" alt="${testimonial.nom}" class="testimonial-avatar">
+          <h3 class="text-xl font-bold mb-2 text-white">${testimonial.nom}</h3>
+          <p class="text-sm text-gray-300 mb-3">${testimonial.poste}</p>
+          <p class="text-gray-200 italic">"${testimonial.avis}"</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    /**
+     * Charge les composants externes (simplifié)
+     */
+    function loadComponents() {
+      // Tentative de chargement sans bloquer si échec
+      try {
+        fetch('header.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+          })
+          .catch(() => {
+            // Silencieux si échec
+          });
+
+        fetch('footer.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+          })
+          .catch(() => {
+            // Silencieux si échec
+          });
+      } catch (error) {
+        // Gestion d'erreur silencieuse
+      }
+    }
+
+    /**
+     * Configuration simple du formulaire
+     */
+    function setupForm() {
+      const form = document.getElementById('contactForm');
+      const submitBtn = form.querySelector('.submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const loader = submitBtn.querySelector('.loader');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Animation de chargement
+        btnText.style.display = 'none';
+        loader.style.display = 'inline-block';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            form.innerHTML = `
+              <div class="success-message">
+                <i class="fas fa-check-circle text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-3">Message envoyé !</h3>
+                <p class="text-lg">Notre équipe vous contactera bientôt.</p>
+              </div>
+            `;
+          } else {
+            throw new Error('Erreur envoi');
+          }
+        })
+        .catch(error => {
+          alert('Une erreur est survenue. Veuillez réessayer.');
+          btnText.style.display = 'inline';
+          loader.style.display = 'none';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+
+    /**
+     * Animations au défilement (simplifiées)
+     */
+    function setupScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+      });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // =============================================
+    // INITIALISATION OPTIMISÉE
+    // =============================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      // Vérification des préférences utilisateur
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      if (!prefersReducedMotion) {
+        createLightParticles();
+      }
+      
+      loadTestimonials();
+      setupForm();
+      setupScrollAnimations();
+      
+      // Chargement différé des composants
+      setTimeout(loadComponents, 100);
     });
   </script>
 </body>
-
 </html>

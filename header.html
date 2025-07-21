@@ -1,17 +1,28 @@
 <!-- header.html -->
-<header class="pt-6 px-10">
-  <div class="flex items-center justify-between">
-    <div>
+<header class="bg-white shadow-md text-gray-800">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+    
+    <!-- Logo à gauche -->
+    <div class="flex-shrink-0 w-1/3">
       <a href="/"><img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech"></a>
     </div>
-    <nav class="text-[var(--black-black)] font-medium">
-      <span class="flex items-center gap-x-6 text-2xl">
-        <a href="/">Accueil</a>
-        <a href="/societe.html">Société</a>
-        <a href="/service.html">Services</a>
-        <a href="/contact.html">Contact</a>
-      </span>
+
+    <!-- Liens de navigation centrés -->
+    <nav class="flex justify-center w-1/3">
+      <div class="flex gap-x-10 text-2xl font-medium text-[var(--black-black)]">
+        <a href="/" class="hover:text-[var(--primary)]">Accueil</a>
+        <a href="/societe.html" class="hover:text-[var(--primary)]">Société</a>
+        <a href="/service.html" class="hover:text-[var(--primary)]">Services</a>
+        <a href="/contact.html" class="hover:text-[var(--primary)]">Contact</a>
+      </div>
     </nav>
-    <a href="#" class="bg-[var(--anyxtech-two-blue)] text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-400">Demande de devis</a>
+
+    <!-- Bouton devis à droite -->
+    <div class="flex justify-end w-1/3">
+      <a href="#" class="bg-[#001f3f] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#003366] transition">
+        Demande de devis
+      </a>
+    </div>
+
   </div>
 </header>

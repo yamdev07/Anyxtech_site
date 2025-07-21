@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>AnyxTech Bénin</title>
+    <title>Nos Services - AnyxTech Bénin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
             --anyxtech-one-blue: #1db9ff;
@@ -17,53 +19,891 @@
             --black-black: #121212;
         }
 
-        @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
 
-            100% {
+        /* Hero Section avec animation de particules */
+        .hero-section {
+            background: linear-gradient(135deg, var(--anyxtech-one-blue) 0%, var(--anyxtech-two-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.2"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.15"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        /* Navigation moderne */
+        nav {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Boutons de filtre animés */
+        .filter-btn {
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(29, 185, 255, 0.3);
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
+            border-color: var(--anyxtech-one-blue);
+            transform: scale(1.05);
+        }
+
+        /* Cards avec effet glassmorphism */
+        .service-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(29, 185, 255, 0.1), rgba(31, 66, 155, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(29, 185, 255, 0.4);
+        }
+
+        .service-card.hidden {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            pointer-events: none;
+        }
+
+        /* Icônes animées */
+        .service-icon {
+            background: linear-gradient(135deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .service-card:hover .service-icon::before {
+            transform: translateX(100%);
+        }
+
+        /* Testimonials carousel amélioré */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations personnalisées */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .fade-slide-up {
-            animation: fadeSlideUp 0.8s ease forwards;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        .hero-title {
-            transition: opacity 0.5s ease;
+        .animate-pulse-custom {
+            animation: pulse 2s infinite;
+        }
+
+        /* Loading animation */
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--anyxtech-one-blue);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive amélioré */
+        @media (max-width: 768px) {
+            .service-card {
+                transform: none;
+            }
+            
+            .service-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Footer moderne */
+        footer {
+            background: linear-gradient(135deg, #0e2f55 0%, #122b51 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(29, 185, 255, 0.1) 0%, transparent 50%);
+        }
+
+        /* Utilitaires */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--anyxtech-one-blue), var(--anyxtech-two-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-anyxtech {
+            background: linear-gradient(135deg, var(--anyxtech-one-blue) 0%, var(--anyxtech-two-blue) 100%);
+        }
+
+        .text-anyxtech {
+            color: var(--anyxtech-one-blue);
+        }
+
+        .border-anyxtech {
+            border-color: var(--anyxtech-one-blue);
+        }
+
+        .bg-anyxtech {
+            background-color: var(--anyxtech-one-blue);
+        }
+
+        .hover-anyxtech:hover {
+            background-color: var(--anyxtech-two-blue);
         }
     </style>
 </head>
 
 <body>
     <div id="header-placeholder"></div>
+    <!-- Navigation -->
+    <!-- Navigation améliorée -->
+  <nav class="relative flex items-center h-16 bg-white text-[var(--black-black)] font-bold px-6 mt-6">
+  <!-- Logo à gauche (positionné absolument à gauche) -->
+  <div class="absolute left-6">
+    <a href="/">
+      <img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech">
+    </a>
+  </div>
 
+  <!-- Liens centrés dans la barre -->
+  <div class="mx-auto flex gap-x-8 text-xl">
+    <a href="/">Accueil</a>
+    <a href="/societe.html">Société</a>
+    <a href="/service.html">Services</a>
+    <a href="/contact.html">Contact</a>
+  </div>
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, quam perspiciatis unde est nulla pariatur nemo adipisci harum, officiis esse! Quod, delectus hic. Ipsum beatae ut sed molestiae fuga.</p>
+ <!-- Bouton Demande de devis à droite -->
+  <div class="absolute right-6">
+    <a href="/devis.html" class="bg-[var(--anyxtech-two-blue)] text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-900 transition">
+      Demande de devis
+    </a>
+  </div>
+</nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-32 mt-16">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate__animated animate__fadeInUp">
+                Nos <span class="relative">Services
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-white opacity-50 animate-pulse"></span>
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+                Solutions technologiques complètes pour votre entreprise
+            </p>
+            <div class="flex justify-center space-x-2 animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                <div class="w-3 h-3 bg-white rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                <div class="w-3 h-3 bg-white rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="py-20 -mt-10 relative z-10">
+        <div class="container mx-auto px-4">
+            <!-- Filter Section -->
+            <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 mb-12 border border-white/20" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-center gradient-text mb-6">Filtrer par catégorie</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="filter-btn px-8 py-4 rounded-full font-semibold transition-all duration-300 active" data-filter="all">
+                        <i class="fas fa-globe mr-2"></i>Tous les services
+                    </button>
+                    <button class="filter-btn px-8 py-4 rounded-full font-semibold transition-all duration-300" data-filter="communication">
+                        <i class="fas fa-bullhorn mr-2"></i>Communication
+                    </button>
+                    <button class="filter-btn px-8 py-4 rounded-full font-semibold transition-all duration-300" data-filter="infrastructure">
+                        <i class="fas fa-network-wired mr-2"></i>Infrastructure
+                    </button>
+                    <button class="filter-btn px-8 py-4 rounded-full font-semibold transition-all duration-300" data-filter="support">
+                        <i class="fas fa-headset mr-2"></i>Support
+                    </button>
+                    <button class="filter-btn px-8 py-4 rounded-full font-semibold transition-all duration-300" data-filter="hosting">
+                        <i class="fas fa-server mr-2"></i>Hébergement
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Animation -->
+            <div class="text-center py-12 hidden" id="loading">
+                <div class="loading-spinner mx-auto mb-4"></div>
+                <p class="text-gray-600">Chargement des services...</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
+                <!-- Les services seront générés par JavaScript -->
+            </div>
+
+            <!-- No Results -->
+            <div class="text-center py-16 hidden" id="noResults">
+                <div class="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-search text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-700 mb-4">Aucun service trouvé</h3>
+                <p class="text-gray-500 max-w-md mx-auto">Essayez de sélectionner une autre catégorie ou contactez-nous pour des besoins spécifiques.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <h2 class="text-4xl font-bold text-center gradient-text mb-16">
+                Ce que disent nos clients
+            </h2>
+
+            <div class="relative" id="testimonialCarousel">
+                <div class="overflow-hidden relative rounded-2xl">
+                    <div class="flex transition-transform duration-700 ease-in-out" id="testimonialWrapper">
+                        <!-- Témoignages générés par JS -->
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button class="absolute top-1/2 -left-6 transform -translate-y-1/2 bg-white shadow-xl text-anyxtech rounded-full w-12 h-12 flex items-center justify-center hover:bg-anyxtech hover:text-white transition-all duration-300 hover:scale-110" id="prevTestimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white shadow-xl text-anyxtech rounded-full w-12 h-12 flex items-center justify-center hover:bg-anyxtech hover:text-white transition-all duration-300 hover:scale-110" id="nextTestimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Indicators -->
+                <div class="flex justify-center mt-8 space-x-2" id="testimonialIndicators">
+                    <!-- Générés par JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative">
+        <div class="container mx-auto px-6 py-16 text-white max-w-7xl relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Contact -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-phone mr-3 text-anyxtech"></i>
+                        Contactez-nous
+                    </h3>
+                    <div class="space-y-3">
+                        <p class="flex items-center"><i class="fas fa-building mr-3 text-anyxtech"></i>AnyxTech Bénin</p>
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-anyxtech"></i>01 BP 1234 Cotonou, Bénin</p>
+                        <p class="flex items-center"><i class="fas fa-phone mr-3 text-anyxtech"></i>+229 1234 5678</p>
+                        <p class="flex items-center"><i class="fas fa-envelope mr-3 text-anyxtech"></i>contact@anyxtech.bj</p>
+                    </div>
+                </div>
+
+                <!-- Liens Utiles -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-link mr-3 text-anyxtech"></i>
+                        Liens utiles
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-anyxtech transition duration-300 flex items-center"><i class="fas fa-arrow-right mr-2 text-xs"></i>Accueil</a></li>
+                        <li><a href="#" class="hover:text-anyxtech transition duration-300 flex items-center"><i class="fas fa-arrow-right mr-2 text-xs"></i>Services</a></li>
+                        <li><a href="#" class="hover:text-anyxtech transition duration-300 flex items-center"><i class="fas fa-arrow-right mr-2 text-xs"></i>À propos</a></li>
+                        <li><a href="#" class="hover:text-anyxtech transition duration-300 flex items-center"><i class="fas fa-arrow-right mr-2 text-xs"></i>Contact</a></li>
+                        <li><a href="#" class="hover:text-anyxtech transition duration-300 flex items-center"><i class="fas fa-arrow-right mr-2 text-xs"></i>Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter + Réseaux -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-bell mr-3 text-anyxtech"></i>
+                        Restez connectés
+                    </h3>
+                    <p class="mb-6">Inscrivez-vous pour recevoir nos dernières actualités et offres.</p>
+                    <form class="flex mb-8" onsubmit="handleNewsletter(event)">
+                        <input type="email" placeholder="Votre email" required 
+                               class="flex-grow px-4 py-3 rounded-l-xl text-black focus:outline-none focus:ring-2 focus:ring-anyxtech" />
+                        <button type="submit" 
+                                class="bg-anyxtech px-6 py-3 rounded-r-xl font-semibold hover:bg-anyxtech transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-anyxtech rounded-full flex items-center justify-center hover:bg-anyxtech transition duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-anyxtech rounded-full flex items-center justify-center hover:bg-anyxtech transition duration-300 hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-anyxtech rounded-full flex items-center justify-center hover:bg-anyxtech transition duration-300 hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-anyxtech rounded-full flex items-center justify-center hover:bg-anyxtech transition duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="opacity-80">&copy; 2025 AnyxTech Bénin. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Données des services
+        const services = [
+            {
+                id: 1,
+                category: 'communication',
+                icon: 'fas fa-bullhorn',
+                title: 'Communication Digitale',
+                description: 'Stratégies digitales sur mesure pour renforcer votre marque et engager votre audience.',
+                features: ['Création de contenus visuels et SEO', 'Gestion des réseaux sociaux', 'Calendriers éditoriaux', 'Publicité ciblée (Google, Meta)', 'Référencement naturel', 'Analytics et reporting'],
+                color: 'from-pink-500 to-purple-600'
+            },
+            {
+                id: 2,
+                category: 'infrastructure',
+                icon: 'fas fa-network-wired',
+                title: 'Réseautage et Connectivité',
+                description: 'Réseaux informatiques sécurisés et évolutifs pour une connectivité optimale.',
+                features: ['Virtualisation réseau (VLAN, SDN)', 'Matériel réseau professionnel', 'Câblage structuré', 'Maintenance et supervision', 'Sécurité réseau avancée'],
+                color: 'from-blue-500 to-cyan-600'
+            },
+            {
+                id: 3,
+                category: 'infrastructure',
+                icon: 'fas fa-wifi',
+                title: 'Installation WiFi',
+                description: 'Déploiement de réseaux sans fil rapides et sécurisés pour tous environnements.',
+                features: ['Réseaux LAN/WLAN/WAN', 'Couverture WiFi optimisée', 'Sécurité sans fil', 'Monitoring en temps réel'],
+                color: 'from-green-500 to-teal-600'
+            },
+            {
+                id: 4,
+                category: 'infrastructure',
+                icon: 'fas fa-bolt',
+                title: 'Solutions Énergétiques',
+                description: 'Projets électriques complets avec approche durable et énergies renouvelables.',
+                features: ['Études et dimensionnement', 'Installation électrique', 'Groupes électrogènes', 'Maintenance préventive', 'Énergies renouvelables'],
+                color: 'from-yellow-500 to-orange-600'
+            },
+            {
+                id: 5,
+                category: 'communication',
+                icon: 'fas fa-chart-line',
+                title: 'Marketing Digital',
+                description: 'Campagnes digitales ciblées pour renforcer votre image et attirer des prospects.',
+                features: ['Sites web optimisés', 'Identité visuelle', 'Community management', 'Campagnes publicitaires', 'Content marketing', 'Automation marketing'],
+                color: 'from-red-500 to-pink-600'
+            },
+            {
+                id: 6,
+                category: 'support',
+                icon: 'fas fa-users',
+                title: 'Suivi Clientèle',
+                description: 'Accompagnement personnalisé et support réactif pour votre satisfaction.',
+                features: ['Support 24/7', 'Accompagnement projet', 'Formation utilisateurs', 'Maintenance préventive', 'Assistance technique'],
+                color: 'from-indigo-500 to-purple-600'
+            },
+            {
+                id: 7,
+                category: 'hosting',
+                icon: 'fas fa-server',
+                title: 'Hébergement & Domaine',
+                description: 'Hébergement web performant et gestion complète de vos domaines.',
+                features: ['Hébergement multi-plateforme', 'Gestion de domaines', 'Certificats SSL', 'Sauvegardes automatiques', 'Monitoring serveur', 'Sécurité avancée'],
+                color: 'from-gray-500 to-gray-700'
+            }
+        ];
+
+        // Données des témoignages
+        const testimonials = [
+            {
+                name: "Jean Dupont",
+                photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+                company: "CEO - TechCorp",
+                rating: 5,
+                text: "AnyxTech a transformé notre présence digitale. Leur équipe est exceptionnellement professionnelle et réactive."
+            },
+            {
+                name: "Sophie Martin",
+                photo: "https://images.unsplash.com/photo-1494790108755-2616b612b17c?w=150&h=150&fit=crop&crop=face",
+                company: "Directrice Marketing - WebSolutions",
+                rating: 5,
+                text: "Infrastructure réseau plus sécurisée et performante. Une vraie valeur ajoutée pour notre entreprise."
+            },
+            {
+                name: "Michel Bernard",
+                photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+                company: "Responsable IT - Innovatech",
+                rating: 5,
+                text: "Support client exceptionnel, toujours disponible. Un partenaire fiable sur le long terme."
+            }
+        ];
+
+        // Variables globales
+        let currentTestimonialIndex = 0;
+        let testimonialInterval;
+        let isAnimating = false;
+
+        // Fonction pour créer une carte de service
+        function createServiceCard(service) {
+            const featuresHTML = service.features.map(feature =>
+                `<li class="flex items-start mb-3">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1 text-sm"></i>
+                    <span class="text-sm text-gray-700">${feature}</span>
+                </li>`
+            ).join('');
+
+            return `
+                <div class="service-card rounded-2xl shadow-xl p-8 transition-all duration-500 hover:shadow-2xl relative group" 
+                     data-category="${service.category}" 
+                     data-aos="fade-up" 
+                     data-aos-delay="${service.id * 100}">
+                    
+                    <div class="text-center mb-8">
+                        <div class="service-icon w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="${service.icon} text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-anyxtech transition-colors duration-300">
+                            ${service.title}
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">${service.description}</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-star text-yellow-500 mr-2"></i>
+                            Nos prestations
+                        </h4>
+                        <ul class="text-gray-600 space-y-1">
+                            ${featuresHTML}
+                        </ul>
+                    </div>
+                    
+                    <button class="w-full gradient-anyxtech text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 group-hover:animate-pulse-custom" 
+                            onclick="contactService('${service.title}')">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Demander un devis
+                    </button>
+                </div>
+            `;
+        }
+
+        // Fonction pour créer un témoignage
+        function createTestimonial(testimonial, index) {
+            const starsHTML = Array(testimonial.rating).fill('<i class="fas fa-star text-yellow-400"></i>').join('');
+            
+            return `
+                <div class="testimonial-card flex-shrink-0 w-full p-8 mx-4 rounded-2xl shadow-xl text-center transform transition-all duration-300">
+                    <div class="relative mb-6">
+                        <img src="${testimonial.photo}" alt="${testimonial.name}" 
+                             class="w-24 h-24 rounded-full mx-auto object-cover border-4 border-white shadow-lg" 
+                             onerror="this.src='https://via.placeholder.com/150x150/1db9ff/ffffff?text=${testimonial.name.charAt(0)}'" />
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-anyxtech text-white px-3 py-1 rounded-full text-xs">
+                            ${starsHTML}
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-gray-700 italic text-lg mb-6 leading-relaxed">
+                        "${testimonial.text}"
+                    </blockquote>
+                    
+                    <div class="border-t pt-4">
+                        <h4 class="font-bold text-anyxtech text-xl">${testimonial.name}</h4>
+                        <p class="text-gray-500 text-sm mt-1">${testimonial.company}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Fonction pour afficher les services
+        function displayServices(servicesToShow = services) {
+            const servicesGrid = document.getElementById('servicesGrid');
+            const noResults = document.getElementById('noResults');
+            const loading = document.getElementById('loading');
+
+            // Afficher loading
+            loading.classList.remove('hidden');
+            servicesGrid.innerHTML = '';
+            noResults.classList.add('hidden');
+
+            // Simuler un délai de chargement pour l'effet
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                
+                if (servicesToShow.length === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    servicesGrid.innerHTML = servicesToShow.map(createServiceCard).join('');
+                    // Réinitialiser AOS
+                    if (typeof AOS !== 'undefined') {
+                        AOS.refresh();
+                    }
+                }
+            }, 500);
+        }
+
+        // Fonction de filtrage améliorée
+        function filterServices(category) {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const activeButton = document.querySelector(`[data-filter="${category}"]`);
+            
+            // Mettre à jour les boutons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeButton.classList.add('active');
+
+            // Filtrer les services
+            const filteredServices = category === 'all' 
+                ? services 
+                : services.filter(service => service.category === category);
+            
+            displayServices(filteredServices);
+        }
+
+        // Fonction pour contacter un service
+        function contactService(serviceName) {
+            // Animation du bouton
+            const button = event.target;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Redirection...';
+            
+            setTimeout(() => {
+                window.location.href = `contact.html?service=${encodeURIComponent(serviceName)}`;
+            }, 1000);
+        }
+
+        // Gestion du carousel de témoignages
+        function displayTestimonials() {
+            const wrapper = document.getElementById('testimonialWrapper');
+            const indicators = document.getElementById('testimonialIndicators');
+            
+            wrapper.innerHTML = testimonials.map(createTestimonial).join('');
+            
+            // Créer les indicateurs
+            indicators.innerHTML = testimonials.map((_, index) => 
+                `<button class="w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-anyxtech' : 'bg-gray-300'}" 
+                         onclick="goToTestimonial(${index})"></button>`
+            ).join('');
+            
+            updateCarouselPosition();
+            startAutoSlide();
+        }
+
+        function updateCarouselPosition() {
+            const wrapper = document.getElementById('testimonialWrapper');
+            const indicators = document.querySelectorAll('#testimonialIndicators button');
+            
+            wrapper.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
+            
+            // Mettre à jour les indicateurs
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('bg-anyxtech', index === currentTestimonialIndex);
+                indicator.classList.toggle('bg-gray-300', index !== currentTestimonialIndex);
+            });
+        }
+
+        function nextTestimonial() {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            updateCarouselPosition();
+            
+            setTimeout(() => {
+                isAnimating = false;
+            }, 700);
+        }
+
+        function prevTestimonial() {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            currentTestimonialIndex = currentTestimonialIndex === 0 
+                ? testimonials.length - 1 
+                : currentTestimonialIndex - 1;
+            updateCarouselPosition();
+            
+            setTimeout(() => {
+                isAnimating = false;
+            }, 700);
+        }
+
+        function goToTestimonial(index) {
+            if (isAnimating || index === currentTestimonialIndex) return;
+            isAnimating = true;
+            
+            currentTestimonialIndex = index;
+            updateCarouselPosition();
+            resetAutoSlide();
+            
+            setTimeout(() => {
+                isAnimating = false;
+            }, 700);
+        }
+
+        function startAutoSlide() {
+            testimonialInterval = setInterval(nextTestimonial, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(testimonialInterval);
+            startAutoSlide();
+        }
+
+        // Gestion de la newsletter
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const button = event.target.querySelector('button');
+            const input = event.target.querySelector('input');
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                input.value = '';
+                
+                // Notification
+                showNotification('Merci pour votre inscription !', 'success');
+                
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-paper-plane"></i>';
+                }, 2000);
+            }, 1000);
+        }
+
+        // Fonction de notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transform transition-all duration-300 translate-x-full`;
+            notification.className += type === 'success' ? ' bg-green-500 text-white' : ' bg-blue-500 text-white';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-${type === 'success' ? 'check' : 'info'} mr-2"></i>
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animation d'entrée
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Suppression automatique
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        // Gestion du scroll pour la navbar
+        function handleScroll() {
+            const navbar = document.getElementById('navbar');
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // Smooth scroll pour les liens internes
+        function smoothScroll(target) {
+            document.querySelector(target).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Afficher les services
+            displayServices();
+            
+            // Gérer les boutons de filtre
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-filter');
+                    filterServices(category);
+                });
+            });
+            
+            // Initialiser le carousel
+            displayTestimonials();
+            
+            // Boutons du carousel
+            document.getElementById('prevTestimonial').addEventListener('click', prevTestimonial);
+            document.getElementById('nextTestimonial').addEventListener('click', nextTestimonial);
+            
+            // Gestion du scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Gestion du redimensionnement
+            window.addEventListener('resize', updateCarouselPosition);
+            
+            // Pause carousel au survol
+            const carousel = document.getElementById('testimonialCarousel');
+            carousel.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            
+            // Animation des éléments au scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer les cartes de service
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Gestion des erreurs d'images
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.target.style.display = 'none';
+            }
+        }, true);
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialisation AOS avec configuration personnalisée
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50,
+            delay: 100
+        });
+    </script>
     
-    <div id="footer-placeholder"></div>
-
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
-
-    fetch("footer.html")
-      .then(response => response.text())
-      .then(html => document.getElementById("footer-placeholder").innerHTML = html);
-  </script>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 800,
-      easing: 'ease-in-out'
-    });
-  </script>
 </body>
+
+</html>
