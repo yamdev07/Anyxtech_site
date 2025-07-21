@@ -19,6 +19,31 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-btn:active {
+      background-color: #0e6b5d;
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+    }
   </style>
 </head>
 
@@ -31,7 +56,6 @@
     </h1>
 
     <div class="grid md:grid-cols-2 gap-12">
-      <!-- Formulaire -->
       <form class="space-y-6 bg-gray-50 p-8 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
         <div>
           <label for="nom" class="block font-semibold text-gray-700">Nom complet</label>
@@ -56,8 +80,6 @@
           Envoyer le message
         </button>
       </form>
-
-      <!-- Infos de contact -->
       <div class="space-y-6 text-gray-700" data-aos="fade-up" data-aos-delay="200">
         <div class="flex items-start gap-4">
           <i class="fa-solid fa-map-marker-alt text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
@@ -66,7 +88,6 @@
             <p>Cadjehoun, Maison Djidohokpin Nicolas, Cotonou, Bénin</p>
           </div>
         </div>
-
         <div class="flex items-start gap-4">
           <i class="fa-solid fa-envelope text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
           <div>
@@ -74,7 +95,6 @@
             <p>contact@anyxtech.com</p>
           </div>
         </div>
-
         <div class="flex items-start gap-4">
           <i class="fa-solid fa-phone text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
           <div>
@@ -82,12 +102,14 @@
             <p>+229 41 42 15 70</p>
           </div>
         </div>
-
         <div class="flex items-start gap-4">
           <i class="fa-brands fa-whatsapp text-[var(--anyxtech-one-blue)] text-2xl mt-1"></i>
           <div>
             <h3 class="font-bold">WhatsApp</h3>
-            <p><a href="https://wa.me/22952415241" target="_blank" class="text-[var(--anyxtech-two-blue)] underline">Discuter sur WhatsApp</a></p>
+            <p><a href="https://wa.me/22952415241" target="_blank" class="whatsapp-btn">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              Discuter sur WhatsApp
+            </a></p>
           </div>
         </div>
       </div>
@@ -95,7 +117,6 @@
   </main>
 
   <div id="footer-placeholder"></div>
-
   <script>
     fetch("header.html")
       .then(res => res.text())
@@ -105,8 +126,7 @@
       .then(res => res.text())
       .then(html => document.getElementById("footer-placeholder").innerHTML = html);
   </script>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
       once: true,
