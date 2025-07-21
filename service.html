@@ -2,51 +2,140 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>AnyxTech Bénin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <style>
-        :root {
-            --anyxtech-one-blue: #1db9ff;
-            --anyxtech-two-blue: #1f429b;
-            --anyxtech-three-blue: #1e4d9f;
-            --light-black: #2a2a2a;
-            --black-black: #121212;
-        }
+  <meta charset="UTF-8" />
+  <title>AnyxTech Bénin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    :root {
+      --anyxtech-one-blue: #1db9ff;
+      --anyxtech-two-blue: #1f429b;
+      --anyxtech-three-blue: #1e4d9f;
+      --light-black: #2a2a2a;
+      --black-black: #121212;
+    }
 
-        @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .fade-slide-up {
-            animation: fadeSlideUp 0.8s ease forwards;
-        }
+    .fade-slide-up {
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
 
-        .hero-title {
-            transition: opacity 0.5s ease;
-        }
-    </style>
+    .hero-title {
+      transition: opacity 0.5s ease;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
+  <div id="header-placeholder"></div>
 
+  <!-- Section Accueil -->
+  <section class="bg-white py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-[var(--anyxtech-three-blue)] mb-4">Bienvenue chez AnyxTech Bénin</h2>
+      <p class="text-lg text-gray-700">Nous mettons notre expertise au service de votre transformation numérique. De la connectivité au marketing digital, notre équipe vous accompagne à chaque étape.</p>
+    </div>
+  </section>
 
+  <!-- Section Services -->
+  <section class="py-16 px-4 bg-gray-100">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-[var(--anyxtech-three-blue)]">Nos Services</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=communication" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-bullhorn text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Communication digitale</h3>
+        </a>
+        <p class="text-sm text-gray-600">Stratégies adaptées à chaque marque.</p>
+        <p class="text-sm text-gray-800 italic">Une équipe aguerrie met en œuvre vos projets.</p>
+      </div>
 
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=reseau" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-network-wired text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Réseautage & connectivité</h3>
+        </a>
+        <p class="text-sm text-gray-600">Interconnexion, virtualisation, équipements.</p>
+        <p class="text-sm text-gray-800 italic">Infrastructure performante et évolutive.</p>
+      </div>
 
-    
-    <div id="footer-placeholder"></div>
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=wifi" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-wifi text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Installation Wi-Fi</h3>
+        </a>
+        <p class="text-sm text-gray-600">Configuration de réseaux sans fil.</p>
+        <p class="text-sm text-gray-800 italic">Performances optimales et stables.</p>
+      </div>
+
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=energie" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-bolt text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Énergie</h3>
+        </a>
+        <p class="text-sm text-gray-600">Étude, exécution, maintenance.</p>
+        <p class="text-sm text-gray-800 italic">Pour industries, bâtiments et renouvelables.</p>
+      </div>
+
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=marketing" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-chart-line text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Marketing digital</h3>
+        </a>
+        <p class="text-sm text-gray-600">Identité visuelle, réseaux sociaux.</p>
+        <p class="text-sm text-gray-800 italic">Stratégies personnalisées et publicité.</p>
+      </div>
+
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=suivi" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-headset text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Suivi clientèle</h3>
+        </a>
+        <p class="text-sm text-gray-600">Assistance 7j/7 et accompagnement.</p>
+        <p class="text-sm text-gray-800 italic">Jusqu’à satisfaction complète.</p>
+      </div>
+
+      <div class="flex flex-col items-center service-item">
+        <a href="service_detail.html?service=hebergement" class="group">
+          <div class="bg-[var(--anyxtech-one-blue)] text-white w-20 h-20 flex items-center justify-center rounded-full mb-4">
+            <i class="fas fa-server text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--black-black)] mb-2">Hébergement & domaines</h3>
+        </a>
+        <p class="text-sm text-gray-600">Stockage, hébergement web, domaines.</p>
+        <p class="text-sm text-gray-800 italic">Visibilité fiable et sécurisée.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
 
   <script>
     fetch("header.html")
@@ -67,3 +156,5 @@
     });
   </script>
 </body>
+
+</html>

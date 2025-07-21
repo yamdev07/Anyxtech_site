@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Détail du service | AnyxTech Bénin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    :root {
+      --anyxtech-one-blue: #1db9ff;
+      --anyxtech-two-blue: #1f429b;
+      --anyxtech-three-blue: #1e4d9f;
+      --light-black: #2a2a2a;
+      --black-black: #121212;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-slide-up {
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- HEADER -->
+  <div id="header-placeholder"></div>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="py-20 px-6 bg-white fade-slide-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 id="titre" class="text-4xl font-bold text-[var(--anyxtech-three-blue)] mb-6"></h1>
+      <p id="surtitre" class="text-xl text-[var(--anyxtech-two-blue)] italic mb-4"></p>
+      <div id="contenu" class="text-md text-gray-700 text-left space-y-4"></div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- HEADER / FOOTER DYNAMIQUE -->
+  <script>
+    fetch("header.html")
+      .then(r => r.text()).then(html => document.getElementById("header-placeholder").innerHTML = html);
+    fetch("footer.html")
+      .then(r => r.text()).then(html => document.getElementById("footer-placeholder").innerHTML = html);
+  </script>
+
+  <!-- LOGIQUE DE CHOIX DE SERVICE -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const svc = params.get("service");
+
+      const details = {
+        communication: {
+          titre: "Communication digitale",
+          surtitre: "Communication digitale sur mesure pour booster votre marque",
+          contenu: `
+Chez AnyxTech, nous plaçons la communication digitale au cœur de la croissance de votre entreprise. Grâce à une stratégie digitale personnalisée, nous donnons vie à votre marque sur les canaux numériques les plus pertinents : réseaux sociaux, newsletters, campagnes publicitaires en ligne, référencement, branding et plus encore. Notre approche repose sur l’analyse approfondie de votre audience, de vos objectifs et de votre positionnement. Nous concevons des plans de communication alignés sur vos valeurs, pour toucher efficacement vos cibles et générer un véritable engagement.
+
+<b>Nos services en communication digitale incluent :</b>
+<ul class="list-disc list-inside">
+  <li>Création de contenus engageants (visuels, vidéos, articles SEO)</li>
+  <li>Gestion des réseaux sociaux (Facebook, Instagram, LinkedIn…)</li>
+  <li>Élaboration de calendriers éditoriaux sur mesure</li>
+  <li>Publicité en ligne (Google Ads, Meta Ads…)</li>
+  <li>Référencement naturel (SEO) & optimisation</li>
+  <li>Suivi des performances (reportings, KPI)</li>
+</ul>
+<b>Une équipe experte à votre écoute :</b><br>
+Notre équipe expérimentée allie créativité, rigueur et maîtrise des outils digitaux pour concrétiser vos idées. Chaque projet est piloté avec professionnalisme, de la stratégie à l’exécution. Notre objectif : positionner votre entreprise comme une référence sur le web.
+          `
+        },
+        reseau: {
+          titre: "Réseautage & connectivité",
+          surtitre: "Réseautage & connectivité – Des infrastructures fiables et évolutives",
+          contenu: `
+Dans un monde toujours plus connecté, disposer d’un réseau informatique performant et sécurisé est essentiel à la réussite de toute entreprise. Chez AnyxTech, nous concevons et déployons des solutions de réseautage robustes, évolutives et parfaitement adaptées à vos besoins. Notre mission : garantir une connectivité fluide, rapide et fiable pour l’ensemble de vos équipements et utilisateurs, tout en assurant la sécurité et l’optimisation de vos flux de données.
+
+<b>Nos services en réseautage et connectivité incluent :</b>
+<ul class="list-disc list-inside">
+  <li>Virtualisation et segmentation réseau (VLAN, SDN)</li>
+  <li>Vente et installation de matériel réseau (switchs, routeurs, pare‑feux)</li>
+  <li>Câblage structuré & infrastructures fibre/ethernet</li>
+  <li>Maintenance, supervision & audit réseau</li>
+  <li>Sécurité réseau (pare‑feu, VPN, surveillance)</li>
+</ul>
+<b>Une infrastructure adaptée à vos enjeux :</b><br>
+Nous vous accompagnons à chaque étape : de l’analyse de vos besoins à l’installation complète de votre réseau, en passant par le choix des meilleurs équipements. Notre objectif : bâtir une infrastructure stable, évolutive et prête pour l’avenir.
+          `
+        },
+        wifi: {
+          titre: "Installation Wi‑Fi",
+          surtitre: "Installation Wi‑Fi – Des performances réseau optimales et stables",
+          contenu: `
+Conception et mise en place de réseaux LAN, WLAN, WAN. Virtualisation, segmentation réseau (VLAN, SDN), câblage structuré & infrastructures fibre/ethernet, maintenance/réparation, sécurité réseau (pare‑feu, VPN).
+
+<b>Nos services incluent :</b>
+<ul class="list-disc list-inside">
+  <li>Conception et mise en place de réseaux LAN, WLAN, WAN</li>
+  <li>Virtualisation et segmentation réseau (VLAN, SDN)</li>
+  <li>Vente et installation de matériel réseau</li>
+  <li>Câblage structuré & fibre/ethernet</li>
+  <li>Maintenance, supervision & audit</li>
+  <li>Sécurité (pare‑feu, VPN, surveillance)</li>
+</ul>
+<b>Une expertise au service de votre performance :</b><br>
+Nos ingénieurs en connectivité s’appuient sur les meilleures pratiques du secteur IT et sur une veille technologique constante. Que vous soyez une PME, un organisme public ou une grande entreprise, nous vous proposons des solutions réseau sur mesure, flexibles et rentables.
+          `
+        },
+        energie: {
+          titre: "Énergie",
+          surtitre: "Solutions Énergie – Étude, exécution et maintenance de vos installations électriques",
+          contenu: `
+Chez AnyxTech, nous proposons des solutions énergétiques complètes, de l’étude technique à la maintenance, en passant par l’exécution de vos projets électriques. Que vous soyez une entreprise, une industrie ou un acteur du secteur public, nous vous accompagnons dans la réalisation de systèmes électriques fiables, sécurisés et conformes aux normes en vigueur.
+
+<b>Nos services en énergie comprennent :</b>
+<ul class="list-disc list-inside">
+  <li>Études techniques et dimensionnement électrique</li>
+  <li>Installation de réseaux basse et moyenne tension</li>
+  <li>Tableaux de distribution, groupes électrogènes, onduleurs</li>
+  <li>Maintenance préventive et corrective</li>
+  <li>Solutions pour bâtiments, industries, tertiaire</li>
+  <li>Intégration d’énergies renouvelables (solaire, hybride)</li>
+</ul>
+<b>Une énergie maîtrisée, pour un avenir plus performant :</b><br>
+Avec AnyxTech, vous bénéficiez d’un partenaire fiable pour vos projets énergétiques, alliant expertise technique et vision durable.
+          `
+        },
+        marketing: {
+          titre: "Marketing digital",
+          surtitre: "Marketing digital – Des stratégies sur mesure pour valoriser votre image",
+          contenu: `
+À l’ère du numérique, la présence en ligne est un levier stratégique de croissance. Chez AnyxTech, nous concevons des stratégies de marketing digital personnalisées, en fonction de votre identité de marque, vos objectifs commerciaux et votre audience. Objectif : renforcer votre visibilité, développer votre communauté et convertir vos prospects.
+
+<b>Nos expertises :</b>
+<ul class="list-disc list-inside">
+  <li>Création/refonte de site web (responsive, SEO)</li>
+  <li>Identité visuelle (logo, charte graphique)</li>
+  <li>Gestion des réseaux sociaux (community management)</li>
+  <li>Campagnes publicitaires (Facebook Ads, Google Ads…)</li>
+  <li>Contenus SEO & blogging</li>
+  <li>Emailing, automation & entonnoirs de conversion</li>
+</ul>
+<b>Des experts à votre service :</b><br>
+Notre équipe (designers, stratèges, référenceurs, développeurs) collabore pour créer des campagnes cohérentes, mesurables et performantes.
+          `
+        },
+        suivi: {
+          titre: "Suivi clientèle",
+          surtitre: "Suivi clientèle – Un accompagnement personnalisé jusqu’à votre entière satisfaction",
+          contenu: `
+Chez AnyxTech, la relation client est au cœur de notre engagement. Nous proposons un accompagnement humain, proactif et disponible 7j/7 pour garantir votre satisfaction.
+
+<b>Nos prestations :</b>
+<ul class="list-disc list-inside">
+  <li>Accompagnement avant, pendant et après prestation</li>
+  <li>Assistance technique & fonctionnelle 7j/7</li>
+  <li>Suivi régulier de projet</li>
+  <li>Réponses rapides (téléphone, mail, messagerie instantanée)</li>
+  <li>Gestion proactive des retours</li>
+  <li>Mesure de satisfaction & amélioration continue</li>
+</ul>
+<b>Un service centré sur l’humain et la performance :</b><br>
+Nous croyons qu’un excellent produit doit s’accompagner d’une expérience client irréprochable : c’est ce qui fait la différence.
+          `
+        },
+        hebergement: {
+          titre: "Hébergement & domaines",
+          surtitre: "Hébergement & gestion de domaines – Des solutions fiables, sécurisées et évolutives",
+          contenu: `
+La présence en ligne d’une entreprise débute par un hébergement performant et un nom de domaine stratégique. Chez AnyxTech, nous proposons des solutions hébergement (cloud, dédié, mutualisé) et gestion de domaines, conçues pour assurer stabilité, performance et visibilité.
+
+<b>Nos services incluent :</b>
+<ul class="list-disc list-inside">
+  <li>Hébergement cloud, dédié ou mutualisé haute disponibilité</li>
+  <li>Enregistrement, transfert et gestion avancée de domaines</li>
+  <li>Certificats SSL & sécurité des données</li>
+  <li>Sauvegardes automatiques & restauration rapide</li>
+  <li>Surveillance uptime, support technique réactif</li>
+  <li>Protection DDoS & pare‑feu applicatif</li>
+</ul>
+<b>Des performances web optimales, 24 h/24 et 7 j/7 :</b><br>
+Vos sites et applications bénéficient d’une infrastructure sécurisée et redondante, avec un taux de disponibilité maximal. Nos experts accompagnent vos choix techniques selon vos usages et ambitions.
+          `
+        }
+      };
+
+      const info = details[svc];
+      if (info) {
+        document.getElementById("titre").textContent = info.titre;
+        document.getElementById("surtitre").textContent = info.surtitre;
+        document.getElementById("contenu").innerHTML = info.contenu;
+      } else {
+        document.getElementById("titre").textContent = "Service introuvable";
+        document.getElementById("contenu").textContent = "Le service demandé n’existe pas ou l’URL est incorrecte.";
+      }
+    });
+  </script>
+
+  <!-- Animation AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script>
+    AOS.init({ once: true, duration: 800, easing: 'ease-in-out' });
+  </script>
+</body>
+</html>
