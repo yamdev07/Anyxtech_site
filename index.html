@@ -5,6 +5,20 @@
     <meta charset="UTF-8" />
     <title>AnyxTech Bénin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'anyxtech-blue': '#1e3a8a',
+            'anyxtech-cyan': '#1db9ff',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -246,11 +260,11 @@
     </style>
 </head>
 
-<body class="text-gray-800 font-sans leading-relaxed">
+<body class="text-gray-800 font-sans leading-relaxed bg-white dark:bg-[#0f172a] dark:text-gray-100">
 
     <div id="header-placeholder"></div>
 
-    <section class="relative mt-10 text-center px-6 pt-44 pb-28 bg-cover bg-no-repeat"
+    <section class="relative text-center px-6 pt-44 pb-28 bg-cover bg-no-repeat"
         style="background-image: url('images/imageinformatique.web.jfif'); background-position: center top;">
         <div class="hero-overlay"></div>
         <div class="relative z-10 max-w-5xl mx-auto">
@@ -276,63 +290,63 @@
         </div>
     </section>
 
-    <section class="fade-slide-up" style="animation-delay: 0.2s;">
+    <section class="fade-slide-up bg-[var(--section-light)] dark:bg-gradient-to-br dark:from-[#1a2233] dark:to-[#22304a] transition-colors duration-500" style="animation-delay: 0.2s;">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <h2 class="text-5xl font-bold text-[var(--light-black)] leading-snug text-left mb-4">
+            <h2 class="text-5xl font-bold text-[var(--anyxtech-two-blue)] dark:text-[var(--anyxtech-cyan)] leading-snug text-left mb-4 transition-colors duration-500">
                 Nos domaines <br> d'expertise technique
             </h2>
-            <p class="text-left w-full md:w-7/12 text-gray-700 text-xl mb-16">
-                Nous accompagnons entreprises, particuliers et structures dans leur transformation numérique et énergétique
-                en proposant des services innovants et sur mesure.
-                De la connectivité au digital, notre objectif reste le même : vous fournir une solution fiable, performante
-                et parfaitement adaptée à vos besoins.
+            <p class="text-left w-full md:w-7/12 text-gray-700 dark:text-gray-200 text-xl mb-16 transition-colors duration-500">
+                Nous accompagnons entreprises, particuliers et structures dans leur transformation numérique et
+                énergétique en proposant des services innovants et sur mesure.
+                De la connectivité au digital, notre objectif reste le même : vous fournir une solution fiable,
+                performante et parfaitement adaptée à vos besoins.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-                <div class="service-item group">
-                    <i class="fas fa-bullhorn text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color1)] to-[var(--color2)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-bullhorn text-6xl mb-4 transition-transform duration-300 text-[var(--anyxtech-blue)] dark:text-cyan-300"></i>
                     <h3 class="text-xl font-bold mb-3">Communication digitale</h3>
                     <p class="text-sm leading-relaxed mb-1">Nous créons des stratégies de communication adaptées à chaque marque.</p>
                     <p class="text-sm italic">Une équipe aguerrie met en œuvre vos projets avec expertise.</p>
                 </div>
 
-                <div class="service-item group">
-                    <i class="fas fa-network-wired text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color2)] to-[var(--color3)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-network-wired text-6xl mb-4 transition-transform duration-300 text-[#2196f3] dark:text-blue-300"></i>
                     <h3 class="text-xl font-bold mb-3">Réseautage & connectivité</h3>
                     <p class="text-sm leading-relaxed mb-1">Interconnexion, virtualisation, vente d’équipements et mise en réseau.</p>
                     <p class="text-sm italic">Une infrastructure performante et évolutive pour vos systèmes.</p>
                 </div>
 
-                <div class="service-item group">
-                    <i class="fas fa-wifi text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color3)] to-[var(--color4)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-wifi text-6xl mb-4 transition-transform duration-300 text-[#42a5f5] dark:text-sky-300"></i>
                     <h3 class="text-xl font-bold mb-3">Installation Wi-Fi</h3>
                     <p class="text-sm leading-relaxed mb-1">Installation et configuration de vos réseaux sans fil.</p>
                     <p class="text-sm italic">Des performances réseau optimales et stables.</p>
                 </div>
 
-                <div class="service-item group">
-                    <i class="fas fa-bolt text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color4)] to-[var(--color5)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-bolt text-6xl mb-4 transition-transform duration-300 text-[#64b5f6] dark:text-yellow-300"></i>
                     <h3 class="text-xl font-bold mb-3">Énergie</h3>
                     <p class="text-sm leading-relaxed mb-1">Étude, exécution et maintenance de projets électriques.</p>
                     <p class="text-sm italic">Pour bâtiments, industries et énergies renouvelables.</p>
                 </div>
 
-                <div class="service-item group">
-                    <i class="fas fa-bullseye text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color5)] to-[var(--color6)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-bullseye text-6xl mb-4 transition-transform duration-300 text-[#90caf9] dark:text-pink-300"></i>
                     <h3 class="text-xl font-bold mb-3">Marketing digital</h3>
                     <p class="text-sm leading-relaxed mb-1">Identité visuelle, site web, réseaux sociaux, pub en ligne.</p>
                     <p class="text-sm italic">Stratégies personnalisées pour renforcer votre image.</p>
                 </div>
 
-                <div class="service-item group">
-                    <i class="fas fa-headset text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color6)] to-[var(--color7)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-headset text-6xl mb-4 transition-transform duration-300 text-[#bbdefb] dark:text-green-300"></i>
                     <h3 class="text-xl font-bold mb-3">Suivi clientèle</h3>
                     <p class="text-sm leading-relaxed mb-1">Un accompagnement personnalisé et une assistance 7j/7.</p>
                     <p class="text-sm italic">Jusqu’à la satisfaction complète du client.</p>
                 </div>
 
-                <div class="service-item group">
-                    <i class="fas fa-server text-6xl mb-4 transition-transform duration-300"></i>
+                <div class="service-item group bg-gradient-to-br from-[var(--color7)] to-[var(--color7)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#2b3a55] dark:text-cyan-200 transition-colors duration-500">
+                    <i class="fas fa-server text-6xl mb-4 transition-transform duration-300 text-[#e3f2fd] dark:text-cyan-300"></i>
                     <h3 class="text-xl font-bold mb-3">Hébergement & domaines</h3>
                     <p class="text-sm leading-relaxed mb-1">Stockage, hébergement web et gestion de domaines.</p>
                     <p class="text-sm italic">Une visibilité fiable et sécurisée pour vos données.</p>
@@ -341,34 +355,83 @@
         </div>
     </section>
 
-    <section class="px-6 md:px-20 py-20 bg-white fade-slide-up" style="animation-delay: 1.6s;">
-        <h2 class="text-4xl font-extrabold text-center text-[var(--anyxtech-two-blue)] mb-10">
-            Qui sommes-nous ?
-        </h2>
-        <p class="text-center text-gray-700 max-w-4xl mx-auto text-lg leading-relaxed">
-            ANYXTECH est une entreprise béninoise spécialisée dans le numérique, les télécoms et les solutions digitales.
-            Elle regroupe des professionnels passionnés par les technologies modernes et l’innovation.
-            Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
-            En mettant vos besoins avant les nôtres, nous construisons un partenariat durable.
-        </p>
-    </section>
+    <section class="px-6 md:px-20 py-20 bg-[var(--section-light)] dark:bg-gradient-to-br dark:from-[#22304a] dark:to-[#1e3a8a] fade-slide-up transition-colors duration-500" style="animation-delay: 1.6s;">
+    <h2 class="text-4xl font-extrabold text-center text-[var(--anyxtech-two-blue)] dark:text-anyxtech-cyan mb-10 transition-colors duration-500">
+        Qui sommes-nous ?
+    </h2>
+    <p class="text-center text-gray-700 dark:text-gray-100 max-w-4xl mx-auto text-lg leading-relaxed transition-colors duration-500">
+        ANYXTECH est une entreprise béninoise spécialisée dans le numérique, les télécoms et les solutions
+        digitales.
+        Elle regroupe des professionnels passionnés par les technologies modernes et l’innovation.
+        Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables.
+        En mettant vos besoins avant les nôtres, nous construisons un partenariat durable.
+    </p>
+</section>
 
     <div id="footer-placeholder"></div>
 
-    <script>
-        fetch("header.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("header-placeholder").innerHTML = html;
-                document.getElementById("header-placeholder").style.opacity = 1;
-            });
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
-                document.getElementById("footer-placeholder").style.opacity = 1;
-            });
-    </script>
+   <script>
+    // Inclusion dynamique du header
+    fetch("header.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("header-placeholder").innerHTML = html;
+            document.getElementById("header-placeholder").style.opacity = 1;
+            // Initialiser le thème APRÈS que le header soit chargé
+            initThemeSwitcher();
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+            document.getElementById("footer-placeholder").style.opacity = 1;
+        });
+
+    // Fonction d'initialisation du thème
+    function setTheme(mode) {
+        const html = document.documentElement;
+        if (mode === "dark") {
+            html.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            const icon = document.getElementById("theme-icon");
+            const text = document.getElementById("theme-text");
+            if (icon && text) {
+                icon.className = "theme-icon fas fa-sun text-base transition-transform duration-300 hover:rotate-180";
+                text.textContent = "Clair";
+            }
+        } else {
+            html.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            const icon = document.getElementById("theme-icon");
+            const text = document.getElementById("theme-text");
+            if (icon && text) {
+                icon.className = "theme-icon fas fa-moon text-base transition-transform duration-300 hover:rotate-180";
+                text.textContent = "Sombre";
+            }
+        }
+    }
+
+    function toggleTheme() {
+        const isDark = document.documentElement.classList.contains("dark");
+        setTheme(isDark ? "light" : "dark");
+    }
+
+    // Initialisation du thème après chargement du header
+    function initThemeSwitcher() {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+        // S'assurer que le bouton fonctionne
+        const btn = document.querySelector(".theme-toggle");
+        if (btn) {
+            btn.onclick = toggleTheme;
+        }
+    }
+</script>
 
     <script>
         const heroText = document.getElementById("hero-text");
@@ -418,6 +481,20 @@
 
             services.forEach(el => observer.observe(el));
         });
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',  // ✅ AJOUTÉ
+            theme: {
+                extend: {
+                    colors: {
+                        'anyxtech-blue': '#1e3a8a',     // ✅ AJOUTÉ
+                        'anyxtech-cyan': '#1db9ff',     // ✅ AJOUTÉ
+                    }
+                }
+            }
+        }
     </script>
 </body>
 

@@ -8,6 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <!-- Ressources externes -->
+    <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'anyxtech-blue': '#1e3a8a',
+            'anyxtech-cyan': '#1db9ff',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -544,6 +558,65 @@
 
   <!-- Scripts JavaScript optimisés -->
   <script>
+     fetch("header.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("header-placeholder").innerHTML = html;
+            document.getElementById("header-placeholder").style.opacity = 1;
+            // Initialiser le thème APRÈS que le header soit chargé
+            initThemeSwitcher();
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+            document.getElementById("footer-placeholder").style.opacity = 1;
+        });
+
+    // Fonction d'initialisation du thème
+    function setTheme(mode) {
+        const html = document.documentElement;
+        if (mode === "dark") {
+            html.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            const icon = document.getElementById("theme-icon");
+            const text = document.getElementById("theme-text");
+            if (icon && text) {
+                icon.className = "theme-icon fas fa-sun text-base transition-transform duration-300 hover:rotate-180";
+                text.textContent = "Clair";
+            }
+        } else {
+            html.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            const icon = document.getElementById("theme-icon");
+            const text = document.getElementById("theme-text");
+            if (icon && text) {
+                icon.className = "theme-icon fas fa-moon text-base transition-transform duration-300 hover:rotate-180";
+                text.textContent = "Sombre";
+            }
+        }
+    }
+
+    function toggleTheme() {
+        const isDark = document.documentElement.classList.contains("dark");
+        setTheme(isDark ? "light" : "dark");
+    }
+
+    // Initialisation du thème après chargement du header
+    function initThemeSwitcher() {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+        // S'assurer que le bouton fonctionne
+        const btn = document.querySelector(".theme-toggle");
+        if (btn) {
+            btn.onclick = toggleTheme;
+        }
+    }
     // =============================================
     // EFFETS VISUELS LÉGERS
     // =============================================
@@ -567,7 +640,7 @@
     }
 
     // =============================================
-    // DONNÉES STATIQUES (évite les requêtes)
+    // DONNÉES STATIQUES (évite les requêtes) Tu peux faire ce qu'il a dit non oui mais comment inclure tailwind via cdn copie ce que j'ai selectionne et vqas mettre partout comme il a dit ok thanks you Okay je reviens ok
     // =============================================
     
     const testimonials = [
@@ -618,30 +691,8 @@
     /**
      * Charge les composants externes (simplifié)
      */
-    function loadComponents() {
-      // Tentative de chargement sans bloquer si échec
-      try {
-        fetch('header.html')
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById('header-placeholder').innerHTML = html;
-          })
-          .catch(() => {
-            // Silencieux si échec
-          });
-
-        fetch('footer.html')
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById('footer-placeholder').innerHTML = html;
-          })
-          .catch(() => {
-            // Silencieux si échec
-          });
-      } catch (error) {
-        // Gestion d'erreur silencieuse
-      }
-    }
+   
+    
 
     /**
      * Configuration simple du formulaire
@@ -732,5 +783,19 @@
       setTimeout(loadComponents, 100);
     });
   </script>
+
+  <script>
+        tailwind.config = {
+            darkMode: 'class',  // ✅ AJOUTÉ
+            theme: {
+                extend: {
+                    colors: {
+                        'anyxtech-blue': '#1e3a8a',     // ✅ AJOUTÉ
+                        'anyxtech-cyan': '#1db9ff',     // ✅ AJOUTÉ
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

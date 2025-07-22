@@ -7,6 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Tailwind CSS CDN -->
+     <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'anyxtech-blue': '#1e3a8a',
+            'anyxtech-cyan': '#1db9ff',
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- FontAwesome -->
@@ -15,7 +28,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
        
-    <p>Hello, Git!</p>
 
   <style>
     :root {
@@ -145,25 +157,10 @@
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800">
+<body class="text-gray-800 font-sans leading-relaxed bg-white dark:bg-[#0f172a] dark:text-gray-100">
 
   <!-- Header AnyxTech -->
-  <header class="pt-6 px-10  z-20 relative mb-6">
-    <div class="flex items-center justify-between">
-      <div>
-        <a href="/"><img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech"></a>
-      </div>
-      <nav class="text-[var(--black-black)] font-medium">
-        <span class="flex items-center gap-x-6 text-2xl">
-          <a href="/">Accueil</a>
-          <a href="/societe.html">Société</a>
-          <a href="/service.html">Services</a>
-          <a href="/contact.html">Contact</a>
-        </span>
-      </nav>
-      <a href="#" class="bg-[var(--anyxtech-two-blue)] text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-400">Demande de devis</a>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
   <!-- Fin Header -->
   
   <!-- Particles Background -->
@@ -364,7 +361,69 @@
     </section>
   </main>
 
+  <div id="footer-placeholder"></div>
+
   <script>
+
+   fetch("header.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("header-placeholder").innerHTML = html;
+            document.getElementById("header-placeholder").style.opacity = 1;
+            // Initialiser le thème APRÈS que le header soit chargé
+            initThemeSwitcher();
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+            document.getElementById("footer-placeholder").style.opacity = 1;
+        });
+
+    // Fonction d'initialisation du thème
+    function setTheme(mode) {
+        const html = document.documentElement;
+        if (mode === "dark") {
+            html.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            const icon = document.getElementById("theme-icon");
+            const text = document.getElementById("theme-text");
+            if (icon && text) {
+                icon.className = "theme-icon fas fa-sun text-base transition-transform duration-300 hover:rotate-180";
+                text.textContent = "Clair";
+            }
+        } else {
+            html.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            const icon = document.getElementById("theme-icon");
+            const text = document.getElementById("theme-text");
+            if (icon && text) {
+                icon.className = "theme-icon fas fa-moon text-base transition-transform duration-300 hover:rotate-180";
+                text.textContent = "Sombre";
+            }
+        }
+    }
+
+    function toggleTheme() {
+        const isDark = document.documentElement.classList.contains("dark");
+        setTheme(isDark ? "light" : "dark");
+    }
+
+    // Initialisation du thème après chargement du header
+    function initThemeSwitcher() {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+        // S'assurer que le bouton fonctionne
+        const btn = document.querySelector(".theme-toggle");
+        if (btn) {
+            btn.onclick = toggleTheme;
+        }
+    }
     // Intersection Observer for animations
     const observerOptions = {
       threshold: 0.1,
@@ -523,6 +582,20 @@
         servicesContainer.appendChild(serviceItem);
     });
 </script>
+
+<script>
+        tailwind.config = {
+            darkMode: 'class',  // ✅ AJOUTÉ
+            theme: {
+                extend: {
+                    colors: {
+                        'anyxtech-blue': '#1e3a8a',     // ✅ AJOUTÉ
+                        'anyxtech-cyan': '#1db9ff',     // ✅ AJOUTÉ
+                    }
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>

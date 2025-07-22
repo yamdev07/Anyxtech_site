@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demande de devis | AnyxTech Bénin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'anyxtech-blue': '#1e3a8a',
+            'anyxtech-cyan': '#06b6d4',
+            'anyxtech-dark': '#0f172a',
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'slideUp': 'slideUp 0.5s ease-out',
+            'pulse-soft': 'pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'fadeIn': 'fadeIn 0.8s ease-out',
+            'scaleIn': 'scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            'shimmer': 'shimmer 2s linear infinite',
+            'bounce-soft': 'bounce-soft 1s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 5px #06b6d4, 0 0 10px #06b6d4' },
+              '100%': { boxShadow: '0 0 20px #06b6d4, 0 0 30px #06b6d4, 0 0 40px #06b6d4' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(30px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.9)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            },
+            'bounce-soft': {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-5px)' },
+            },
+            'pulse-soft': {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(-45deg, #ffffff, #f0f9ff, #e0f2fe, #bfdbfe, #06b6d4);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2306b6d4' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .dark body {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569, #1e3a8a);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    
+    .dark body::before {
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2306b6d4' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 50%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .glass-effect {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    
+    .dark .glass-effect {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    
+    .input-glow:focus {
+      box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .floating-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      background: linear-gradient(135deg, #06b6d4, #1e3a8a);
+      border-radius: 50%;
+      animation: float 8s infinite ease-in-out;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+    }
+    
+    .particle:nth-child(1) { width: 12px; height: 12px; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { width: 8px; height: 8px; left: 20%; animation-delay: 1s; }
+    .particle:nth-child(3) { width: 15px; height: 15px; left: 30%; animation-delay: 2s; }
+    .particle:nth-child(4) { width: 6px; height: 6px; left: 40%; animation-delay: 1.5s; }
+    .particle:nth-child(5) { width: 10px; height: 10px; left: 50%; animation-delay: 3s; }
+    .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: 0.5s; }
+    .particle:nth-child(7) { width: 13px; height: 13px; left: 70%; animation-delay: 2.5s; }
+    .particle:nth-child(8) { width: 9px; height: 9px; left: 80%; animation-delay: 1.8s; }
+    .particle:nth-child(9) { width: 11px; height: 11px; left: 90%; animation-delay: 3.5s; }
+
+    .form-container {
+      position: relative;
+      z-index: 10;
+    }
+
+    .shimmer-effect {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 3s infinite;
+    }
+
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-divider {
+      position: relative;
+      margin: 2rem 0;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+    }
+
+    .animate-text {
+      background: linear-gradient(-45deg, #1e3a8a, #06b6d4, #0ea5e9, #1e3a8a);
+      background-size: 400% 400%;
+      animation: gradientShift 3s ease infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-hover-effect {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-hover-effect::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .card-hover-effect:hover::before {
+      left: 100%;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
+  <!-- Particules flottantes améliorées -->
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Header moderne (PRÉSERVÉ) -->
+  <header class="w-full flex items-center justify-between px-6 py-4 glass-effect bg-white/20 dark:bg-gray-900/20 shadow-xl backdrop-blur-md animate-slideUp relative z-20">
+    <!-- Logo à gauche -->
+    <div class="flex-shrink-0">
+        <a href="/">
+            <img class="w-32 object-cover" src="images/logo.png" alt="Logo AnyxTech">
+        </a>
+    </div>
+
+    <!-- Navigation centrée -->
+    <nav class="flex-1 flex justify-center">
+      <ul class="flex gap-x-8 text-lg font-semibold text-gray-800 dark:text-gray-100">
+        <li><a href="/" class="hover:text-anyxtech-cyan transition">Accueil</a></li>
+        <li><a href="/societe.html" class="hover:text-anyxtech-cyan transition">Société</a></li>
+        <li><a href="/service.html" class="hover:text-anyxtech-cyan transition">Services</a></li>
+        <li><a href="/contact.html" class="hover:text-anyxtech-cyan transition">Contact</a></li>
+      </ul>
+    </nav>
+     
+    <!-- Bouton theme à droite -->
+    <button 
+      id="theme-toggle-btn"
+      class="group relative flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-anyxtech-blue to-anyxtech-cyan text-white font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
+      type="button"
+    >
+      <div class="absolute inset-0 bg-gradient-to-r from-anyxtech-cyan to-anyxtech-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <i class="theme-icon fas fa-moon relative z-10 transition-transform duration-300 group-hover:rotate-180" id="theme-icon"></i>
+      <span id="theme-text" class="relative z-10">Sombre</span>
+      <div class="absolute -top-1 -right-1 w-8 h-8 bg-white/20 rounded-full animate-pulse-soft"></div>
+    </button>
+  </header>
+
+  <!-- Contenu principal amélioré -->
+  <main class="flex-1 flex items-center justify-center py-12 px-4 relative z-10">
+    <div class="w-full max-w-2xl">
+      <!-- Titre avec animation améliorée -->
+      <div class="text-center mb-12 animate-fadeIn">
+        <div class="relative inline-block">
+          <h1 class="text-5xl md:text-6xl font-extrabold mb-6 animate-text relative z-10">
+            Demande de devis
+          </h1>
+          <div class="absolute inset-0 bg-gradient-to-r from-anyxtech-blue/20 to-anyxtech-cyan/20 blur-3xl animate-pulse-soft"></div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 text-xl font-medium leading-relaxed max-w-lg mx-auto">
+          ✨ Transformons vos idées en réalité digitale exceptionnelle
+        </p>
+        <div class="section-divider mt-8"></div>
+      </div>
+
+      <!-- Formulaire avec effet glassmorphism amélioré -->
+      <div class="form-container glass-effect bg-white/40 dark:bg-gray-900/40 rounded-3xl shadow-2xl p-10 animate-scaleIn hover-lift card-hover-effect shimmer-effect">
+        <form id="devisForm" class="space-y-8">
+          <div class="space-y-8">
+            <!-- Nom complet -->
+            <div class="group hover-lift">
+              <label for="nom" class="block font-bold mb-3 text-gray-800 dark:text-gray-200 text-sm uppercase tracking-widest flex items-center">
+                <i class="fas fa-user mr-3 text-anyxtech-cyan text-lg animate-bounce-soft"></i>
+                Nom complet
+              </label>
+              <input 
+                type="text" 
+                id="nom" 
+                name="nom" 
+                required
+                class="w-full px-8 py-5 border-2 border-gray-200/60 dark:border-gray-700/60 rounded-2xl focus:ring-4 focus:ring-anyxtech-cyan/30 focus:border-anyxtech-cyan dark:bg-gray-800/60 dark:text-gray-100 transition-all duration-300 input-glow placeholder-gray-400 group-hover:border-anyxtech-cyan/50 bg-white/80 dark:bg-gray-800/80 text-lg font-medium"
+                placeholder="Votre nom complet"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="group hover-lift">
+              <label for="email" class="block font-bold mb-3 text-gray-800 dark:text-gray-200 text-sm uppercase tracking-widest flex items-center">
+                <i class="fas fa-envelope mr-3 text-anyxtech-cyan text-lg animate-bounce-soft" style="animation-delay: 0.1s"></i>
+                Adresse email
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                class="w-full px-8 py-5 border-2 border-gray-200/60 dark:border-gray-700/60 rounded-2xl focus:ring-4 focus:ring-anyxtech-cyan/30 focus:border-anyxtech-cyan dark:bg-gray-800/60 dark:text-gray-100 transition-all duration-300 input-glow placeholder-gray-400 group-hover:border-anyxtech-cyan/50 bg-white/80 dark:bg-gray-800/80 text-lg font-medium"
+                placeholder="exemple@email.com"
+              />
+            </div>
+
+            <!-- Service -->
+            <div class="group hover-lift">
+              <label for="service" class="block font-bold mb-3 text-gray-800 dark:text-gray-200 text-sm uppercase tracking-widest flex items-center">
+                <i class="fas fa-cogs mr-3 text-anyxtech-cyan text-lg animate-bounce-soft" style="animation-delay: 0.2s"></i>
+                Service souhaité
+              </label>
+              <select 
+                id="service" 
+                name="service" 
+                required
+                class="w-full px-8 py-5 border-2 border-gray-200/60 dark:border-gray-700/60 rounded-2xl focus:ring-4 focus:ring-anyxtech-cyan/30 focus:border-anyxtech-cyan dark:bg-gray-800/60 dark:text-gray-100 transition-all duration-300 input-glow group-hover:border-anyxtech-cyan/50 bg-white/80 dark:bg-gray-800/80 cursor-pointer text-lg font-medium"
+              >
+                <option value="" disabled selected>Choisir un service</option>
+                <option value="web">🌐 Développement Web</option>
+                <option value="mobile">📱 Application Mobile</option>
+                <option value="design">🎨 Design UI/UX</option>
+                <option value="consulting">💼 Consulting IT</option>
+                <option value="ecommerce">🛒 E-commerce</option>
+                <option value="seo">🚀 SEO & Marketing</option>
+                <option value="autre">✨ Autre</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="group hover-lift">
+              <label for="message" class="block font-bold mb-3 text-gray-800 dark:text-gray-200 text-sm uppercase tracking-widest flex items-center">
+                <i class="fas fa-comment-dots mr-3 text-anyxtech-cyan text-lg animate-bounce-soft" style="animation-delay: 0.3s"></i>
+                Votre projet
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="6" 
+                required
+                class="w-full px-8 py-5 border-2 border-gray-200/60 dark:border-gray-700/60 rounded-2xl focus:ring-4 focus:ring-anyxtech-cyan/30 focus:border-anyxtech-cyan dark:bg-gray-800/60 dark:text-gray-100 transition-all duration-300 input-glow placeholder-gray-400 group-hover:border-anyxtech-cyan/50 bg-white/80 dark:bg-gray-800/80 resize-none text-lg font-medium leading-relaxed"
+                placeholder="Décrivez votre projet en détail : objectifs, fonctionnalités souhaitées, délais, budget approximatif... Plus vous serez précis, mieux nous pourrons vous accompagner !"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Bouton d'envoi amélioré -->
+          <div class="pt-6">
+            <button 
+              type="submit"
+              class="group relative w-full flex justify-center items-center gap-4 bg-gradient-to-r from-anyxtech-blue to-anyxtech-cyan text-white py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 overflow-hidden shimmer-effect"
+            >
+              <div class="absolute inset-0 bg-gradient-to-r from-anyxtech-cyan to-anyxtech-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <i class="fas fa-paper-plane relative z-10 group-hover:translate-x-2 transition-transform duration-300 text-2xl"></i>
+              <span class="relative z-10">Envoyer la demande</span>
+              <div class="absolute top-0 -right-4 w-8 h-full bg-white/30 skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
+            </button>
+          </div>
+        </form>
+
+        <!-- Message de confirmation amélioré -->
+        <div id="confirmation" class="hidden mt-10 p-8 bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 text-white rounded-3xl shadow-2xl text-center animate-scaleIn card-hover-effect">
+          <i class="fas fa-check-circle text-4xl mb-4 animate-bounce-soft"></i>
+          <p class="font-bold text-2xl mb-2">Demande envoyée avec succès !</p>
+          <p class="text-lg opacity-90">Nous vous répondrons dans les 24h maximum.</p>
+          <div class="mt-4 flex justify-center space-x-4">
+            <i class="fas fa-clock text-xl opacity-80"></i>
+            <span class="text-sm font-medium">Réponse rapide garantie</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info amélioré -->
+      <div class="text-center mt-12 animate-fadeIn">
+        <div class="glass-effect bg-white/30 dark:bg-gray-900/30 rounded-2xl p-6 inline-block hover-lift">
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium flex items-center justify-center gap-3">
+            <i class="fas fa-shield-alt text-green-500 text-xl"></i>
+            Vos données sont protégées et ne seront jamais partagées
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+            Chiffrement SSL • Confidentialité garantie • RGPD compliant
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Gestion du thème avec animations (PRÉSERVÉ)
+    function setTheme(mode) {
+      const html = document.documentElement;
+      const themeIcon = document.getElementById("theme-icon");
+      const themeText = document.getElementById("theme-text");
+      const themeBtn = document.getElementById("theme-toggle-btn");
+      
+      // Animation de transition
+      themeBtn.style.transform = "scale(0.95)";
+      
+      setTimeout(() => {
+        if (mode === "dark") {
+          html.classList.add("dark");
+          themeIcon.className = "theme-icon fas fa-sun relative z-10 transition-transform duration-300 group-hover:rotate-180";
+          themeText.textContent = "Clair";
+        } else {
+          html.classList.remove("dark");
+          themeIcon.className = "theme-icon fas fa-moon relative z-10 transition-transform duration-300 group-hover:rotate-180";
+          themeText.textContent = "Sombre";
+        }
+        
+        themeBtn.style.transform = "scale(1)";
+      }, 150);
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "light" : "dark");
+    }
+
+    // Initialisation du thème et gestion du bouton
+    document.addEventListener("DOMContentLoaded", () => {
+      // Récupérer le thème depuis le localStorage ou la préférence système
+      let theme = localStorage.getItem("theme");
+      if (!theme) {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        theme = prefersDark ? "dark" : "light";
+      }
+      setTheme(theme);
+
+      // Gestion du bouton de bascule
+      const themeBtn = document.getElementById("theme-toggle-btn");
+      themeBtn.addEventListener("click", function() {
+        const isDark = document.documentElement.classList.contains("dark");
+        const newTheme = isDark ? "light" : "dark";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+      });
+
+      // Animation d'entrée progressive des éléments
+      const elements = document.querySelectorAll('.animate-slideUp, .animate-fadeIn, .animate-scaleIn');
+      elements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Effet de typing pour le placeholder du textarea
+      const textarea = document.getElementById('message');
+      const originalPlaceholder = textarea.placeholder;
+      let index = 0;
+      
+      textarea.addEventListener('focus', function() {
+        if (this.value === '') {
+          this.placeholder = '';
+          const typingInterval = setInterval(() => {
+            if (index < originalPlaceholder.length) {
+              this.placeholder += originalPlaceholder.charAt(index);
+              index++;
+            } else {
+              clearInterval(typingInterval);
+            }
+          }, 50);
+        }
+      });
+
+      textarea.addEventListener('blur', function() {
+        if (this.value === '') {
+          this.placeholder = originalPlaceholder;
+          index = 0;
+        }
+      });
+    });
+
+    // Gestion du formulaire avec validation et animations améliorée
+    document.getElementById("devisForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const confirmation = document.getElementById("confirmation");
+      const form = e.target;
+      
+      // Animation du bouton de soumission
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3 text-xl"></i><span>Envoi en cours...</span>';
+      submitBtn.disabled = true;
+      submitBtn.classList.add('animate-pulse');
+      
+      // Simulation d'envoi avec progress
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        progress += 10;
+        if (progress <= 100) {
+          submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-3 text-xl"></i><span>Envoi en cours... ${progress}%</span>`;
+        }
+      }, 200);
+      
+      setTimeout(() => {
+        clearInterval(progressInterval);
+        
+        // Animation de succès du bouton
+        submitBtn.innerHTML = '<i class="fas fa-check mr-3 text-xl"></i><span>Envoyé !</span>';
+        submitBtn.classList.remove('animate-pulse');
+        submitBtn.classList.add('bg-green-500');
+        
+        // Affichage de la confirmation avec animation
+        confirmation.classList.remove("hidden");
+        confirmation.style.opacity = "0";
+        confirmation.style.transform = "translateY(30px) scale(0.9)";
+        
+        setTimeout(() => {
+          confirmation.style.opacity = "1";
+          confirmation.style.transform = "translateY(0) scale(1)";
+          confirmation.style.transition = "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        }, 200);
+        
+        // Confetti effect
+        createConfetti();
+        
+        // Reset du formulaire
+        form.reset();
+        
+        // Reset du bouton après un délai
+        setTimeout(() => {
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-4 text-2xl"></i><span>Envoyer la demande</span>';
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('bg-green-500');
+        }, 3000);
+        
+        // Masquer la confirmation après 8 secondes
+        setTimeout(() => {
+          confirmation.style.opacity = "0";
+          confirmation.style.transform = "translateY(-30px) scale(0.9)";
+          setTimeout(() => {
+            confirmation.classList.add("hidden");
+          }, 600);
+        }, 8000);
+        
+      }, 2000);
+    });
+
+    // Effets visuels améliorés pour les champs de formulaire
+    document.querySelectorAll('input, select, textarea').forEach(field => {
+      field.addEventListener('focus', function() {
+        this.parentElement.classList.add('transform', 'scale-105');
+        this.style.borderColor = '#06b6d4';
+        this.style.boxShadow = '0 0 0 4px rgba(6, 182, 212, 0.2)';
+      });
+      
+      field.addEventListener('blur', function() {
+        this.parentElement.classList.remove('transform', 'scale-105');
+        if (this.value.trim() === '') {
+          this.style.borderColor = '';
+          this.style.boxShadow = '';
+        }
+      });
+
+      // Animation au remplissage
+      field.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+          this.style.borderColor = '#10b981';
+          this.parentElement.querySelector('i').style.color = '#10b981';
+        } else {
+          this.style.borderColor = '';
+          this.parentElement.querySelector('i').style.color = '';
+        }
+      });
+    });
+
+    // Validation en temps réel améliorée
+    document.getElementById('email').addEventListener('input', function() {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (this.value && !emailRegex.test(this.value)) {
+        this.style.borderColor = '#ef4444';
+        this.style.boxShadow = '0 0 0 4px rgba(239, 68, 68, 0.2)';
+      } else if (this.value) {
+        this.style.borderColor = '#10b981';
+        this.style.boxShadow = '0 0 0 4px rgba(16, 185, 129, 0.2)';
+      } else {
+        this.style.borderColor = '';
+        this.style.boxShadow = '';
+      }
+    });
+
+    // Animation des particules au clic améliorée
+    document.addEventListener('click', function(e) {
+      createClickEffect(e.clientX, e.clientY);
+    });
+
+    function createClickEffect(x, y) {
+      const colors = ['#06b6d4', '#1e3a8a', '#10b981', '#f59e0b'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      
+      for (let i = 0; i < 5; i++) {
+        const effect = document.createElement('div');
+        effect.style.position = 'fixed';
+        effect.style.left = (x + Math.random() * 40 - 20) + 'px';
+        effect.style.top = (y + Math.random() * 40 - 20) + 'px';
+        effect.style.width = (Math.random() * 8 + 4) + 'px';
+        effect.style.height = effect.style.width;
+        effect.style.background = `linear-gradient(45deg, ${randomColor}, ${randomColor}aa)`;
+        effect.style.borderRadius = '50%';
+        effect.style.pointerEvents = 'none';
+        effect.style.zIndex = '1000';
+        effect.style.transform = 'translate(-50%, -50%) scale(0)';
+        effect.style.transition = 'all 0.8s ease-out';
+        
+        document.body.appendChild(effect);
+        
+        setTimeout(() => {
+          effect.style.transform = `translate(-50%, -50%) scale(${Math.random() * 3 + 2})`;
+          effect.style.opacity = '0';
+        }, 10);
+        
+        setTimeout(() => {
+          if (document.body.contains(effect)) {
+            document.body.removeChild(effect);
+          }
+        }, 800);
+      }
+    }
+
+    // Fonction confetti pour le succès
+    function createConfetti() {
+      const colors = ['#06b6d4', '#1e3a8a', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        confetti.style.position = 'fixed';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = '-10px';
+        confetti.style.width = Math.random() * 10 + 5 + 'px';
+        confetti.style.height = confetti.style.width;
+        confetti.style.backgroundColor = color;
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.zIndex = '1001';
+        confetti.style.animation = `confettiFall ${Math.random() * 2 + 2}s linear forwards`;
+        
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => {
+          if (document.body.contains(confetti)) {
+            document.body.removeChild(confetti);
+          }
+        }, 4000);
+      }
+    }
+
+    // Ajout des keyframes pour l'animation confetti
+    const confettiStyle = document.createElement('style');
+    confettiStyle.textContent = `
+      @keyframes confettiFall {
+        0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(confettiStyle);
+
+    // Parallax effect pour les particules
+    document.addEventListener('mousemove', function(e) {
+      const particles = document.querySelectorAll('.particle');
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      particles.forEach((particle, index) => {
+        const speed = (index + 1) * 0.5;
+        const x = (mouseX - 0.5) * speed * 50;
+        const y = (mouseY - 0.5) * speed * 50;
+        
+        particle.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+
+    // Smooth scroll pour les liens (si nécessaire)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Effet de typing pour le titre
+    function typeWriter(element, text, speed = 100) {
+      let i = 0;
+      element.innerHTML = '';
+      
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    // Observation des éléments pour les animations au scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observer tous les éléments animés
+    document.querySelectorAll('.hover-lift, .glass-effect').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- Footer (PRÉSERVÉ) -->
+  <footer class="bg-[#1e3a8a] text-gray-300 mt-20 py-12 px-10 relative z-10">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+
+      <!-- Présentation -->
+      <div class="hover-lift">
+        <img src="images/logo-removebg-preview.png" alt="AnyxTech Logo" class="mb-6 w-40" />
+        <p class="text-lg leading-relaxed">
+          Nous vous accompagnons dans votre stratégie numérique, marketing digital et solutions informatiques innovantes.
+        </p>
+        <div class="flex space-x-6 mt-6 text-2xl text-[#06b6d4]">
+          <a href="https://www.facebook.com/AnyxTechBenin" target="_blank" aria-label="Facebook" class="hover:text-white hover:scale-125 transition-all duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="tel:+22952415241" aria-label="Téléphone" class="hover:text-white hover:scale-125 transition-all duration-300">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="hover-lift">
+        <h3 class="text-white font-bold text-xl mb-6">Navigation</h3>
+        <ul class="space-y-4 text-lg">
+          <li><a href="/about" class="hover:text-white hover:translate-x-2 transition-all duration-300">À propos</a></li>
+          <li><a href="/services" class="hover:text-white hover:translate-x-2 transition-all duration-300">Nos Services</a></li>
+          <li><a href="/projects" class="hover:text-white hover:translate-x-2 transition-all duration-300">Réalisations</a></li>
+          <li><a href="/contact" class="hover:text-white hover:translate-x-2 transition-all duration-300">Nous contacter</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="hover-lift">
+        <h3 class="text-white font-bold text-xl mb-6">Contact</h3>
+        <ul class="space-y-4 text-lg">
+          <li class="flex items-start hover:text-white transition-colors duration-300">
+            <i class="fas fa-map-marker-alt mr-4 mt-2 text-[#06b6d4] text-xl"></i>
+            Cotonou - Bénin, St Michel, en face de l'immeuble Nasuba.
+          </li>
+          <li class="flex items-center hover:text-white transition-colors duration-300">
+            <i class="fas fa-envelope mr-4 text-[#06b6d4] text-xl"></i>
+            contact@anyxtech.com
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-phone mr-4 text-[#06b6d4] text-xl"></i>
+            <a href="tel:+22952415241" class="hover:text-white transition-colors duration-300 text-lg">(+229) 52 41 52 41</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-600 mt-12 pt-6 text-center text-lg text-gray-400">
+      <p>© 2025 AnyxTech Bénin. Tous droits réservés.</p>
+      <p class="text-sm mt-2 opacity-80">Développé avec ❤️ par l'équipe AnyxTech</p>
+    </div>
+  </footer>
+</body>
+</html>
