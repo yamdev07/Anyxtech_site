@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Demande de Devis - AnyxTech Bénin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --anyxtech-one-blue: #1db9ff;
+      --anyxtech-two-blue: #1f429b;
+      --anyxtech-three-blue: #1e4d9f;
+      --light-black: #2a2a2a;
+      --black-black: #121212;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans leading-normal">
+
+  <div id="header-placeholder"></div>
+
+  <main class="max-w-4xl mx-auto p-8 bg-[#e6f7ff] shadow-lg rounded-lg my-12">
+
+    <h1 class="text-4xl font-bold mb-6 text-[var(--anyxtech-three-blue)] text-center">
+      Demande de Devis
+    </h1>
+
+    <p class="mb-8 text-center text-gray-700 font-semibold">
+      Merci de bien vouloir remplir ce formulaire afin que nous puissions analyser au mieux votre demande. Nous vous répondrons dans les plus brefs délais.
+    </p>
+
+    <form action="#" method="POST" class="space-y-6" novalidate>
+
+      <div>
+        <label for="nom" class="block mb-2 font-semibold text-gray-700">Nom complet / Raison sociale <span class="text-red-600">*</span></label>
+        <input type="text" id="nom" name="nom" required placeholder="Votre nom ou nom entreprise"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--anyxtech-one-blue)]" />
+      </div>
+
+      <div>
+        <label for="email" class="block mb-2 font-semibold text-gray-700">Adresse e-mail <span
+            class="text-red-600">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="exemple@domaine.com"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--anyxtech-one-blue)]" />
+      </div>
+
+      <div>
+        <label for="telephone" class="block mb-2 font-semibold text-gray-700">Téléphone</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="+229 97 00 00 00"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--anyxtech-one-blue)]" />
+      </div>
+
+      <div>
+        <label for="service" class="block mb-2 font-semibold text-gray-700">Service concerné</label>
+        <select id="service" name="service"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--anyxtech-one-blue)]">
+          <option value=""></option>
+          <option value="communication_digitale">Communication digitale</option>
+          <option value="reseautage_connectivite">Réseautage & connectivité</option>
+          <option value="installation_wifi">Installation Wi-Fi</option>
+          <option value="energie">Énergie</option>
+          <option value="marketing_digital">Marketing digital</option>
+          <option value="suivi_clientele">Suivi clientèle</option>
+          <option value="hebergement_domaines">Hébergement & domaines</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="message" class="block mb-2 font-semibold text-gray-700">Description du projet / message <span
+            class="text-red-600">*</span></label>
+        <textarea id="message" name="message" rows="6" required placeholder="Décrivez vos besoins en détail"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--anyxtech-one-blue)]"></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit"
+          class="bg-[var(--anyxtech-one-blue)] hover:bg-[var(--anyxtech-two-blue)] text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+          Envoyer ma demande
+        </button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("header.html").then(r => r.text()).then(html => document.getElementById("header-placeholder").innerHTML = html);
+    fetch("footer.html").then(r => r.text()).then(html => document.getElementById("footer-placeholder").innerHTML = html);
+  </script>
+
+</body>
+
+</html>

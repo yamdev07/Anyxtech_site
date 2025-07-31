@@ -22,7 +22,6 @@
         opacity: 0;
         transform: translateY(20px);
       }
-
       100% {
         opacity: 1;
         transform: translateY(0);
@@ -138,9 +137,13 @@
   <div id="footer-placeholder"></div>
 
   <script>
+    
     fetch("header.html")
       .then(response => response.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+      .then(html => {
+       
+        document.getElementById("header-placeholder").innerHTML = html;
+      });
 
     fetch("footer.html")
       .then(response => response.text())
