@@ -6,7 +6,7 @@ Bienvenue sur le dépôt officiel du **site web vitrine d'AnyxTech**, une entrep
 
 ## 📸 Aperçu
 
-![Aperçu du site](anyxtech.com)  
+![Aperçu du site](images/anyxtech.png)  
 <!-- Remplace `screenshot.png` par une capture d’écran réelle du site -->
 
 ---
