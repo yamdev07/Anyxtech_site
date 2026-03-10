@@ -100,6 +100,9 @@
                         'anyxtech-blue': '#1f429b',
                         'anyxtech-lightblue': '#1db9ff',
                         'anyxtech-darkblue': '#1e4d9f',
+                        'anyxtech-light-bg': '#dbeafe',
+                        'anyxtech-medium-text': '#1e40af',
+                        'anyxtech-very-light-bg': '#eff6ff',
                     },
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
@@ -403,25 +406,25 @@
             <nav class="hidden md:block" aria-label="Navigation principale">
                 <ul class="flex items-center gap-x-8">
                     <li><a href="/"
-                            class="text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Accueil</a>
+                            class="text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-anyxtech-lightblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Accueil</a>
                     </li>
                     <li><a href="/societe.html"
-                            class="text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Société</a>
+                            class="text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-anyxtech-lightblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Société</a>
                     </li>
                     <li><a href="/service.html"
-                            class="text-lg font-medium text-anyxtech-blue transition-colors dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Services</a>
+                            class="text-lg font-medium text-anyxtech-blue transition-colors dark:text-anyxtech-lightblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Services</a>
                     </li>
                     <li><a href="/contact.html"
-                            class="text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Contact</a>
+                            class="text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-anyxtech-lightblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">Contact</a>
                     </li>
                     <li><a href="/devis.html"
-                            class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-blue-600 focus:ring-2 focus:ring-white focus:outline-none">Devis</a>
+                            class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue focus:ring-2 focus:ring-white focus:outline-none">Devis</a>
                     </li>
                 </ul>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-blue-400" 
+            <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-anyxtech-lightblue" 
                     aria-label="Ouvrir le menu" aria-expanded="false">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
@@ -431,16 +434,16 @@
         <div id="mobile-menu" class="mobile-menu md:hidden shadow-lg rounded-lg mt-4" aria-hidden="true">
             <ul class="p-4 space-y-4">
                 <li><a href="/"
-                        class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Accueil</a>
+                        class="block px-4 py-2 hover:bg-anyxtech-very-light-bg rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Accueil</a>
                 </li>
                 <li><a href="/societe.html"
-                        class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Société</a>
+                        class="block px-4 py-2 hover:bg-anyxtech-very-light-bg rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Société</a>
                 </li>
                 <li><a href="/service.html"
-                        class="block px-4 py-2 bg-blue-50 text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Services</a>
+                        class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-anyxtech-lightblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Services</a>
                 </li>
                 <li><a href="/contact.html"
-                        class="block px-4 py-2 hover:bg-blue-50 rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Contact</a>
+                        class="block px-4 py-2 hover:bg-anyxtech-very-light-bg rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Contact</a>
                 </li>
                 <li><a href="/devis.html"
                         class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors mt-2 dark:bg-blue-600 focus:ring-2 focus:ring-white focus:outline-none">Demande
@@ -474,27 +477,27 @@
                         d'expertise au Bénin</h2>
                     <div class="flex flex-wrap justify-center gap-3 md:gap-4">
                         <button
-                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 font-medium transition-all duration-300 active bg-anyxtech-blue text-white border-anyxtech-blue dark:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white"
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 font-medium transition-all duration-300 active bg-anyxtech-blue text-white border-anyxtech-blue dark:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-white"
                             data-filter="all" aria-label="Voir tous les services">
                             <i class="fas fa-globe mr-2" aria-hidden="true"></i>Tous les services
                         </button>
                         <button
-                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
                             data-filter="communication" aria-label="Filtrer par communication digitale">
                             <i class="fas fa-bullhorn mr-2" aria-hidden="true"></i>Communication Digitale
                         </button>
                         <button
-                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
                             data-filter="infrastructure" aria-label="Filtrer par infrastructure réseau">
                             <i class="fas fa-network-wired mr-2" aria-hidden="true"></i>Infrastructure & Réseaux
                         </button>
                         <button
-                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
                             data-filter="support" aria-label="Filtrer par support client">
                             <i class="fas fa-headset mr-2" aria-hidden="true"></i>Support & Accompagnement
                         </button>
                         <button
-                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
                             data-filter="hosting" aria-label="Filtrer par hébergement web">
                             <i class="fas fa-server mr-2" aria-hidden="true"></i>Hébergement & Domaine
                         </button>
