@@ -41,12 +41,24 @@
       theme: {
         extend: {
           colors: {
+<<<<<<< HEAD
             'anyxtech-blue':       '#1f429b',
             'anyxtech-lightblue':  '#1db9ff',
             'anyxtech-darkblue':   '#1e4d9f',
             'anyxtech-light-bg':   '#dbeafe',
             'anyxtech-medium-text':'#1e40af',
             'anyxtech-very-light-bg': '#eff6ff',
+=======
+            'anyxtech-blue': '#1f429b',
+            'anyxtech-lightblue': '#1db9ff',
+            'anyxtech-darkblue': '#1e4d9f',
+            'anyxtech-light-bg': '#dbeafe',
+            'anyxtech-medium-text': '#1e40af',
+            'anyxtech-very-light-bg': '#eff6ff',
+          },
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
           },
           fontFamily: { 'poppins': ['Poppins', 'sans-serif'] },
         }
@@ -212,6 +224,7 @@
   <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
   <div id="particles-container" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true" style="z-index:-1;"></div>
 
+<<<<<<< HEAD
   <!-- ========== HEADER UNIFIÉ ========== -->
   <header class="py-3 px-4 md:px-6 z-50 relative mb-6">
     <div class="flex items-center justify-between max-w-7xl mx-auto">
@@ -241,8 +254,46 @@
           <i class="fas fa-bars text-2xl"></i>
         </button>
       </div>
+=======
+  
+
+  <!-- Header AnyxTech -->
+  <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div>
+      <a href="/" aria-label="AnyxTech - Retour à l'accueil">
+        <img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech Bénin" loading="eager">
+      </a>
     </div>
 
+    <!-- Conteneur pour la navigation, le bouton thème et le bouton mobile -->
+    <div class="flex items-center gap-x-4">
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block" aria-label="Navigation principale">
+        <ul class="flex items-center gap-x-8">
+          <li><a href="index.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Accueil</a></li>
+          <li><a href="societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Société</a></li>
+          <li><a href="service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Services</a></li>
+          <li><a href="contact.html" class="nav-link text-lg font-medium text-anyxtech-blue dark:text-anyxtech-lightblue transition-colors">Contact</a></li>
+          <li><a href="devis.html" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Devis</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme Toggle Button (positionné juste après la navigation desktop) -->
+      <button id="themeToggle" class="p-2 rounded-full focus:outline-none bg-blue-100 dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-300" aria-label="Changer le thème">
+        <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+      </button>
+
+      <!-- Mobile Menu Button (visible seulement sur mobile) -->
+      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-white" aria-label="Ouvrir le menu" aria-expanded="false">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
+    </div>
+  </div>
+
+<<<<<<< HEAD
     <!-- Menu mobile -->
     <div id="mobile-menu" class="mobile-menu md:hidden shadow-lg rounded-lg mt-4" aria-hidden="true">
       <ul class="p-4 space-y-4">
@@ -254,6 +305,23 @@
       </ul>
     </div>
   </header>
+=======
+  <!-- Mobile Navigation (inchangé) -->
+  <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-4 overflow-hidden transition-all duration-300 max-h-0" aria-hidden="true">
+    <ul class="p-4 space-y-4">
+      <li><a href="index.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Accueil</a></li>
+      <li><a href="societe.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Société</a></li>
+      <li><a href="service.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Services</a></li>
+      <li><a href="contact.html" class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-white">Contact</a></li>
+      <li><a href="devis.html" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue mt-2 dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Demande de devis</a></li>
+    </ul>
+  </div>
+</header>
+  <!-- Fin Header -->
+
+  <!-- Particles Background -->
+  <div id="particles-container" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
 
   <!-- Main Content -->
   <main id="main-content">
@@ -326,6 +394,7 @@
           <div class="progress-container"><div class="progress-bar"></div></div>
         </div>
 
+<<<<<<< HEAD
         <div data-aos="zoom-in" data-aos-delay="200" class="card-hover bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg glow-effect">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 icon-circle-2 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -337,11 +406,32 @@
             Être une référence en accompagnement digital au Bénin et en Afrique de l'Ouest, avec des services à forte valeur ajoutée portés par l'expertise locale et l'innovation continue.
           </p>
           <div class="progress-container"><div class="progress-bar"></div></div>
+=======
+        <div data-aos="zoom-in" data-aos-delay="200"
+  class="card-hover bg-white p-8 rounded-2xl shadow-lg glow-effect dark:bg-gray-800">
+  <div class="flex items-center mb-6">
+    <div
+      class="w-12 h-12 rounded-full flex items-center justify-center mr-4"
+      style="background: linear-gradient(to right, #2B6CB0, #4A90E2);">
+      <i class="fas fa-eye text-white text-xl" aria-hidden="true"></i>
+    </div>
+    <h2 class="text-3xl font-bold text-gradient">Notre Vision</h2>
+  </div>
+  <p class="text-gray-700 leading-relaxed text-lg mb-6 dark:text-gray-300">
+    Être une référence en accompagnement digital au Bénin et en Afrique de l'Ouest, avec des services à forte
+    valeur ajoutée portés par l'expertise locale et l'innovation continue.
+  </p>
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+</div>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
         </div>
       </div>
     </section>
 
     <!-- Values Section -->
+<<<<<<< HEAD
     <section class="py-20 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700">
       <div class="px-6 md:px-20 max-w-7xl mx-auto">
         <h2 class="text-4xl font-bold text-center text-gradient mb-16" data-aos="fade-up">Nos Valeurs Fondamentales</h2>
@@ -378,11 +468,70 @@
             <h3 class="font-bold text-xl text-slate-800 dark:text-white mb-3">Intégrité</h3>
             <p class="text-slate-500 dark:text-slate-400">Nous agissons avec transparence et éthique dans toutes nos relations professionnelles.</p>
           </div>
+=======
+    <section class="py-20 bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-700">
+  <div class="px-6 md:px-20 max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gradient mb-16" data-aos="fade-up">Nos Valeurs Fondamentales</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Value 1 -->
+      <div data-aos="fade-up" data-aos-delay="0"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #2B6CB0, #4A90E2);">
+          <i class="fas fa-star" aria-hidden="true"></i>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
         </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Excellence</h3>
+        <p class="text-gray-600 dark:text-gray-300">Nous nous engageons à fournir des solutions de qualité
+          supérieure au Bénin, avec un souci du détail qui fait la différence.</p>
       </div>
-    </section>
+
+      <!-- Value 2 -->
+      <div data-aos="fade-up" data-aos-delay="100"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #4A90E2, #0F172A);">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Innovation</h3>
+        <p class="text-gray-600 dark:text-gray-300">Nous anticipons les besoins futurs et adoptons les technologies
+          émergentes pour rester à la pointe au Bénin.</p>
+      </div>
+
+      <!-- Value 3 -->
+      <div data-aos="fade-up" data-aos-delay="200"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #2B6CB0, #0F172A);">
+          <i class="fas fa-handshake" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Engagement</h3>
+        <p class="text-gray-600 dark:text-gray-300">Votre succès est notre priorité. Nous honorons nos promesses et
+          dépassons vos attentes au Bénin.</p>
+      </div>
+
+      <!-- Value 4 -->
+      <div data-aos="fade-up" data-aos-delay="300"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #0F172A, #2B6CB0);">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Intégrité</h3>
+        <p class="text-gray-600 dark:text-gray-300">Nous agissons avec transparence et éthique dans toutes nos
+          relations professionnelles au Bénin.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Process Section -->
+<<<<<<< HEAD
     <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gradient mb-4" data-aos="fade-up">Notre Processus de Travail au Bénin</h2>
@@ -412,9 +561,80 @@
           <h3 class="font-bold text-xl text-slate-800 dark:text-white mb-3">Accompagnement</h3>
           <p class="text-slate-500 dark:text-slate-400">Nous assurons un suivi post-déploiement pour garantir votre satisfaction.</p>
         </div>
-      </div>
-    </section>
+=======
+   <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-bold text-gradient mb-4" data-aos="fade-up">Notre Processus de Travail au Bénin</h2>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+      Une méthodologie éprouvée pour garantir le succès de vos projets numériques
+    </p>
+  </div>
 
+  <div class="grid md:grid-cols-4 gap-8">
+    <!-- Step 1 -->
+    <div data-aos="fade-up" data-aos-delay="0"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #2B6CB0, #4A90E2);">
+        1</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Écoute & Analyse</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous prenons le temps de comprendre vos besoins et vos objectifs
+        spécifiques au Bénin.</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div data-aos="fade-up" data-aos-delay="100"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #4A90E2, #0F172A);">
+        2</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Conception</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous élaborons une solution sur mesure adaptée à votre contexte
+        béninois.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div data-aos="fade-up" data-aos-delay="200"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #2B6CB0, #0F172A);">
+        3</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Développement</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous implémentons la solution avec les meilleures technologies
+        disponibles.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div data-aos="fade-up" data-aos-delay="300"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #0F172A, #2B6CB0);">
+        4</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Accompagnement</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous assurons un suivi post-déploiement pour garantir votre
+        satisfaction au Bénin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-gradient-to-r from-anyxtech-blue to-anyxtech-darkblue text-white">
+  <div class="px-6 md:px-20 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-8 text-center">
+      <!-- Stat 1 -->
+      <div data-aos="fade-up" data-aos-delay="0" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="50">0</div>
+        <div class="text-xl font-medium">Projets réalisés</div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div data-aos="fade-up" data-aos-delay="100" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="30">0</div>
+        <div class="text-xl font-medium">Clients satisfaits</div>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
+      </div>
+
+<<<<<<< HEAD
     <!-- Stats Section -->
     <section id="stats-section" class="py-20 hero-gradient text-white">
       <div class="px-6 md:px-20 max-w-7xl mx-auto">
@@ -436,8 +656,22 @@
             <div class="text-lg font-medium opacity-90">Prix remportés</div>
           </div>
         </div>
+=======
+      <!-- Stat 3 -->
+      <div data-aos="fade-up" data-aos-delay="200" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="15">0</div>
+        <div class="text-xl font-medium">Partenariats</div>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
       </div>
-    </section>
+
+      <!-- Stat 4 -->
+      <div data-aos="fade-up" data-aos-delay="300" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="5">0</div>
+        <div class="text-xl font-medium">Prix remportés</div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Technologies -->
     <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-3xl my-12">
@@ -449,33 +683,74 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<<<<<<< HEAD
         <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-md text-center">
           <div class="w-12 h-12 tech-icon-wrap rounded-lg flex items-center justify-center mx-auto mb-3">
             <i class="fas fa-code text-anyxtech-blue dark:text-blue-300 text-xl"></i>
+=======
+        <!-- Frontend -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md text-center">
+          <div
+            class="w-12 h-12 bg-anyxtech-light-bg dark:bg-blue-900/30 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-anyxtech-medium-text dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
           </div>
           <h4 class="font-bold text-slate-800 dark:text-white mb-2">Frontend</h4>
           <p class="text-sm text-slate-500 dark:text-slate-400">React, Vue.js, Angular, TypeScript</p>
         </div>
 
+<<<<<<< HEAD
         <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-md text-center">
           <div class="w-12 h-12 tech-icon-wrap rounded-lg flex items-center justify-center mx-auto mb-3">
             <i class="fas fa-server text-anyxtech-blue dark:text-blue-300 text-xl"></i>
+=======
+        <!-- Backend -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md text-center">
+          <div
+            class="w-12 h-12 bg-anyxtech-light-bg dark:bg-purple-900/30 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-anyxtech-medium-text dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
           </div>
           <h4 class="font-bold text-slate-800 dark:text-white mb-2">Backend</h4>
           <p class="text-sm text-slate-500 dark:text-slate-400">Node.js, PHP, Python, Laravel</p>
         </div>
 
+<<<<<<< HEAD
         <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-md text-center">
           <div class="w-12 h-12 tech-icon-wrap rounded-lg flex items-center justify-center mx-auto mb-3">
             <i class="fas fa-database text-anyxtech-blue dark:text-blue-300 text-xl"></i>
+=======
+        <!-- Database -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md text-center">
+          <div
+            class="w-12 h-12 bg-anyxtech-light-bg dark:bg-green-900/30 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-anyxtech-medium-text dark:text-green-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C8 2 4.5 3.5 4.5 5.5v13c0 2 3.5 3.5 7.5 3.5s7.5-1.5 7.5-3.5v-13c0-2-3.5-3.5-7.5-3.5z" />
+            </svg>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
           </div>
           <h4 class="font-bold text-slate-800 dark:text-white mb-2">Bases de données</h4>
           <p class="text-sm text-slate-500 dark:text-slate-400">MySQL, PostgreSQL, MongoDB</p>
         </div>
 
+<<<<<<< HEAD
         <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-md text-center">
           <div class="w-12 h-12 tech-icon-wrap rounded-lg flex items-center justify-center mx-auto mb-3">
             <i class="fas fa-cloud text-anyxtech-blue dark:text-blue-300 text-xl"></i>
+=======
+        <!-- DevOps -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md text-center">
+          <div
+            class="w-12 h-12 bg-anyxtech-light-bg dark:bg-orange-900/30 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-anyxtech-medium-text dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
           </div>
           <h4 class="font-bold text-slate-800 dark:text-white mb-2">DevOps</h4>
           <p class="text-sm text-slate-500 dark:text-slate-400">Docker, CI/CD, AWS, Azure</p>
@@ -499,6 +774,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Quote Section -->
     <section class="py-20 morphing-bg text-white text-center">
       <div class="px-6 md:px-20 max-w-4xl mx-auto">
@@ -515,6 +791,8 @@
         </div>
       </div>
     </section>
+=======
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
 
     <!-- CTA Section -->
     <section class="bg-gradient-to-r from-slate-800 to-anyxtech-blue py-16 text-white text-center relative overflow-hidden">
@@ -554,14 +832,23 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Navigation</h3>
         <ul class="space-y-2">
+<<<<<<< HEAD
           <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
           <li><a href="/societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a></li>
           <li><a href="/service.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
           <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
           <li><a href="/blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+=======
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Accueil</a></li>
+          <li><a href="societe.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Société</a></li>
+          <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Services</a></li>
+          <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Contact</a></li>
+          <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Blog</a></li>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
         </ul>
       </div>
       <div>
+<<<<<<< HEAD
         <h3 class="text-lg font-semibold mb-4">Services</h3>
         <ul class="space-y-2">
           <li><a href="/service.html#communication" class="text-gray-400 hover:text-white transition-colors">Communication Digitale</a></li>
@@ -571,6 +858,19 @@
           <li><a href="/service.html#support" class="text-gray-400 hover:text-white transition-colors">Support Clientèle</a></li>
         </ul>
       </div>
+=======
+    <h3 class="text-lg font-semibold mb-4">Services</h3>
+    <ul class="space-y-2">
+        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Communication Digitale</a></li>
+        <li><a href="service.html?filter=infrastructure" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Réseaux Informatiques</a></li>
+        <li><a href="service.html?filter=hosting" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Hébergement Web</a></li>
+        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Marketing Digital</a></li>
+        <li><a href="service.html?filter=support" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Support Clientèle</a></li>
+    </ul>
+  </div>
+
+      <!-- Column 4 -->
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
       <div>
         <h3 class="text-lg font-semibold mb-4">Contact</h3>
         <address class="not-italic text-gray-400 space-y-2">
@@ -582,10 +882,14 @@
       </div>
     </div>
     <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+<<<<<<< HEAD
       <p>&copy; 2025 AnyxTech Bénin. Tous droits réservés. |
         <a href="/privacy.html" class="hover:text-white">Politique de confidentialité</a> |
         <a href="/terms.html" class="hover:text-white">Conditions d'utilisation</a>
       </p>
+=======
+      <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés. | <a href="privacy.html" class="hover:text-white focus:outline-none focus:underline">Politique de confidentialité</a> | <a href="terms.html" class="hover:text-white focus:outline-none focus:underline">Conditions d'utilisation</a></p>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
     </div>
   </footer>
 

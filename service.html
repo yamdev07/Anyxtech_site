@@ -38,12 +38,24 @@
             theme: {
                 extend: {
                     colors: {
+<<<<<<< HEAD
                         'anyxtech-blue':          '#1f429b',
                         'anyxtech-lightblue':     '#1db9ff',
                         'anyxtech-darkblue':      '#1e4d9f',
                         'anyxtech-light-bg':      '#dbeafe',
                         'anyxtech-medium-text':   '#1e40af',
                         'anyxtech-very-light-bg': '#eff6ff',
+=======
+                        'anyxtech-blue': '#1f429b',
+                        'anyxtech-lightblue': '#1db9ff',
+                        'anyxtech-darkblue': '#1e4d9f',
+                        'anyxtech-light-bg': '#dbeafe',
+                        'anyxtech-medium-text': '#1e40af',
+                        'anyxtech-very-light-bg': '#eff6ff',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
                     },
                     fontFamily: { 'poppins': ['Poppins', 'sans-serif'] },
                 }
@@ -215,6 +227,7 @@
     <script>document.body.classList.remove('loading'); document.body.classList.add('loaded');</script>
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
 
+<<<<<<< HEAD
     <!-- ========== HEADER UNIFIÉ ========== -->
     <header class="py-3 px-4 md:px-6 z-50 relative mb-6">
         <div class="flex items-center justify-between max-w-7xl mx-auto">
@@ -257,7 +270,56 @@
             </ul>
         </div>
     </header>
+=======
+    
 
+    <!-- Header -->
+    <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div>
+      <a href="/" aria-label="AnyxTech - Retour à l'accueil">
+        <img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech Bénin" loading="eager">
+      </a>
+    </div>
+
+    <!-- Conteneur pour la navigation, le bouton thème et le bouton mobile -->
+    <div class="flex items-center gap-x-4">
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block" aria-label="Navigation principale">
+        <ul class="flex items-center gap-x-8">
+          <li><a href="index.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Accueil</a></li>
+          <li><a href="societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Société</a></li>
+          <li><a href="service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Services</a></li>
+          <li><a href="contact.html" class="nav-link text-lg font-medium text-anyxtech-blue dark:text-anyxtech-lightblue transition-colors">Contact</a></li>
+          <li><a href="devis.html" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Devis</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme Toggle Button (positionné juste après la navigation desktop) -->
+      <button id="themeToggle" class="p-2 rounded-full focus:outline-none bg-blue-100 dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-300" aria-label="Changer le thème">
+        <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+      </button>
+
+      <!-- Mobile Menu Button (visible seulement sur mobile) -->
+      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-white" aria-label="Ouvrir le menu" aria-expanded="false">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </div>
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
+
+  <!-- Mobile Navigation (inchangé) -->
+  <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-4 overflow-hidden transition-all duration-300 max-h-0" aria-hidden="true">
+    <ul class="p-4 space-y-4">
+      <li><a href="index.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Accueil</a></li>
+      <li><a href="societe.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Société</a></li>
+      <li><a href="service.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Services</a></li>
+      <li><a href="contact.html" class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-white">Contact</a></li>
+      <li><a href="devis.html" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue mt-2 dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Demande de devis</a></li>
+    </ul>
+  </div>
+</header>
     <!-- Main Content -->
     <main id="main-content">
 
@@ -281,6 +343,7 @@
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 mb-12 glow-effect border border-blue-50 dark:border-slate-700" data-aos="fade-up">
                     <h2 class="text-2xl font-bold text-center text-slate-800 dark:text-white mb-6">Explorez nos domaines d'expertise au Bénin</h2>
                     <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+<<<<<<< HEAD
                         <button class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 font-medium transition-all duration-300 active bg-anyxtech-blue text-white border-anyxtech-blue focus:outline-none focus:ring-2 focus:ring-white"
                             data-filter="all" aria-label="Voir tous les services">
                             <i class="fas fa-globe mr-2" aria-hidden="true"></i>Tous les services
@@ -298,6 +361,30 @@
                             <i class="fas fa-headset mr-2" aria-hidden="true"></i>Support & Accompagnement
                         </button>
                         <button class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-slate-200 dark:border-slate-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+=======
+                        <button
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 font-medium transition-all duration-300 active bg-anyxtech-blue text-white border-anyxtech-blue dark:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-white"
+                            data-filter="all" aria-label="Voir tous les services">
+                            <i class="fas fa-globe mr-2" aria-hidden="true"></i>Tous les services
+                        </button>
+                        <button
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            data-filter="communication" aria-label="Filtrer par communication digitale">
+                            <i class="fas fa-bullhorn mr-2" aria-hidden="true"></i>Communication Digitale
+                        </button>
+                        <button
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            data-filter="infrastructure" aria-label="Filtrer par infrastructure réseau">
+                            <i class="fas fa-network-wired mr-2" aria-hidden="true"></i>Infrastructure & Réseaux
+                        </button>
+                        <button
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+                            data-filter="support" aria-label="Filtrer par support client">
+                            <i class="fas fa-headset mr-2" aria-hidden="true"></i>Support & Accompagnement
+                        </button>
+                        <button
+                            class="filter-btn px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 font-medium hover:border-anyxtech-blue hover:bg-anyxtech-blue hover:text-white transition-all duration-300 dark:hover:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
                             data-filter="hosting" aria-label="Filtrer par hébergement web">
                             <i class="fas fa-server mr-2" aria-hidden="true"></i>Hébergement & Domaine
                         </button>
@@ -378,6 +465,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-6 md:px-20" role="contentinfo">
+<<<<<<< HEAD
         <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <div>
                 <img src="images/anyxtech.png" alt="AnyxTech Bénin Logo" class="w-32 mb-4 lazy-load" loading="lazy">
@@ -428,6 +516,79 @@
     </footer>
 
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white" aria-label="Retour en haut">
+=======
+    <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- Column 1 -->
+      <div>
+        <img src="images/logo-removebg-preview.png" alt="AnyxTech Bénin Logo" class="w-32 mb-4" loading="lazy">
+        <p class="text-gray-400 mb-4">
+          Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
+        </p>
+        <div class="flex space-x-4">
+          <a href="https://facebook.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+            class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
+            <i class="fab fa-facebook-f" aria-label="Facebook"></i>
+          </a>
+          <a href="https://twitter.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+            class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
+            <i class="fab fa-twitter" aria-label="Twitter"></i>
+          </a>
+          <a href="https://linkedin.com/company/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+            class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
+            <i class="fab fa-linkedin-in" aria-label="LinkedIn"></i>
+          </a>
+          <a href="https://instagram.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+            class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
+            <i class="fab fa-instagram" aria-label="Instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Accueil</a></li>
+          <li><a href="societe.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Société</a></li>
+          <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Services</a></li>
+          <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Contact</a></li>
+          <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div>
+    <h3 class="text-lg font-semibold mb-4">Services</h3>
+    <ul class="space-y-2">
+        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Communication Digitale</a></li>
+        <li><a href="service.html?filter=infrastructure" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Réseaux Informatiques</a></li>
+        <li><a href="service.html?filter=hosting" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Hébergement Web</a></li>
+        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Marketing Digital</a></li>
+        <li><a href="service.html?filter=support" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Support Clientèle</a></li>
+    </ul>
+  </div>
+
+      <!-- Column 4 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <address class="not-italic text-gray-400 space-y-2">
+          <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> Cotonou, Bénin</p>
+          <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> <a href="tel:+2290152415241" class="hover:text-white focus:outline-none focus:underline">+229 01 52415241</a></p>
+          <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> <a href="mailto:contact@anyxtech.com" class="hover:text-white focus:outline-none focus:underline">contact@anyxtech.com</a></p>
+          <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> Lun-Ven: 8h-18h</p>
+        </address>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+      <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés. | <a href="privacy.html" class="hover:text-white focus:outline-none focus:underline">Politique de confidentialité</a> | <a href="terms.html" class="hover:text-white focus:outline-none focus:underline">Conditions d'utilisation</a></p>
+    </div>
+  </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center dark:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white"
+        aria-label="Retour en haut">
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
@@ -562,8 +723,30 @@
             filterButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     filterButtons.forEach(btn => {
+<<<<<<< HEAD
                         btn.classList.remove('active','bg-anyxtech-blue','text-white','border-anyxtech-blue');
                         btn.classList.add('border-slate-200','dark:border-slate-600');
+=======
+                        btn.classList.remove('active', 'bg-anyxtech-blue', 'text-white', 'border-anyxtech-blue');
+                        btn.classList.add('border-gray-200', 'dark:border-gray-600');
+                        // === Lecture du paramètre 'filter' dans l'URL ===
+                const urlParams = new URLSearchParams(window.location.search);
+                const filterParam = urlParams.get('filter');
+                if (filterParam) {
+                 const filterButtons = document.querySelectorAll('.filter-btn');
+               let found = false;
+               filterButtons.forEach(btn => {
+               if (btn.getAttribute('data-filter') === filterParam) {
+               btn.click(); // déclenche le filtre
+              found = true;
+             }
+        });
+    if (!found) {
+        // Si le filtre demandé n'existe pas, on affiche tous les services
+        document.querySelector('.filter-btn[data-filter="all"]').click();
+    }
+}
+>>>>>>> 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6
                     });
                     this.classList.add('active','bg-anyxtech-blue','text-white','border-anyxtech-blue');
                     this.classList.remove('border-slate-200','dark:border-slate-600');
