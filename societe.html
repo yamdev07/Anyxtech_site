@@ -453,78 +453,54 @@
   <!-- Skip to content pour accessibilité -->
   <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
 
-  <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb px-4 md:px-20 max-w-7xl mx-auto mt-4" aria-label="Fil d'Ariane">
-    <ol class="list-none flex items-center space-x-2">
-      <li><a href="/" class="hover:underline">Accueil</a></li>
-      <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
-      <li class="text-gray-600 dark:text-gray-400" aria-current="page">Société</li>
-    </ol>
-  </nav>
+  
 
   <!-- Header AnyxTech -->
   <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
-    <div class="flex items-center justify-between">
-      <div>
-        <a href="/" aria-label="AnyxTech - Retour à l'accueil">
-          <img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech Bénin" loading="eager">
-        </a>
-      </div>
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div>
+      <a href="/" aria-label="AnyxTech - Retour à l'accueil">
+        <img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech Bénin" loading="eager">
+      </a>
+    </div>
 
-      <!-- Theme Toggle Button -->
-      <button id="themeToggle" class="p-2 rounded-full focus:outline-none mr-4" aria-label="Changer le thème">
-        <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-      </button>
-
+    <!-- Conteneur pour la navigation, le bouton thème et le bouton mobile -->
+    <div class="flex items-center gap-x-4">
       <!-- Desktop Navigation -->
       <nav class="hidden md:block" aria-label="Navigation principale">
         <ul class="flex items-center gap-x-8">
-          <li><a href="/"
-              class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-anyxtech-lightblue">Accueil</a>
-          </li>
-          <li><a href="/societe.html"
-              class="nav-link text-lg font-medium text-anyxtech-blue transition-colors dark:text-anyxtech-lightblue">Société</a>
-          </li>
-          <li><a href="/service.html"
-              class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-anyxtech-lightblue">Services</a>
-          </li>
-          <li><a href="/contact.html"
-              class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:hover:text-anyxtech-lightblue">Contact</a>
-          </li>
-          <li><a href="/devis.html"
-              class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue focus:ring-2 focus:ring-white focus:outline-none">Devis</a>
-          </li>
+          <li><a href="index.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Accueil</a></li>
+          <li><a href="societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Société</a></li>
+          <li><a href="service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Services</a></li>
+          <li><a href="contact.html" class="nav-link text-lg font-medium text-anyxtech-blue dark:text-anyxtech-lightblue transition-colors">Contact</a></li>
+          <li><a href="devis.html" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Devis</a></li>
         </ul>
       </nav>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button"
-        class="md:hidden text-anyxtech-blue focus:outline-none dark:text-anyxtech-lightblue" aria-label="Ouvrir le menu" aria-expanded="false">
+      <!-- Theme Toggle Button (positionné juste après la navigation desktop) -->
+      <button id="themeToggle" class="p-2 rounded-full focus:outline-none bg-blue-100 dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-300" aria-label="Changer le thème">
+        <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+      </button>
+
+      <!-- Mobile Menu Button (visible seulement sur mobile) -->
+      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-white" aria-label="Ouvrir le menu" aria-expanded="false">
         <i class="fas fa-bars text-2xl"></i>
       </button>
     </div>
+  </div>
 
-    <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="mobile-menu md:hidden shadow-lg rounded-lg mt-4" aria-hidden="true">
-      <ul class="p-4 space-y-4">
-        <li><a href="/"
-            class="block px-4 py-2 hover:bg-anyxtech-very-light-bg rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Accueil</a>
-        </li>
-        <li><a href="/societe.html"
-            class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-anyxtech-lightblue focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Société</a>
-        </li>
-        <li><a href="/service.html"
-            class="block px-4 py-2 hover:bg-anyxtech-very-light-bg rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Services</a>
-        </li>
-        <li><a href="/contact.html"
-            class="block px-4 py-2 hover:bg-anyxtech-very-light-bg rounded transition-colors dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue">Contact</a>
-        </li>
-        <li><a href="/devis.html"
-            class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors mt-2 dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue focus:ring-2 focus:ring-white focus:outline-none">Demande
-            de devis</a></li>
-      </ul>
-    </div>
-  </header>
+  <!-- Mobile Navigation (inchangé) -->
+  <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-4 overflow-hidden transition-all duration-300 max-h-0" aria-hidden="true">
+    <ul class="p-4 space-y-4">
+      <li><a href="index.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Accueil</a></li>
+      <li><a href="societe.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Société</a></li>
+      <li><a href="service.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Services</a></li>
+      <li><a href="contact.html" class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-white">Contact</a></li>
+      <li><a href="devis.html" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue mt-2 dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Demande de devis</a></li>
+    </ul>
+  </div>
+</header>
   <!-- Fin Header -->
 
   <!-- Particles Background -->
@@ -612,168 +588,174 @@
         </div>
 
         <div data-aos="zoom-in" data-aos-delay="200"
-          class="card-hover bg-white p-8 rounded-2xl shadow-lg glow-effect dark:bg-gray-800">
-          <div class="flex items-center mb-6">
-            <div
-              class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mr-4">
-              <i class="fas fa-eye text-white text-xl" aria-hidden="true"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-gradient">Notre Vision</h2>
-          </div>
-          <p class="text-gray-700 leading-relaxed text-lg mb-6 dark:text-gray-300">
-            Être une référence en accompagnement digital au Bénin et en Afrique de l'Ouest, avec des services à forte
-            valeur ajoutée portés par l'expertise locale et l'innovation continue.
-          </p>
-          <div class="progress-container">
-            <div class="progress-bar"></div>
-          </div>
+  class="card-hover bg-white p-8 rounded-2xl shadow-lg glow-effect dark:bg-gray-800">
+  <div class="flex items-center mb-6">
+    <div
+      class="w-12 h-12 rounded-full flex items-center justify-center mr-4"
+      style="background: linear-gradient(to right, #2B6CB0, #4A90E2);">
+      <i class="fas fa-eye text-white text-xl" aria-hidden="true"></i>
+    </div>
+    <h2 class="text-3xl font-bold text-gradient">Notre Vision</h2>
+  </div>
+  <p class="text-gray-700 leading-relaxed text-lg mb-6 dark:text-gray-300">
+    Être une référence en accompagnement digital au Bénin et en Afrique de l'Ouest, avec des services à forte
+    valeur ajoutée portés par l'expertise locale et l'innovation continue.
+  </p>
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+</div>
         </div>
       </div>
     </section>
 
     <!-- Values Section -->
     <section class="py-20 bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-700">
-      <div class="px-6 md:px-20 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold text-center text-gradient mb-16" data-aos="fade-up">Nos Valeurs Fondamentales</h2>
+  <div class="px-6 md:px-20 max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gradient mb-16" data-aos="fade-up">Nos Valeurs Fondamentales</h2>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Value 1 -->
-          <div data-aos="fade-up" data-aos-delay="0"
-            class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
-            <div
-              class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-2xl">
-              <i class="fas fa-star" aria-hidden="true"></i>
-            </div>
-            <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Excellence</h3>
-            <p class="text-gray-600 dark:text-gray-300">Nous nous engageons à fournir des solutions de qualité
-              supérieure au Bénin, avec un souci du détail qui fait la différence.</p>
-          </div>
-
-          <!-- Value 2 -->
-          <div data-aos="fade-up" data-aos-delay="100"
-            class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
-            <div
-              class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl">
-              <i class="fas fa-lightbulb" aria-hidden="true"></i>
-            </div>
-            <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Innovation</h3>
-            <p class="text-gray-600 dark:text-gray-300">Nous anticipons les besoins futurs et adoptons les technologies
-              émergentes pour rester à la pointe au Bénin.</p>
-          </div>
-
-          <!-- Value 3 -->
-          <div data-aos="fade-up" data-aos-delay="200"
-            class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
-            <div
-              class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl">
-              <i class="fas fa-handshake" aria-hidden="true"></i>
-            </div>
-            <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Engagement</h3>
-            <p class="text-gray-600 dark:text-gray-300">Votre succès est notre priorité. Nous honorons nos promesses et
-              dépassons vos attentes au Bénin.</p>
-          </div>
-
-          <!-- Value 4 -->
-          <div data-aos="fade-up" data-aos-delay="300"
-            class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
-            <div
-              class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-2xl">
-              <i class="fas fa-shield-alt" aria-hidden="true"></i>
-            </div>
-            <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Intégrité</h3>
-            <p class="text-gray-600 dark:text-gray-300">Nous agissons avec transparence et éthique dans toutes nos
-              relations professionnelles au Bénin.</p>
-          </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Value 1 -->
+      <div data-aos="fade-up" data-aos-delay="0"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #2B6CB0, #4A90E2);">
+          <i class="fas fa-star" aria-hidden="true"></i>
         </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Excellence</h3>
+        <p class="text-gray-600 dark:text-gray-300">Nous nous engageons à fournir des solutions de qualité
+          supérieure au Bénin, avec un souci du détail qui fait la différence.</p>
       </div>
-    </section>
+
+      <!-- Value 2 -->
+      <div data-aos="fade-up" data-aos-delay="100"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #4A90E2, #0F172A);">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Innovation</h3>
+        <p class="text-gray-600 dark:text-gray-300">Nous anticipons les besoins futurs et adoptons les technologies
+          émergentes pour rester à la pointe au Bénin.</p>
+      </div>
+
+      <!-- Value 3 -->
+      <div data-aos="fade-up" data-aos-delay="200"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #2B6CB0, #0F172A);">
+          <i class="fas fa-handshake" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Engagement</h3>
+        <p class="text-gray-600 dark:text-gray-300">Votre succès est notre priorité. Nous honorons nos promesses et
+          dépassons vos attentes au Bénin.</p>
+      </div>
+
+      <!-- Value 4 -->
+      <div data-aos="fade-up" data-aos-delay="300"
+        class="card-hover text-center p-8 bg-white rounded-2xl shadow-lg glow-effect hover:border-b-4 hover:border-anyxtech-blue transition-all dark:bg-gray-800">
+        <div
+          class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl"
+          style="background: linear-gradient(to right, #0F172A, #2B6CB0);">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Intégrité</h3>
+        <p class="text-gray-600 dark:text-gray-300">Nous agissons avec transparence et éthique dans toutes nos
+          relations professionnelles au Bénin.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Process Section -->
-    <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gradient mb-4" data-aos="fade-up">Notre Processus de Travail au Bénin</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
-          Une méthodologie éprouvée pour garantir le succès de vos projets numériques
-        </p>
+   <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-bold text-gradient mb-4" data-aos="fade-up">Notre Processus de Travail au Bénin</h2>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+      Une méthodologie éprouvée pour garantir le succès de vos projets numériques
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-4 gap-8">
+    <!-- Step 1 -->
+    <div data-aos="fade-up" data-aos-delay="0"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #2B6CB0, #4A90E2);">
+        1</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Écoute & Analyse</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous prenons le temps de comprendre vos besoins et vos objectifs
+        spécifiques au Bénin.</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div data-aos="fade-up" data-aos-delay="100"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #4A90E2, #0F172A);">
+        2</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Conception</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous élaborons une solution sur mesure adaptée à votre contexte
+        béninois.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div data-aos="fade-up" data-aos-delay="200"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #2B6CB0, #0F172A);">
+        3</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Développement</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous implémentons la solution avec les meilleures technologies
+        disponibles.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div data-aos="fade-up" data-aos-delay="300"
+      class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+        style="background: linear-gradient(to right, #0F172A, #2B6CB0);">
+        4</div>
+      <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Accompagnement</h3>
+      <p class="text-gray-600 dark:text-gray-300">Nous assurons un suivi post-déploiement pour garantir votre
+        satisfaction au Bénin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-gradient-to-r from-anyxtech-blue to-anyxtech-darkblue text-white">
+  <div class="px-6 md:px-20 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-8 text-center">
+      <!-- Stat 1 -->
+      <div data-aos="fade-up" data-aos-delay="0" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="50">0</div>
+        <div class="text-xl font-medium">Projets réalisés</div>
       </div>
 
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Step 1 -->
-        <div data-aos="fade-up" data-aos-delay="0"
-          class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
-          <div
-            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-            1</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Écoute & Analyse</h3>
-          <p class="text-gray-600 dark:text-gray-300">Nous prenons le temps de comprendre vos besoins et vos objectifs
-            spécifiques au Bénin.</p>
-        </div>
-
-        <!-- Step 2 -->
-        <div data-aos="fade-up" data-aos-delay="100"
-          class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
-          <div
-            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-            2</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Conception</h3>
-          <p class="text-gray-600 dark:text-gray-300">Nous élaborons une solution sur mesure adaptée à votre contexte
-            béninois.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div data-aos="fade-up" data-aos-delay="200"
-          class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
-          <div
-            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-            3</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Développement</h3>
-          <p class="text-gray-600 dark:text-gray-300">Nous implémentons la solution avec les meilleures technologies
-            disponibles.</p>
-        </div>
-
-        <!-- Step 4 -->
-        <div data-aos="fade-up" data-aos-delay="300"
-          class="card-hover bg-white p-6 rounded-2xl shadow-lg glow-effect text-center dark:bg-gray-800">
-          <div
-            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-            4</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3 dark:text-white">Accompagnement</h3>
-          <p class="text-gray-600 dark:text-gray-300">Nous assurons un suivi post-déploiement pour garantir votre
-            satisfaction au Bénin.</p>
-        </div>
+      <!-- Stat 2 -->
+      <div data-aos="fade-up" data-aos-delay="100" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="30">0</div>
+        <div class="text-xl font-medium">Clients satisfaits</div>
       </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="py-20 bg-gradient-to-r from-anyxtech-blue to-anyxtech-darkblue text-white">
-      <div class="px-6 md:px-20 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-8 text-center">
-          <!-- Stat 1 -->
-          <div data-aos="fade-up" data-aos-delay="0" class="p-6">
-            <div class="text-5xl font-bold mb-3 stats-counter" data-target="50">0</div>
-            <div class="text-xl font-medium">Projets réalisés</div>
-          </div>
-
-          <!-- Stat 2 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="p-6">
-            <div class="text-5xl font-bold mb-3 stats-counter" data-target="30">0</div>
-            <div class="text-xl font-medium">Clients satisfaits</div>
-          </div>
-
-          <!-- Stat 3 -->
-          <div data-aos="fade-up" data-aos-delay="200" class="p-6">
-            <div class="text-5xl font-bold mb-3 stats-counter" data-target="15">0</div>
-            <div class="text-xl font-medium">Partenariats</div>
-          </div>
-
-          <!-- Stat 4 -->
-          <div data-aos="fade-up" data-aos-delay="300" class="p-6">
-            <div class="text-5xl font-bold mb-3 stats-counter" data-target="5">0</div>
-            <div class="text-xl font-medium">Prix remportés</div>
-          </div>
-        </div>
+      <!-- Stat 3 -->
+      <div data-aos="fade-up" data-aos-delay="200" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="15">0</div>
+        <div class="text-xl font-medium">Partenariats</div>
       </div>
-    </section>
+
+      <!-- Stat 4 -->
+      <div data-aos="fade-up" data-aos-delay="300" class="p-6">
+        <div class="text-5xl font-bold mb-3 stats-counter" data-target="5">0</div>
+        <div class="text-xl font-medium">Prix remportés</div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Section Technologies et outils -->
     <section class="py-20 px-6 md:px-20 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-3xl">
@@ -852,25 +834,6 @@
       </div>
     </div>
 
-    <!-- Quote Section -->
-    <section class="py-20 morphing-bg text-white text-center">
-      <div class="px-6 md:px-20 max-w-4xl mx-auto">
-        <div data-aos="zoom-in">
-          <i class="fas fa-quote-left text-4xl mb-6 opacity-50" aria-hidden="true"></i>
-          <blockquote class="text-2xl md:text-3xl font-light italic mb-8">
-            "AnyxTech transforme les défis digitaux en opportunités concrètes au Bénin. Nous concevons des solutions sur mesure
-            qui accélèrent votre croissance et optimisent vos processus."
-          </blockquote>
-          <div class="w-24 h-1 bg-white mx-auto mb-8 opacity-50" aria-hidden="true"></div>
-          <a href="/devis.html"
-            class="inline-block px-8 py-4 bg-white text-anyxtech-blue rounded-full font-semibold hover:bg-anyxtech-very-light-bg transition-all duration-300 transform hover:scale-105 shadow-lg dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 focus:ring-2 focus:ring-anyxtech-blue focus:outline-none"
-            data-aos="zoom-in" data-aos-delay="200">
-            <i class="fas fa-comments mr-2" aria-hidden="true"></i>
-            Discutons de votre projet
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- CTA Section -->
     <section class="bg-gradient-to-r from-gray-800 to-blue-900 py-16 text-white text-center relative overflow-hidden">
@@ -930,11 +893,11 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Navigation</h3>
         <ul class="space-y-2">
-          <li><a href="/" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Accueil</a></li>
-          <li><a href="/societe.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Société</a></li>
-          <li><a href="/service.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Services</a></li>
-          <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Contact</a></li>
-          <li><a href="/blog.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Blog</a></li>
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Accueil</a></li>
+          <li><a href="societe.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Société</a></li>
+          <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Services</a></li>
+          <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Contact</a></li>
+          <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Blog</a></li>
         </ul>
       </div>
 
@@ -942,11 +905,11 @@
       <div>
     <h3 class="text-lg font-semibold mb-4">Services</h3>
     <ul class="space-y-2">
-        <li><a href="/service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Communication Digitale</a></li>
-        <li><a href="/service.html?filter=infrastructure" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Réseaux Informatiques</a></li>
-        <li><a href="/service.html?filter=hosting" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Hébergement Web</a></li>
-        <li><a href="/service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Marketing Digital</a></li>
-        <li><a href="/service.html?filter=support" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Support Clientèle</a></li>
+        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Communication Digitale</a></li>
+        <li><a href="service.html?filter=infrastructure" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Réseaux Informatiques</a></li>
+        <li><a href="service.html?filter=hosting" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Hébergement Web</a></li>
+        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Marketing Digital</a></li>
+        <li><a href="service.html?filter=support" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Support Clientèle</a></li>
     </ul>
   </div>
 
@@ -963,7 +926,7 @@
     </div>
 
     <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-      <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés. | <a href="/privacy.html" class="hover:text-white focus:outline-none focus:underline">Politique de confidentialité</a> | <a href="/terms.html" class="hover:text-white focus:outline-none focus:underline">Conditions d'utilisation</a></p>
+      <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés. | <a href="privacy.html" class="hover:text-white focus:outline-none focus:underline">Politique de confidentialité</a> | <a href="terms.html" class="hover:text-white focus:outline-none focus:underline">Conditions d'utilisation</a></p>
     </div>
   </footer>
 
