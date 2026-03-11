@@ -1,0 +1,203 @@
+[33mcommit f349bc60de71c153fecb86fdb05cc6b0f4201ef9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmistourath[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: ab5fd63 458fb50
+Author: mistouralimi <mistouraakimey47@gmail.com>
+Date:   Wed Mar 11 17:41:57 2026 +0100
+
+    Merge remote changes and resolve conflicts
+
+[33mcommit ab5fd6377c6cf34c35b1e69551c9d17350d7a50b[m
+Author: mistouralimi <mistouraakimey47@gmail.com>
+Date:   Wed Mar 11 17:08:51 2026 +0100
+
+    fais le commit
+
+[33mcommit 86e678fca0db099a42fb5bc4bf4345a6ea4eea9d[m
+Author: mistouralimi <mistouraakimey47@gmail.com>
+Date:   Wed Mar 11 17:04:52 2026 +0100
+
+    fais le commit
+
+[33mcommit 458fb5013c884027e9f4085f6ad0a8aea3eb7aa6[m
+Author: HP <doudedjimensah16@gmail.com>
+Date:   Wed Mar 11 13:20:49 2026 +0100
+
+    modifiction
+
+[33mcommit 8f0996115cb73bda54f36588b1b77e3a69a28939[m
+Author: HP <doudedjimensah16@gmail.com>
+Date:   Wed Mar 11 09:32:25 2026 +0100
+
+     Adaptation
+
+[33mcommit ec13dbd2dd9b180d6cf99da5ae227729070fe4c9[m
+Author: HP <doudedjimensah16@gmail.com>
+Date:   Wed Mar 11 09:26:25 2026 +0100
+
+    correction des erreures
+
+[33mcommit 27b16b5e6a4b440577a49476ae7aad9b7dff35e0[m
+Author: HP <doudedjimensah16@gmail.com>
+Date:   Wed Mar 11 08:57:43 2026 +0100
+
+    Modification des pages du site AnyxTech
+
+[33mcommit 3eea9a5aa16eb175cfbfda15534602b5996fa29a[m
+Author: HP <doudedjimensah16@gmail.com>
+Date:   Tue Mar 10 18:01:14 2026 +0100
+
+    Modification des pages du site AnyxTech
+
+[33mcommit 278e5e8b7576f28b2eee135445e62838bf9b9be4[m
+Merge: 3b63aa9 f975ad6
+Author: Yoann yamd <155230968+yamdev07@users.noreply.github.com>
+Date:   Mon Jan 12 15:22:33 2026 +0100
+
+    Merge pull request #4 from yamdev07/feature-x
+    
+    add seo references for contact
+
+[33mcommit f975ad63850edf0d1b429439f12a06952cca85d2[m[33m ([m[1;31morigin/feature-x[m[33m)[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Mon Jan 12 11:13:45 2026 +0100
+
+    add seo references for contact
+
+[33mcommit 3b63aa929247a2f5b731edc28315eaa719128b07[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Mon Jan 12 10:40:46 2026 +0100
+
+    add seo to the code
+
+[33mcommit d87ef36dacf45178788538454e235c4dbe0c60d9[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Wed Nov 19 20:45:20 2025 +0100
+
+    maj anyxtech site
+
+[33mcommit 69a264bcaff152ac57df85822175d07bad100741[m
+Merge: 777ca8a 4c72c34
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Wed Nov 19 20:38:33 2025 +0100
+
+    Merge branch 'main' of https://github.com/yamdev07/Anyxtech_site
+
+[33mcommit 777ca8acfc008a4a3e4ae1822da511060fc4f0b5[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Wed Nov 19 20:37:13 2025 +0100
+
+    maj favicon  anyxtech site
+
+[33mcommit 4c72c345933eea9d2251e2ac1c524a7a9263d6c6[m
+Author: Yoann yamd <155230968+yamdev07@users.noreply.github.com>
+Date:   Wed Nov 19 15:20:18 2025 +0100
+
+    Revise README for AnyxTech site update
+    
+    Updated README.md to reflect the new project structure and features for the AnyxTech website.
+
+[33mcommit b2feafe0bae8b975a328e1b45c91bad1d76180e5[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Mon Oct 6 20:55:00 2025 +0100
+
+    add de photos noires
+
+[33mcommit 649edd7e757b0c32ce1b7d9214c18a8a62ad3bd1[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Mon Oct 6 20:20:00 2025 +0100
+
+    add de photos noires
+
+[33mcommit 3d0af5ea898826327df79125e125f638f4517b14[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Mon Oct 6 17:36:52 2025 +0100
+
+    add de photos noires
+
+[33mcommit 0c771331b90197067cf2d8d0faab1f6192f801cc[m
+Merge: 75115e7 acea44e
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Fri Oct 3 11:41:28 2025 +0100
+
+    Merge branch 'new-branch'
+
+[33mcommit acea44e8deb78c22d4e9b338f848d573afb00abd[m[33m ([m[1;31morigin/new-branch[m[33m)[m
+Merge: bee05e9 71ed8e6
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Fri Oct 3 11:29:46 2025 +0100
+
+    Merge branch 'new-branch' of https://github.com/yamdev07/Anyxtech_site into new-branch
+
+[33mcommit bee05e9a62ddb2b4398a122ec7267944a6d145a2[m
+Author: yamdev07 <yamdyamd080@gmail.com>
+Date:   Fri Oct 3 11:28:47 2025 +0100
+
+    maj complete
+
+[33mcommit 71ed8e62bcdb464c538263a9bd9ebff16faba82f[m
+Author: unknown <esther-dorcas>
+Date:   Wed Jul 30 14:11:11 2025 +0100
+
+    Updates des pages
+
+[33mcommit 75115e7bfc51d7dbd637d7fb81cefac3a73e1452[m
+Author: yamdev07 <155230968+yamdev07@users.noreply.github.com>
+Date:   Wed Jul 30 10:28:37 2025 +0100
+
+    Update README.md
+
+[33mcommit 70b72937aa05fecbdf3931bf953186a36c5ef96c[m
+Merge: 367c70e 31f27a4
+Author: yamdev07 <155230968+yamdev07@users.noreply.github.com>
+Date:   Wed Jul 30 10:03:04 2025 +0100
+
+    Merge pull request #2 from yamdev07/new-branch
+    
+    Mise à jour du service.html
+
+[33mcommit 31f27a43ef924cc34c86d43843a4dd8aef3f9d49[m
+Author: unknown <esther-dorcas>
+Date:   Wed Jul 23 18:42:40 2025 +0100
+
+    Updates des pages
+
+[33mcommit 7e96b423416984b29d5d9d29f605c84272ababf9[m
+Author: unknown <esther-dorcas>
+Date:   Tue Jul 22 18:44:39 2025 +0100
+
+    Update de nouvelles pages
+
+[33mcommit 7e3ea7e02961877ba29394b1d5cf2c0ad9013442[m
+Author: unknown <esther-dorcas>
+Date:   Fri Jul 18 12:16:06 2025 +0100
+
+    Update des pages index contact service societe
+
+[33mcommit c74d3ab0a833e56b2096866d8a4335cd9cae4ad6[m
+Author: unknown <esther-dorcas>
+Date:   Thu Jul 17 18:34:13 2025 +0100
+
+    Update des pages contact et index
+
+[33mcommit dc5cfa2eeb838aea22b1eb189e16641711c36bf0[m
+Author: unknown <esther-dorcas>
+Date:   Thu Jul 17 14:51:45 2025 +0100
+
+    Update du fichier societe.html
+
+[33mcommit ad63d65b28f6102be5913ea52f1cd8e86d3151b8[m
+Author: unknown <esther-dorcas>
+Date:   Thu Jul 17 14:42:25 2025 +0100
+
+    Update du fichier service.html
+
+[33mcommit f9337d39ed4b8dbaa97b529c0d54c81f03b75bc7[m
+Author: unknown <esther-dorcas>
+Date:   Thu Jul 17 14:13:45 2025 +0100
+
+    Mise à jour du fichier service.html
+
+[33mcommit 2b0ff0b3e4cbe1b82114474f092c437071f14a7c[m
+Author: unknown <esther-dorcas>
+Date:   Thu Jul 17 13:58:41 2025 +0100
+
+    update de societe

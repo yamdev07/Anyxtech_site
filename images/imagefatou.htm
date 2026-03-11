@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <script>//<![CDATA[
+      var s = false;
+      function l() {
+        setTimeout(f, 10000);
+        if (document.referrer) {
+          try {
+            var pm = /(^|&|\?)px=([^&]*)(&|$)/i;
+            var px = window.location.href.match(pm);
+            var rs = document.referrer;
+            if (px != null) {
+              if (rs.match(pm))
+                rs = rs.replace(pm, "$1px=" + px[2] + "$3");
+              else if (rs.indexOf("?") != -1)
+                rs = rs + "&px=" + px[2];
+              else
+                rs = rs + "?px=" + px[2];
+            }
+            history.replaceState({}, "Bing", rs);
+            window.addEventListener("pageshow", function(e) { if (e.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2)) window.location.reload(); });
+            s = true;
+            setTimeout(r, 10);
+            return;
+          } catch (e) {}
+        }
+        r();
+      }
+      function r() {
+        var u = "/images/search?q=photo+de+femme+belle&id=686F919B615F7077B2486FB0F465A12C00643219&FORM=IACFIR";
+        if (s)
+          window.location.href = u;
+        else
+          window.location.replace(u);
+      }
+      function f() {
+        document.getElementById("fb").style.display = "block";
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="l()">
+    <div id="fb" style="display: none">
+      Please <a href="https://www.bing.com/ck/a?!&&p=6ba2632aeea87326fe137b40db6a779236771e71fc38c51ece8c7c92f93e90c2JmltdHM9MTc1MjcxMDQwMA&ptn=3&ver=2&hsh=4&fclid=1b059c6e-7737-6128-0354-89407631603d&u=a1L2ltYWdlcy9zZWFyY2g_cT1waG90bytkZStmZW1tZStiZWxsZSZpZD02ODZGOTE5QjYxNUY3MDc3QjI0ODZGQjBGNDY1QTEyQzAwNjQzMjE5JkZPUk09SUFDRklS&ntb=F">click here</a> if the page does not redirect automatically ...
+    </div>
+  </body>
+</html>
