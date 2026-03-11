@@ -935,6 +935,23 @@
                     filterButtons.forEach(btn => {
                         btn.classList.remove('active', 'bg-anyxtech-blue', 'text-white', 'border-anyxtech-blue');
                         btn.classList.add('border-gray-200', 'dark:border-gray-600');
+                        // === Lecture du paramètre 'filter' dans l'URL ===
+                const urlParams = new URLSearchParams(window.location.search);
+                const filterParam = urlParams.get('filter');
+                if (filterParam) {
+                 const filterButtons = document.querySelectorAll('.filter-btn');
+               let found = false;
+               filterButtons.forEach(btn => {
+               if (btn.getAttribute('data-filter') === filterParam) {
+               btn.click(); // déclenche le filtre
+              found = true;
+             }
+        });
+    if (!found) {
+        // Si le filtre demandé n'existe pas, on affiche tous les services
+        document.querySelector('.filter-btn[data-filter="all"]').click();
+    }
+}
                     });
 
                     // Ajouter la classe active au bouton cliqué
