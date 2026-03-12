@@ -3,1051 +3,1413 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- Titre SEO optimisé -->
     <title>AnyxTech Bénin – Solutions Digitales & Réseaux Informatiques | Excellence Numérique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Meta description optimisée -->
     <meta name="description"
         content="AnyxTech Bénin : votre partenaire expert en transformation numérique. Solutions digitales innovantes, réseaux informatiques, communication digitale et énergétique au Bénin et en Afrique de l'Ouest.">
-    
-    <!-- Keywords (moins importantes mais toujours utiles) -->
-    <meta name="keywords"
-        content="solutions digitales Bénin, réseaux informatiques, transformation numérique, communication digitale, énergie solaire, marketing digital, Wi-Fi professionnel, AnyxTech">
-    
-    <!-- Auteur et droits -->
     <meta name="author" content="AnyxTech Bénin">
-    <meta name="copyright" content="AnyxTech Bénin">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.anyxtech.com/" />
-    
-    <!-- Favicon multiple tailles -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    
-    <!-- Open Graph pour réseaux sociaux -->
-    <meta property="og:title" content="AnyxTech Bénin – Solutions Digitales & Réseaux Informatiques" />
-    <meta property="og:description" content="Votre partenaire en transformation numérique au Bénin. Communication digitale, réseaux, solutions énergétiques." />
-    <meta property="og:image" content="https://www.anyxtech.com/images/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://www.anyxtech.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="AnyxTech Bénin" />
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@AnyxTechBenin" />
-    <meta name="twitter:creator" content="@AnyxTechBenin" />
-    <meta name="twitter:title" content="AnyxTech Bénin – Solutions Digitales & Réseaux Informatiques" />
-    <meta name="twitter:description" content="Votre partenaire en transformation numérique au Bénin" />
-    <meta name="twitter:image" content="https://www.anyxtech.com/images/twitter-card.jpg" />
-    
-    <!-- Tailwind CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        'anyxtech-blue': '#1f429b',
-                        'anyxtech-lightblue': '#1db9ff',
-                        'anyxtech-darkblue': '#1e4d9f',
-                        'anyxtech-light-bg': '#dbeafe',
-                        'anyxtech-medium-text': '#1e40af',
-                        'anyxtech-very-light-bg': '#eff6ff',
-                    },
                     fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                    },
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['DM Sans', 'sans-serif']
+                    }
                 }
             }
         }
     </script>
-
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
-          integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Google Fonts avec préchargement -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" 
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" 
-          rel="stylesheet" media="print" onload="this.media='all'">
-
-    <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "AnyxTech Bénin",
-        "description": "Entreprise spécialisée dans les solutions digitales, réseaux informatiques et transformation numérique au Bénin",
-        "url": "https://www.anyxtech.com/",
-        "logo": "https://www.anyxtech.com/images/logo-removebg-preview.png",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Cotonou",
-            "addressCountry": "BJ",
-            "addressRegion": "Littoral"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+229-01-52415241",
-            "contactType": "Customer Service",
-            "email": "contact@anyxtech.com",
-            "availableLanguage": ["French", "English"]
-        },
-        "openingHours": "Mo-Fr 08:00-18:00",
-        "priceRange": "$$",
-        "serviceType": ["Digital Solutions", "IT Networking", "Digital Marketing", "Energy Solutions"],
-        "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": "6.3725",
-                "longitude": "2.3581"
-            },
-            "geoRadius": "1000000"
-        },
-        "sameAs": [
-            "https://facebook.com/AnyxTechBenin",
-            "https://twitter.com/AnyxTechBenin",
-            "https://linkedin.com/company/AnyxTechBenin",
-            "https://instagram.com/AnyxTechBenin"
-        ]
-    }
-    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --anyxtech-one-blue: #1db9ff;
-            --anyxtech-two-blue: #1f429b;
-            --anyxtech-darkblue: #1e4d9f;
-            --bg-light: #f3f4f6;
-            --bg-dark: #111827;
-            --text-light: #1f2937;
-            --text-dark: #d1d5db;
-            --card-bg-light: #ffffff;
-            --card-bg-dark: #1f2937;
-            --hero-overlay-light: rgba(0, 0, 0, 0.7);
-            --hero-overlay-dark: rgba(0, 0, 0, 0.8);
+            --mid: #2B6CB0;
+            --sky: #4A90E2;
+            --accent: #60A5FA;
+            --bg-page: #060C18;
+            --bg-card: rgba(15, 23, 42, 0.9);
+            --bg-card-2: rgba(27, 40, 70, 0.6);
+            --border-card: rgba(74, 144, 226, 0.18);
+            --text-primary: #E2E8F0;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-light-bg: rgba(43, 108, 176, 0.08);
+            --glass-light-border: rgba(74, 144, 226, 0.2);
+            --nav-bg: rgba(6, 12, 24, 0.75);
+            --nav-border: rgba(74, 144, 226, 0.15);
+            --stat-card-bg: rgba(43, 108, 176, 0.15);
+            --stat-card-bg2: rgba(74, 144, 226, 0.08);
+            --stat-card-border: rgba(74, 144, 226, 0.25);
+            --divider-color: rgba(74, 144, 226, 0.3);
+            --footer-bg: rgba(6, 12, 24, 0.98);
+            --footer-border: rgba(74, 144, 226, 0.15);
+            --hero-grid: rgba(74, 144, 226, 0.05);
+            --orb-opacity: 0.25;
+            --chip-bg: rgba(43, 108, 176, 0.12);
+            --chip-border: rgba(74, 144, 226, 0.2);
+            --chip-color: #93C5FD;
+            --section-label-color: #4A90E2;
+            --badge-float-bg: rgba(15, 23, 42, 0.9);
+            --stat-num-start: #fff;
+            --service-link: #60A5FA;
+            --mobile-menu-bg: rgba(15, 23, 42, 0.95);
+            --about-overlay-1: rgba(43, 108, 176, 0.12);
+            --about-overlay-2: rgba(15, 23, 42, 0.95);
         }
 
-        /* Optimisation du chargement */
-        .loading {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
+        .light-mode {
+            --bg-page: #EEF3FB;
+            --bg-card: rgba(255, 255, 255, 0.97);
+            --bg-card-2: rgba(225, 237, 255, 0.7);
+            --border-card: rgba(43, 108, 176, 0.18);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(43, 108, 176, 0.2);
+            --glass-light-bg: rgba(43, 108, 176, 0.07);
+            --glass-light-border: rgba(43, 108, 176, 0.2);
+            --nav-bg: rgba(15, 23, 60, 0.85);
+            --nav-border: rgba(74, 144, 226, 0.2);
+            --stat-card-bg: rgba(43, 108, 176, 0.07);
+            --stat-card-bg2: rgba(74, 144, 226, 0.04);
+            --stat-card-border: rgba(43, 108, 176, 0.18);
+            --divider-color: rgba(43, 108, 176, 0.18);
+            --footer-bg: #0D1424;
+            --footer-border: rgba(74, 144, 226, 0.15);
+            --hero-grid: rgba(74, 144, 226, 0.06);
+            --orb-opacity: 0.07;
+            --chip-bg: rgba(43, 108, 176, 0.08);
+            --chip-border: rgba(43, 108, 176, 0.2);
+            --chip-color: #1E40AF;
+            --badge-float-bg: rgba(255, 255, 255, 0.97);
+            --stat-num-start: #0F172A;
+            --service-link: #1E40AF;
+            --mobile-menu-bg: rgba(255, 255, 255, 0.98);
+            --about-overlay-1: rgba(43, 108, 176, 0.06);
+            --about-overlay-2: rgba(238, 243, 251, 0.97);
         }
 
-        .loaded {
-            opacity: 1;
+        * {
+            box-sizing: border-box
         }
 
-        .dark {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
+        html {
+            scroll-behavior: smooth
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--anyxtech-two-blue) 0%, var(--anyxtech-one-blue) 100%);
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background .35s, color .35s
         }
 
-        .dark .hero-gradient {
-            background: linear-gradient(135deg, #2563eb, #60a5fa);
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: .4
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+
+        .t-primary {
+            color: var(--text-primary) !important
+        }
+
+        .t-secondary {
+            color: var(--text-secondary) !important
+        }
+
+        .t-muted {
+            color: var(--text-muted) !important
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, var(--anyxtech-two-blue), var(--anyxtech-one-blue));
+            background: linear-gradient(135deg, var(--sky) 0%, var(--accent) 50%, #93C5FD 100%);
             -webkit-background-clip: text;
             background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: transparent
         }
 
-        .service-card {
-            transition: all 0.3s ease;
-            transform: translateY(0);
-            background: var(--card-bg-light);
-            will-change: transform;
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border)
         }
 
-        .dark .service-card {
-            background: var(--card-bg-dark);
+        .glass-light {
+            background: var(--glass-light-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-light-border)
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(31, 66, 155, 0.15);
-        }
-
-        .dark .service-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .glow-effect {
-            box-shadow: 0 0 20px rgba(29, 185, 255, 0.3);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .dark .glow-effect {
-            box-shadow: 0 0 20px rgba(29, 185, 255, 0.5);
-        }
-
-        .glow-effect:hover {
-            box-shadow: 0 0 30px rgba(29, 185, 255, 0.5);
-        }
-
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-            will-change: transform;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--anyxtech-one-blue);
-            border-radius: 50%;
-            animation: particle-float 8s linear infinite;
-            will-change: transform, opacity;
-        }
-
-        .dark .particle {
-            background: #60a5fa;
-        }
-
-        @keyframes particle-float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .morphing-bg {
-            background: linear-gradient(-45deg, var(--anyxtech-two-blue), var(--anyxtech-darkblue), var(--anyxtech-one-blue), #23d5ab);
-            background-size: 400% 400%;
-            animation: morphing 15s ease-in-out infinite;
-        }
-
-        .dark .morphing-bg {
-            background: linear-gradient(-45deg, #1e3a8a, #1e4d9f, #2563eb, #047857);
-        }
-
-        @keyframes morphing {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        nav.main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--nav-border);
+            transition: background .35s, border-color .35s
         }
 
         .nav-link {
             position: relative;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: .02em;
+            color: #93C5FD;
+            /* bleu ciel clair, bien lisible sur fond sombre */
+            transition: color .25s
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
+            bottom: -4px;
+            left: 0;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--anyxtech-one-blue);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, var(--mid), var(--sky));
+            border-radius: 99px;
+            transition: width .3s
+        }
+
+        .nav-link:hover {
+            color: #fff
         }
 
         .nav-link:hover::after {
-            width: 100%;
+            width: 100%
+        }
+
+        .nav-link.active {
+            color: #60A5FA;
+            text-shadow: 0 0 12px rgba(96, 165, 250, 0.45)
+                /* légère lueur sur le lien actif */
+        }
+
+        /* Mode clair */
+        .light-mode .nav-link {
+            color: #1E40AF
+        }
+
+        .light-mode .nav-link:hover {
+            color: #1E3A8A
+        }
+
+        .light-mode .nav-link.active {
+            color: #2B6CB0;
+            text-shadow: none
+        }
+
+        .nav-link:hover::after {
+            width: 100%
+        }
+
+        .nav-link.active {
+            color: #fff
         }
 
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            background: white;
-        }
-
-        .dark .mobile-menu {
-            background: var(--bg-dark);
+            transition: max-height .45s cubic-bezier(.4, 0, .2, 1);
+            background: var(--mobile-menu-bg)
         }
 
         .mobile-menu.open {
-            max-height: 500px;
+            max-height: 500px
         }
 
-        .mobile-menu a {
-            color: var(--text-light);
-        }
-
-        .dark .mobile-menu a {
-            color: var(--text-dark);
-        }
-
-        .mobile-menu a:hover {
-            background: rgba(59, 130, 246, 0.2);
-        }
-
-        /* Hero Section avec image de secours */
+        /* ══ HERO ══ */
         .hero-section {
-            background: linear-gradient(var(--hero-overlay-light), var(--hero-overlay-light)), 
-                        url('images/Business_tech.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            /* Image de secours couleur si l'image ne charge pas */
-            background-color: var(--anyxtech-two-blue);
-        }
-
-        .dark .hero-section {
-            background: linear-gradient(var(--hero-overlay-dark), var(--hero-overlay-dark)), 
-                        url('images/Business_tech.jpg');
-            background-color: #1e3a8a;
-        }
-
-        /* Pour les navigateurs qui ne supportent pas background-attachment: fixed */
-        @media (prefers-reduced-motion: reduce) {
-            .hero-section {
-                background-attachment: scroll;
-            }
-        }
-
-        .service-img-container {
-            height: 180px;
-            overflow: hidden;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px
         }
 
-        .service-img {
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0
+        }
+
+        .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            object-position: center
         }
 
-        .service-card:hover .service-img {
-            transform: scale(1.1);
-        }
-
-        /* Lazy loading pour les images */
-        .lazy-load {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-
-        .lazy-load.loaded {
-            opacity: 1;
-        }
-
-        /* Optimisations Dark Mode */
-        .dark .text-gray-600 { color: #9ca3af; }
-        .dark .text-gray-700 { color: #d1d5db; }
-        .dark .text-gray-800 { color: #e5e7eb; }
-        .dark .bg-white { background: var(--bg-dark); }
-        .dark .bg-gray-900 { background: #0d121c; }
-        .dark .text-white { color: #f3f4f6; }
-        .dark .bg-blue-50 { background: rgba(59, 130, 246, 0.2); }
-        .dark .bg-gray-100 { background: #374151; }
-        .dark .border-gray-200 { border-color: #4b5563; }
-        .dark .text-anyxtech-blue { color: #60a5fa; }
-
-        /* Skip to content pour accessibilité */
-        .skip-to-content {
+        .hero-overlay {
             position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--anyxtech-blue);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            text-decoration: none;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(160deg, rgba(6, 12, 30, 0.80) 0%, rgba(10, 25, 55, 0.72) 60%, rgba(6, 12, 30, 0.85) 100%)
         }
 
-        .skip-to-content:focus {
-            top: 0;
+        .hero-tint {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(43, 108, 176, 0.15) 0%, transparent 75%)
         }
 
-        /* Print styles */
-        @media print {
-            .no-print { display: none !important; }
-            body { color: black; background: white; }
-            a { color: black; text-decoration: underline; }
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 80%)
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem !important; }
-            .service-img-container { height: 150px; }
-            .background-attachment-fixed { background-attachment: scroll; }
-            
-            /* Optimisation mobile */
-            .mobile-optimize {
-                font-size: 0.9rem;
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 1.5rem
+        }
+
+        /* max-width augmenté */
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            padding: .65rem 1.6rem;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: .03em;
+            margin-bottom: 2.5rem
+        }
+
+        /* taille augmentée */
+        .hero-badge-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4A90E2;
+            animation: dot-pulse 2s ease-in-out infinite;
+            flex-shrink: 0
+        }
+
+        /* légèrement plus gros */
+
+        /* TITRE PRINCIPAL - plus grand */
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.72);
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2.2vw, 1.35rem);
+            max-width: 650px;
+            margin: 0 auto 3.5rem;
+            line-height: 1.75
+        }
+
+        /* plus grand */
+
+        /* Dots décoratifs */
+        .hero-dot {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(74, 144, 226, 0.75);
+            animation: dot-pulse 3s ease-in-out infinite;
+            z-index: 4
+        }
+
+        /* Cercles flottants */
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            animation: float-y 6s ease-in-out infinite;
+            z-index: 4
+        }
+
+        @keyframes float-y {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-18px)
             }
         }
 
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2rem !important; }
-            .hero-subtitle { font-size: 1.1rem !important; }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: orb-drift 8s ease-in-out infinite;
+            opacity: var(--orb-opacity)
         }
+
+        @keyframes orb-drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            33% {
+                transform: translate(30px, -20px) scale(1.05)
+            }
+
+            66% {
+                transform: translate(-20px, 15px) scale(0.95)
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 10;
+            animation: bounce-sc 2.5s ease-in-out infinite;
+            cursor: pointer
+        }
+
+        @keyframes bounce-sc {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(-50%)
+            }
+
+            50% {
+                transform: translateY(-10px) translateX(-50%)
+            }
+        }
+
+        .wave-fill {
+            fill: var(--bg-page);
+            transition: fill .35s
+        }
+
+        /* ══ CARDS ══ */
+        .card-modern {
+            background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-card-2) 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            transition: transform .3s, border-color .3s, box-shadow .3s, background .35s
+        }
+
+        /* arrondi légèrement augmenté */
+        .card-modern:hover {
+            transform: translateY(-8px);
+            border-color: rgba(74, 144, 226, 0.45);
+            box-shadow: 0 20px 60px rgba(43, 108, 176, 0.15)
+        }
+
+        .light-mode .card-modern:hover {
+            box-shadow: 0 20px 60px rgba(43, 108, 176, 0.10)
+        }
+
+        .service-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative
+        }
+
+        /* plus haut */
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .card-modern:hover .service-img-wrap img {
+            transform: scale(1.06)
+        }
+
+        .service-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(43, 108, 176, 0.75);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .3rem .8rem;
+            border-radius: 99px
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--stat-card-bg) 0%, var(--stat-card-bg2) 100%);
+            border: 1px solid var(--stat-card-border);
+            border-radius: 20px;
+            transition: transform .3s, background .35s, border-color .35s
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--stat-num-start) 0%, var(--sky) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        /* plus grand */
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--section-label-color);
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--mid), var(--sky));
+            border-radius: 99px
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--divider-color), transparent)
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--mid) 0%, var(--sky) 100%);
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 1rem 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            transition: opacity .2s, transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 20px rgba(43, 108, 176, 0.35);
+            font-size: 1.1rem
+        }
+
+        .btn-primary:hover {
+            opacity: .9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(43, 108, 176, 0.5)
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 1rem 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            transition: background .2s, transform .2s;
+            backdrop-filter: blur(8px);
+            font-size: 1.1rem
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px)
+        }
+
+        .btn-outline {
+            background: var(--glass-light-bg);
+            color: var(--sky);
+            border: 1px solid var(--glass-light-border);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: .9rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            transition: background .2s, transform .2s;
+            font-size: 1.1rem
+        }
+
+        .btn-outline:hover {
+            background: rgba(74, 144, 226, 0.15);
+            transform: translateY(-2px)
+        }
+
+        .service-link {
+            color: var(--service-link);
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            transition: gap .2s, opacity .2s
+        }
+
+        .service-link:hover {
+            gap: .7rem;
+            opacity: .8
+        }
+
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        /* plus grand */
+
+        .about-bg {
+            background: linear-gradient(135deg, var(--about-overlay-1) 0%, var(--about-overlay-2) 100%);
+            transition: background .35s
+        }
+
+        .float-badge {
+            background: var(--badge-float-bg);
+            border: 1px solid var(--glass-border)
+        }
+
+        .cta-bg {
+            background: linear-gradient(135deg, rgba(43, 108, 176, 0.22) 0%, rgba(6, 12, 24, 0.95) 50%, rgba(74, 144, 226, 0.12) 100%)
+        }
+
+        .light-mode .cta-bg {
+            background: linear-gradient(135deg, rgba(43, 108, 176, 0.1) 0%, rgba(238, 243, 251, 0.97) 50%, rgba(74, 144, 226, 0.08) 100%)
+        }
+
+        .glow-sm {
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.15)
+        }
+
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            animation: p-rise 8s linear infinite;
+            pointer-events: none
+        }
+
+        @keyframes p-rise {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            90% {
+                opacity: .5
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0
+            }
+        }
+
+        .loading {
+            opacity: 0;
+            transition: opacity .4s
+        }
+
+        .loaded {
+            opacity: 1
+        }
+
+        .lazy-load {
+            opacity: 0;
+            transition: opacity .35s
+        }
+
+        .lazy-load.loaded {
+            opacity: 1
+        }
+
+        /* Ajustement mobile */
+        @media(max-width:768px) {
+            .hero-title {
+                font-size: 2.8rem !important
+            }
+
+            .hero-subtitle {
+                font-size: 1rem
+            }
+
+            .btn-primary,
+            .btn-secondary,
+            .btn-outline {
+                padding: .8rem 1.6rem;
+                font-size: 1rem
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            .orb,
+            .particle,
+            .hero-circle,
+            .scroll-indicator,
+            .hero-dot {
+                animation: none !important
+            }
+        }
+
+
+        /* Renforcement du header en mode clair */
+        nav.main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--nav-border);
+            transition: background .35s ease, border-color .35s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            /* ombre légère */
+        }
+
+        /* Adaptation des variables light-mode pour un fond plus opaque */
+        .light-mode {
+            --nav-bg: rgba(238, 243, 251, 0.98);
+            /* plus opaque */
+            /* ... autres variables ... */
+        }
+
+        /* Ajustement du scroll pour les ancres */
+        section {
+            scroll-margin-top: 100px;
+            /* compense la hauteur du header fixe */
+        }
+
+        /* Pour les très petits écrans, ajustement */
+        @media (max-width: 768px) {
+            section {
+                scroll-margin-top: 80px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .logo {
+                filter: brightness(200%);
+            }
+        }
+
+        /* ══ HEADER CORRIGÉ ══ */
+        header.main-nav {
+            background: rgba(6, 12, 24, 0.92);
+            /* fond sombre opaque en dark mode */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+            transition: background .35s, border-color .35s;
+        }
+
+        /* Liens nav — blanc cassé bien lisible sur fond sombre */
+        header.main-nav .nav-link {
+            color: #F1F5F9 !important;
+            font-weight: 600;
+        }
+
+        header.main-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        header.main-nav .nav-link.active {
+            color: #60A5FA !important;
+            text-shadow: 0 0 14px rgba(96, 165, 250, 0.5);
+        }
+
+        /* Mode clair */
+        .light-mode header.main-nav {
+            background: rgba(15, 23, 60, 0.95);
+            /* fond bleu marine foncé */
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #F1F5F9 !important;
+            /* reste blanc même en mode clair */
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #93C5FD !important;
+            text-shadow: 0 0 12px rgba(147, 197, 253, 0.4);
+        }
+
+        /* ══ CHAMPS DE FORMULAIRE ══ */
+        .input-glow {
+            width: 100%;
+            padding: .75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            background: rgba(15, 23, 42, 0.6);
+            color: #E2E8F0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color .25s, box-shadow .25s, background .35s, color .35s;
+        }
+
+        .input-glow::placeholder {
+            color: #64748B;
+        }
+
+        .input-glow:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+        }
+
+        /* Mode clair — champs bien visibles */
+        .light-mode .input-glow {
+            background: #ffffff;
+            color: #0F172A;
+            border: 1px solid rgba(43, 108, 176, 0.35);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+        }
+
+        .light-mode .input-glow::placeholder {
+            color: #94A3B8;
+        }
+
+        .light-mode .input-glow:focus {
+            border-color: #2B6CB0;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.12);
+        }
+
+        /* Select */
+        select.input-glow option {
+            background: #0F172A;
+            color: #E2E8F0;
+        }
+
+        .light-mode select.input-glow option {
+            background: #ffffff;
+            color: #0F172A;
+        }
+
+        /* Range slider */
+        .range-slider {
+            width: 100%;
+            accent-color: #4A90E2;
+            cursor: pointer;
+        }
+
+        /* Checkbox */
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            accent-color: #4A90E2;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Cards de checkbox en mode clair */
+        .light-mode .card-modern label {
+            border-color: rgba(43, 108, 176, 0.2);
+        }
+
+        .light-mode .card-modern label:hover {
+            border-color: rgba(43, 108, 176, 0.5);
+            background: rgba(43, 108, 176, 0.05);
+        }
+        /* Logo — blanc en mode sombre, couleurs d'origine en mode clair */
+header.main-nav .logo-img {
+    filter: brightness(0) invert(1);   /* tout blanc en dark */
+    transition: filter .35s;
+}
+
+.light-mode header.main-nav .logo-img {
+    filter: none;                       /* couleurs naturelles en light */
+}
     </style>
 </head>
 
-<body class="font-poppins loading">
-    <!-- Skip to content pour accessibilité -->
-    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+<body class="loading">
+    <a href="#main-content"
+        style="position:absolute;top:-40px;left:0;background:var(--mid);color:#fff;padding:8px 16px;z-index:9999;border-radius:0 0 8px 8px;transition:top .2s"
+        onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Aller au contenu principal</a>
 
-    <!-- Header -->
-    <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
-  <div class="flex items-center justify-between">
-    <!-- Logo -->
-    <div>
-      <a href="/" aria-label="AnyxTech - Retour à l'accueil">
-        <img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech Bénin" loading="eager">
-      </a>
-    </div>
+    <div id="particles-container" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
 
-    <!-- Conteneur pour la navigation, le bouton thème et le bouton mobile -->
-    <div class="flex items-center gap-x-4">
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:block" aria-label="Navigation principale">
-        <ul class="flex items-center gap-x-8">
-          <li><a href="index.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Accueil</a></li>
-          <li><a href="societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Société</a></li>
-          <li><a href="service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Services</a></li>
-          <li><a href="contact.html" class="nav-link text-lg font-medium text-anyxtech-blue dark:text-anyxtech-lightblue transition-colors">Contact</a></li>
-          <li><a href="devis.html" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Devis</a></li>
-        </ul>
-      </nav>
+    <!-- HEADER -->
+    <header class="main-nav fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-      <!-- Theme Toggle Button (positionné juste après la navigation desktop) -->
-      <button id="themeToggle" class="p-2 rounded-full focus:outline-none bg-blue-100 dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-300" aria-label="Changer le thème">
-        <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-      </button>
+            <a href="index.html" aria-label="AnyxTech - Accueil" style="
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 6px 12px;
+    backdrop-filter: blur(10px);
+    transition: background .3s;
+" onmouseover="this.style.background='rgba(255,255,255,0.22)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+                <img class="w-32 md:w-36 object-contain" src="images/logo-removebg-preview.png" alt="AnyxTech Bénin"
+                    loading="eager" style="filter: brightness(0) invert(1); /* force le logo en blanc pur */">
+            </a>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center gap-8" aria-label="Navigation principale">
+                    <!-- Liens plus gros : text-lg sur desktop, text-base reste pour mobile -->
+                    <a href="index.html" class="nav-link active text-base lg:text-lg">Accueil</a>
+                    <a href="societe.html" class="nav-link text-base lg:text-lg">Société</a>
+                    <a href="service.html" class="nav-link text-base lg:text-lg">Services</a>
+                    <a href="contact.html" class="nav-link text-base lg:text-lg">Contact</a>
+                    <a href="devis.html" class="btn-primary text-base lg:text-lg px-6 py-2">Devis</a>
+                </nav>
+                <button id="themeToggle" class="w-10 h-10 rounded-full glass-light flex items-center justify-center"
+                    aria-label="Changer le thème">
+                    <i class="fas fa-sun text-yellow-400 text-base lg:text-lg"></i>
+                </button>
+                <button id="mobile-menu-button"
+                    class="md:hidden w-10 h-10 glass-light rounded-full flex items-center justify-center"
+                    aria-label="Menu" aria-expanded="false">
+                    <i class="fas fa-bars text-white text-base"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden mt-4 rounded-2xl glass overflow-hidden" aria-hidden="true">
+            <ul class="p-6 space-y-4">
+                <li><a href="index.html" class="block text-white font-medium text-base">Accueil</a></li>
+                <li><a href="societe.html"
+                        class="block text-white/70 hover:text-white transition-colors text-base">Société</a></li>
+                <li><a href="service.html"
+                        class="block text-white/70 hover:text-white transition-colors text-base">Services</a></li>
+                <li><a href="contact.html"
+                        class="block text-white/70 hover:text-white transition-colors text-base">Contact</a></li>
+                <li><a href="devis.html"
+                        class="btn-primary text-base text-center w-full mt-2 justify-center px-6 py-2">Devis</a>
+                </li>
+            </ul>
+        </div>
+    </header>
 
-      <!-- Mobile Menu Button (visible seulement sur mobile) -->
-      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-white" aria-label="Ouvrir le menu" aria-expanded="false">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Navigation (inchangé) -->
-  <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-4 overflow-hidden transition-all duration-300 max-h-0" aria-hidden="true">
-    <ul class="p-4 space-y-4">
-      <li><a href="index.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Accueil</a></li>
-      <li><a href="societe.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Société</a></li>
-      <li><a href="service.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Services</a></li>
-      <li><a href="contact.html" class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-white">Contact</a></li>
-      <li><a href="devis.html" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue mt-2 dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Demande de devis</a></li>
-    </ul>
-  </div>
-</header>
-
-    <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden" 
-                 aria-labelledby="hero-title">
-            <!-- Particles Background -->
-            <div id="particles-container" class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"></div>
 
-            <!-- Animated shapes -->
-            <div class="absolute top-20 left-20 w-32 h-32 bg-white bg-opacity-10 rounded-full floating-animation" aria-hidden="true"></div>
-            <div class="absolute bottom-20 right-20 w-48 h-48 bg-white bg-opacity-5 rounded-full floating-animation"
-                style="animation-delay: -2s;" aria-hidden="true"></div>
 
-            <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-lg font-semibold mb-8 text-white border border-white/20"
-                    data-aos="fade-up" role="status">
-                    <div class="w-3 h-3 bg-anyxtech-lightblue rounded-full animate-pulse" aria-hidden="true"></div>
+        <section class="hero-section" aria-labelledby="hero-title">
+
+            <!-- Image de fond -->
+            <div class="hero-image">
+                <img src="images/Business_tech.jpg" alt="" loading="eager" aria-hidden="true">
+            </div>
+
+            <!-- Calques d'overlay -->
+            <div class="hero-overlay"></div>
+            <div class="hero-tint"></div>
+            <div class="hero-grid-overlay"></div>
+
+            <!-- Petits points bleus décoratifs -->
+            <div class="hero-dot" style="width:7px;height:7px;top:22%;left:9%;animation-delay:0s" aria-hidden="true">
+            </div>
+            <div class="hero-dot" style="width:5px;height:5px;top:38%;right:14%;animation-delay:.9s" aria-hidden="true">
+            </div>
+            <div class="hero-dot" style="width:6px;height:6px;bottom:32%;left:18%;animation-delay:1.6s"
+                aria-hidden="true"></div>
+            <div class="hero-dot" style="width:5px;height:5px;bottom:28%;right:22%;animation-delay:.4s"
+                aria-hidden="true"></div>
+            <div class="hero-dot" style="width:4px;height:4px;top:62%;right:7%;animation-delay:2s" aria-hidden="true">
+            </div>
+            <div class="hero-dot" style="width:5px;height:5px;top:15%;right:35%;animation-delay:1.2s"
+                aria-hidden="true"></div>
+
+            <!-- Cercles flottants translucides -->
+            <div class="hero-circle w-24 h-24 top-28 left-14 hidden md:block" style="animation-delay:0s"
+                aria-hidden="true"></div>
+            <div class="hero-circle w-36 h-36 bottom-32 right-20 hidden md:block" style="animation-delay:-3s"
+                aria-hidden="true"></div>
+
+            <!-- Lueurs orb -->
+            <div class="orb w-[500px] h-[500px] -top-16 -left-28 z-5"
+                style="background:rgba(43,108,176,0.65);animation-delay:-2s" aria-hidden="true"></div>
+            <div class="orb w-80 h-80 bottom-10 right-8 z-5" style="background:rgba(74,144,226,0.5);animation-delay:-5s"
+                aria-hidden="true"></div>
+
+            <!-- Contenu principal -->
+            <div class="hero-content">
+
+                <!-- Badge pill centré (plus gros) -->
+                <div class="hero-badge" data-aos="fade-down" data-aos-duration="700">
+                    <div class="hero-badge-dot"></div>
                     <span>Vos besoins avant les nôtres</span>
                 </div>
 
-                <!-- Hero title -->
-                <h1 id="hero-title" class="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-                    data-aos="fade-up" data-aos-delay="100">
-                    Toujours plus <span class="text-gradient">proche de vous</span><br>pour une meilleure satisfaction
+                <!-- Titre -->
+                <h1 id="hero-title" class="hero-title font-bold text-white mb-6 leading-tight" data-aos="fade-up"
+                    data-aos-delay="80">
+                    Toujours plus <span class="text-gradient">proche de vous</span>
+                    pour une meilleure satisfaction
                 </h1>
 
-                <!-- Hero subtitle -->
-                <p class="hero-subtitle text-xl text-white/90 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
-                    Des solutions numériques innovantes pour propulser votre entreprise vers l'excellence au Bénin
-                </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="/devis.html" class="px-8 py-4 bg-gradient-to-r from-anyxtech-lightblue to-anyxtech-blue text-white font-semibold rounded-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg focus:ring-2 focus:ring-white focus:outline-none">
-                        <i class="fas fa-rocket mr-2" aria-hidden="true"></i> J'ai une idée de projet
-                    </a>
-                    <a href="/societe.html" class="px-8 py-4 bg-white text-anyxtech-blue font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 focus:ring-2 focus:ring-anyxtech-blue focus:outline-none">
-                        <i class="fas fa-info-circle mr-2" aria-hidden="true"></i> En savoir plus
-                    </a>
-                </div>
-
                 <!-- Scroll indicator -->
-                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <button onclick="smoothScroll('#services-section')" class="focus:outline-none" aria-label="Voir les services">
-                        <i class="fas fa-chevron-down text-xl" aria-hidden="true"></i>
-                    </button>
+                <div class="scroll-indicator" onclick="smoothScroll('#services-section')" aria-label="Voir les services"
+                    style="margin-top: 4.5rem;">
+                    <div style="
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(8px);
+        transition: border-color .3s, background .3s;
+    " onmouseover="this.style.borderColor='rgba(96,165,250,0.8)';this.style.background='rgba(96,165,250,0.15)'"
+                        onmouseout="this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='rgba(255,255,255,0.08)'">
+                        <i class="fas fa-chevron-down" style="font-size: 1.6rem; color: rgba(255,255,255,0.8);"></i>
+                    </div>
                 </div>
             </div>
 
-            <!-- Wave divider -->
-            <div class="absolute bottom-0 left-0 w-full overflow-hidden" aria-hidden="true">
-                <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" class="fill-current text-white">
-                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
-                    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
-                    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
-                </svg>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- SERVICES -->
+        <section id="services-section" class="py-28 px-6 md:px-12 max-w-7xl mx-auto" aria-labelledby="services-title">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="section-label justify-center mb-6">Ce que nous faisons</div>
+                <h2 id="services-title" class="text-5xl md:text-6xl font-extrabold mb-4"> <!-- plus grand -->
+                    <span class="t-primary">Nos domaines</span> <span class="text-gradient">d'expertise</span>
+                </h2>
+                <p class="t-secondary text-xl max-w-2xl mx-auto">Solutions complètes pour votre transformation numérique
+                    et énergétique au Bénin</p> <!-- text-xl -->
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> <!-- gap augmenté -->
+                <article class="card-modern overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-img-wrap"><img src="images/coo.jpg" alt="Communication digitale"
+                            class="lazy-load" loading="lazy"><span class="service-tag">Communication</span></div>
+                    <div class="p-7">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="icon-circle" style="background:linear-gradient(135deg,#2B6CB0,#4A90E2)"><i
+                                    class="fas fa-bullhorn"></i></div>
+                            <h3 class="text-xl font-extrabold t-primary">Communication digitale</h3>
+                        </div>
+                        <p class="t-secondary text-base leading-relaxed mb-5">Stratégies de communication adaptées à
+                            chaque marque avec une équipe aguerrie au Bénin.</p><a href="service.html#communication"
+                            class="service-link">En savoir plus <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+                <article class="card-modern overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-img-wrap"><img
+                            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80"
+                            alt="Réseau informatique" class="lazy-load" loading="lazy"><span
+                            class="service-tag">Infrastructure</span></div>
+                    <div class="p-7">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="icon-circle" style="background:linear-gradient(135deg,#4A90E2,#0F172A)"><i
+                                    class="fas fa-network-wired"></i></div>
+                            <h3 class="text-xl font-extrabold t-primary">Réseautage & connectivité</h3>
+                        </div>
+                        <p class="t-secondary text-base leading-relaxed mb-5">Infrastructure performante et évolutive
+                            pour vos systèmes d'interconnexion au Bénin.</p><a href="service.html#infrastructure"
+                            class="service-link">En savoir plus <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+                <article class="card-modern overflow-hidden" data-aos="fade-up" data-aos-delay="160">
+                    <div class="service-img-wrap"><img src="images/wi.jpg" alt="Wi-Fi professionnel" class="lazy-load"
+                            loading="lazy"><span class="service-tag">Wi-Fi</span></div>
+                    <div class="p-7">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="icon-circle" style="background:linear-gradient(135deg,#2B6CB0,#0F172A)"><i
+                                    class="fas fa-wifi"></i></div>
+                            <h3 class="text-xl font-extrabold t-primary">Installation Wi-Fi</h3>
+                        </div>
+                        <p class="t-secondary text-base leading-relaxed mb-5">Configuration de réseaux sans fil
+                            performants et stables pour entreprises et institutions.</p><a
+                            href="service.html#infrastructure" class="service-link">En savoir plus <i
+                                class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+                <article class="card-modern overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-img-wrap"><img
+                            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80"
+                            alt="Solutions énergétiques" class="lazy-load" loading="lazy"><span
+                            class="service-tag">Énergie</span></div>
+                    <div class="p-7">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="icon-circle" style="background:linear-gradient(135deg,#0F172A,#2B6CB0)"><i
+                                    class="fas fa-bolt"></i></div>
+                            <h3 class="text-xl font-extrabold t-primary">Solutions Énergétiques</h3>
+                        </div>
+                        <p class="t-secondary text-base leading-relaxed mb-5">Étude, exécution et maintenance de projets
+                            électriques pour tous besoins au Bénin.</p><a href="service.html#infrastructure"
+                            class="service-link">En savoir plus <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+                <article class="card-modern overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-img-wrap"><img
+                            src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80"
+                            alt="Marketing digital" class="lazy-load" loading="lazy"><span
+                            class="service-tag">Marketing</span></div>
+                    <div class="p-7">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="icon-circle" style="background:linear-gradient(135deg,#2B6CB0,#4A90E2)"><i
+                                    class="fas fa-bullseye"></i></div>
+                            <h3 class="text-xl font-extrabold t-primary">Marketing Digital</h3>
+                        </div>
+                        <p class="t-secondary text-base leading-relaxed mb-5">Stratégies personnalisées pour renforcer
+                            votre image en ligne au Bénin et en Afrique.</p><a href="service.html#communication"
+                            class="service-link">En savoir plus <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+                <article class="card-modern overflow-hidden" data-aos="fade-up" data-aos-delay="160">
+                    <div class="service-img-wrap"><img src="images/premium_photo-1707155465527-c5a2935b21cc (1).jpeg"
+                            alt="Support clientèle" class="lazy-load" loading="lazy"><span
+                            class="service-tag">Support</span></div>
+                    <div class="p-7">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="icon-circle" style="background:linear-gradient(135deg,#4A90E2,#0F172A)"><i
+                                    class="fas fa-headset"></i></div>
+                            <h3 class="text-xl font-extrabold t-primary">Suivi Clientèle</h3>
+                        </div>
+                        <p class="t-secondary text-base leading-relaxed mb-5">Accompagnement personnalisé et assistance
+                            7j/7 jusqu'à satisfaction complète.</p><a href="service.html#support"
+                            class="service-link">En savoir plus <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+            </div>
+            <div class="mt-14 text-center" data-aos="fade-up">
+                <p class="t-secondary mb-5 text-xl">Prêt à transformer votre entreprise au Bénin ?</p> <!-- text-xl -->
+                <a href="contact.html" class="btn-primary text-base lg:text-lg"><i class="fas fa-paper-plane"></i>
+                    Contactez-nous dès maintenant</a>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services-section" class="py-16 md:py-20" aria-labelledby="services-title">
-            <div class="container mx-auto px-4">
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ABOUT -->
+        <section class="about-bg py-28 px-6 md:px-12" aria-labelledby="about-title">
+            <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 id="services-title" class="text-4xl md:text-5xl font-bold text-gradient mb-6">Nos domaines d'expertise</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto dark:text-gray-400">
-                        Solutions complètes pour votre transformation numérique et énergétique au Bénin
-                    </p>
+                    <div class="section-label justify-center mb-6">Notre identité</div>
+                    <h2 id="about-title" class="text-5xl md:text-6xl font-extrabold mb-4"><span class="t-primary">Qui
+                            sommes</span><span class="text-gradient">-nous ?</span></h2>
+                    <p class="t-secondary text-xl max-w-2xl mx-auto">ANYXTECH est une entreprise béninoise spécialisée
+                        dans le numérique, les solutions digitales et les télécommunications.</p>
                 </div>
-
-                <!-- Services Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1 - Communication digitale -->
-                    <article class="service-card p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-img-container">
-                            <img src="images/Professionnels en tenue d'affaires.png" 
-                                 alt="Équipe de professionnels AnyxTech travaillant sur la communication digitale" 
-                                 class="service-img lazy-load" loading="lazy">
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-bullhorn" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 dark:text-gray-200">Communication digitale</h3>
-                            <p class="text-gray-600 mb-6 dark:text-gray-400">
-                                Stratégies de communication adaptées à chaque marque avec une équipe aguerrie au Bénin.
-                            </p>
-                            <a href="/service.html#communication" class="text-anyxtech-blue font-medium hover:underline dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">
-                                En savoir plus <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Service 2 - Réseautage & connectivité -->
-                    <article class="service-card p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-img-container">
-                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Réseau informatique professionnel au Bénin" 
-                                 class="service-img lazy-load" loading="lazy">
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-network-wired" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 dark:text-gray-200">Réseautage & connectivité</h3>
-                            <p class="text-gray-600 mb-6 dark:text-gray-400">
-                                Infrastructure performante et évolutive pour vos systèmes d'interconnexion au Bénin.
-                            </p>
-                            <a href="/service.html#infrastructure" class="text-anyxtech-blue font-medium hover:underline dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">
-                                En savoir plus <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Service 3 - Installation Wi-Fi -->
-                    <article class="service-card p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-img-container">
-                            <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Installation de réseau Wi-Fi professionnel" 
-                                 class="service-img lazy-load" loading="lazy">
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-wifi" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 dark:text-gray-200">Installation Wi-Fi</h3>
-                            <p class="text-gray-600 mb-6 dark:text-gray-400">
-                                Installation et configuration de réseaux sans fil performants et stables pour entreprises.
-                            </p>
-                            <a href="/service.html#infrastructure" class="text-anyxtech-blue font-medium hover:underline dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">
-                                En savoir plus <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Service 4 - Solutions Énergétiques -->
-                    <article class="service-card p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-img-container">
-                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Solutions énergétiques et installations électriques" 
-                                 class="service-img lazy-load" loading="lazy">
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-bolt" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 dark:text-gray-200">Solutions Énergétiques</h3>
-                            <p class="text-gray-600 mb-6 dark:text-gray-400">
-                                Étude, exécution et maintenance de projets électriques pour tous besoins au Bénin.
-                            </p>
-                            <a href="/service.html#infrastructure" class="text-anyxtech-blue font-medium hover:underline dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">
-                                En savoir plus <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Service 5 - Marketing Digital -->
-                    <article class="service-card p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-img-container">
-                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Marketing digital et stratégies en ligne" 
-                                 class="service-img lazy-load" loading="lazy">
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-bullseye" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 dark:text-gray-200">Marketing Digital</h3>
-                            <p class="text-gray-600 mb-6 dark:text-gray-400">
-                                Stratégies personnalisées pour renforcer votre image en ligne au Bénin et en Afrique.
-                            </p>
-                            <a href="/service.html#communication" class="text-anyxtech-blue font-medium hover:underline dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">
-                                En savoir plus <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Service 6 - Suivi Clientèle -->
-                    <article class="service-card p-6 rounded-xl shadow-lg glow-effect" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-img-container">
-                            <img src="images/premium_photo-1707155465527-c5a2935b21cc (1).jpeg" 
-                                 alt="Support clientèle AnyxTech Bénin" 
-                                 class="service-img lazy-load" loading="lazy">
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-6 gradient-anyxtech rounded-full flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-headset" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 dark:text-gray-200">Suivi Clientèle</h3>
-                            <p class="text-gray-600 mb-6 dark:text-gray-400">
-                                Accompagnement personnalisé et assistance 7j/7 jusqu'à satisfaction complète.
-                            </p>
-                            <a href="/service.html#support" class="text-anyxtech-blue font-medium hover:underline dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue focus:rounded">
-                                En savoir plus <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- CTA Section -->
-                <div class="mt-16 text-center" data-aos="fade-up">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 dark:text-gray-200">Prêt à transformer votre entreprise au Bénin ?</h3>
-                    <a href="/contact.html" class="inline-block px-8 py-4 gradient-anyxtech text-white font-semibold rounded-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg focus:ring-2 focus:ring-white focus:outline-none">
-                        <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Contactez-nous dès maintenant
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="py-16 md:py-20 bg-gradient-to-r dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900" 
-                 aria-labelledby="about-title">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 id="about-title" class="text-4xl md:text-5xl font-bold text-gradient mb-6">Qui sommes-nous ?</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto dark:text-gray-400">
-                        ANYXTECH est une entreprise béninoise spécialisée dans le numérique, les solutions digitales et les télécommunications.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div data-aos="fade-right">
-                        <p class="text-gray-700 leading-relaxed text-lg mb-6 dark:text-gray-300">
-                            Nous regroupons des professionnels passionnés par les technologies modernes et l'innovation.
-                            Notre ambition est de faire grandir votre entreprise à travers des services personnalisés et fiables au Bénin.
-                        </p>
-                        <p class="text-gray-700 leading-relaxed text-lg mb-8 dark:text-gray-300">
-                            En mettant vos besoins avant les nôtres, nous construisons un partenariat durable pour votre réussite digitale en Afrique de l'Ouest.
+                        <p class="t-secondary leading-relaxed text-xl mb-6">Nous regroupons des professionnels
+                            passionnés par les technologies modernes et l'innovation. Notre ambition est de faire
+                            grandir votre entreprise à travers des services personnalisés et fiables au Bénin.</p>
+                        <p class="t-secondary leading-relaxed text-xl mb-10">En mettant vos besoins avant les nôtres,
+                            nous construisons un partenariat durable pour votre réussite digitale en Afrique de l'Ouest.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="/societe.html" class="inline-block px-8 py-3 bg-anyxtech-blue text-white rounded-lg font-medium hover:bg-anyxtech-lightblue transition-colors shadow-md focus:ring-2 focus:ring-white focus:outline-none">
-                                <i class="fas fa-users mr-2" aria-hidden="true"></i> Découvrir notre équipe
-                            </a>
-                            <a href="/service.html" class="inline-block px-8 py-3 bg-white text-anyxtech-blue rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-md border border-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-anyxtech-blue focus:outline-none">
-                                <i class="fas fa-cogs mr-2" aria-hidden="true"></i> Nos services
-                            </a>
+                            <a href="societe.html" class="btn-primary text-base lg:text-lg"><i class="fas fa-users"></i>
+                                Notre équipe</a>
+                            <a href="service.html" class="btn-outline text-base lg:text-lg"><i class="fas fa-cogs"></i>
+                                Nos services</a>
                         </div>
                     </div>
-
-                    <div class="relative" data-aos="fade-left" data-aos-delay="200">
-                        <div class="rounded-xl overflow-hidden shadow-xl">
-                            <img src="images/Professionnels en tenue d'affaires.png" 
-                                 alt="Équipe AnyxTech au travail au Bénin" 
-                                 class="w-full h-auto lazy-load" loading="lazy">
+                    <div class="relative" data-aos="fade-left" data-aos-delay="150">
+                        <div class="absolute -inset-4 rounded-3xl"
+                            style="background:linear-gradient(135deg,rgba(43,108,176,0.12),rgba(74,144,226,0.04));border:1px solid rgba(74,144,226,0.12)">
                         </div>
-                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block dark:bg-gray-800">
-                            <div class="text-4xl font-bold text-anyxtech-blue dark:text-blue-400">3+</div>
-                            <div class="text-gray-600 dark:text-gray-400">Ans d'expérience</div>
+                        <img src="images/ai.jpg" alt="Équipe AnyxTech"
+                            class="relative rounded-2xl w-full h-auto shadow-2xl lazy-load" loading="lazy">
+                        <div
+                            class="float-badge absolute -bottom-5 -left-5 rounded-2xl p-4 glow-sm hidden md:flex flex-col gap-1">
+                            <div class="text-4xl font-extrabold text-gradient"
+                                style="font-family:'Space Grotesk',sans-serif">3+</div>
+                            <div class="t-muted text-base">Ans d'expertise</div>
+                        </div>
+                        <div class="float-badge absolute -top-4 -right-4 rounded-xl p-3.5 glow-sm hidden md:block">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div><span
+                                    class="text-green-500 text-xs font-semibold">Disponible 24/7</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Stats Section -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center dark:bg-gray-800" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-4xl font-bold text-anyxtech-blue mb-2 dark:text-blue-400">50+</div>
-                        <div class="text-gray-600 dark:text-gray-400">Clients satisfaits</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+                    <div class="stat-card p-6 text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="stat-number">50+</div>
+                        <div class="t-muted text-base mt-1">Clients satisfaits</div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center dark:bg-gray-800" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-4xl font-bold text-anyxtech-blue mb-2 dark:text-blue-400">20+</div>
-                        <div class="text-gray-600 dark:text-gray-400">Projets réalisés</div>
+                    <div class="stat-card p-6 text-center" data-aos="fade-up" data-aos-delay="80">
+                        <div class="stat-number">20+</div>
+                        <div class="t-muted text-base mt-1">Projets réalisés</div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center dark:bg-gray-800" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-4xl font-bold text-anyxtech-blue mb-2 dark:text-blue-400">10+</div>
-                        <div class="text-gray-600 dark:text-gray-400">Experts techniques</div>
+                    <div class="stat-card p-6 text-center" data-aos="fade-up" data-aos-delay="160">
+                        <div class="stat-number">10+</div>
+                        <div class="t-muted text-base mt-1">Experts techniques</div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center dark:bg-gray-800" data-aos="fade-up" data-aos-delay="400">
-                        <div class="text-4xl font-bold text-anyxtech-blue mb-2 dark:text-blue-400">24/7</div>
-                        <div class="text-gray-600 dark:text-gray-400">Support client</div>
+                    <div class="stat-card p-6 text-center" data-aos="fade-up" data-aos-delay="240">
+                        <div class="text-5xl font-extrabold text-gradient mb-1"
+                            style="font-family:'Space Grotesk',sans-serif">24/7</div>
+                        <div class="t-muted text-base mt-1">Support client</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-16 md:py-20 morphing-bg text-white text-center" aria-labelledby="cta-title">
-            <div class="container mx-auto px-4">
-                <div data-aos="zoom-in">
-                    <h2 id="cta-title" class="text-3xl md:text-4xl font-bold mb-8">Voulez-vous démarrer votre projet au Bénin ?</h2>
-                    <p class="text-xl mb-8 max-w-2xl mx-auto">
-                        Contactez-nous dès aujourd'hui pour discuter de vos besoins en solutions digitales
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="/contact.html" class="px-8 py-4 bg-white text-anyxtech-blue rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 focus:ring-2 focus:ring-anyxtech-blue focus:outline-none">
-                            <i class="fas fa-envelope mr-2" aria-hidden="true"></i> Nous écrire
-                        </a>
-                        <a href="tel:+2290152415241" class="px-8 py-4 bg-black/20 text-white rounded-lg font-semibold hover:bg-black/30 transition-all transform hover:scale-105 shadow-lg border border-white/20 focus:ring-2 focus:ring-white focus:outline-none">
-                            <i class="fas fa-phone mr-2" aria-hidden="true"></i> +229 01 52415241
-                        </a>
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- WHY US -->
+        <section class="py-28 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="section-label justify-center mb-6">Nos atouts</div>
+                <h2 class="text-5xl md:text-6xl font-extrabold"><span class="t-primary">Pourquoi choisir </span><span
+                        class="text-gradient">AnyxTech</span><span class="t-primary"> ?</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-modern p-10 text-center group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center text-white text-2xl transition-transform group-hover:scale-110"
+                        style="background:linear-gradient(135deg,#2B6CB0,#4A90E2)"><i class="fas fa-award"></i></div>
+                    <h3 class="text-2xl font-extrabold t-primary mb-3">Expertise Locale</h3>
+                    <p class="t-secondary text-base leading-relaxed">Une connaissance approfondie du marché béninois et
+                        des besoins spécifiques des entreprises locales.</p>
+                </div>
+                <div class="card-modern p-10 text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center text-white text-2xl transition-transform group-hover:scale-110"
+                        style="background:linear-gradient(135deg,#4A90E2,#0F172A)"><i class="fas fa-clock"></i></div>
+                    <h3 class="text-2xl font-extrabold t-primary mb-3">Support 24/7</h3>
+                    <p class="t-secondary text-base leading-relaxed">Assistance technique disponible en permanence pour
+                        garantir la continuité de vos services.</p>
+                </div>
+                <div class="card-modern p-10 text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center text-white text-2xl transition-transform group-hover:scale-110"
+                        style="background:linear-gradient(135deg,#2B6CB0,#0F172A)"><i class="fas fa-handshake"></i>
                     </div>
+                    <h3 class="text-2xl font-extrabold t-primary mb-3">Approche Personnalisée</h3>
+                    <p class="t-secondary text-base leading-relaxed">Des solutions adaptées à chaque client avec un
+                        accompagnement sur mesure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-bg py-28 px-6 md:px-12 relative overflow-hidden" aria-labelledby="cta-title">
+            <div class="orb w-96 h-96 -top-20 left-1/3" style="background:rgba(43,108,176,0.6)" aria-hidden="true">
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <div class="section-label justify-center mb-8" data-aos="fade-up">Démarrons ensemble</div>
+                <h2 id="cta-title" class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight" data-aos="fade-up"
+                    data-aos-delay="50">
+                    <span class="t-primary">Voulez-vous démarrer votre </span><span
+                        class="text-gradient">projet</span><span class="t-primary"> au Bénin ?</span>
+                </h2>
+                <p class="t-secondary text-xl max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Contactez-nous dès aujourd'hui pour discuter de vos besoins en solutions digitales.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="150">
+                    <a href="contact.html" class="btn-primary text-base lg:text-lg"><i class="fas fa-envelope"></i> Nous
+                        écrire</a>
+                    <a href="tel:+2290152415241" class="btn-outline text-base lg:text-lg"><i class="fas fa-phone"></i>
+                        +229 01 52415241</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-6 md:px-20" role="contentinfo">
-        <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <!-- Column 1 -->
+    <!-- FOOTER -->
+    <footer style="background:var(--footer-bg);border-top:1px solid var(--footer-border)" class="py-16 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
             <div>
-                <img src="images/logo-removebg-preview.png" alt="AnyxTech Bénin Logo" class="w-32 mb-4" loading="lazy">
-                <p class="text-gray-400 mb-4">
-                    Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="https://facebook.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
-                        <i class="fab fa-facebook-f" aria-label="Facebook"></i>
-                    </a>
-                    <a href="https://twitter.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
-                        <i class="fab fa-twitter" aria-label="Twitter"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/AnyxTechBenin" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
-                        <i class="fab fa-linkedin-in" aria-label="LinkedIn"></i>
-                    </a>
-                    <a href="https://instagram.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:rounded-full p-1">
-                        <i class="fab fa-instagram" aria-label="Instagram"></i>
-                    </a>
+                <img src="images/logo-removebg-preview.png" alt="AnyxTech Bénin" class="w-32 md:w-36 mb-5"
+                    loading="lazy"> <!-- logo plus grand -->
+                <p class="text-slate-400 text-base leading-relaxed mb-6">Votre partenaire en solutions digitales
+                    innovantes au Bénin et en Afrique de l'Ouest.</p> <!-- text-base -->
+                <div class="flex gap-4">
+                    <a href="https://facebook.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400 transition-colors"
+                        aria-label="Facebook"><i class="fab fa-facebook-f text-base"></i></a>
+                    <a href="https://twitter.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400 transition-colors"
+                        aria-label="Twitter"><i class="fab fa-twitter text-base"></i></a>
+                    <a href="https://linkedin.com/company/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400 transition-colors"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin-in text-base"></i></a>
+                    <a href="https://instagram.com/AnyxTechBenin" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400 transition-colors"
+                        aria-label="Instagram"><i class="fab fa-instagram text-base"></i></a>
                 </div>
             </div>
-
-            <!-- Column 2 -->
             <div>
-                <h3 class="text-lg font-semibold mb-4 text-white">Navigation</h3>
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Accueil</a></li>
-                    <li><a href="societe.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Société</a></li>
-                    <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Services</a></li>
-                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Contact</a></li>
+                <h3 class="text-white font-semibold mb-5 text-xl" style="font-family:'Space Grotesk',sans-serif">
+                    Navigation</h3>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="text-sky-400 text-base">Accueil</a></li>
+                    <li><a href="societe.html"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Société</a></li>
+                    <li><a href="service.html"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Services</a></li>
+                    <li><a href="contact.html"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Contact</a></li>
                 </ul>
             </div>
-
-            <!-- Column 3 -->
             <div>
-    <h3 class="text-lg font-semibold mb-4">Services</h3>
-       <ul class="space-y-2">
-        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Communication Digitale</a></li>
-        <li><a href="service.html?filter=infrastructure" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Réseaux Informatiques</a></li>
-        <li><a href="service.html?filter=hosting" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Hébergement Web</a></li>
-        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Marketing Digital</a></li>
-        <li><a href="service.html?filter=support" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Support Clientèle</a></li>
-        </ul>
-    </div>
-
-            <!-- Column 4 -->
+                <h3 class="text-white font-semibold mb-5 text-xl" style="font-family:'Space Grotesk',sans-serif">
+                    Services</h3>
+                <ul class="space-y-3">
+                    <li><a href="service.html?filter=communication"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Communication
+                            Digitale</a></li>
+                    <li><a href="service.html?filter=infrastructure"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Réseaux
+                            Informatiques</a></li>
+                    <li><a href="service.html?filter=hosting"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Hébergement Web</a>
+                    </li>
+                    <li><a href="service.html?filter=communication"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Marketing Digital</a>
+                    </li>
+                    <li><a href="service.html?filter=support"
+                            class="text-slate-400 hover:text-sky-400 transition-colors text-base">Support Clientèle</a>
+                    </li>
+                </ul>
+            </div>
             <div>
-                <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
-                <address class="not-italic text-gray-400 space-y-2">
-                    <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> Cotonou, Bénin</p>
-                    <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> <a href="tel:+2290152415241" class="hover:text-white focus:outline-none focus:underline">+229 01 52415241</a></p>
-                    <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> <a href="mailto:contact@anyxtech.com" class="hover:text-white focus:outline-none focus:underline">contact@anyxtech.com</a></p>
-                    <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue" aria-hidden="true"></i> Lun-Ven: 8h-18h</p>
+                <h3 class="text-white font-semibold mb-5 text-xl" style="font-family:'Space Grotesk',sans-serif">Contact
+                </h3>
+                <address class="not-italic text-slate-400 text-base space-y-3">
+                    <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-sky-400 mt-0.5 w-5"></i>
+                        Cotonou, Bénin</p>
+                    <p class="flex items-start gap-3"><i class="fas fa-phone text-sky-400 mt-0.5 w-5"></i><a
+                            href="tel:+2290152415241" class="hover:text-sky-400 transition-colors">+229 01 52415241</a>
+                    </p>
+                    <p class="flex items-start gap-3"><i class="fas fa-envelope text-sky-400 mt-0.5 w-5"></i><a
+                            href="mailto:contact@anyxtech.com"
+                            class="hover:text-sky-400 transition-colors">contact@anyxtech.com</a></p>
+                    <p class="flex items-start gap-3"><i class="fas fa-clock text-sky-400 mt-0.5 w-5"></i> Lun-Ven:
+                        8h–18h</p>
                 </address>
             </div>
         </div>
-
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            <p>© 2023 AnyxTech Bénin. Tous droits réservés. | <a href="/privacy.html" class="hover:text-white focus:outline-none focus:underline">Politique de confidentialité</a> | <a href="/terms.html" class="hover:text-white focus:outline-none focus:underline">Conditions d'utilisation</a></p>
-        </div>
+        <div class="divider mb-8"></div>
+        <div class="text-center text-slate-500 text-base">&copy; 2023 AnyxTech Bénin. Tous droits réservés. | <a
+                href="/privacy.html" class="hover:text-sky-400 transition-colors">Politique de confidentialité</a> | <a
+                href="/terms.html" class="hover:text-sky-400 transition-colors">Conditions d'utilisation</a></div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center dark:bg-anyxtech-darkblue focus:outline-none focus:ring-2 focus:ring-white" aria-label="Retour en haut">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 w-14 h-14 rounded-full text-white flex items-center justify-center opacity-0 invisible transition-all duration-300 focus:outline-none"
+        style="background:linear-gradient(135deg,#2B6CB0,#4A90E2);box-shadow:0 4px 20px rgba(43,108,176,0.4)"
+        aria-label="Retour en haut">
+        <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: 'ease-in-out',
-            disable: window.innerWidth < 768 // Disable on mobile for performance
-        });
+        AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
 
-        // Lazy loading images
-        function lazyLoadImages() {
-            const lazyImages = document.querySelectorAll('.lazy-load');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px 0px',
-                threshold: 0.1
-            });
-
-            lazyImages.forEach(img => imageObserver.observe(img));
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function applyTheme(t) {
+            if (t === 'light') { html.classList.add('light-mode'); themeToggle.innerHTML = '<i class="fas fa-moon text-slate-300 text-sm"></i>'; themeToggle.setAttribute('aria-label', 'Passer en mode sombre') }
+            else { html.classList.remove('light-mode'); themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400 text-sm"></i>'; themeToggle.setAttribute('aria-label', 'Passer en mode clair') }
         }
+        applyTheme(localStorage.getItem('anyxtech-theme') || 'dark');
+        themeToggle.addEventListener('click', () => { const n = html.classList.contains('light-mode') ? 'dark' : 'light'; localStorage.setItem('anyxtech-theme', n); applyTheme(n) });
 
-        function setupTheme() {
-            const themeToggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-
-            // Check for saved theme or system preference
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-
-            // Apply initial theme
-            if (initialTheme === 'dark') {
-                html.classList.add('dark');
-                themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-300"></i>';
-                themeToggle.setAttribute('aria-label', 'Passer en mode clair');
-            } else {
-                html.classList.remove('dark');
-                themeToggle.innerHTML = '<i class="fas fa-moon text-gray-700"></i>';
-                themeToggle.setAttribute('aria-label', 'Passer en mode sombre');
-            }
-
-            // Toggle theme on button click
-            themeToggle.addEventListener('click', () => {
-                const isDark = html.classList.toggle('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                
-                if (isDark) {
-                    themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-300"></i>';
-                    themeToggle.setAttribute('aria-label', 'Passer en mode clair');
-                } else {
-                    themeToggle.innerHTML = '<i class="fas fa-moon text-gray-700"></i>';
-                    themeToggle.setAttribute('aria-label', 'Passer en mode sombre');
-                }
-            });
-        }
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => { const o = mobileMenu.classList.toggle('open'); mobileMenu.setAttribute('aria-hidden', !o); mobileBtn.setAttribute('aria-expanded', o); mobileBtn.querySelector('i').className = o ? 'fas fa-times text-white text-sm' : 'fas fa-bars text-white text-sm' });
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); mobileMenu.setAttribute('aria-hidden', 'true'); mobileBtn.setAttribute('aria-expanded', 'false'); mobileBtn.querySelector('i').className = 'fas fa-bars text-white text-sm' }));
 
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                const isOpen = mobileMenu.classList.toggle('open');
-                mobileMenu.setAttribute('aria-hidden', !isOpen);
-                mobileMenuButton.setAttribute('aria-expanded', isOpen);
-                
-                mobileMenuButton.innerHTML = isOpen
-                    ? '<i class="fas fa-times text-2xl"></i>'
-                    : '<i class="fas fa-bars text-2xl"></i>';
-                
-                mobileMenuButton.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-            });
-        }
+        const imgObs = new IntersectionObserver((e, o) => e.forEach(en => { if (en.isIntersecting) { en.target.classList.add('loaded'); o.unobserve(en.target) } }), { rootMargin: '60px 0px', threshold: 0.1 });
+        document.querySelectorAll('.lazy-load').forEach(i => imgObs.observe(i));
 
-        // Create particles
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            if (!container) return;
-            
-            const particleCount = window.innerWidth < 768 ? 15 : 30; // Reduce on mobile
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => { if (window.scrollY > 400) { btt.classList.remove('opacity-0', 'invisible'); btt.classList.add('opacity-100', 'visible') } else { btt.classList.add('opacity-0', 'invisible'); btt.classList.remove('opacity-100', 'visible') } });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
+        function smoothScroll(t) { document.querySelector(t)?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); smoothScroll(a.getAttribute('href')) }));
 
-                // Random position
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
+        function createParticle() { const p = document.createElement('div'); p.className = 'particle'; const s = Math.random() * 3 + 1; p.style.cssText = `left:${Math.random() * 100}%;width:${s}px;height:${s}px;background:rgba(74,144,226,${Math.random() * 0.3 + 0.05});animation-delay:${Math.random() * 6}s;animation-duration:${Math.random() * 4 + 6}s;`; document.getElementById('particles-container').appendChild(p); setTimeout(() => p.remove(), 10000) }
+        if (window.innerWidth > 768) setInterval(createParticle, 600);
 
-                // Random size
-                const size = Math.random() * 3 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-
-                // Random animation duration and delay
-                const duration = Math.random() * 5 + 5;
-                const delay = Math.random() * 5;
-                particle.style.animationDuration = duration + 's';
-                particle.style.animationDelay = delay + 's';
-
-                container.appendChild(particle);
-            }
-        }
-
-        // Smooth scroll function
-        function smoothScroll(target) {
-            const element = document.querySelector(target);
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
+        if (window.matchMedia('(prefers-reduced-motion:reduce)').matches)
+            document.querySelectorAll('.orb,.hero-circle,.hero-dot,.scroll-indicator').forEach(el => el.style.animation = 'none');
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
             } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
+                header.classList.remove("scrolled");
             }
         });
 
-        if (backToTopButton) {
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            // Show content
-            document.body.classList.remove('loading');
-            document.body.classList.add('loaded');
-            
-            // Initialize features
-            createParticles();
-            setupTheme();
-            lazyLoadImages();
-
-            // Close mobile menu when clicking on a link
-            const mobileLinks = document.querySelectorAll('#mobile-menu a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (mobileMenu && mobileMenuButton) {
-                        mobileMenu.classList.remove('open');
-                        mobileMenu.setAttribute('aria-hidden', 'true');
-                        mobileMenuButton.setAttribute('aria-expanded', 'false');
-                        mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-                        mobileMenuButton.setAttribute('aria-label', 'Ouvrir le menu');
-                    }
-                });
-            });
-
-            // Handle reduced motion preference
-            const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-            if (mediaQuery.matches) {
-                document.querySelectorAll('.floating-animation, .particle').forEach(el => {
-                    el.style.animation = 'none';
-                });
-            }
-
-            // Add gradient to service icons
-            const serviceIcons = document.querySelectorAll('.gradient-anyxtech');
-            serviceIcons.forEach(icon => {
-                icon.style.background = 'linear-gradient(135deg, var(--anyxtech-two-blue), var(--anyxtech-one-blue))';
-            });
-
-            // Performance optimization: Load non-critical CSS after page load
-            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-            stylesheets.forEach(sheet => {
-                if (sheet.href && sheet.href.includes('googleapis')) {
-                    sheet.media = 'all';
-                }
-            });
-        });
-
-        // Performance monitoring
-        window.addEventListener('load', () => {
-            if ('performance' in window) {
-                setTimeout(() => {
-                    const perfData = window.performance.timing;
-                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                    console.log(`Page loaded in ${pageLoadTime}ms`);
-                }, 0);
-            }
-        });
     </script>
 </body>
 

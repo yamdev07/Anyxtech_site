@@ -3,427 +3,1150 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Demande de Devis | AnyxTech Bénin</title>
+    <title>AnyxTech Bénin – Solutions Digitales & Réseaux Informatiques | Excellence Numérique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Demandez un devis personnalisé pour vos projets numériques avec AnyxTech Bénin. Solutions sur mesure en communication digitale, réseaux et transformation numérique.">
-
-    <!-- Favicon -->
+        content="AnyxTech Bénin : votre partenaire expert en transformation numérique. Solutions digitales innovantes, réseaux informatiques, communication digitale et énergétique au Bénin et en Afrique de l'Ouest.">
+    <meta name="author" content="AnyxTech Bénin">
+    <link rel="canonical" href="https://www.anyxtech.com/" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        'anyxtech-blue': '#1f429b',
-                        'anyxtech-lightblue': '#1db9ff',
-                        'anyxtech-darkblue': '#1e4d9f',
-                        'anyxtech-light-bg': '#dbeafe',
-                        'anyxtech-medium-text': '#1e40af',
-                        'anyxtech-very-light-bg': '#eff6ff',
-                    },
                     fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
-                    },
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['DM Sans', 'sans-serif']
+                    }
                 }
             }
         }
     </script>
-
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --anyxtech-one-blue: #1db9ff;
-            --anyxtech-two-blue: #1f429b;
-            --anyxtech-three-blue: #1e4d9f;
+            --mid: #2B6CB0;
+            --sky: #4A90E2;
+            --accent: #60A5FA;
+            --bg-page: #060C18;
+            --bg-card: rgba(15, 23, 42, 0.9);
+            --bg-card-2: rgba(27, 40, 70, 0.6);
+            --border-card: rgba(74, 144, 226, 0.18);
+            --text-primary: #E2E8F0;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-light-bg: rgba(43, 108, 176, 0.08);
+            --glass-light-border: rgba(74, 144, 226, 0.2);
+            --nav-bg: rgba(6, 12, 24, 0.75);
+            --nav-border: rgba(74, 144, 226, 0.15);
+            --stat-card-bg: rgba(43, 108, 176, 0.15);
+            --stat-card-bg2: rgba(74, 144, 226, 0.08);
+            --stat-card-border: rgba(74, 144, 226, 0.25);
+            --divider-color: rgba(74, 144, 226, 0.3);
+            --footer-bg: rgba(6, 12, 24, 0.98);
+            --footer-border: rgba(74, 144, 226, 0.15);
+            --hero-grid: rgba(74, 144, 226, 0.05);
+            --orb-opacity: 0.25;
+            --chip-bg: rgba(43, 108, 176, 0.12);
+            --chip-border: rgba(74, 144, 226, 0.2);
+            --chip-color: #93C5FD;
+            --section-label-color: #4A90E2;
+            --badge-float-bg: rgba(15, 23, 42, 0.9);
+            --stat-num-start: #fff;
+            --service-link: #60A5FA;
+            --mobile-menu-bg: rgba(15, 23, 42, 0.95);
+            --about-overlay-1: rgba(43, 108, 176, 0.12);
+            --about-overlay-2: rgba(15, 23, 42, 0.95);
+        }
+
+        .light-mode {
+            --bg-page: #EEF3FB;
+            --bg-card: rgba(255, 255, 255, 0.97);
+            --bg-card-2: rgba(225, 237, 255, 0.7);
+            --border-card: rgba(43, 108, 176, 0.18);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(43, 108, 176, 0.2);
+            --glass-light-bg: rgba(43, 108, 176, 0.07);
+            --glass-light-border: rgba(43, 108, 176, 0.2);
+            --nav-bg: rgba(15, 23, 60, 0.85);
+            --nav-border: rgba(74, 144, 226, 0.2);
+            --stat-card-bg: rgba(43, 108, 176, 0.07);
+            --stat-card-bg2: rgba(74, 144, 226, 0.04);
+            --stat-card-border: rgba(43, 108, 176, 0.18);
+            --divider-color: rgba(43, 108, 176, 0.18);
+            --footer-bg: #0D1424;
+            --footer-border: rgba(74, 144, 226, 0.15);
+            --hero-grid: rgba(74, 144, 226, 0.06);
+            --orb-opacity: 0.07;
+            --chip-bg: rgba(43, 108, 176, 0.08);
+            --chip-border: rgba(43, 108, 176, 0.2);
+            --chip-color: #1E40AF;
+            --badge-float-bg: rgba(255, 255, 255, 0.97);
+            --stat-num-start: #0F172A;
+            --service-link: #1E40AF;
+            --mobile-menu-bg: rgba(255, 255, 255, 0.98);
+            --about-overlay-1: rgba(43, 108, 176, 0.06);
+            --about-overlay-2: rgba(238, 243, 251, 0.97);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background .35s, color .35s
         }
 
-        .dark .dark-bg {
-            background-color: #111827;
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: .4
         }
 
-        .dark .dark-card {
-            background-color: #1f2937;
-            border-color: #374151;
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
         }
 
-        .dark .dark-text {
-            color: #f3f4f6;
+        .t-primary {
+            color: var(--text-primary) !important
         }
 
-        .dark .dark-border {
-            border-color: #374151;
+        .t-secondary {
+            color: var(--text-secondary) !important
         }
 
-        .dark .dark-input {
-            background-color: #374151;
-            border-color: #4b5563;
-            color: #f3f4f6;
+        .t-muted {
+            color: var(--text-muted) !important
         }
 
-        .service-card {
-            transition: all 0.3s ease;
+        .text-gradient {
+            background: linear-gradient(135deg, var(--sky) 0%, var(--accent) 50%, #93C5FD 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border)
         }
 
-        .dark .service-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        .glass-light {
+            background: var(--glass-light-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-light-border)
         }
 
-        .checkbox:checked {
-            background-color: var(--anyxtech-blue);
+        nav.main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--nav-border);
+            transition: background .35s, border-color .35s
         }
 
-        .checkbox:checked::after {
-            content: '✓';
-            color: white;
+        .nav-link {
+            position: relative;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: .02em;
+            color: #93C5FD;
+            /* bleu ciel clair, bien lisible sur fond sombre */
+            transition: color .25s
+        }
+
+        .nav-link::after {
+            content: '';
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--mid), var(--sky));
+            border-radius: 99px;
+            transition: width .3s
         }
 
-        .range-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: var(--anyxtech-blue);
-            cursor: pointer;
+        .nav-link:hover {
+            color: #fff
+        }
+
+        .nav-link:hover::after {
+            width: 100%
+        }
+
+        .nav-link.active {
+            color: #60A5FA;
+            text-shadow: 0 0 12px rgba(96, 165, 250, 0.45)
+                /* légère lueur sur le lien actif */
+        }
+
+        /* Mode clair */
+        .light-mode .nav-link {
+            color: #1E40AF
+        }
+
+        .light-mode .nav-link:hover {
+            color: #1E3A8A
+        }
+
+        .light-mode .nav-link.active {
+            color: #2B6CB0;
+            text-shadow: none
+        }
+
+        .nav-link:hover::after {
+            width: 100%
+        }
+
+        .nav-link.active {
+            color: #fff
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s cubic-bezier(.4, 0, .2, 1);
+            background: var(--mobile-menu-bg)
+        }
+
+        .mobile-menu.open {
+            max-height: 500px
+        }
+
+        /* ══ HERO ══ */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(160deg, rgba(6, 12, 30, 0.80) 0%, rgba(10, 25, 55, 0.72) 60%, rgba(6, 12, 30, 0.85) 100%)
+        }
+
+        .hero-tint {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(43, 108, 176, 0.15) 0%, transparent 75%)
+        }
+
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 80%)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 1.5rem
+        }
+
+        /* max-width augmenté */
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            padding: .65rem 1.6rem;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: .03em;
+            margin-bottom: 2.5rem
+        }
+
+        /* taille augmentée */
+        .hero-badge-dot {
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
+            background: #4A90E2;
+            animation: dot-pulse 2s ease-in-out infinite;
+            flex-shrink: 0
         }
 
-        .range-slider::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: var(--anyxtech-blue);
-            cursor: pointer;
+        /* légèrement plus gros */
+
+        /* TITRE PRINCIPAL - plus grand */
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.72);
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2.2vw, 1.35rem);
+            max-width: 650px;
+            margin: 0 auto 3.5rem;
+            line-height: 1.75
+        }
+
+        /* plus grand */
+
+        /* Dots décoratifs */
+        .hero-dot {
+            position: absolute;
             border-radius: 50%;
+            background: rgba(74, 144, 226, 0.75);
+            animation: dot-pulse 3s ease-in-out infinite;
+            z-index: 4
         }
 
-        .animate-bounce-slow {
-            animation: bounce-slow 3s infinite;
+        /* Cercles flottants */
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            animation: float-y 6s ease-in-out infinite;
+            z-index: 4
         }
 
-        @keyframes bounce-slow {
+        @keyframes float-y {
 
             0%,
             100% {
-                transform: translateY(0);
+                transform: translateY(0)
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-18px)
             }
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: orb-drift 8s ease-in-out infinite;
+            opacity: var(--orb-opacity)
+        }
+
+        @keyframes orb-drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            33% {
+                transform: translate(30px, -20px) scale(1.05)
+            }
+
+            66% {
+                transform: translate(-20px, 15px) scale(0.95)
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 10;
+            animation: bounce-sc 2.5s ease-in-out infinite;
+            cursor: pointer
+        }
+
+        @keyframes bounce-sc {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(-50%)
+            }
+
+            50% {
+                transform: translateY(-10px) translateX(-50%)
+            }
+        }
+
+        .wave-fill {
+            fill: var(--bg-page);
+            transition: fill .35s
+        }
+
+        /* ══ CARDS ══ */
+        .card-modern {
+            background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-card-2) 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            transition: transform .3s, border-color .3s, box-shadow .3s, background .35s
+        }
+
+        /* arrondi légèrement augmenté */
+        .card-modern:hover {
+            transform: translateY(-8px);
+            border-color: rgba(74, 144, 226, 0.45);
+            box-shadow: 0 20px 60px rgba(43, 108, 176, 0.15)
+        }
+
+        .light-mode .card-modern:hover {
+            box-shadow: 0 20px 60px rgba(43, 108, 176, 0.10)
+        }
+
+        .service-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative
+        }
+
+        /* plus haut */
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .card-modern:hover .service-img-wrap img {
+            transform: scale(1.06)
+        }
+
+        .service-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(43, 108, 176, 0.75);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .3rem .8rem;
+            border-radius: 99px
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--stat-card-bg) 0%, var(--stat-card-bg2) 100%);
+            border: 1px solid var(--stat-card-border);
+            border-radius: 20px;
+            transition: transform .3s, background .35s, border-color .35s
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--stat-num-start) 0%, var(--sky) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        /* plus grand */
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--section-label-color);
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--mid), var(--sky));
+            border-radius: 99px
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--divider-color), transparent)
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--mid) 0%, var(--sky) 100%);
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 1rem 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            transition: opacity .2s, transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 20px rgba(43, 108, 176, 0.35);
+            font-size: 1.1rem
+        }
+
+        .btn-primary:hover {
+            opacity: .9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(43, 108, 176, 0.5)
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 1rem 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            transition: background .2s, transform .2s;
+            backdrop-filter: blur(8px);
+            font-size: 1.1rem
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px)
+        }
+
+        .btn-outline {
+            background: var(--glass-light-bg);
+            color: var(--sky);
+            border: 1px solid var(--glass-light-border);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: .9rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            transition: background .2s, transform .2s;
+            font-size: 1.1rem
+        }
+
+        .btn-outline:hover {
+            background: rgba(74, 144, 226, 0.15);
+            transform: translateY(-2px)
+        }
+
+        .service-link {
+            color: var(--service-link);
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            transition: gap .2s, opacity .2s
+        }
+
+        .service-link:hover {
+            gap: .7rem;
+            opacity: .8
+        }
+
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        /* plus grand */
+
+        .about-bg {
+            background: linear-gradient(135deg, var(--about-overlay-1) 0%, var(--about-overlay-2) 100%);
+            transition: background .35s
+        }
+
+        .float-badge {
+            background: var(--badge-float-bg);
+            border: 1px solid var(--glass-border)
+        }
+
+        .cta-bg {
+            background: linear-gradient(135deg, rgba(43, 108, 176, 0.22) 0%, rgba(6, 12, 24, 0.95) 50%, rgba(74, 144, 226, 0.12) 100%)
+        }
+
+        .light-mode .cta-bg {
+            background: linear-gradient(135deg, rgba(43, 108, 176, 0.1) 0%, rgba(238, 243, 251, 0.97) 50%, rgba(74, 144, 226, 0.08) 100%)
+        }
+
+        .glow-sm {
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.15)
+        }
+
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            animation: p-rise 8s linear infinite;
+            pointer-events: none
+        }
+
+        @keyframes p-rise {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            90% {
+                opacity: .5
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0
+            }
+        }
+
+        .loading {
+            opacity: 0;
+            transition: opacity .4s
+        }
+
+        .loaded {
+            opacity: 1
+        }
+
+        .lazy-load {
+            opacity: 0;
+            transition: opacity .35s
+        }
+
+        .lazy-load.loaded {
+            opacity: 1
+        }
+
+        /* Ajustement mobile */
+        @media(max-width:768px) {
+            .hero-title {
+                font-size: 2.8rem !important
+            }
+
+            .hero-subtitle {
+                font-size: 1rem
+            }
+
+            .btn-primary,
+            .btn-secondary,
+            .btn-outline {
+                padding: .8rem 1.6rem;
+                font-size: 1rem
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            .orb,
+            .particle,
+            .hero-circle,
+            .scroll-indicator,
+            .hero-dot {
+                animation: none !important
+            }
+        }
+
+
+        /* Renforcement du header en mode clair */
+        nav.main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--nav-border);
+            transition: background .35s ease, border-color .35s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            /* ombre légère */
+        }
+
+        /* Adaptation des variables light-mode pour un fond plus opaque */
+        .light-mode {
+            --nav-bg: rgba(238, 243, 251, 0.98);
+            /* plus opaque */
+            /* ... autres variables ... */
+        }
+
+        /* Ajustement du scroll pour les ancres */
+        section {
+            scroll-margin-top: 100px;
+            /* compense la hauteur du header fixe */
+        }
+
+        /* Pour les très petits écrans, ajustement */
+        @media (max-width: 768px) {
+            section {
+                scroll-margin-top: 80px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .logo {
+                filter: brightness(200%);
+            }
+        }
+
+        /* ══ HEADER CORRIGÉ ══ */
+        header.main-nav {
+            background: rgba(6, 12, 24, 0.92);
+            /* fond sombre opaque en dark mode */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+            transition: background .35s, border-color .35s;
+        }
+
+        /* Liens nav — blanc cassé bien lisible sur fond sombre */
+        header.main-nav .nav-link {
+            color: #F1F5F9 !important;
+            font-weight: 600;
+        }
+
+        header.main-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        header.main-nav .nav-link.active {
+            color: #60A5FA !important;
+            text-shadow: 0 0 14px rgba(96, 165, 250, 0.5);
+        }
+
+        /* Mode clair */
+        .light-mode header.main-nav {
+            background: rgba(15, 23, 60, 0.95);
+            /* fond bleu marine foncé */
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #F1F5F9 !important;
+            /* reste blanc même en mode clair */
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #93C5FD !important;
+            text-shadow: 0 0 12px rgba(147, 197, 253, 0.4);
+        }
+
+        /* ══ CHAMPS DE FORMULAIRE ══ */
+        .input-glow {
+            width: 100%;
+            padding: .75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            background: rgba(15, 23, 42, 0.6);
+            color: #E2E8F0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color .25s, box-shadow .25s, background .35s, color .35s;
+        }
+
+        .input-glow::placeholder {
+            color: #64748B;
+        }
+
+        .input-glow:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+        }
+
+        /* Mode clair — champs bien visibles */
+        .light-mode .input-glow {
+            background: #ffffff;
+            color: #0F172A;
+            border: 1px solid rgba(43, 108, 176, 0.35);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+        }
+
+        .light-mode .input-glow::placeholder {
+            color: #94A3B8;
+        }
+
+        .light-mode .input-glow:focus {
+            border-color: #2B6CB0;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.12);
+        }
+
+        /* Select */
+        select.input-glow option {
+            background: #0F172A;
+            color: #E2E8F0;
+        }
+
+        .light-mode select.input-glow option {
+            background: #ffffff;
+            color: #0F172A;
+        }
+
+        /* Range slider */
+        .range-slider {
+            width: 100%;
+            accent-color: #4A90E2;
+            cursor: pointer;
+        }
+
+        /* Checkbox */
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            accent-color: #4A90E2;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Cards de checkbox en mode clair */
+        .light-mode .card-modern label {
+            border-color: rgba(43, 108, 176, 0.2);
+        }
+
+        .light-mode .card-modern label:hover {
+            border-color: rgba(43, 108, 176, 0.5);
+            background: rgba(43, 108, 176, 0.05);
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-poppins transition-colors duration-300">
-    <!-- Header -->
-    <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
-  <div class="flex items-center justify-between">
-    <!-- Logo -->
-    <div>
-      <a href="/" aria-label="AnyxTech - Retour à l'accueil">
-        <img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech Bénin" loading="eager">
-      </a>
-    </div>
 
-    <!-- Conteneur pour la navigation, le bouton thème et le bouton mobile -->
-    <div class="flex items-center gap-x-4">
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:block" aria-label="Navigation principale">
-        <ul class="flex items-center gap-x-8">
-          <li><a href="index.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Accueil</a></li>
-          <li><a href="societe.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Société</a></li>
-          <li><a href="service.html" class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors dark:text-white dark:hover:text-anyxtech-lightblue">Services</a></li>
-          <li><a href="contact.html" class="nav-link text-lg font-medium text-anyxtech-blue dark:text-anyxtech-lightblue transition-colors">Contact</a></li>
-          <li><a href="devis.html" class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Devis</a></li>
-        </ul>
-      </nav>
+<body class="loading">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-      <!-- Theme Toggle Button (positionné juste après la navigation desktop) -->
-      <button id="themeToggle" class="p-2 rounded-full focus:outline-none bg-blue-100 dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-300" aria-label="Changer le thème">
-        <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-      </button>
 
-      <!-- Mobile Menu Button (visible seulement sur mobile) -->
-      <button id="mobile-menu-button" class="md:hidden text-anyxtech-blue focus:outline-none dark:text-white" aria-label="Ouvrir le menu" aria-expanded="false">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Navigation (inchangé) -->
-  <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-4 overflow-hidden transition-all duration-300 max-h-0" aria-hidden="true">
-    <ul class="p-4 space-y-4">
-      <li><a href="index.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Accueil</a></li>
-      <li><a href="societe.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Société</a></li>
-      <li><a href="service.html" class="block px-4 py-2 hover:bg-anyxtech-very-light-bg dark:hover:bg-gray-700 rounded dark:text-white">Services</a></li>
-      <li><a href="contact.html" class="block px-4 py-2 bg-anyxtech-very-light-bg text-anyxtech-blue rounded font-medium dark:bg-blue-900/20 dark:text-white">Contact</a></li>
-      <li><a href="devis.html" class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue mt-2 dark:bg-anyxtech-darkblue dark:hover:bg-anyxtech-blue">Demande de devis</a></li>
-    </ul>
-  </div>
-</header>
-    <!-- Main Content -->
-    <main class="px-4 md:px-10 py-12 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-anyxtech-blue dark:text-anyxtech-lightblue mb-6">Demande de
-                Devis</h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+    <header class="main-nav fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" aria-label="AnyxTech - Accueil" style="
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 6px 12px;
+    backdrop-filter: blur(10px);
+    transition: background .3s;
+" onmouseover="this.style.background='rgba(255,255,255,0.22)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+                <img class="w-32 md:w-36 object-contain" src="images/logo-removebg-preview.png" alt="AnyxTech Bénin"
+                    loading="eager" style="filter: brightness(0) invert(1); /* force le logo en blanc pur */">
+            </a>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-base">Accueil</a>
+                    <a href="societe.html" class="nav-link text-base">Société</a>
+                    <a href="service.html" class="nav-link text-base">Services</a>
+                    <a href="contact.html" class="nav-link text-base">Contact</a>
+                    <a href="devis.html" class="nav-link active text-base">Devis</a>
+                </nav>
+                <button id="themeToggle" class="w-9 h-9 rounded-full glass-light flex items-center justify-center">
+                    <i class="fas fa-sun text-yellow-400 text-base"></i>
+                </button>
+                <button id="mobile-menu-button"
+                    class="md:hidden w-9 h-9 glass-light rounded-full flex items-center justify-center"
+                    aria-label="Menu" aria-expanded="false">
+                    <i class="fas fa-bars text-sky-400 text-base"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden mt-4 rounded-2xl glass overflow-hidden" aria-hidden="true">
+            <ul class="p-6 space-y-4">
+                <li><a href="index.html" class="block t-secondary hover:text-sky-400 text-base">Accueil</a></li>
+                <li><a href="societe.html" class="block t-secondary hover:text-sky-400 text-base">Société</a></li>
+                <li><a href="service.html" class="block t-secondary hover:text-sky-400 text-base">Services</a></li>
+                <li><a href="contact.html" class="block t-secondary hover:text-sky-400 text-base">Contact</a></li>
+                <li><a href="devis.html" class="block font-medium text-base" style="color:var(--sky)">Devis</a></li>
+            </ul>
+        </div>
+    </header>
+    <main id="main-content" class="px-4 md:px-10 py-12 max-w-6xl mx-auto relative z-10">
+        <!-- Titre -->
+        <div class="text-center mb-12">
+            <div class="section-label justify-center mb-4">Demande d'estimation</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gradient mb-4">Demande de Devis</h1>
+            <p class="t-secondary text-lg max-w-2xl mx-auto">
                 Remplissez ce formulaire pour recevoir une estimation personnalisée de votre projet.
             </p>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Formulaire de devis -->
-            <div class="lg:col-span-2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-gray-700/50">
-                <form id="quoteForm" action="https://formspree.io/f/xblkllnr" method="POST"
-                    enctype="multipart/form-data" class="space-y-6">
-                    <!-- Informations client -->
-                    <div>
-                        <h2
-                            class="text-2xl font-semibold mb-6 text-anyxtech-blue dark:text-anyxtech-lightblue border-b pb-2 dark:border-gray-700">
-                            <i class="fas fa-user-circle mr-3"></i>Informations personnelles
-                        </h2>
-
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="nom" class="block font-medium mb-2">Nom complet*</label>
-                                <input type="text" id="nom" name="nom" required
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                            </div>
-
-                            <div>
-                                <label for="entreprise" class="block font-medium mb-2">Entreprise</label>
-                                <input type="text" id="entreprise" name="entreprise"
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                            </div>
-
-                            <div>
-                                <label for="email" class="block font-medium mb-2">Email*</label>
-                                <input type="email" id="email" name="email" required
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                            </div>
-
-                            <div>
-                                <label for="telephone" class="block font-medium mb-2">Téléphone*</label>
-                                <input type="tel" id="telephone" name="telephone" required
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Détails du projet -->
-                    <div>
-                        <h2
-                            class="text-2xl font-semibold mb-6 text-anyxtech-blue dark:text-anyxtech-lightblue border-b pb-2 dark:border-gray-700">
-                            <i class="fas fa-lightbulb mr-3"></i>Détails du projet
-                        </h2>
-
-                        <div class="space-y-6">
-                            <div>
-                                <label for="projet" class="block font-medium mb-2">Nom du projet*</label>
-                                <input type="text" id="projet" name="projet" required
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                            </div>
-
-                            <div>
-                                <label class="block font-medium mb-4">Services souhaités*</label>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <label
-                                        class="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 service-card">
-                                        <input type="checkbox" name="services" value="communication"
-                                            class="checkbox appearance-none w-5 h-5 border rounded border-gray-300 dark:border-gray-500 relative">
-                                        <span>Communication digitale</span>
-                                    </label>
-
-                                    <label
-                                        class="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 service-card">
-                                        <input type="checkbox" name="services" value="reseau"
-                                            class="checkbox appearance-none w-5 h-5 border rounded border-gray-300 dark:border-gray-500 relative">
-                                        <span>Réseaux informatiques</span>
-                                    </label>
-
-                                    <label
-                                        class="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 service-card">
-                                        <input type="checkbox" name="services" value="wifi"
-                                            class="checkbox appearance-none w-5 h-5 border rounded border-gray-300 dark:border-gray-500 relative">
-                                        <span>Installation Wi-Fi</span>
-                                    </label>
-
-                                    <label
-                                        class="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 service-card">
-                                        <input type="checkbox" name="services" value="energie"
-                                            class="checkbox appearance-none w-5 h-5 border rounded border-gray-300 dark:border-gray-500 relative">
-                                        <span>Solutions énergétiques</span>
-                                    </label>
-
-                                    <label
-                                        class="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 service-card">
-                                        <input type="checkbox" name="services" value="marketing"
-                                            class="checkbox appearance-none w-5 h-5 border rounded border-gray-300 dark:border-gray-500 relative">
-                                        <span>Marketing digital</span>
-                                    </label>
-
-                                    <label
-                                        class="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 service-card">
-                                        <input type="checkbox" name="services" value="autre"
-                                            class="checkbox appearance-none w-5 h-5 border rounded border-gray-300 dark:border-gray-500 relative">
-                                        <span>Autre service</span>
-                                    </label>
+            <!-- Formulaire -->
+            <div class="lg:col-span-2">
+                <div class="card-modern p-8">
+                    <form id="quoteForm" action="https://formspree.io/f/xblkllnr" method="POST"
+                        enctype="multipart/form-data" class="space-y-8">
+                        <!-- Informations personnelles -->
+                        <div>
+                            <h2 class="text-xl font-semibold t-primary mb-6 flex items-center gap-3">
+                                <i class="fas fa-user-circle text-sky-400"></i> Informations personnelles
+                            </h2>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="nom" class="block t-secondary mb-2">Nom complet*</label>
+                                    <input type="text" id="nom" name="nom" required class="input-glow" />
+                                </div>
+                                <div>
+                                    <label for="entreprise" class="block t-secondary mb-2">Entreprise</label>
+                                    <input type="text" id="entreprise" name="entreprise" class="input-glow" />
+                                </div>
+                                <div>
+                                    <label for="email" class="block t-secondary mb-2">Email*</label>
+                                    <input type="email" id="email" name="email" required class="input-glow" />
+                                </div>
+                                <div>
+                                    <label for="telephone" class="block t-secondary mb-2">Téléphone*</label>
+                                    <input type="tel" id="telephone" name="telephone" required class="input-glow" />
                                 </div>
                             </div>
+                        </div>
 
-                            <div>
-                                <label for="description" class="block font-medium mb-2">Description détaillée*</label>
-                                <textarea id="description" name="description" rows="5" required
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue"
-                                    placeholder="Décrivez votre projet en détail, vos objectifs, vos besoins spécifiques..."></textarea>
-                            </div>
+                        <!-- Détails du projet -->
+                        <div>
+                            <h2 class="text-xl font-semibold t-primary mb-6 flex items-center gap-3">
+                                <i class="fas fa-lightbulb text-sky-400"></i> Détails du projet
+                            </h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="projet" class="block t-secondary mb-2">Nom du projet*</label>
+                                    <input type="text" id="projet" name="projet" required class="input-glow" />
+                                </div>
 
-                            <div>
-                                <label for="budget" class="block font-medium mb-2">Budget estimé (FCFA)</label>
-                                <input type="range" id="budget" name="budget" min="0" max="10000000" step="50000"
-                                    value="0" class="w-full range-slider">
-                                <div class="flex justify-between mt-2">
-                                    <span>0 FCFA</span>
-                                    <span id="budgetValue">0 FCFA</span>
-                                    <span>10 000 000 FCFA</span>
+                                <div>
+                                    <label class="block t-secondary mb-4">Services souhaités*</label>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <label
+                                            class="flex items-center gap-3 p-4 card-modern cursor-pointer transition hover:scale-105">
+                                            <input type="checkbox" name="services" value="communication"
+                                                class="checkbox-custom" />
+                                            <span class="t-primary">Communication digitale</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 p-4 card-modern cursor-pointer transition hover:scale-105">
+                                            <input type="checkbox" name="services" value="reseau"
+                                                class="checkbox-custom" />
+                                            <span class="t-primary">Réseaux informatiques</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 p-4 card-modern cursor-pointer transition hover:scale-105">
+                                            <input type="checkbox" name="services" value="wifi"
+                                                class="checkbox-custom" />
+                                            <span class="t-primary">Installation Wi-Fi</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 p-4 card-modern cursor-pointer transition hover:scale-105">
+                                            <input type="checkbox" name="services" value="energie"
+                                                class="checkbox-custom" />
+                                            <span class="t-primary">Solutions énergétiques</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 p-4 card-modern cursor-pointer transition hover:scale-105">
+                                            <input type="checkbox" name="services" value="marketing"
+                                                class="checkbox-custom" />
+                                            <span class="t-primary">Marketing digital</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 p-4 card-modern cursor-pointer transition hover:scale-105">
+                                            <input type="checkbox" name="services" value="autre"
+                                                class="checkbox-custom" />
+                                            <span class="t-primary">Autre service</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="description" class="block t-secondary mb-2">Description
+                                        détaillée*</label>
+                                    <textarea id="description" name="description" rows="5" required
+                                        class="input-glow resize-none"
+                                        placeholder="Décrivez votre projet en détail..."></textarea>
+                                </div>
+
+                                <div>
+                                    <label for="budget" class="block t-secondary mb-2">Budget estimé (FCFA)</label>
+                                    <input type="range" id="budget" name="budget" min="0" max="10000000" step="50000"
+                                        value="0" class="range-slider" />
+                                    <div class="flex justify-between mt-2 t-muted text-sm">
+                                        <span>0 FCFA</span>
+                                        <span id="budgetValue">0 FCFA</span>
+                                        <span>10 000 000 FCFA</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="delai" class="block t-secondary mb-2">Délai souhaité</label>
+                                    <select id="delai" name="delai" class="input-glow">
+                                        <option value="" class="t-muted">Sélectionnez un délai</option>
+                                        <option value="urgent">Urgent (moins d'1 mois)</option>
+                                        <option value="1-3">1 à 3 mois</option>
+                                        <option value="3-6">3 à 6 mois</option>
+                                        <option value="6+">Plus de 6 mois</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="fichiers" class="block t-secondary mb-2">Fichiers joints
+                                        (optionnel)</label>
+                                    <input type="file" id="fichiers" name="fichiers" multiple
+                                        class="input-glow file:bg-sky-400 file:text-white file:border-0 file:rounded-lg file:px-4 file:py-2 file:cursor-pointer" />
+                                    <p class="t-muted text-sm mt-1">Formats acceptés: PDF, DOC, JPG, PNG (max 5MB)</p>
                                 </div>
                             </div>
-
-                            <div>
-                                <label for="delai" class="block font-medium mb-2">Délai souhaité</label>
-                                <select id="delai" name="delai"
-                                    class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                                    <option value="">Sélectionnez un délai</option>
-                                    <option value="urgent">Urgent (moins d'1 mois)</option>
-                                    <option value="1-3">1 à 3 mois</option>
-                                    <option value="3-6">3 à 6 mois</option>
-                                    <option value="6+">Plus de 6 mois</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="fichiers" class="block font-medium mb-2">Fichiers joints (optionnel)</label>
-                                <input type="file" id="fichiers" name="fichiers" multiple
-                                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-anyxtech-blue focus:border-anyxtech-blue dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-anyxtech-lightblue">
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Formats acceptés: PDF, DOC,
-                                    JPG, PNG (max 5MB)</p>
-                            </div>
                         </div>
-                    </div>
 
-                    <!-- Soumission -->
-                    <div class="pt-4">
-                        <button type="submit"
-                            class="w-full bg-anyxtech-blue hover:bg-anyxtech-darkblue text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <i class="fas fa-paper-plane mr-3"></i>Envoyer la demande
-                        </button>
-                    </div>
-                </form>
+                        <!-- Bouton -->
+                        <div class="pt-4">
+                            <button type="submit" class="btn-primary w-full">
+                                <i class="fas fa-paper-plane mr-3"></i>Envoyer la demande
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <!-- Informations complémentaires -->
+            <!-- Colonne droite (infos complémentaires) -->
             <div class="space-y-6">
-                <div class="bg-anyxtech-blue text-white p-6 rounded-xl shadow-lg">
+                <div class="card-modern p-6"
+                    style="background:linear-gradient(135deg, var(--mid), var(--sky)); color:white;">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
                         <i class="fas fa-info-circle mr-3"></i>Comment obtenir un devis précis
                     </h3>
                     <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle mr-3 mt-1 text-anyxtech-lightblue"></i>
-                            <span>Décrivez votre projet le plus précisément possible</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle mr-3 mt-1 text-anyxtech-lightblue"></i>
-                            <span>Sélectionnez tous les services dont vous avez besoin</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle mr-3 mt-1 text-anyxtech-lightblue"></i>
-                            <span>Indiquez votre budget approximatif si possible</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle mr-3 mt-1 text-anyxtech-lightblue"></i>
-                            <span>Joignez des documents utiles (cahier des charges, maquettes...)</span>
-                        </li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-3 mt-1"></i><span>Décrivez votre
+                                projet le plus précisément possible</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-3 mt-1"></i><span>Sélectionnez
+                                tous les services dont vous avez besoin</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-3 mt-1"></i><span>Indiquez votre
+                                budget approximatif si possible</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-3 mt-1"></i><span>Joignez des
+                                documents utiles (cahier des charges, maquettes...)</span></li>
                     </ul>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg dark:shadow-gray-700/50">
-                    <h3 class="text-xl font-bold mb-4 text-anyxtech-blue dark:text-anyxtech-lightblue">
-                        <i class="fas fa-clock mr-3"></i>Délais de réponse
+                <div class="card-modern p-6">
+                    <h3 class="text-xl font-bold mb-4 t-primary flex items-center">
+                        <i class="fas fa-clock mr-3 text-sky-400"></i>Délais de réponse
                     </h3>
-                    <p class="mb-4">Nous nous engageons à vous répondre sous 48 heures ouvrées avec :</p>
+                    <p class="t-secondary mb-4">Nous nous engageons à vous répondre sous 48 heures ouvrées avec :</p>
                     <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-angle-right mr-3 text-anyxtech-blue dark:text-anyxtech-lightblue"></i>
-                            <span>Une estimation budgétaire</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-angle-right mr-3 text-anyxtech-blue dark:text-anyxtech-lightblue"></i>
-                            <span>Un échéancier prévisionnel</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-angle-right mr-3 text-anyxtech-blue dark:text-anyxtech-lightblue"></i>
-                            <span>Des propositions de solutions</span>
-                        </li>
+                        <li class="flex items-center"><i class="fas fa-angle-right mr-3 text-sky-400"></i><span
+                                class="t-secondary">Une estimation budgétaire</span></li>
+                        <li class="flex items-center"><i class="fas fa-angle-right mr-3 text-sky-400"></i><span
+                                class="t-secondary">Un échéancier prévisionnel</span></li>
+                        <li class="flex items-center"><i class="fas fa-angle-right mr-3 text-sky-400"></i><span
+                                class="t-secondary">Des propositions de solutions</span></li>
                     </ul>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg dark:shadow-gray-700/50">
-                    <h3 class="text-xl font-bold mb-4 text-anyxtech-blue dark:text-anyxtech-lightblue">
-                        <i class="fas fa-headset mr-3"></i>Besoin d'aide ?
+                <div class="card-modern p-6">
+                    <h3 class="text-xl font-bold mb-4 t-primary flex items-center">
+                        <i class="fas fa-headset mr-3 text-sky-400"></i>Besoin d'aide ?
                     </h3>
-                    <p class="mb-4">Notre équipe est disponible pour vous guider :</p>
+                    <p class="t-secondary mb-4">Notre équipe est disponible pour vous guider :</p>
                     <div class="space-y-3">
                         <a href="tel:+22901414215670"
-                            class="flex items-center text-anyxtech-blue dark:text-anyxtech-lightblue hover:underline">
-                            <i class="fas fa-phone mr-3"></i>
-                            +229 01 41 42 15 70
+                            class="flex items-center t-secondary hover:text-sky-400 transition-colors">
+                            <i class="fas fa-phone mr-3 text-sky-400"></i> +229 01 41 42 15 70
                         </a>
                         <a href="mailto:contact@anyxtech.com"
-                            class="flex items-center text-anyxtech-blue dark:text-anyxtech-lightblue hover:underline">
-                            <i class="fas fa-envelope mr-3"></i>
-                            contact@anyxtech.com
+                            class="flex items-center t-secondary hover:text-sky-400 transition-colors">
+                            <i class="fas fa-envelope mr-3 text-sky-400"></i> contact@anyxtech.com
                         </a>
                         <a href="https://wa.me/22952415241" target="_blank"
-                            class="flex items-center text-green-600 dark:text-green-400 hover:underline">
-                            <i class="fab fa-whatsapp mr-3"></i>
-                            Chat WhatsApp
+                            class="flex items-center t-secondary hover:text-green-400 transition-colors">
+                            <i class="fab fa-whatsapp mr-3 text-green-500"></i> Chat WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <div
-                    class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg dark:shadow-gray-700/50 animate-bounce-slow">
+                <div class="card-modern p-6 animate-bounce-slow">
                     <div class="text-center">
                         <div
-                            class="w-16 h-16 mx-auto mb-4 bg-anyxtech-blue text-white rounded-full flex items-center justify-center text-2xl">
+                            class="w-16 h-16 mx-auto mb-4 icon-blue-medium rounded-full flex items-center justify-center text-2xl">
                             <i class="fas fa-percentage"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-anyxtech-blue dark:text-anyxtech-lightblue">Réduction
-                            spéciale</h3>
-                        <p class="mb-3">Première collaboration ? Bénéficiez de 10% de réduction sur votre premier projet
-                            !</p>
+                        <h3 class="text-xl font-bold t-primary mb-2">Réduction spéciale</h3>
+                        <p class="t-secondary mb-3">Première collaboration ? Bénéficiez de 10% de réduction sur votre
+                            premier projet !</p>
                         <span
-                            class="inline-block bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100 px-3 py-1 rounded-full text-sm font-medium">
+                            class="inline-block bg-yellow-500/20 text-yellow-600 dark:text-yellow-300 px-3 py-1 rounded-full text-sm font-medium">
                             Code: ANYX10
                         </span>
                     </div>
@@ -432,210 +1155,178 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-6 md:px-20">
-        <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <!-- Column 1 -->
+    <!-- FOOTER (identique aux autres pages) -->
+    <footer style="background:var(--footer-bg);border-top:1px solid var(--footer-border)" class="py-16 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
             <div>
-                <img src="images/logo-removebg-preview.png" alt="AnyxTech Logo" class="w-32 mb-4">
-                <p class="text-gray-400 mb-4">
-                    Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="https://facebook.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/anyxtech"
-                        class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://instagram.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <img src="images/logo-removebg-preview.png" alt="AnyxTech" class="w-28 mb-5" loading="lazy">
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Votre partenaire en solutions digitales
+                    innovantes au Bénin et en Afrique de l'Ouest.</p>
+                <div class="flex gap-4">
+                    <a href="https://facebook.com/AnyxTechBenin" target="_blank"
+                        class="w-9 h-9 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400"><i
+                            class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="https://twitter.com/AnyxTechBenin" target="_blank"
+                        class="w-9 h-9 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400"><i
+                            class="fab fa-twitter text-sm"></i></a>
+                    <a href="https://linkedin.com/company/AnyxTechBenin" target="_blank"
+                        class="w-9 h-9 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400"><i
+                            class="fab fa-linkedin-in text-sm"></i></a>
+                    <a href="https://instagram.com/AnyxTechBenin" target="_blank"
+                        class="w-9 h-9 glass-light rounded-lg flex items-center justify-center text-slate-400 hover:text-sky-400"><i
+                            class="fab fa-instagram text-sm"></i></a>
                 </div>
             </div>
-
-            <!-- Column 2 -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Navigation</h3>
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
-                    <li><a href="societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a>
-                    </li>
-                    <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors">Services</a>
-                    </li>
-                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                    </li>
+                <h3 class="text-white font-semibold font-display mb-5">Navigation</h3>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="text-slate-400 hover:text-sky-400 text-sm">Accueil</a></li>
+                    <li><a href="societe.html" class="text-slate-400 hover:text-sky-400 text-sm">Société</a></li>
+                    <li><a href="service.html" class="text-slate-400 hover:text-sky-400 text-sm">Services</a></li>
+                    <li><a href="contact.html" class="text-slate-400 hover:text-sky-400 text-sm">Contact</a></li>
                 </ul>
             </div>
-
-            <!-- Column 3 -->
-        <div>
-            <h3 class="text-lg font-semibold mb-4">Services</h3>
-       <ul class="space-y-2">
-        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Communication Digitale</a></li>
-        <li><a href="service.html?filter=infrastructure" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Réseaux Informatiques</a></li>
-        <li><a href="service.html?filter=hosting" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Hébergement Web</a></li>
-        <li><a href="service.html?filter=communication" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Marketing Digital</a></li>
-        <li><a href="service.html?filter=support" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:underline">Support Clientèle</a></li>
-        </ul>
-    </div>
-
-            <!-- Column 4 -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                <address class="not-italic text-gray-400 space-y-2">
-                    <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue"></i> Cotonou, Bénin</p>
-                    <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue"></i> +229 01 41 42 15 70</p>
-                    <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue"></i> contact@anyxtech.com</p>
-                    <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue"></i> Lun-Ven: 8h-18h</p>
+                <h3 class="text-white font-semibold font-display mb-5">Services</h3>
+                <ul class="space-y-3">
+                    <li><a href="service.html?filter=communication"
+                            class="text-slate-400 hover:text-sky-400 text-sm">Communication Digitale</a></li>
+                    <li><a href="service.html?filter=infrastructure"
+                            class="text-slate-400 hover:text-sky-400 text-sm">Réseaux Informatiques</a></li>
+                    <li><a href="service.html?filter=hosting"
+                            class="text-slate-400 hover:text-sky-400 text-sm">Hébergement Web</a></li>
+                    <li><a href="service.html?filter=communication"
+                            class="text-slate-400 hover:text-sky-400 text-sm">Marketing Digital</a></li>
+                    <li><a href="service.html?filter=support" class="text-slate-400 hover:text-sky-400 text-sm">Support
+                            Clientèle</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white font-semibold font-display mb-5">Contact</h3>
+                <address class="not-italic text-slate-400 text-sm space-y-3">
+                    <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-sky-400 mt-0.5 w-4"></i>
+                        Cotonou, Bénin</p>
+                    <p class="flex items-start gap-3"><i class="fas fa-phone text-sky-400 mt-0.5 w-4"></i><a
+                            href="tel:+2290152415241" class="hover:text-sky-400">+229 01 52415241</a></p>
+                    <p class="flex items-start gap-3"><i class="fas fa-envelope text-sky-400 mt-0.5 w-4"></i><a
+                            href="mailto:contact@anyxtech.com" class="hover:text-sky-400">contact@anyxtech.com</a></p>
+                    <p class="flex items-start gap-3"><i class="fas fa-clock text-sky-400 mt-0.5 w-4"></i> Lun-Ven:
+                        8h–18h</p>
                 </address>
             </div>
         </div>
-
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés.</p>
-        </div>
+        <div class="divider mb-8"></div>
+        <div class="text-center text-slate-500 text-sm">&copy; 2023 AnyxTech Bénin. Tous droits réservés. | <a
+                href="privacy.html" class="hover:text-sky-400">Politique de confidentialité</a> | <a href="terms.html"
+                class="hover:text-sky-400">Conditions d'utilisation</a></div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top"
-        class="fixed bottom-8 right-8 bg-anyxtech-blue text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-white flex items-center justify-center opacity-0 invisible transition-all duration-300"
+        aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Gestion du thème sombre/clair
-        function setupTheme() {
-            const themeToggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
+        AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+        document.body.classList.remove('loading'); document.body.classList.add('loaded');
 
-            // Vérifier le thème sauvegardé ou la préférence système
-            const savedTheme = localStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-            // Appliquer le thème initial
-            if (savedTheme === 'dark') {
-                html.classList.add('dark');
-                if (themeToggle) {
-                    themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-300"></i>';
-                }
-            }
-
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    html.classList.toggle('dark');
-
-                    const isDark = html.classList.contains('dark');
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    themeToggle.innerHTML = isDark ? '<i class="fas fa-sun text-yellow-300"></i>' : '<i class="fas fa-moon text-gray-700"></i>';
-                });
+        // Thème
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                html.classList.add('light-mode');
+                themeToggle.innerHTML = '<i class="fas fa-moon text-slate-600 text-sm"></i>';
+                themeToggle.setAttribute('aria-label', 'Mode sombre');
+            } else {
+                html.classList.remove('light-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400 text-sm"></i>';
+                themeToggle.setAttribute('aria-label', 'Mode clair');
             }
         }
-
-        // Gestion du menu mobile
-        function setupMobileMenu() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('open');
-                    mobileMenuButton.innerHTML = mobileMenu.classList.contains('open') ?
-                        '<i class="fas fa-times text-2xl"></i>' :
-                        '<i class="fas fa-bars text-2xl"></i>';
-                });
-
-                // Fermer le menu mobile quand on clique sur un lien
-                const mobileLinks = document.querySelectorAll('#mobile-menu a');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('open');
-                        mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-                    });
-                });
-            }
-        }
-
-        // Gestion du bouton "Retour en haut"
-        function setupBackToTop() {
-            const backToTopButton = document.getElementById('back-to-top');
-
-            if (backToTopButton) {
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 300) {
-                        backToTopButton.classList.remove('opacity-0', 'invisible');
-                        backToTopButton.classList.add('opacity-100', 'visible');
-                    } else {
-                        backToTopButton.classList.remove('opacity-100', 'visible');
-                        backToTopButton.classList.add('opacity-0', 'invisible');
-                    }
-                });
-
-                backToTopButton.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        }
-
-        // Gestion du formulaire
-        function setupQuoteForm() {
-            const budgetSlider = document.getElementById('budget');
-            const budgetValue = document.getElementById('budgetValue');
-
-            if (budgetSlider && budgetValue) {
-                budgetSlider.addEventListener('input', () => {
-                    const value = parseInt(budgetSlider.value);
-                    budgetValue.textContent = value.toLocaleString('fr-FR') + ' FCFA';
-                });
-            }
-
-            const quoteForm = document.getElementById('quoteForm');
-            if (quoteForm) {
-                quoteForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-
-                    const submitButton = quoteForm.querySelector('button[type="submit"]');
-                    if (!submitButton) return;
-
-                    const originalText = submitButton.innerHTML;
-
-                    // Afficher le chargement
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> Envoi en cours...';
-                    submitButton.disabled = true;
-
-                    // Simuler l'envoi du formulaire (remplacer par un vrai appel API)
-                    try {
-                        await new Promise(resolve => setTimeout(resolve, 2000));
-
-                        // Afficher le message de succès
-                        alert('Votre demande de devis a été envoyée avec succès ! Nous vous contacterons dans les plus brefs délais.');
-                        quoteForm.reset();
-                        if (budgetValue) budgetValue.textContent = '0 FCFA';
-                    } catch (error) {
-                        alert('Une erreur est survenue. Veuillez réessayer plus tard.');
-                    } finally {
-                        submitButton.innerHTML = originalText;
-                        submitButton.disabled = false;
-                    }
-                });
-            }
-        }
-
-        // Initialisation lorsque le DOM est chargé
-        document.addEventListener('DOMContentLoaded', () => {
-            setupTheme();
-            setupMobileMenu();
-            setupBackToTop();
-            setupQuoteForm();
+        applyTheme(localStorage.getItem('anyxtech-theme') || 'dark');
+        themeToggle.addEventListener('click', () => {
+            const next = html.classList.contains('light-mode') ? 'dark' : 'light';
+            localStorage.setItem('anyxtech-theme', next);
+            applyTheme(next);
         });
+
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
+            mobileBtn.setAttribute('aria-expanded', isOpen);
+            mobileBtn.querySelector('i').className = isOpen ? 'fas fa-times text-sky-400 text-sm' : 'fas fa-bars text-sky-400 text-sm';
+        });
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            mobileBtn.querySelector('i').className = 'fas fa-bars text-sky-400 text-sm';
+        }));
+
+        // Back to top
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                btt.classList.remove('opacity-0', 'invisible');
+                btt.classList.add('opacity-100', 'visible');
+            } else {
+                btt.classList.add('opacity-0', 'invisible');
+                btt.classList.remove('opacity-100', 'visible');
+            }
+        });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Slider
+        const budgetSlider = document.getElementById('budget');
+        const budgetValue = document.getElementById('budgetValue');
+        if (budgetSlider && budgetValue) {
+            budgetSlider.addEventListener('input', () => {
+                const value = parseInt(budgetSlider.value);
+                budgetValue.textContent = value.toLocaleString('fr-FR') + ' FCFA';
+            });
+        }
+
+        // Formulaire (simulation)
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = quoteForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> Envoi...';
+                submitBtn.disabled = true;
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    alert('Votre demande de devis a été envoyée avec succès ! Nous vous contacterons sous 48h.');
+                    quoteForm.reset();
+                    if (budgetValue) budgetValue.textContent = '0 FCFA';
+                } catch (error) {
+                    alert('Erreur, merci de réessayer.');
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // Particles (optionnel, pour ambiance)
+        function createParticle() {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 3 + 1;
+            p.style.cssText = `left:${Math.random() * 100}%;width:${size}px;height:${size}px;background:rgba(74,144,226,${Math.random() * 0.35 + 0.05});animation-delay:${Math.random() * 6}s;animation-duration:${Math.random() * 4 + 6}s;`;
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 10000);
+        }
+        setInterval(createParticle, 500);
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.animate-bounce-slow, .particle, .icon-bounce').forEach(el => el.style.animation = 'none');
+        }
     </script>
 </body>
 
