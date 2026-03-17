@@ -763,12 +763,7 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            .logo {
-                filter: brightness(200%);
-            }
-        }
-
+        
         /* ══ HEADER CORRIGÉ ══ */
         header.main-nav {
             background: rgba(6, 12, 24, 0.92);
@@ -898,16 +893,14 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="index.html" aria-label="AnyxTech - Accueil" style="
     display: inline-block;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;        /* ← c'est ce fond blanc qui rend le logo visible */
     border-radius: 10px;
-    padding: 6px 12px;
-    backdrop-filter: blur(10px);
-    transition: background .3s;
-" onmouseover="this.style.background='rgba(255,255,255,0.22)'"
-                onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+    padding: 6px 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    transition: box-shadow .3s, transform .2s;
+">
                 <img class="w-32 md:w-36 object-contain" src="images/logo-removebg-preview.png" alt="AnyxTech Bénin"
-                    loading="eager" style="filter: brightness(0) invert(1); /* force le logo en blanc pur */">
+                    loading="eager">
             </a>
             <div class="flex items-center gap-6">
                 <nav class="hidden md:flex items-center gap-8">
