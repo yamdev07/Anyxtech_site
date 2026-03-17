@@ -135,32 +135,35 @@
     <header class="pt-6 px-4 md:px-10 z-50 relative mb-6">
         <div class="flex items-center justify-between">
             <div>
-                <a href="/"><img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech"></a>
+                <a href="index.html"><img class="w-32 object-cover" src="images/logo-removebg-preview.png" alt="Logo AnyxTech"></a>
             </div>
-
-            <!-- Theme Toggle -->
-            <button id="themeToggle" class="p-2 rounded-full focus:outline-none mr-4">
-                <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-            </button>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:block">
                 <ul class="flex items-center gap-x-8">
-                    <li><a href="/"
+                    <li><a href="index.html"
                             class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Accueil</a>
                     </li>
-                    <li><a href="/societe.html"
+                    <li><a href="societe.html"
                             class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Société</a>
                     </li>
-                    <li><a href="/service.html"
+                    <li><a href="service.html"
                             class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Services</a>
                     </li>
-                    <li><a href="/contact.html"
+                    <li><a href="contact.html"
                             class="nav-link text-lg font-medium hover:text-anyxtech-blue transition-colors">Contact</a>
                     </li>
-                    <li><a href="/devis.html"
+                    <li><a href="devis.html"
                             class="bg-anyxtech-blue text-white px-6 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors">Devis</a>
                     </li>
+                    <li>
+            <button id="themeToggle"
+              class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 flex items-center justify-center shadow-sm hover:shadow-md hover:border-anyxtech-lightblue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-anyxtech-blue"
+              aria-label="Passer en mode sombre">
+              <i class="fas fa-moon text-gray-600 dark:hidden text-base"></i>
+              <i class="fas fa-sun text-yellow-400 hidden dark:block text-base"></i>
+            </button>
+          </li>
                 </ul>
             </nav>
 
@@ -174,19 +177,19 @@
         <div id="mobile-menu"
             class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-4 overflow-hidden transition-all duration-300 max-h-0">
             <ul class="p-4 space-y-4">
-                <li><a href="/"
+                <li><a href="index.html"
                         class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 rounded transition-colors">Accueil</a>
                 </li>
-                <li><a href="/societe.html"
+                <li><a href="societe.html"
                         class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 rounded transition-colors">Société</a>
                 </li>
-                <li><a href="/service.html"
+                <li><a href="service.html"
                         class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 rounded transition-colors">Services</a>
                 </li>
-                <li><a href="/contact.html"
+                <li><a href="contact.html"
                         class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 rounded transition-colors">Contact</a>
                 </li>
-                <li><a href="/devis.html"
+                <li><a href="devis.html"
                         class="block text-center bg-anyxtech-blue text-white px-4 py-2 rounded-lg shadow-md hover:bg-anyxtech-lightblue transition-colors mt-2">Demande
                         de devis</a></li>
             </ul>
@@ -445,7 +448,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer CORRIGÉ avec liens fonctionnels -->
     <footer class="bg-gray-900 text-white py-12 px-6 md:px-20">
         <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <!-- Column 1 -->
@@ -455,65 +458,65 @@
                     Votre partenaire en solutions digitales innovantes au Bénin et en Afrique de l'Ouest.
                 </p>
                 <div class="flex space-x-4">
-                    <a href="https://facebook.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://facebook.com/anyxtech" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://twitter.com/anyxtech" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://linkedin.com/company/anyxtech"
+                    <a href="https://linkedin.com/company/anyxtech" target="_blank" rel="noopener noreferrer"
                         class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://instagram.com/anyxtech" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://instagram.com/anyxtech" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Column 2 -->
+            <!-- Column 2 - Navigation -->
             <div>
                 <h3 class="text-lg font-semibold mb-4">Navigation</h3>
                 <ul class="space-y-2">
-                    <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
-                    <li><a href="/societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a>
-                    </li>
-                    <li><a href="/service.html" class="text-gray-400 hover:text-white transition-colors">Services</a>
-                    </li>
-                    <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                    </li>
+                    <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+                    <li><a href="societe.html" class="text-gray-400 hover:text-white transition-colors">Société</a></li>
+                    <li><a href="service.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3 -->
+            <!-- Column 3 - Services avec liens corrigés -->
             <div>
                 <h3 class="text-lg font-semibold mb-4">Services</h3>
                 <ul class="space-y-2">
-                    <li><a href="/service.html#communication"
+                    <li><a href="service.html#communication"
                             class="text-gray-400 hover:text-white transition-colors">Communication Digitale</a></li>
-                    <li><a href="/service.html#infrastructure"
+                    <li><a href="service.html#infrastructure"
                             class="text-gray-400 hover:text-white transition-colors">Réseaux Informatiques</a></li>
-                    <li><a href="/service.html#energy"
+                    <li><a href="service.html#energy"
                             class="text-gray-400 hover:text-white transition-colors">Solutions Énergétiques</a></li>
-                    <li><a href="/service.html#marketing"
+                    <li><a href="service.html#marketing"
                             class="text-gray-400 hover:text-white transition-colors">Marketing Digital</a></li>
                 </ul>
             </div>
 
-            <!-- Column 4 -->
+            <!-- Column 4 - Contact -->
             <div>
                 <h3 class="text-lg font-semibold mb-4">Contact</h3>
                 <address class="not-italic text-gray-400 space-y-2">
                     <p><i class="fas fa-map-marker-alt mr-2 text-anyxtech-lightblue"></i> Cotonou, Bénin</p>
-                    <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue"></i> +229 01 41 42 15 70</p>
-                    <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue"></i> contact@anyxtech.com</p>
+                    <p><i class="fas fa-phone mr-2 text-anyxtech-lightblue"></i> <a href="tel:+22901414215670" class="hover:text-white">+229 01 41 42 15 70</a></p>
+                    <p><i class="fas fa-envelope mr-2 text-anyxtech-lightblue"></i> <a href="mailto:contact@anyxtech.com" class="hover:text-white">contact@anyxtech.com</a></p>
                     <p><i class="fas fa-clock mr-2 text-anyxtech-lightblue"></i> Lun-Ven: 8h-18h</p>
                 </address>
             </div>
         </div>
 
         <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés.</p>
+            <p>&copy; 2023 AnyxTech Bénin. Tous droits réservés. | 
+                <a href="privacy.html" class="hover:text-white">Politique de confidentialité</a> | 
+                <a href="terms.html" class="hover:text-white">Conditions d'utilisation</a>
+            </p>
         </div>
     </footer>
 
@@ -561,9 +564,13 @@
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('open');
-                    mobileMenuButton.innerHTML = mobileMenu.classList.contains('open') ?
-                        '<i class="fas fa-times text-2xl"></i>' :
-                        '<i class="fas fa-bars text-2xl"></i>';
+                    if (mobileMenu.classList.contains('open')) {
+                        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                        mobileMenuButton.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+                    } else {
+                        mobileMenu.style.maxHeight = '0';
+                        mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+                    }
                 });
 
                 // Fermer le menu mobile quand on clique sur un lien
@@ -571,6 +578,7 @@
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.remove('open');
+                        mobileMenu.style.maxHeight = '0';
                         mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
                     });
                 });
@@ -627,16 +635,25 @@
                     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> Envoi en cours...';
                     submitButton.disabled = true;
 
-                    // Simuler l'envoi du formulaire (remplacer par un vrai appel API)
                     try {
-                        await new Promise(resolve => setTimeout(resolve, 2000));
+                        const data = new FormData(quoteForm);
+                        const response = await fetch(quoteForm.action, {
+                            method: 'POST',
+                            body: data,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
 
-                        // Afficher le message de succès
-                        alert('Votre demande de devis a été envoyée avec succès ! Nous vous contacterons dans les plus brefs délais.');
-                        quoteForm.reset();
-                        if (budgetValue) budgetValue.textContent = '0 FCFA';
+                        if (response.ok) {
+                            alert('Votre demande de devis a été envoyée avec succès ! Nous vous contacterons dans les plus brefs délais.');
+                            quoteForm.reset();
+                            if (budgetValue) budgetValue.textContent = '0 FCFA';
+                        } else {
+                            throw new Error('Erreur lors de l\'envoi');
+                        }
                     } catch (error) {
-                        alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+                        alert('Une erreur est survenue. Veuillez réessayer plus tard ou nous contacter directement.');
                     } finally {
                         submitButton.innerHTML = originalText;
                         submitButton.disabled = false;
