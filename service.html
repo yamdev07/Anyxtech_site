@@ -55,7 +55,7 @@
             --stat-card-bg2: rgba(74, 144, 226, 0.08);
             --stat-card-border: rgba(74, 144, 226, 0.25);
             --divider-color: rgba(74, 144, 226, 0.3);
-            --footer-bg: rgba(6, 12, 24, 0.98);
+            --footer-bg: #0a1428;
             --footer-border: rgba(74, 144, 226, 0.15);
             --hero-grid: rgba(74, 144, 226, 0.05);
             --orb-opacity: 0.25;
@@ -89,7 +89,7 @@
             --stat-card-bg2: rgba(74, 144, 226, 0.04);
             --stat-card-border: rgba(43, 108, 176, 0.18);
             --divider-color: rgba(43, 108, 176, 0.18);
-            --footer-bg: #0D1424;
+            --footer-bg: #c7e0ff;
             --footer-border: rgba(74, 144, 226, 0.15);
             --hero-grid: rgba(74, 144, 226, 0.06);
             --orb-opacity: 0.07;
@@ -769,17 +769,6 @@
             }
         }
 
-        /* ══ HEADER CORRIGÉ ══ */
-        header.main-nav {
-            background: rgba(6, 12, 24, 0.92);
-            /* fond sombre opaque en dark mode */
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-            transition: background .35s, border-color .35s;
-        }
-
         /* Liens nav — blanc cassé bien lisible sur fond sombre */
         header.main-nav .nav-link {
             color: #F1F5F9 !important;
@@ -887,6 +876,189 @@
             border-color: rgba(43, 108, 176, 0.5);
             background: rgba(43, 108, 176, 0.05);
         }
+
+        /* ===== HEADER & FOOTER UNIFIÉS ===== */
+        /* --- Mode sombre (par défaut) --- */
+        header.main-nav {
+            background: #0a1428;
+            /* bleu nuit */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header.main-nav .nav-link {
+            color: #f0f4fa !important;
+            /* blanc cassé */
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        header.main-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        header.main-nav .nav-link.active {
+            color: #90c0ff !important;
+            /* bleu clair pour le lien actif */
+            text-shadow: 0 0 10px rgba(144, 192, 255, 0.5);
+        }
+
+        footer {
+            background: #0a1428;
+            /* identique au header sombre */
+            border-top: 1px solid rgba(74, 144, 226, 0.25);
+            color: #cbd5e1;
+            /* texte secondaire */
+        }
+
+        /* --- Mode clair --- */
+        .light-mode header.main-nav {
+            background: #c7e0ff;
+            /* bleu clair */
+            border-bottom: 1px solid rgba(43, 108, 176, 0.3);
+            box-shadow: 0 2px 12px rgba(43, 108, 176, 0.2);
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #0b2b4f !important;
+            /* bleu très foncé */
+        }
+
+        .light-mode header.main-nav .nav-link:hover {
+            color: #021c33 !important;
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #145388 !important;
+            text-shadow: none;
+        }
+
+        .light-mode footer {
+            background: #c7e0ff;
+            /* identique au header clair */
+            border-top: 1px solid rgba(43, 108, 176, 0.3);
+            color: #1e293b;
+        }
+
+        .light-mode footer h3,
+        .light-mode footer .text-white {
+            color: #0b2b4f !important;
+        }
+
+        .light-mode footer a,
+        .light-mode footer .text-slate-400,
+        .light-mode footer .text-slate-500 {
+            color: #254b6d !important;
+        }
+
+        .light-mode footer a:hover {
+            color: #021c33 !important;
+        }
+
+        /* Icônes du menu et du thème */
+        #themeToggle i,
+        #mobile-menu-button i {
+            transition: color 0.2s;
+        }
+
+        .light-mode #themeToggle i,
+        .light-mode #mobile-menu-button i {
+            color: #1e293b;
+            /* icônes foncées */
+        }
+
+        /* Effet de survol du logo (optionnel) */
+        header.main-nav a[href="index.html"] img {
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        header.main-nav a[href="index.html"]:hover img {
+            transform: translateY(-2px);
+            filter: drop-shadow(0 6px 12px rgba(74, 144, 226, 0.5));
+        }
+
+        /* ══ FOOTER — CONTENU LARGE ÉCRAN ══ */
+        footer .max-w-7xl {
+            max-width: 100% !important;
+            padding: 0 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            footer .max-w-7xl {
+                padding: 0 6rem;
+            }
+
+            /* Colonnes mieux espacées */
+            footer .grid {
+                grid-template-columns: 2fr 1fr 1fr 1.5fr;
+                gap: 3rem;
+            }
+
+            /* Textes plus grands */
+            footer p.text-slate-400,
+            footer address,
+            footer ul li a,
+            footer .text-sm {
+                font-size: 1rem !important;
+                line-height: 1.8;
+            }
+
+            /* Titres des colonnes plus grands */
+            footer h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            /* Logo plus grand */
+            footer img.w-28 {
+                width: 9rem !important;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Espacement entre les liens */
+            footer ul.space-y-3 {
+                gap: 0.85rem;
+            }
+
+            /* Icônes réseaux sociaux plus grandes */
+            footer .w-9 {
+                width: 2.75rem !important;
+                height: 2.75rem !important;
+                font-size: 1rem;
+            }
+
+            /* Texte de copyright plus lisible */
+            footer .text-slate-500 {
+                font-size: 0.95rem !important;
+            }
+        }
+
+        /* Mode sombre — textes footer bien lisibles */
+        footer .text-slate-400 {
+            color: #94A3B8 !important;
+        }
+
+        footer h3 {
+            letter-spacing: 0.02em;
+        }
+
+        /* Mode clair — textes footer lisibles sur fond bleu */
+        .light-mode footer .text-slate-400,
+        .light-mode footer address {
+            color: #254b6d !important;
+            font-size: 1rem !important;
+        }
+
+        .light-mode footer h3 {
+            color: #0b2b4f !important;
+            font-size: 1.25rem !important;
+        }
+
+        .light-mode footer .text-slate-500 {
+            color: #1e3a5f !important;
+        }
     </style>
 </head>
 
@@ -897,15 +1069,7 @@
     <!-- HEADER -->
     <header class="main-nav fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" aria-label="AnyxTech - Accueil" style="
-    display: inline-block;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 6px 14px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.35);
-    transition: box-shadow .3s, transform .2s;
-" onmouseover="this.style.boxShadow='0 4px 24px rgba(74,144,226,0.5)';this.style.transform='translateY(-1px)'"
-                onmouseout="this.style.boxShadow='0 2px 16px rgba(0,0,0,0.35)';this.style.transform='translateY(0)'">
+            <a href="index.html" aria-label="AnyxTech - Accueil">
                 <img class="w-32 md:w-36 object-contain" src="images/logo-removebg-preview.png" alt="AnyxTech Bénin"
                     loading="eager">
             </a>
@@ -967,11 +1131,6 @@
                     <a href="#services-section" class="btn-primary">Découvrir nos services <i
                             class="fas fa-arrow-down ml-2"></i></a>
                 </div>
-            </div>
-
-            <div class="absolute bottom-8 left-1/2 icon-bounce cursor-pointer" style="color:var(--sky)"
-                onclick="smoothScroll('#services-section')">
-                <i class="fas fa-chevron-down text-xl"></i>
             </div>
         </section>
 

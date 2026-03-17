@@ -769,15 +769,70 @@
             }
         }
 
-        /* ══ HEADER CORRIGÉ ══ */
+        /* ══ HEADER ══ */
         header.main-nav {
-            background: rgba(6, 12, 24, 0.92);
-            /* fond sombre opaque en dark mode */
+            background: rgba(6, 12, 24, 0.98);
+            /* bleu nuit — identique au footer sombre */
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid rgba(74, 144, 226, 0.2);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
             transition: background .35s, border-color .35s;
+        }
+
+        header.main-nav .nav-link {
+            color: #F1F5F9 !important;
+            font-weight: 600;
+        }
+
+        header.main-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        header.main-nav .nav-link.active {
+            color: #60A5FA !important;
+            text-shadow: 0 0 14px rgba(96, 165, 250, 0.5);
+        }
+
+        /* Mode clair — même bleu que le footer clair */
+        .light-mode header.main-nav {
+            background: #BFDBFE !important;
+            border-bottom: 1px solid rgba(43, 108, 176, 0.25);
+            box-shadow: 0 2px 16px rgba(43, 108, 176, 0.15);
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #1E3A8A !important;
+        }
+
+        .light-mode header.main-nav .nav-link:hover {
+            color: #0F172A !important;
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #2B6CB0 !important;
+            text-shadow: none;
+        }
+
+        /* Mode clair — header bleu clair */
+        .light-mode header.main-nav {
+            background: rgba(186, 220, 255, 0.97);
+            /* bleu clair */
+            border-bottom: 1px solid rgba(43, 108, 176, 0.25);
+            box-shadow: 0 2px 16px rgba(43, 108, 176, 0.15);
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #1E3A8A !important;
+        }
+
+        .light-mode header.main-nav .nav-link:hover {
+            color: #0F172A !important;
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #2B6CB0 !important;
+            text-shadow: none;
         }
 
         /* Liens nav — blanc cassé bien lisible sur fond sombre */
@@ -896,6 +951,148 @@
         .light-mode header.main-nav .logo-img {
             filter: none;
         }
+
+        /* ══ FOOTER ══ */
+        /* Mode sombre — déjà géré par --footer-bg, on renforce */
+        footer {
+            background: rgba(6, 12, 24, 0.98) !important;
+        }
+
+        /* Mode clair — footer bleu clair */
+        .light-mode footer {
+            background: #BFDBFE !important;
+            /* bleu clair assorti au header */
+            border-top: 1px solid rgba(43, 108, 176, 0.2) !important;
+        }
+
+        .light-mode footer h3,
+        .light-mode footer .text-white {
+            color: #1E3A8A !important;
+        }
+
+        .light-mode footer .text-slate-400 {
+            color: #334155 !important;
+        }
+
+        .light-mode footer a.hover\:text-sky-400:hover {
+            color: #2B6CB0 !important;
+        }
+
+        .light-mode footer .text-slate-500 {
+            color: #475569 !important;
+        }
+
+        /* Effet au survol du logo */
+        header.main-nav a[href="index.html"] img {
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        header.main-nav a[href="index.html"]:hover img {
+            transform: translateY(-1px);
+            filter: drop-shadow(0 4px 8px rgba(74, 144, 226, 0.4));
+        }
+
+        /* ===== HEADER & FOOTER ===== */
+
+        /* --- Mode sombre (par défaut) --- */
+        header.main-nav {
+            background: #0a1428;
+            /* bleu nuit profond */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header.main-nav .nav-link {
+            color: #f0f4fa !important;
+            /* blanc cassé */
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        header.main-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        header.main-nav .nav-link.active {
+            color: #90c0ff !important;
+            /* bleu clair */
+            text-shadow: 0 0 10px rgba(144, 192, 255, 0.5);
+        }
+
+        footer {
+            background: #0a1428;
+            /* identique au header */
+            border-top: 1px solid rgba(74, 144, 226, 0.25);
+            color: #cbd5e1;
+        }
+
+        /* --- Mode clair --- */
+        .light-mode header.main-nav {
+            background: #c7e0ff;
+            /* bleu très clair */
+            border-bottom: 1px solid rgba(43, 108, 176, 0.3);
+            box-shadow: 0 2px 12px rgba(43, 108, 176, 0.2);
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #0b2b4f !important;
+            /* bleu foncé pour contraste */
+        }
+
+        .light-mode header.main-nav .nav-link:hover {
+            color: #021c33 !important;
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #145388 !important;
+            text-shadow: none;
+        }
+
+        .light-mode footer {
+            background: #c7e0ff;
+            /* assorti au header */
+            border-top: 1px solid rgba(43, 108, 176, 0.3);
+            color: #1e293b;
+        }
+
+        .light-mode footer h3,
+        .light-mode footer .text-white {
+            color: #0b2b4f !important;
+        }
+
+        .light-mode footer a,
+        .light-mode footer .text-slate-400,
+        .light-mode footer .text-slate-500 {
+            color: #254b6d !important;
+        }
+
+        .light-mode footer a:hover {
+            color: #021c33 !important;
+        }
+
+        /* Icônes du menu et du thème */
+        #themeToggle i,
+        #mobile-menu-button i {
+            transition: color 0.2s;
+        }
+
+        .light-mode #themeToggle i,
+        .light-mode #mobile-menu-button i {
+            color: #1e293b;
+            /* foncé */
+        }
+
+        /* Effet de survol du logo (optionnel) */
+        header.main-nav a[href="index.html"] img {
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        header.main-nav a[href="index.html"]:hover img {
+            transform: translateY(-2px);
+            filter: drop-shadow(0 6px 12px rgba(74, 144, 226, 0.5));
+        }
     </style>
 </head>
 
@@ -910,15 +1107,7 @@
     <header class="main-nav fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-            <a href="index.html" aria-label="AnyxTech - Accueil" style="
-    display: inline-block;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 6px 14px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.35);
-    transition: box-shadow .3s, transform .2s;
-" onmouseover="this.style.boxShadow='0 4px 24px rgba(74,144,226,0.5)';this.style.transform='translateY(-1px)'"
-                onmouseout="this.style.boxShadow='0 2px 16px rgba(0,0,0,0.35)';this.style.transform='translateY(0)'">
+            <a href="index.html" aria-label="AnyxTech - Accueil">
                 <img class="w-32 md:w-36 object-contain" src="images/logo-removebg-preview.png" alt="AnyxTech Bénin"
                     loading="eager">
             </a>
@@ -988,10 +1177,12 @@
                 aria-hidden="true"></div>
 
             <!-- Cercles flottants translucides -->
-            <div class="hero-circle w-24 h-24 top-28 left-14 hidden md:block" style="animation-delay:0s"
+            <div class="hero-circle w-24 h-24 hidden md:block" style="top: 320px; left: 3.5rem; animation-delay:0s"
                 aria-hidden="true"></div>
-            <div class="hero-circle w-36 h-36 bottom-32 right-20 hidden md:block" style="animation-delay:-3s"
+
+            <div class="hero-circle w-36 h-36 hidden md:block" style="bottom: 60px; right: 5rem; animation-delay:-3s"
                 aria-hidden="true"></div>
+
 
             <!-- Lueurs orb -->
             <div class="orb w-[500px] h-[500px] -top-16 -left-28 z-5"

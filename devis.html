@@ -763,49 +763,6 @@
             }
         }
 
-        
-        /* ══ HEADER CORRIGÉ ══ */
-        header.main-nav {
-            background: rgba(6, 12, 24, 0.92);
-            /* fond sombre opaque en dark mode */
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-            transition: background .35s, border-color .35s;
-        }
-
-        /* Liens nav — blanc cassé bien lisible sur fond sombre */
-        header.main-nav .nav-link {
-            color: #F1F5F9 !important;
-            font-weight: 600;
-        }
-
-        header.main-nav .nav-link:hover {
-            color: #ffffff !important;
-        }
-
-        header.main-nav .nav-link.active {
-            color: #60A5FA !important;
-            text-shadow: 0 0 14px rgba(96, 165, 250, 0.5);
-        }
-
-        /* Mode clair */
-        .light-mode header.main-nav {
-            background: rgba(15, 23, 60, 0.95);
-            /* fond bleu marine foncé */
-        }
-
-        .light-mode header.main-nav .nav-link {
-            color: #F1F5F9 !important;
-            /* reste blanc même en mode clair */
-        }
-
-        .light-mode header.main-nav .nav-link.active {
-            color: #93C5FD !important;
-            text-shadow: 0 0 12px rgba(147, 197, 253, 0.4);
-        }
-
         /* ══ CHAMPS DE FORMULAIRE ══ */
         .input-glow {
             width: 100%;
@@ -882,23 +839,117 @@
             border-color: rgba(43, 108, 176, 0.5);
             background: rgba(43, 108, 176, 0.05);
         }
+
+        /* ===== HEADER & FOOTER UNIFIÉS ===== */
+        /* --- Mode sombre (par défaut) --- */
+        header.main-nav {
+            background: #0a1428;
+            /* bleu nuit */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header.main-nav .nav-link {
+            color: #f0f4fa !important;
+            /* blanc cassé */
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        header.main-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        header.main-nav .nav-link.active {
+            color: #90c0ff !important;
+            /* bleu clair pour le lien actif */
+            text-shadow: 0 0 10px rgba(144, 192, 255, 0.5);
+        }
+
+        footer {
+            background: #0a1428;
+            /* identique au header sombre */
+            border-top: 1px solid rgba(74, 144, 226, 0.25);
+            color: #cbd5e1;
+            /* texte secondaire */
+        }
+
+        /* --- Mode clair --- */
+        .light-mode header.main-nav {
+            background: #c7e0ff;
+            /* bleu clair */
+            border-bottom: 1px solid rgba(43, 108, 176, 0.3);
+            box-shadow: 0 2px 12px rgba(43, 108, 176, 0.2);
+        }
+
+        .light-mode header.main-nav .nav-link {
+            color: #0b2b4f !important;
+            /* bleu très foncé */
+        }
+
+        .light-mode header.main-nav .nav-link:hover {
+            color: #021c33 !important;
+        }
+
+        .light-mode header.main-nav .nav-link.active {
+            color: #145388 !important;
+            text-shadow: none;
+        }
+
+        .light-mode footer {
+            background: #c7e0ff;
+            /* identique au header clair */
+            border-top: 1px solid rgba(43, 108, 176, 0.3);
+            color: #1e293b;
+        }
+
+        .light-mode footer h3,
+        .light-mode footer .text-white {
+            color: #0b2b4f !important;
+        }
+
+        .light-mode footer a,
+        .light-mode footer .text-slate-400,
+        .light-mode footer .text-slate-500 {
+            color: #254b6d !important;
+        }
+
+        .light-mode footer a:hover {
+            color: #021c33 !important;
+        }
+
+        /* Icônes du menu et du thème */
+        #themeToggle i,
+        #mobile-menu-button i {
+            transition: color 0.2s;
+        }
+
+        .light-mode #themeToggle i,
+        .light-mode #mobile-menu-button i {
+            color: #1e293b;
+            /* icônes foncées */
+        }
+
+        /* Effet de survol du logo (optionnel) */
+        header.main-nav a[href="index.html"] img {
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        header.main-nav a[href="index.html"]:hover img {
+            transform: translateY(-2px);
+            filter: drop-shadow(0 6px 12px rgba(74, 144, 226, 0.5));
+        }
     </style>
 </head>
 
 <body class="loading">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-
     <header class="main-nav fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" aria-label="AnyxTech - Accueil" style="
-    display: inline-block;
-    background: #ffffff;        /* ← c'est ce fond blanc qui rend le logo visible */
-    border-radius: 10px;
-    padding: 6px 14px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.35);
-    transition: box-shadow .3s, transform .2s;
-">
+            <a href="index.html" aria-label="AnyxTech - Accueil">
                 <img class="w-32 md:w-36 object-contain" src="images/logo-removebg-preview.png" alt="AnyxTech Bénin"
                     loading="eager">
             </a>
@@ -930,6 +981,7 @@
             </ul>
         </div>
     </header>
+
     <main id="main-content" class="px-4 md:px-10 py-12 max-w-6xl mx-auto relative z-10">
         <!-- Titre -->
         <div class="text-center mb-12">
@@ -1135,21 +1187,27 @@
                             class="w-16 h-16 mx-auto mb-4 icon-blue-medium rounded-full flex items-center justify-center text-2xl">
                             <i class="fas fa-percentage"></i>
                         </div>
-                        <h3 class="text-xl font-bold t-primary mb-2">Réduction spéciale</h3>
-                        <p class="t-secondary mb-3">Première collaboration ? Bénéficiez de 10% de réduction sur votre
-                            premier projet !</p>
-                        <span
-                            class="inline-block bg-yellow-500/20 text-yellow-600 dark:text-yellow-300 px-3 py-1 rounded-full text-sm font-medium">
-                            Code: ANYX10
-                        </span>
+                        <h3 class="text-xl font-bold t-primary mb-3">✅ Satisfaction garantie</h3>
+                        <p class="t-secondary mb-4">
+                            Nous nous engageons à livrer un travail de qualité ou nous reprenons
+                            <span class="font-bold" style="color:#4A90E2">gratuitement</span> jusqu'à votre entière
+                            satisfaction.
+                        </p>
+                        <div class="flex items-center gap-3 mt-2">
+                            <div
+                                style="background:linear-gradient(135deg,#2B6CB0,#4A90E2);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <span class="t-secondary text-sm">Aucun paiement supplémentaire sur les corrections</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- FOOTER (identique aux autres pages) -->
-    <footer style="background:var(--footer-bg);border-top:1px solid var(--footer-border)" class="py-16 px-6 md:px-12">
+    <!-- FOOTER -->
+    <footer class="py-16 px-6 md:px-12">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
             <div>
                 <img src="images/logo-removebg-preview.png" alt="AnyxTech" class="w-28 mb-5" loading="lazy">
