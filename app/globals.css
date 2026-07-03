@@ -145,6 +145,65 @@
     @apply font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
   }
 
+  /* Titre avec reflet lumineux qui balaie */
+  .text-shimmer {
+    background-image: linear-gradient(
+      110deg,
+      #1f429b 0%,
+      #1db9ff 28%,
+      #ffffff 50%,
+      #1db9ff 72%,
+      #22d3ee 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: text-sheen 6s linear infinite;
+  }
+
+  /* Halo conique rotatif */
+  .conic-glow {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(29, 185, 255, 0.35) 25%,
+      rgba(31, 66, 155, 0.25) 50%,
+      transparent 75%
+    );
+    animation: spin-slow 18s linear infinite;
+  }
+
+  /* Bordure dégradée animée */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(130deg, rgba(29, 185, 255, 0.6), transparent 40%, transparent 60%, rgba(34, 211, 238, 0.5));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@keyframes text-sheen {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+
   /* Champs de formulaire */
   .form-input {
     @apply w-full rounded-xl border px-4 py-3 text-[15px] transition-all outline-none;
@@ -172,6 +231,18 @@
   .mask-fade-b {
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .perspective {
+    perspective: 1000px;
+  }
+  /* Texture de bruit fine pour la profondeur */
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 
