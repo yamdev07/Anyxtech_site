@@ -13,7 +13,7 @@ const stats = [
 
 export default function About() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-12 md:py-16">
       {/* Bandeau de stats */}
       <div className="container-x">
         <Reveal className="grid grid-cols-2 gap-8 rounded-3xl border border-[var(--border)] bg-soft px-8 py-10 md:grid-cols-4 md:divide-x md:divide-[var(--border)]">
@@ -29,7 +29,7 @@ export default function About() {
       </div>
 
       {/* Histoire */}
-      <div className="container-x mt-20 grid items-center gap-12 lg:grid-cols-2">
+      <div className="container-x mt-14 grid items-center gap-12 lg:grid-cols-2">
         <Reveal delay={1} className="order-2 lg:order-1">
           <div className="overflow-hidden rounded-3xl border border-[var(--border)] shadow-brand">
             <Image

@@ -8,7 +8,7 @@ export default function Services() {
   const FeatureIcon = feature.icon;
 
   return (
-    <section id="services" className="container-x scroll-mt-24 py-16 md:py-24">
+    <section id="services" className="container-x scroll-mt-24 py-16 md:py-20">
       <Reveal className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <div className="max-w-2xl">
           <span className="chip mb-4">
@@ -25,7 +25,7 @@ export default function Services() {
         </Link>
       </Reveal>
 
-      <div className="grid gap-5 md:grid-cols-3 md:grid-rows-2">
+      <div className="grid gap-5 md:grid-cols-4 md:grid-rows-2">
         {/* Cellule vedette */}
         <Link
           href={`/services#${feature.slug}`}
