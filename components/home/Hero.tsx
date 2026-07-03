@@ -6,6 +6,8 @@ import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
 import { Rocket, ArrowRight, Star, ShieldCheck, Zap, Sparkles } from "lucide-react";
 import Counter from "@/components/ui/Counter";
 import Spotlight from "@/components/ui/Spotlight";
+import Particles from "@/components/ui/Particles";
+import Magnetic from "@/components/ui/Magnetic";
 import { siteConfig } from "@/lib/site";
 
 const trust = [
@@ -62,6 +64,7 @@ export default function Hero() {
       {/* Fond animé */}
       <div aria-hidden className="absolute inset-0">
         <div className="absolute inset-0 grid-bg opacity-[0.12]" />
+        <Particles />
         <motion.div
           className="absolute -left-24 -top-24 h-[30rem] w-[30rem] rounded-full bg-brand-light/25 blur-3xl"
           animate={{ x: [0, 50, 0], y: [0, 40, 0], scale: [1, 1.12, 1] }}
@@ -113,14 +116,18 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap gap-4">
-            <Link href="/devis" className="btn-primary">
-              <Rocket className="h-5 w-5" />
-              Démarrer un projet
-            </Link>
-            <Link href="/services" className="btn-ghost">
-              Nos services
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <Magnetic>
+              <Link href="/devis" className="btn-primary">
+                <Rocket className="h-5 w-5" />
+                Démarrer un projet
+              </Link>
+            </Magnetic>
+            <Magnetic strength={0.25}>
+              <Link href="/services" className="btn-ghost">
+                Nos services
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Magnetic>
           </motion.div>
 
           <motion.div variants={item} className="mt-12 flex flex-wrap items-center gap-y-4 divide-x divide-[var(--border)]">
