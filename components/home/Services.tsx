@@ -8,7 +8,7 @@ export default function Services() {
   const FeatureIcon = feature.icon;
 
   return (
-    <section id="services" className="container-x scroll-mt-24 py-20 md:py-28">
+    <section id="services" className="container-x scroll-mt-24 py-16 md:py-24">
       <Reveal className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <div className="max-w-2xl">
           <span className="chip mb-4">
