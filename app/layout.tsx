@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { poppins, spaceGrotesk } from "@/lib/fonts";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const SITE_URL = "https://www.anyxtech.com";
@@ -84,6 +85,7 @@ export default function RootLayout({
         </a>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
