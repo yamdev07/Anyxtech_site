@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import GlowOrbs from "./GlowOrbs";
 
 export default function PageHero({
   eyebrow,
@@ -14,20 +13,21 @@ export default function PageHero({
   breadcrumb: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
-      <div className="absolute inset-0 grid-bg opacity-50 mask-fade-b" aria-hidden />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(29,185,255,0.2),transparent_55%)]" aria-hidden />
-      <GlowOrbs />
-      <div className="container-x relative z-10 py-20 text-center md:py-28">
-        <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-white/60">
-          <Link href="/" className="hover:text-white">
+    <section className="relative overflow-hidden border-b border-[var(--border)]">
+      <div className="absolute inset-0 bg-brand-radial opacity-70" aria-hidden />
+      <div className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-brand-light/15 blur-3xl" aria-hidden />
+      <div className="container-x relative z-10 py-16 text-center md:py-24">
+        <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-soft">
+          <Link href="/" className="transition-colors hover:text-brand-light">
             Accueil
           </Link>
           <ChevronRight className="h-4 w-4" />
-          <span className="text-brand-light">{breadcrumb}</span>
+          <span className="font-medium text-brand-blue dark:text-brand-light">
+            {breadcrumb}
+          </span>
         </nav>
         {eyebrow && (
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium">
+          <span className="chip mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-light" />
             {eyebrow}
           </span>
@@ -36,7 +36,7 @@ export default function PageHero({
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">{subtitle}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-soft">{subtitle}</p>
         )}
       </div>
     </section>
