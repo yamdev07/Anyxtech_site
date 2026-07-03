@@ -34,7 +34,7 @@ export default function Process() {
           eyebrow="Comment ça marche"
           title={
             <>
-              Trois étapes, <span className="text-gradient">zéro friction</span>
+              Trois étapes, <span className="text-shimmer">zéro friction</span>
             </>
           }
         />

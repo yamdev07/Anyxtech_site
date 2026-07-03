@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
 import { Rocket, ArrowRight, Star, ShieldCheck, Zap, Sparkles } from "lucide-react";
 import Counter from "@/components/ui/Counter";
+import Spotlight from "@/components/ui/Spotlight";
 import { siteConfig } from "@/lib/site";
 
 const trust = [
@@ -37,8 +38,27 @@ const float = (d = 0) => ({
 });
 
 export default function Hero() {
+  const mx = useMotionValue(50);
+  const my = useMotionValue(30);
+  const spotlight = useMotionTemplate`radial-gradient(650px circle at ${mx}% ${my}%, rgba(29,185,255,0.12), transparent 60%)`;
+
+  function onMove(e: React.MouseEvent<HTMLElement>) {
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set(((e.clientX - r.left) / r.width) * 100);
+    my.set(((e.clientY - r.top) / r.height) * 100);
+  }
+
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden">
+    <section
+      onMouseMove={onMove}
+      className="relative flex min-h-screen flex-col overflow-hidden"
+    >
+      {/* Spotlight curseur */}
+      <motion.div
+        aria-hidden
+        style={{ background: spotlight }}
+        className="pointer-events-none absolute inset-0 z-[1]"
+      />
       {/* Fond animé */}
       <div aria-hidden className="absolute inset-0">
         <div className="absolute inset-0 grid-bg opacity-[0.12]" />
@@ -133,24 +153,26 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="relative w-full min-w-0"
+          className="perspective relative w-full min-w-0"
         >
           {/* Halo conique rotatif derrière */}
           <div className="pointer-events-none absolute -inset-8 -z-10">
             <div className="conic-glow h-full w-full rounded-[3rem] opacity-40 blur-2xl" />
           </div>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] shadow-brand">
-            <Image
-              src="/images/Business_tech.jpg"
-              alt="Solutions technologiques AnyxTech au Bénin"
-              width={720}
-              height={720}
-              priority
-              className="h-[440px] w-full object-cover sm:h-[540px]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/30 to-transparent" />
-          </div>
+          <Spotlight tilt={9} className="rounded-[2rem]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] shadow-brand">
+              <Image
+                src="/images/Business_tech.jpg"
+                alt="Solutions technologiques AnyxTech au Bénin"
+                width={720}
+                height={720}
+                priority
+                className="h-[440px] w-full object-cover sm:h-[540px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/30 to-transparent" />
+            </div>
+          </Spotlight>
 
           {/* Carte flottante haut-gauche */}
           <motion.div
