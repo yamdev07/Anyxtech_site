@@ -144,6 +144,22 @@
   .section-title {
     @apply font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
   }
+
+  /* Champs de formulaire */
+  .form-input {
+    @apply w-full rounded-xl border px-4 py-3 text-[15px] transition-all outline-none;
+    background: var(--bg-soft);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .form-input::placeholder {
+    color: var(--text-soft);
+    opacity: 0.7;
+  }
+  .form-input:focus {
+    border-color: rgba(29, 185, 255, 0.6);
+    box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.15);
+  }
 }
 
 @layer utilities {
