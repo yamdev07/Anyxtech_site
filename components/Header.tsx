@@ -38,7 +38,7 @@ export default function Header() {
         }`}
       >
         <nav
-          className="container-x flex items-center justify-between py-3.5"
+          className="flex w-full items-center justify-between px-5 py-3.5 sm:px-8 lg:px-12"
           aria-label="Navigation principale"
         >
           <Link href="/" aria-label="AnyxTech — Accueil" className="shrink-0">
@@ -109,7 +109,7 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="glass overflow-hidden border-b border-[var(--border)] md:hidden"
           >
-            <ul className="container-x flex flex-col gap-1 py-4">
+            <ul className="flex w-full flex-col gap-1 px-5 py-4 sm:px-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
