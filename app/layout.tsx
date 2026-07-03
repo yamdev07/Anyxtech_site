@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/ui/BackToTop";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 
 const SITE_URL = "https://www.anyxtech.com";
@@ -77,6 +78,7 @@ export default function RootLayout({
     <html lang="fr" className={`${poppins.variable} ${spaceGrotesk.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <StructuredData />
       </head>
       <body className="font-sans">
         <a
