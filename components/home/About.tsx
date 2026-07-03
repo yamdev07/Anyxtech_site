@@ -2,11 +2,34 @@ import Link from "next/link";
 import Image from "next/image";
 import { Users } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import Counter from "@/components/ui/Counter";
+
+const stats = [
+  { value: 50, suffix: "+", label: "Clients satisfaits" },
+  { value: 20, suffix: "+", label: "Projets réalisés" },
+  { value: 10, suffix: "+", label: "Experts techniques" },
+  { value: 24, suffix: "/7", label: "Support client" },
+];
 
 export default function About() {
   return (
-    <section className="py-16 md:py-20">
-      <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+    <section className="py-12 md:py-16">
+      {/* Bandeau de stats */}
+      <div className="container-x">
+        <Reveal className="grid grid-cols-2 gap-8 rounded-3xl border border-[var(--border)] bg-soft px-8 py-10 md:grid-cols-4 md:divide-x md:divide-[var(--border)]">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center md:px-4">
+              <div className="font-display text-4xl font-bold text-brand-blue dark:text-brand-light md:text-5xl">
+                <Counter value={s.value} suffix={s.suffix} />
+              </div>
+              <div className="mt-1 text-sm text-soft">{s.label}</div>
+            </div>
+          ))}
+        </Reveal>
+      </div>
+
+      {/* Histoire */}
+      <div className="container-x mt-14 grid items-center gap-12 lg:grid-cols-2">
         <Reveal delay={1} className="order-2 lg:order-1">
           <div className="overflow-hidden rounded-3xl border border-[var(--border)] shadow-brand">
             <Image
