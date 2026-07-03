@@ -69,9 +69,9 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="container-x relative z-10 grid flex-1 items-center gap-12 py-24 lg:grid-cols-2 lg:gap-8">
+      <div className="container-x relative z-10 grid w-full flex-1 items-center gap-12 py-24 lg:grid-cols-2 lg:gap-10">
         {/* Colonne texte */}
-        <motion.div variants={container} initial="hidden" animate="visible">
+        <motion.div variants={container} initial="hidden" animate="visible" className="min-w-0">
           <motion.span variants={item} className="chip mb-6">
             <Sparkles className="h-4 w-4 text-brand-light" />
             Vos besoins avant les nôtres
@@ -103,7 +103,7 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div variants={item} className="mt-12 flex items-center divide-x divide-[var(--border)]">
+          <motion.div variants={item} className="mt-12 flex flex-wrap items-center gap-y-4 divide-x divide-[var(--border)]">
             {trust.map((t) => (
               <div key={t.label} className="px-6 first:pl-0">
                 <div className="font-display text-3xl font-bold text-brand-blue dark:text-brand-light">
@@ -133,7 +133,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="relative mx-auto w-full max-w-lg"
+          className="relative w-full min-w-0"
         >
           {/* Halo conique rotatif derrière */}
           <div className="pointer-events-none absolute -inset-8 -z-10">
