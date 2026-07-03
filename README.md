@@ -1,84 +1,103 @@
-# 🌐 AnyxTech - Site Vitrine Officiel
+# 🌐 AnyxTech Bénin — Site Vitrine (Next.js)
 
-Bienvenue sur le dépôt officiel du **site web vitrine d'AnyxTech**, une entreprise spécialisée dans les solutions numériques innovantes en Afrique de l’Ouest. Ce site a été conçu pour présenter l’entreprise, ses services et ses contacts de manière professionnelle et responsive.
+Site vitrine officiel d'**AnyxTech Bénin**, entreprise spécialisée dans les
+solutions digitales, réseaux informatiques et la transformation numérique à
+Cotonou et en Afrique de l'Ouest.
 
----
-
-## 📸 Aperçu
-
-![Aperçu du site](images/anyxtech.png)  
-<!-- Remplace `screenshot.png` par une capture d’écran réelle du site -->
+Refonte complète en **Next.js 15** (App Router) avec un design moderne : fonds
+animés, glassmorphism, dégradés de marque, mode sombre et animations au scroll.
 
 ---
 
-## 💡 Fonctionnalités
+## 🛠️ Stack technique
 
-- Design **responsive** (mobile, tablette, desktop)
-- Présentation de l’entreprise et de son équipe
-- Affichage des services et prestations proposés
-- Section **Contact** avec informations et formulaire
-- Intégration d’**icônes Font Awesome**
-- Animations simples et interactives
-- Interface moderne, futuriste et cosmique (inspiration visuelle)
-
----
-
-## 🛠️ Technologies utilisées
-
-- **HTML5**
-- **CSS3** / **Tailwind CSS** (ou Bootstrap selon version)
-- **Font Awesome**
-- **Responsive Design**
-- **JavaScript** pour interactions légères (scroll, menu, animations)
+- **[Next.js 15](https://nextjs.org/)** — App Router, rendu statique (SSG)
+- **React 19** + **TypeScript**
+- **Tailwind CSS 3** — design system sur mesure (tokens de marque, animations)
+- **Framer Motion** — animations et transitions
+- **lucide-react** — icônes
+- **next/font** — Poppins & Space Grotesk (auto-hébergées)
 
 ---
 
-## 🚀 Mise en route
-
-### 🔧 1. Cloner le projet
+## 🚀 Démarrage
 
 ```bash
-git clone https://github.com/yamdev07/Anyxtech_site.git
-cd Anyxtech_site
-````
-🌍 2. Ouvrir dans un navigateur
+npm install        # installer les dépendances
+npm run dev        # serveur de développement → http://localhost:3000
+npm run build      # build de production
+npm run start      # servir le build de production
+```
+
 ---
 
-Ouvrez le fichier index.html dans votre navigateur préféré :
+## 📁 Structure
 
-start index.html    # Windows
-xdg-open index.html # Linux
-open index.html     # macOS
-````
-📁 Structure du projet
-Anyxtech_site/
-├── index.html          # Page d'accueil
-├── services.html       # Présentation des services
-├── contact.html        # Page de contact
-├── css/
-│   └── style.css       # Styles principaux
-├── js/
-│   └── script.js       # Scripts interactifs
-├── images/
-│   └── (logos, illustrations, bannières…)
-└── README.md           # Documentation du projet
-````
-📌 À faire / Prochaines étapes
+```
+app/
+├── layout.tsx           # Layout racine (header, footer, SEO, thème)
+├── page.tsx             # Accueil (hero, services, à propos, CTA)
+├── societe/page.tsx     # Histoire, mission, valeurs, processus, technologies
+├── services/page.tsx    # Services avec filtres interactifs
+├── contact/page.tsx     # Formulaire de contact (Formspree)
+├── devis/page.tsx       # Demande de devis détaillée
+├── sitemap.ts           # Sitemap dynamique
+├── robots.ts            # robots.txt
+└── globals.css          # Design system + styles globaux
+
+components/
+├── Header.tsx / Footer.tsx / ThemeToggle.tsx
+├── StructuredData.tsx   # JSON-LD (SEO)
+├── home/                # Sections de l'accueil
+├── services/            # Explorateur de services (filtres)
+├── contact/ · devis/    # Formulaires
+└── ui/                  # Primitives réutilisables (Reveal, Counter, PageHero…)
+
+lib/
+├── site.ts              # Config du site (contacts, réseaux, navigation)
+├── services.ts          # Données des services
+└── fonts.ts             # Polices
+
+public/images/           # Images & logos
+legacy/                  # Ancien site HTML (archive de référence)
+```
+
 ---
-Ajouter un formulaire de contact fonctionnel (PHP ou JS)
 
-Optimiser les images pour le web
+## 🎨 Design system
 
-Ajouter un favicon
+Les couleurs de marque sont définies dans `tailwind.config.ts` :
 
-Ajouter des animations au scroll et interactions avancées
+| Token | Valeur |
+|-------|--------|
+| `brand.blue` | `#1f429b` |
+| `brand.light` | `#1db9ff` |
+| `brand.cyan` | `#22d3ee` |
+| `ink` | `#070b18` (fonds sombres) |
 
-Ajouter un footer dynamique (année actuelle, liens réseaux sociaux)
+Classes utilitaires clés : `.text-gradient`, `.card-glow`, `.btn-primary`,
+`.glass`, `.aurora-bg`, `.container-x`.
 
-👤 Auteur
 ---
-Développé par Yoann Yamdev (@yamdev07) pour AnyxTech.
 
-📄 Licence
+## 📬 Formulaires
+
+Les formulaires **Contact** et **Devis** sont envoyés via
+[Formspree](https://formspree.io/) en AJAX. Remplacez les identifiants de
+formulaire dans `components/contact/ContactForm.tsx` et
+`components/devis/QuoteForm.tsx` par les vôtres.
+
 ---
-Ce projet est open-source sous licence MIT.
+
+## 🔍 SEO
+
+- Metadata par page (export `metadata`)
+- Open Graph & Twitter Cards
+- Données structurées JSON-LD (`ProfessionalService`)
+- `sitemap.xml` et `robots.txt` générés automatiquement
+
+---
+
+## 👤 Auteur
+
+Développé pour **AnyxTech Bénin** — © AnyxTech Bénin. Tous droits réservés.
