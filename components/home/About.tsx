@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Users, Cog } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Counter from "@/components/ui/Counter";
+import TiltCard from "@/components/ui/TiltCard";
 
 const stats = [
   { value: 50, suffix: "+", label: "Clients satisfaits" },
@@ -70,13 +71,15 @@ export default function About() {
         {/* Stats */}
         <div className="mt-20 grid grid-cols-2 gap-5 md:grid-cols-4">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i}>
-              <div className="card-glow flex flex-col items-center p-7 text-center">
-                <div className="font-display text-4xl font-bold text-brand-light md:text-5xl">
-                  <Counter value={s.value} suffix={s.suffix} />
+            <Reveal key={s.label} delay={i} className="perspective">
+              <TiltCard className="rounded-2xl" intensity={6}>
+                <div className="card-glow gradient-border flex flex-col items-center p-7 text-center">
+                  <div className="font-display text-4xl font-bold text-shimmer md:text-5xl">
+                    <Counter value={s.value} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-2 text-sm text-soft">{s.label}</div>
                 </div>
-                <div className="mt-2 text-sm text-soft">{s.label}</div>
-              </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>
