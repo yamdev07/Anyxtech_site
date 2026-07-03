@@ -50,7 +50,7 @@ export default function ServicesExplorer() {
                 transition={{ duration: 0.35 }}
                 className="card-glow flex scroll-mt-28 flex-col p-7"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-glow">
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${s.color} text-white shadow-lg`}>
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold">{s.title}</h3>

@@ -20,6 +20,8 @@ export interface Service {
   title: string;
   category: ServiceCategory;
   icon: LucideIcon;
+  /** Dégradé Tailwind de la tuile d'icône (classes littérales pour le JIT). */
+  color: string;
   short: string;
   features: string[];
 }
@@ -38,6 +40,7 @@ export const services: Service[] = [
     title: "Communication Digitale",
     category: "communication",
     icon: Megaphone,
+    color: "from-sky-500 to-cyan-400",
     short:
       "Stratégies digitales sur mesure pour renforcer votre marque en ligne au Bénin, engager votre audience et optimiser votre visibilité.",
     features: [
@@ -54,6 +57,7 @@ export const services: Service[] = [
     title: "Réseautage & Connectivité",
     category: "infrastructure",
     icon: Network,
+    color: "from-indigo-500 to-blue-500",
     short:
       "Réseaux informatiques sécurisés, stables et évolutifs pour une connectivité fluide adaptée aux entreprises au Bénin.",
     features: [
@@ -69,6 +73,7 @@ export const services: Service[] = [
     title: "Installation Wi-Fi",
     category: "infrastructure",
     icon: Wifi,
+    color: "from-cyan-500 to-teal-400",
     short:
       "Déploiement de réseaux robustes au Bénin pour une couverture Wi-Fi rapide, stable et sécurisée.",
     features: [
@@ -83,6 +88,7 @@ export const services: Service[] = [
     title: "Solutions Énergétiques",
     category: "infrastructure",
     icon: Zap,
+    color: "from-amber-500 to-orange-400",
     short:
       "Projets électriques fiables, sécurisés et durables au Bénin, adaptés aux besoins industriels ou résidentiels.",
     features: [
@@ -98,6 +104,7 @@ export const services: Service[] = [
     title: "Marketing Digital",
     category: "communication",
     icon: LineChart,
+    color: "from-fuchsia-500 to-pink-500",
     short:
       "Campagnes digitales ciblées pour renforcer votre image au Bénin, attirer des prospects et fidéliser vos clients.",
     features: [
@@ -114,6 +121,7 @@ export const services: Service[] = [
     title: "Suivi Clientèle",
     category: "support",
     icon: Headset,
+    color: "from-emerald-500 to-teal-400",
     short:
       "Accompagnement humain et réactif pour garantir la satisfaction à chaque étape de votre projet au Bénin.",
     features: [
@@ -130,6 +138,7 @@ export const services: Service[] = [
     title: "Hébergement & Domaine",
     category: "hosting",
     icon: Server,
+    color: "from-violet-500 to-purple-500",
     short:
       "Hébergement web rapide et sécurisé au Bénin avec gestion complète de vos noms de domaine.",
     features: [

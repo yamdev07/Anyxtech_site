@@ -6,18 +6,21 @@ const steps = [
   {
     n: "01",
     icon: MessageSquare,
+    color: "from-sky-500 to-cyan-400",
     title: "Échangeons",
     text: "Parlez-nous de votre projet et de vos objectifs. Premier échange gratuit et sans engagement.",
   },
   {
     n: "02",
     icon: PenTool,
+    color: "from-indigo-500 to-blue-500",
     title: "Concevons",
     text: "Nous élaborons une solution sur mesure, adaptée à votre contexte et à votre budget au Bénin.",
   },
   {
     n: "03",
     icon: Rocket,
+    color: "from-fuchsia-500 to-pink-500",
     title: "Déployons",
     text: "Mise en œuvre, formation et accompagnement continu jusqu'à votre entière satisfaction.",
   },
@@ -45,7 +48,7 @@ export default function Process() {
                   <span className="pointer-events-none absolute -top-2 right-4 font-display text-6xl font-bold text-[var(--border)] transition-colors group-hover:text-brand-light/20">
                     {s.n}
                   </span>
-                  <div className="relative grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-glow">
+                  <div className={`relative grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.color} text-white shadow-lg`}>
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="relative mt-5 font-display text-xl font-semibold">{s.title}</h3>

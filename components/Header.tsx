@@ -60,17 +60,18 @@ export default function Header() {
                   href={link.href}
                   className={`relative rounded-full px-4 py-2 text-[15px] font-medium transition-colors ${
                     isActive(link.href)
-                      ? "text-brand-light"
+                      ? "text-brand-blue dark:text-brand-light"
                       : "text-soft hover:text-[var(--text)]"
                   }`}
                 >
-                  {link.label}
                   {isActive(link.href) && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-brand-blue to-brand-light"
+                      className="absolute inset-0 -z-10 rounded-full bg-brand-light/10 ring-1 ring-inset ring-brand-light/20"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
+                  {link.label}
                 </Link>
               </li>
             ))}
