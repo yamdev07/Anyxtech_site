@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f4f7fb;
+  --text: #0f172a;
+  --text-soft: #475569;
+  --border: rgba(15, 23, 42, 0.08);
+  --card: #ffffff;
+}
+
+.dark {
+  --bg: #070b18;
+  --bg-soft: #0b1120;
+  --text: #e2e8f0;
+  --text-soft: #94a3b8;
+  --border: rgba(148, 163, 184, 0.14);
+  --card: #0f172a;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(29, 185, 255, 0.28);
+    color: inherit;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1f429b, #1db9ff);
+    border-radius: 999px;
+    border: 2px solid var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid #1db9ff;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  /* Texte dégradé de marque */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #1f429b 0%, #1db9ff 55%, #22d3ee 100%);
+  }
+
+  .dark .text-gradient {
+    background-image: linear-gradient(120deg, #598bff 0%, #1db9ff 55%, #67e8f9 100%);
+  }
+
+  /* Carte "verre" */
+  .glass {
+    background: color-mix(in srgb, var(--card) 78%, transparent);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+  }
+
+  /* Carte de service avec glow au survol */
+  .card-glow {
+    @apply relative rounded-2xl border transition-all duration-500;
+    background: var(--card);
+    border-color: var(--border);
+  }
+  .card-glow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px -20px rgba(31, 66, 155, 0.45);
+    border-color: rgba(29, 185, 255, 0.5);
+  }
+
+  /* Bouton principal */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 font-semibold text-white transition-all duration-300;
+    background-image: linear-gradient(120deg, #1f429b, #1db9ff);
+    box-shadow: 0 12px 30px -10px rgba(29, 185, 255, 0.6);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 18px 40px -10px rgba(29, 185, 255, 0.8);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 font-semibold transition-all duration-300;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(29, 185, 255, 0.6);
+    background: rgba(29, 185, 255, 0.08);
+  }
+
+  /* Puce / badge */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium;
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--card) 60%, transparent);
+  }
+
+  /* Aurora / fond animé */
+  .aurora-bg {
+    background: linear-gradient(-45deg, #1f429b, #1e4d9f, #1db9ff, #22d3ee);
+    background-size: 400% 400%;
+    animation: aurora 15s ease-in-out infinite;
+  }
+
+  /* Grille en fond */
+  .grid-bg {
+    background-image: var(--tw-gradient-grid, none),
+      linear-gradient(to right, rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
+  }
+}
+
+@layer utilities {
+  .text-soft {
+    color: var(--text-soft);
+  }
+  .bg-soft {
+    background-color: var(--bg-soft);
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
