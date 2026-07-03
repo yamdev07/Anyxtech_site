@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { poppins, spaceGrotesk } from "@/lib/fonts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/ui/BackToTop";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 import "./globals.css";
 
 const SITE_URL = "https://www.anyxtech.com";
@@ -83,9 +85,11 @@ export default function RootLayout({
         >
           Aller au contenu principal
         </a>
+        <ScrollProgress />
         <Header />
         {children}
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
