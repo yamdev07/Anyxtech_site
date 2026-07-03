@@ -38,7 +38,7 @@ export default function Header() {
         }`}
       >
         <nav
-          className="flex w-full items-center justify-between px-5 py-3.5 sm:px-8 lg:px-12"
+          className="flex w-full items-center justify-between px-3 py-3.5 sm:px-4"
           aria-label="Navigation principale"
         >
           <Link href="/" aria-label="AnyxTech — Accueil" className="shrink-0">

@@ -65,7 +65,7 @@
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full px-5 sm:px-8 lg:px-12;
+    @apply mx-auto w-full px-3 sm:px-4;
   }
 
   /* Texte dégradé de marque */
