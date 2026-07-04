@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroRefined from "@/components/refined/HeroRefined";
 import ServicesRefined from "@/components/refined/ServicesRefined";
+import MarqueeRefined from "@/components/refined/MarqueeRefined";
 import AboutRefined from "@/components/refined/AboutRefined";
 import CtaRefined from "@/components/refined/CtaRefined";
 
@@ -15,6 +16,7 @@ export default function VariantePage() {
     <main id="main">
       <HeroRefined />
       <ServicesRefined />
+      <MarqueeRefined />
       <AboutRefined />
       <CtaRefined />
     </main>

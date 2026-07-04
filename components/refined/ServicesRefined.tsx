@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
+import Spotlight from "@/components/ui/Spotlight";
 import { services } from "@/lib/services";
 
 const imageMap: Record<string, string> = {
@@ -28,31 +29,34 @@ export default function ServicesRefined() {
           {services.slice(0, 6).map((s, i) => {
             const Icon = s.icon;
             return (
-              <Reveal key={s.slug} delay={i % 3} className="h-full">
-                <article className="card-glow group flex h-full flex-col overflow-hidden p-0">
-                  <div className="relative h-44 overflow-hidden">
-                    <Image
-                      src={imageMap[s.slug] ?? "/images/Business_tech.jpg"}
-                      alt={s.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                    <div className={`absolute -bottom-6 left-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${s.color} text-white shadow-lg`}>
-                      <Icon className="h-7 w-7" />
+              <Reveal key={s.slug} delay={i % 3} className="perspective h-full">
+                <Spotlight tilt={6} className="h-full rounded-2xl">
+                  <Link
+                    href={`/services#${s.slug}`}
+                    className="card-glow group relative flex h-full flex-col overflow-hidden p-0"
+                  >
+                    <span className={`absolute inset-x-0 top-0 z-20 h-1 origin-left scale-x-0 bg-gradient-to-r ${s.color} transition-transform duration-500 group-hover:scale-x-100`} />
+                    <div className="relative h-44 overflow-hidden">
+                      <Image
+                        src={imageMap[s.slug] ?? "/images/Business_tech.jpg"}
+                        alt={s.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                      <div className={`absolute -bottom-6 left-6 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${s.color} text-white shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 [transform:translateZ(35px)]`}>
+                        <Icon className="h-7 w-7" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6 pt-10">
-                    <h3 className="font-display text-xl font-bold">{s.title}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-soft">{s.short}</p>
-                    <Link
-                      href={`/services#${s.slug}`}
-                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue transition-all group-hover:gap-2.5 dark:text-brand-light"
-                    >
-                      En savoir plus <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </article>
+                    <div className="flex flex-1 flex-col p-6 pt-10">
+                      <h3 className="font-display text-xl font-bold">{s.title}</h3>
+                      <p className="mt-3 flex-1 text-sm leading-relaxed text-soft">{s.short}</p>
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue transition-all group-hover:gap-2.5 dark:text-brand-light">
+                        En savoir plus <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </Link>
+                </Spotlight>
               </Reveal>
             );
           })}

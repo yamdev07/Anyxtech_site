@@ -4,6 +4,7 @@ import { Users, Cog } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Counter from "@/components/ui/Counter";
+import Spotlight from "@/components/ui/Spotlight";
 
 const stats = [
   { value: 50, suffix: "+", label: "Clients satisfaits" },
@@ -43,11 +44,13 @@ export default function AboutRefined() {
             </div>
           </Reveal>
 
-          <Reveal delay={1} className="relative">
-            <div className="overflow-hidden rounded-3xl border border-[var(--border)] shadow-brand">
-              <Image src="/images/team.png" alt="Équipe AnyxTech au Bénin" width={720} height={540} className="h-full w-full object-cover" />
-            </div>
-            <div className="absolute -bottom-6 -right-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] px-6 py-4 shadow-card sm:-right-6">
+          <Reveal delay={1} className="perspective relative">
+            <Spotlight tilt={7} className="rounded-3xl">
+              <div className="overflow-hidden rounded-3xl border border-[var(--border)] shadow-brand">
+                <Image src="/images/team.png" alt="Équipe AnyxTech au Bénin" width={720} height={540} className="h-full w-full object-cover" />
+              </div>
+            </Spotlight>
+            <div className="absolute -bottom-6 -right-4 z-20 animate-float rounded-2xl border border-[var(--border)] bg-[var(--card)] px-6 py-4 shadow-card sm:-right-6">
               <div className="font-display text-4xl font-bold text-brand-light">
                 <Counter value={3} suffix="+" />
               </div>
