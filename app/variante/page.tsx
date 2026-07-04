@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import HeroBrutal from "@/components/brutal/HeroBrutal";
-import ServicesBrutal from "@/components/brutal/ServicesBrutal";
-import CtaBrutal from "@/components/brutal/CtaBrutal";
+import HeroTech from "@/components/tech/HeroTech";
+import ServicesTech from "@/components/tech/ServicesTech";
+import CtaTech from "@/components/tech/CtaTech";
 
 export const metadata: Metadata = {
-  title: "Maquette brutaliste — Design alternatif",
-  description: "Proposition de maquette néo-brutaliste pour AnyxTech Bénin.",
+  title: "Maquette tech — Design alternatif",
+  description: "Maquette tech immersive (système orbital, animations) pour AnyxTech Bénin.",
   robots: { index: false, follow: false },
 };
 
 export default function VariantePage() {
   return (
     <main id="main">
-      <HeroBrutal />
-      <ServicesBrutal />
-      <CtaBrutal />
+      <HeroTech />
+      <ServicesTech />
+      <CtaTech />
     </main>
   );
 }
