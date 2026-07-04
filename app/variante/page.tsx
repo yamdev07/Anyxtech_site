@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
-import HeroAgency from "@/components/agency/HeroAgency";
-import ServicesAgency from "@/components/agency/ServicesAgency";
-import StatsAgency from "@/components/agency/StatsAgency";
-import AboutAgency from "@/components/agency/AboutAgency";
-import CtaAgency from "@/components/agency/CtaAgency";
+import HeroGlass from "@/components/glass/HeroGlass";
+import ServicesGlass from "@/components/glass/ServicesGlass";
+import CtaGlass from "@/components/glass/CtaGlass";
 
 export const metadata: Metadata = {
-  title: "Maquette agence — Design alternatif",
-  description: "Proposition de maquette style agence digitale pour AnyxTech Bénin.",
+  title: "Maquette verre — Design alternatif",
+  description: "Proposition de maquette glassmorphism / dégradés mesh pour AnyxTech Bénin.",
   robots: { index: false, follow: false },
 };
 
 export default function VariantePage() {
   return (
     <main id="main">
-      <HeroAgency />
-      <ServicesAgency />
-      <StatsAgency />
-      <AboutAgency />
-      <CtaAgency />
+      <HeroGlass />
+      <ServicesGlass />
+      <CtaGlass />
     </main>
   );
 }
