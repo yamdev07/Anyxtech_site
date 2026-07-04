@@ -10,7 +10,7 @@ export default function VariantSwitcher() {
 
   const options = [
     { href: "/", label: "Actuel" },
-    { href: "/variante", label: "Verre" },
+    { href: "/variante", label: "Éditorial" },
   ];
 
   return (
