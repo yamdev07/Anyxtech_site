@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import Spotlight from "@/components/ui/Spotlight";
 import { services } from "@/lib/services";
 
 export default function ServicesAgency() {
@@ -22,21 +23,24 @@ export default function ServicesAgency() {
           {services.slice(0, 4).map((s, i) => {
             const Icon = s.icon;
             return (
-              <Reveal key={s.slug} delay={i} className="h-full">
-                <Link
-                  href={`/services#${s.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-                >
-                  <div className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--border)] bg-soft text-brand-blue transition-colors group-hover:border-brand-light/40 group-hover:text-brand-light dark:text-brand-light">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-6 font-display text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-soft">{s.short}</p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-blue opacity-0 transition-opacity group-hover:opacity-100 dark:text-brand-light">
-                    En savoir plus
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </Link>
+              <Reveal key={s.slug} delay={i} className="perspective h-full">
+                <Spotlight tilt={5} className="h-full rounded-2xl">
+                  <Link
+                    href={`/services#${s.slug}`}
+                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-light/40 hover:shadow-card"
+                  >
+                    <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-brand-blue to-brand-light transition-transform duration-300 group-hover:scale-x-100" />
+                    <div className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--border)] bg-soft text-brand-blue transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:border-brand-light/40 group-hover:text-brand-light dark:text-brand-light [transform:translateZ(25px)]">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="mt-6 font-display text-lg font-semibold">{s.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-soft">{s.short}</p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-blue transition-all group-hover:gap-2 dark:text-brand-light">
+                      En savoir plus
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </Link>
+                </Spotlight>
               </Reveal>
             );
           })}

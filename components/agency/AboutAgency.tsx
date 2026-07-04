@@ -45,6 +45,11 @@ export default function AboutAgency() {
               ANYX<span className="text-brand-light">TECH</span>
             </span>
           </div>
+          {/* Badge flottant */}
+          <div className="glass absolute -right-4 -top-5 animate-float rounded-2xl border border-[var(--border)] px-5 py-3 shadow-card sm:-right-6">
+            <div className="font-display text-3xl font-bold text-brand-blue dark:text-brand-light">3+</div>
+            <div className="text-xs text-soft">Ans d&apos;expérience</div>
+          </div>
         </Reveal>
       </div>
     </section>

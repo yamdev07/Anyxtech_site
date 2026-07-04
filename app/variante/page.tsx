@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroAgency from "@/components/agency/HeroAgency";
 import ServicesAgency from "@/components/agency/ServicesAgency";
+import StatsAgency from "@/components/agency/StatsAgency";
 import AboutAgency from "@/components/agency/AboutAgency";
 import CtaAgency from "@/components/agency/CtaAgency";
 
@@ -15,6 +16,7 @@ export default function VariantePage() {
     <main id="main">
       <HeroAgency />
       <ServicesAgency />
+      <StatsAgency />
       <AboutAgency />
       <CtaAgency />
     </main>
