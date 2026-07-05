@@ -6,8 +6,38 @@ import {
   LineChart,
   Headset,
   Server,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
+
+/** Map nom d'icône → composant lucide (les noms sont stockables en base). */
+export const iconMap: Record<string, LucideIcon> = {
+  Megaphone,
+  Network,
+  Wifi,
+  Zap,
+  LineChart,
+  Headset,
+  Server,
+  Sparkles,
+};
+
+export const iconNames = Object.keys(iconMap);
+
+export function resolveIcon(name?: string | null): LucideIcon {
+  return (name && iconMap[name]) || Sparkles;
+}
+
+/** Presets de dégradé pour les tuiles d'icônes (classes littérales pour le JIT). */
+export const colorPresets: { label: string; value: string }[] = [
+  { label: "Cyan", value: "from-sky-500 to-cyan-400" },
+  { label: "Indigo", value: "from-indigo-500 to-blue-500" },
+  { label: "Turquoise", value: "from-cyan-500 to-teal-400" },
+  { label: "Ambre", value: "from-amber-500 to-orange-400" },
+  { label: "Fuchsia", value: "from-fuchsia-500 to-pink-500" },
+  { label: "Émeraude", value: "from-emerald-500 to-teal-400" },
+  { label: "Violet", value: "from-violet-500 to-purple-500" },
+];
 
 export type ServiceCategory =
   | "communication"
@@ -19,11 +49,14 @@ export interface Service {
   slug: string;
   title: string;
   category: ServiceCategory;
-  icon: LucideIcon;
-  /** Dégradé Tailwind de la tuile d'icône (classes littérales pour le JIT). */
+  /** Nom d'icône (voir iconMap). */
+  icon: string;
+  /** Dégradé Tailwind de la tuile d'icône. */
   color: string;
   short: string;
   features: string[];
+  /** URL d'image optionnelle (fournie par le CMS). */
+  image?: string;
 }
 
 export const categories: { key: ServiceCategory | "all"; label: string }[] = [
@@ -39,7 +72,7 @@ export const services: Service[] = [
     slug: "communication",
     title: "Communication Digitale",
     category: "communication",
-    icon: Megaphone,
+    icon: "Megaphone",
     color: "from-sky-500 to-cyan-400",
     short:
       "Stratégies digitales sur mesure pour renforcer votre marque en ligne au Bénin, engager votre audience et optimiser votre visibilité.",
@@ -56,7 +89,7 @@ export const services: Service[] = [
     slug: "reseau",
     title: "Réseautage & Connectivité",
     category: "infrastructure",
-    icon: Network,
+    icon: "Network",
     color: "from-indigo-500 to-blue-500",
     short:
       "Réseaux informatiques sécurisés, stables et évolutifs pour une connectivité fluide adaptée aux entreprises au Bénin.",
@@ -72,7 +105,7 @@ export const services: Service[] = [
     slug: "wifi",
     title: "Installation Wi-Fi",
     category: "infrastructure",
-    icon: Wifi,
+    icon: "Wifi",
     color: "from-cyan-500 to-teal-400",
     short:
       "Déploiement de réseaux robustes au Bénin pour une couverture Wi-Fi rapide, stable et sécurisée.",
@@ -87,7 +120,7 @@ export const services: Service[] = [
     slug: "energie",
     title: "Solutions Énergétiques",
     category: "infrastructure",
-    icon: Zap,
+    icon: "Zap",
     color: "from-amber-500 to-orange-400",
     short:
       "Projets électriques fiables, sécurisés et durables au Bénin, adaptés aux besoins industriels ou résidentiels.",
@@ -103,7 +136,7 @@ export const services: Service[] = [
     slug: "marketing",
     title: "Marketing Digital",
     category: "communication",
-    icon: LineChart,
+    icon: "LineChart",
     color: "from-fuchsia-500 to-pink-500",
     short:
       "Campagnes digitales ciblées pour renforcer votre image au Bénin, attirer des prospects et fidéliser vos clients.",
@@ -120,7 +153,7 @@ export const services: Service[] = [
     slug: "support",
     title: "Suivi Clientèle",
     category: "support",
-    icon: Headset,
+    icon: "Headset",
     color: "from-emerald-500 to-teal-400",
     short:
       "Accompagnement humain et réactif pour garantir la satisfaction à chaque étape de votre projet au Bénin.",
@@ -137,7 +170,7 @@ export const services: Service[] = [
     slug: "hebergement",
     title: "Hébergement & Domaine",
     category: "hosting",
-    icon: Server,
+    icon: "Server",
     color: "from-violet-500 to-purple-500",
     short:
       "Hébergement web rapide et sécurisé au Bénin avec gestion complète de vos noms de domaine.",

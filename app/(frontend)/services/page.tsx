@@ -6,6 +6,7 @@ import Reveal from "@/components/ui/Reveal";
 import CtaBand from "@/components/ui/CtaBand";
 import ServicesExplorer from "@/components/services/ServicesExplorer";
 import { siteConfig } from "@/lib/site";
+import { getServices } from "@/lib/services-data";
 
 export const metadata: Metadata = {
   title: "Nos Services | Solutions Digitales & Réseaux Informatiques",
@@ -32,7 +33,8 @@ const whyUs = [
   },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
   return (
     <main id="main">
       <PageHero
@@ -42,7 +44,7 @@ export default function ServicesPage() {
         subtitle="Pour propulser votre entreprise à l'ère numérique — explorez nos domaines d'expertise."
       />
 
-      <ServicesExplorer />
+      <ServicesExplorer services={services} />
 
       {/* Pourquoi choisir AnyxTech */}
       <section className="bg-soft py-20 md:py-24">
