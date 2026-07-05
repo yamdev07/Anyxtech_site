@@ -21,6 +21,7 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     user: Users.slug,
+    theme: "light",
     meta: {
       titleSuffix: " — AnyxTech Admin",
       icons: [{ rel: "icon", type: "image/x-icon", url: "/images/favicon.ico" }],
@@ -30,6 +31,7 @@ export default buildConfig({
         Logo: "/components/admin/Logo",
         Icon: "/components/admin/Icon",
       },
+      beforeDashboard: ["/components/admin/DashboardBanner"],
     },
     importMap: {
       baseDir: path.resolve(dirname),

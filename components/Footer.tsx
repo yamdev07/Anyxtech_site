@@ -144,12 +144,12 @@ export default async function Footer() {
             <span>
               Conçu avec passion à Cotonou <span className="text-brand-light">•</span> Bénin
             </span>
-            <a
-              href="/admin"
+            <Link
+              href="/dashboard"
               className="inline-flex items-center gap-1.5 transition-colors hover:text-brand-light"
             >
               <Lock className="h-3.5 w-3.5" /> Espace administration
-            </a>
+            </Link>
           </div>
         </div>
       </div>
