@@ -1,0 +1,32 @@
+/* === Habillage AnyxTech pour le panneau d'administration Payload === */
+
+// Boutons principaux : dégradé bleu de marque
+.btn--style-primary:not(:disabled):not(.btn--disabled) {
+  background: linear-gradient(120deg, #1f429b, #1db9ff);
+  border-color: transparent;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(120deg, #1b3a86, #16a6ea);
+    border-color: transparent;
+  }
+}
+
+// Liens actifs / accents
+a {
+  color: #1f429b;
+}
+html[data-theme="dark"] a {
+  color: #1db9ff;
+}
+
+// Barre de navigation : petit liseré de marque
+.nav {
+  border-right: 1px solid rgba(29, 185, 255, 0.15);
+}
+
+// Écran de connexion : logo centré avec un peu d'air
+.login__brand {
+  margin-bottom: 1.5rem;
+}

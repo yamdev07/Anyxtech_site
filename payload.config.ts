@@ -21,6 +21,16 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: " — AnyxTech Admin",
+      icons: [{ rel: "icon", type: "image/x-icon", url: "/images/favicon.ico" }],
+    },
+    components: {
+      graphics: {
+        Logo: "/components/admin/Logo",
+        Icon: "/components/admin/Icon",
+      },
+    },
+    importMap: {
+      baseDir: path.resolve(dirname),
     },
   },
   collections: [Users, Media, Jobs, Partners, News, Testimonials, Submissions],
