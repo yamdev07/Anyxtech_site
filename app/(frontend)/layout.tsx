@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/ui/BackToTop";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import StructuredData from "@/components/StructuredData";
-import VariantSwitcher from "@/components/VariantSwitcher";
 import "./globals.css";
 
 const SITE_URL = "https://www.anyxtech.com";
@@ -97,7 +96,6 @@ export default function RootLayout({
         {children}
         <Footer />
         <BackToTop />
-        <VariantSwitcher />
       </body>
     </html>
   );
