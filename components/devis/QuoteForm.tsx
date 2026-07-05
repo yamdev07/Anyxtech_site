@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { Send, CheckCircle2, Loader2, UserCircle, Lightbulb } from "lucide-react";
+import { submitQuote } from "@/lib/actions";
 
 type Status = "idle" | "loading" | "success" | "error";
-
-const FORMSPREE = "https://formspree.io/f/xblkllnr";
 
 const serviceOptions = [
   { value: "communication", label: "Communication digitale" },
@@ -25,6 +24,7 @@ const delais = [
 
 export default function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [budget, setBudget] = useState(0);
 
   const budgetLabel = new Intl.NumberFormat("fr-FR").format(budget) + " FCFA";
@@ -32,23 +32,29 @@ export default function QuoteForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
     setStatus("loading");
-    try {
-      const res = await fetch(FORMSPREE, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-        setBudget(0);
-        setTimeout(() => setStatus("idle"), 15000);
-      } else {
-        setStatus("error");
-      }
-    } catch {
+    setErrorMsg("");
+    const result = await submitQuote({
+      nom: String(data.get("nom") ?? ""),
+      entreprise: String(data.get("entreprise") ?? ""),
+      email: String(data.get("email") ?? ""),
+      telephone: String(data.get("telephone") ?? ""),
+      projet: String(data.get("projet") ?? ""),
+      description: String(data.get("description") ?? ""),
+      services: data.getAll("services").map(String),
+      budget: String(data.get("budget") ?? ""),
+      delai: String(data.get("delai") ?? ""),
+      website: String(data.get("website") ?? ""),
+    });
+    if (result.ok) {
+      setStatus("success");
+      form.reset();
+      setBudget(0);
+      setTimeout(() => setStatus("idle"), 15000);
+    } else {
       setStatus("error");
+      setErrorMsg(result.error ?? "Une erreur est survenue. Veuillez réessayer.");
     }
   }
 
@@ -71,6 +77,16 @@ export default function QuoteForm() {
       onSubmit={onSubmit}
       className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card sm:p-8"
     >
+      {/* Honeypot anti-spam (masqué) */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
       {/* Informations personnelles */}
       <fieldset className="border-0 p-0">
         <legend className="mb-5 flex items-center gap-2 font-display text-lg font-semibold">
@@ -188,9 +204,7 @@ export default function QuoteForm() {
       </fieldset>
 
       {status === "error" && (
-        <p className="mt-5 text-sm text-red-500">
-          Une erreur est survenue. Veuillez réessayer plus tard.
-        </p>
+        <p className="mt-5 text-sm text-red-500">{errorMsg}</p>
       )}
 
       <button

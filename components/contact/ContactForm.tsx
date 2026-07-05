@@ -3,15 +3,15 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Send, CheckCircle2, Loader2 } from "lucide-react";
+import { submitContact } from "@/lib/actions";
 
 type Status = "idle" | "loading" | "success" | "error";
-
-const FORMSPREE = "https://formspree.io/f/xzzrzdwo";
 
 export default function ContactForm() {
   const params = useSearchParams();
   const service = params.get("service");
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -27,22 +27,22 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     setStatus("loading");
-    try {
-      const res = await fetch(FORMSPREE, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-        setMessage("");
-        setTimeout(() => setStatus("idle"), 15000);
-      } else {
-        setStatus("error");
-      }
-    } catch {
+    setErrorMsg("");
+    const result = await submitContact({
+      nom: String(data.get("nom") ?? ""),
+      email: String(data.get("email") ?? ""),
+      telephone: String(data.get("telephone") ?? ""),
+      message: String(data.get("message") ?? ""),
+      website: String(data.get("website") ?? ""),
+    });
+    if (result.ok) {
+      setStatus("success");
+      form.reset();
+      setMessage("");
+      setTimeout(() => setStatus("idle"), 15000);
+    } else {
       setStatus("error");
+      setErrorMsg(result.error ?? "Une erreur est survenue. Merci de réessayer.");
     }
   }
 
@@ -64,6 +64,15 @@ export default function ContactForm() {
       className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card sm:p-8"
     >
       <div className="grid gap-5">
+        {/* Honeypot anti-spam (masqué) */}
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="hidden"
+        />
         <Field label="Nom complet" required>
           <input
             name="nom"
@@ -103,9 +112,7 @@ export default function ContactForm() {
         </Field>
 
         {status === "error" && (
-          <p className="text-sm text-red-500">
-            Une erreur est survenue. Merci de réessayer.
-          </p>
+          <p className="text-sm text-red-500">{errorMsg}</p>
         )}
 
         <button
