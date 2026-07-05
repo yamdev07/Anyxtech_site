@@ -9,15 +9,9 @@ import {
   Phone,
   Mail,
   Clock,
+  Lock,
 } from "lucide-react";
-import { siteConfig } from "@/lib/site";
-
-const socials = [
-  { icon: Facebook, href: siteConfig.socials.facebook, label: "Facebook" },
-  { icon: Twitter, href: siteConfig.socials.twitter, label: "Twitter" },
-  { icon: Linkedin, href: siteConfig.socials.linkedin, label: "LinkedIn" },
-  { icon: Instagram, href: siteConfig.socials.instagram, label: "Instagram" },
-];
+import { getSiteSettings } from "@/lib/settings";
 
 const serviceLinks = [
   { label: "Communication Digitale", href: "/services#communication" },
@@ -36,7 +30,15 @@ const navFooter = [
   { label: "Devis", href: "/devis" },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+  const settings = await getSiteSettings();
+  const socials = [
+    { icon: Facebook, href: settings.socials.facebook, label: "Facebook" },
+    { icon: Twitter, href: settings.socials.twitter, label: "Twitter" },
+    { icon: Linkedin, href: settings.socials.linkedin, label: "LinkedIn" },
+    { icon: Instagram, href: settings.socials.instagram, label: "Instagram" },
+  ];
+
   return (
     <footer className="relative mt-24 overflow-hidden border-t border-[var(--border)] bg-soft">
       <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[80%] -translate-x-1/2 rounded-full bg-brand-light/10 blur-3xl" />
@@ -52,7 +54,7 @@ export default function Footer() {
               className="h-11 w-auto object-contain"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-soft">
-              {siteConfig.description}
+              {settings.description}
             </p>
             <div className="mt-5 flex gap-3">
               {socials.map(({ icon: Icon, href, label }) => (
@@ -110,23 +112,23 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-soft">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-light" />
-                {siteConfig.addressShort}
+                {settings.addressShort}
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-brand-light" />
-                <a href={siteConfig.phoneHref} className="hover:text-brand-light">
-                  {siteConfig.phone}
+                <a href={settings.phoneHref} className="hover:text-brand-light">
+                  {settings.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-brand-light" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-brand-light">
-                  {siteConfig.email}
+                <a href={`mailto:${settings.email}`} className="hover:text-brand-light">
+                  {settings.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-4 w-4 shrink-0 text-brand-light" />
-                {siteConfig.hours}
+                {settings.hours}
               </li>
             </ul>
           </div>
@@ -134,9 +136,17 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pt-8 text-sm text-soft sm:flex-row">
           <p>© {new Date().getFullYear()} AnyxTech Bénin. Tous droits réservés.</p>
-          <p>
-            Conçu avec passion à Cotonou <span className="text-brand-light">•</span> Bénin
-          </p>
+          <div className="flex items-center gap-5">
+            <span>
+              Conçu avec passion à Cotonou <span className="text-brand-light">•</span> Bénin
+            </span>
+            <a
+              href="/admin"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-brand-light"
+            >
+              <Lock className="h-3.5 w-3.5" /> Espace administration
+            </a>
+          </div>
         </div>
       </div>
     </footer>

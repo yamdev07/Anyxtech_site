@@ -12,6 +12,7 @@ import { Partners } from "./collections/Partners";
 import { News } from "./collections/News";
 import { Testimonials } from "./collections/Testimonials";
 import { Submissions } from "./collections/Submissions";
+import { SiteSettings } from "./globals/SiteSettings";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -34,6 +35,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Jobs, Partners, News, Testimonials, Submissions],
+  globals: [SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   db: sqliteAdapter({

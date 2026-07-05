@@ -14,7 +14,7 @@ import {
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/contact/ContactForm";
-import { siteConfig } from "@/lib/site";
+import { getSiteSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
   title: "Contact | Solutions Digitales & Réseaux Cotonou",
@@ -23,27 +23,27 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const infos = [
-  { icon: MapPin, label: "Adresse à Cotonou", value: siteConfig.address },
-  { icon: Mail, label: "Email professionnel", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-  { icon: Phone, label: "Téléphone Bénin", value: siteConfig.phone, href: siteConfig.phoneHref },
-  { icon: MessageCircle, label: "WhatsApp Business", value: "Discuter maintenant", href: siteConfig.whatsapp, external: true },
-];
-
 const hours = [
   "Lundi - Vendredi : 8h00 - 18h00",
   "Samedi : 9h00 - 13h00",
   "Sur rendez-vous en dehors des heures d'ouverture",
 ];
 
-const socials = [
-  { icon: Facebook, href: siteConfig.socials.facebook, label: "Facebook" },
-  { icon: Twitter, href: siteConfig.socials.twitter, label: "Twitter" },
-  { icon: Linkedin, href: siteConfig.socials.linkedin, label: "LinkedIn" },
-  { icon: Instagram, href: siteConfig.socials.instagram, label: "Instagram" },
-];
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+  const infos = [
+    { icon: MapPin, label: "Adresse à Cotonou", value: settings.address },
+    { icon: Mail, label: "Email professionnel", value: settings.email, href: `mailto:${settings.email}` },
+    { icon: Phone, label: "Téléphone Bénin", value: settings.phone, href: settings.phoneHref },
+    { icon: MessageCircle, label: "WhatsApp Business", value: "Discuter maintenant", href: settings.whatsapp, external: true },
+  ];
+  const socials = [
+    { icon: Facebook, href: settings.socials.facebook, label: "Facebook" },
+    { icon: Twitter, href: settings.socials.twitter, label: "Twitter" },
+    { icon: Linkedin, href: settings.socials.linkedin, label: "LinkedIn" },
+    { icon: Instagram, href: settings.socials.instagram, label: "Instagram" },
+  ];
 
-export default function ContactPage() {
   return (
     <main id="main">
       <PageHero
