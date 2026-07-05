@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Spotlight from "@/components/ui/Spotlight";
+import AdminEdit from "@/components/admin/AdminEdit";
 import { resolveIcon } from "@/lib/services";
 import { getServices } from "@/lib/services-data";
 
@@ -26,8 +27,11 @@ export default async function ServicesRefined() {
           title={<>Nos <span className="text-gradient">domaines d&apos;expertise</span></>}
           subtitle="Solutions complètes pour votre transformation numérique et énergétique au Bénin."
         />
+        <div className="mt-4 text-center">
+          <AdminEdit href="/admin/collections/services" label="Gérer les services" />
+        </div>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.slice(0, 6).map((s, i) => {
             const Icon = resolveIcon(s.icon);
             return (

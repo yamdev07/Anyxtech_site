@@ -2,6 +2,7 @@ import { Star, Quote } from "lucide-react";
 import { getPayloadClient } from "@/lib/payload";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
+import AdminEdit from "@/components/admin/AdminEdit";
 
 interface TestimonialDoc {
   id: string | number;
@@ -30,7 +31,10 @@ export default async function Testimonials() {
         title={<>Ils parlent de <span className="text-gradient">nous</span></>}
         subtitle="La satisfaction de nos clients au Bénin est notre meilleure référence."
       />
-      <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-4 text-center">
+        <AdminEdit href="/admin/collections/testimonials" label="Gérer les témoignages" />
+      </div>
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {items.map((t, i) => (
           <Reveal key={t.id} delay={i % 3} className="h-full">
             <figure className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 shadow-card">

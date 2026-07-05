@@ -12,6 +12,7 @@ import {
   Lock,
 } from "lucide-react";
 import { getSiteSettings } from "@/lib/settings";
+import AdminEdit from "@/components/admin/AdminEdit";
 
 const serviceLinks = [
   { label: "Communication Digitale", href: "/services#communication" },
@@ -106,9 +107,12 @@ export default async function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider">
-              Contact
-            </h3>
+            <div className="flex items-center gap-3">
+              <h3 className="font-display text-sm font-semibold uppercase tracking-wider">
+                Contact
+              </h3>
+              <AdminEdit href="/admin/globals/site-settings" label="Modifier" />
+            </div>
             <ul className="mt-4 space-y-3 text-sm text-soft">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-light" />

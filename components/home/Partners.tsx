@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getPayloadClient } from "@/lib/payload";
+import AdminEdit from "@/components/admin/AdminEdit";
 
 interface PartnerDoc {
   id: string | number;
@@ -25,6 +26,9 @@ export default async function Partners() {
         <p className="text-center text-sm font-medium uppercase tracking-widest text-soft">
           Ils nous font confiance
         </p>
+        <div className="mt-3 text-center">
+          <AdminEdit href="/admin/collections/partners" label="Gérer les partenaires" />
+        </div>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
           {partners.map((p) => {
             const logoUrl = typeof p.logo === "object" && p.logo ? p.logo.url : null;

@@ -5,6 +5,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import CtaBand from "@/components/ui/CtaBand";
 import ServicesExplorer from "@/components/services/ServicesExplorer";
+import AdminEdit from "@/components/admin/AdminEdit";
 import { siteConfig } from "@/lib/site";
 import { getServices } from "@/lib/services-data";
 
@@ -44,6 +45,9 @@ export default async function ServicesPage() {
         subtitle="Pour propulser votre entreprise à l'ère numérique — explorez nos domaines d'expertise."
       />
 
+      <div className="container-x -mb-6 pt-8 text-center">
+        <AdminEdit href="/admin/collections/services" label="Gérer les services" />
+      </div>
       <ServicesExplorer services={services} />
 
       {/* Pourquoi choisir AnyxTech */}
