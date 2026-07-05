@@ -1,33 +1,14 @@
-# 🌐 AnyxTech Bénin — Site Vitrine (Next.js)
+# 🌐 AnyxTech — Site vitrine + Dashboard
 
-Site vitrine officiel d'**AnyxTech Bénin**, entreprise spécialisée dans les
-solutions digitales, réseaux informatiques et la transformation numérique à
-Cotonou et en Afrique de l'Ouest.
-
-Refonte complète en **Next.js 15** (App Router) avec un design moderne : fonds
-animés, glassmorphism, dégradés de marque, mode sombre et animations au scroll.
+Site vitrine officiel d'**AnyxTech Bénin**, reconstruit en **Next.js 15** (App Router, TypeScript, Tailwind CSS) avec un **back-office Payload CMS** intégré pour gérer le contenu sans toucher au code.
 
 ---
 
-## 🛠️ Stack technique
+## 🚀 Stack technique
 
-- **[Next.js 15](https://nextjs.org/)** — App Router, rendu statique (SSG)
-- **React 19** + **TypeScript**
-- **Tailwind CSS 3** — design system sur mesure (tokens de marque, animations)
-- **Framer Motion** — animations et transitions
-- **lucide-react** — icônes
-- **next/font** — Poppins & Space Grotesk (auto-hébergées)
-
----
-
-## 🚀 Démarrage
-
-```bash
-npm install        # installer les dépendances
-npm run dev        # serveur de développement → http://localhost:3000
-npm run build      # build de production
-npm run start      # servir le build de production
-```
+- **Next.js 15** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS** + **Framer Motion** (animations) + **lucide-react** (icônes)
+- **Payload CMS 3** (dashboard `/admin`, auth, base de données) — adaptateur **SQLite** en dev
 
 ---
 
@@ -35,69 +16,74 @@ npm run start      # servir le build de production
 
 ```
 app/
-├── layout.tsx           # Layout racine (header, footer, SEO, thème)
-├── page.tsx             # Accueil (hero, services, à propos, CTA)
-├── societe/page.tsx     # Histoire, mission, valeurs, processus, technologies
-├── services/page.tsx    # Services avec filtres interactifs
-├── contact/page.tsx     # Formulaire de contact (Formspree)
-├── devis/page.tsx       # Demande de devis détaillée
-├── sitemap.ts           # Sitemap dynamique
-├── robots.ts            # robots.txt
-└── globals.css          # Design system + styles globaux
-
-components/
-├── Header.tsx / Footer.tsx / ThemeToggle.tsx
-├── StructuredData.tsx   # JSON-LD (SEO)
-├── home/                # Sections de l'accueil
-├── services/            # Explorateur de services (filtres)
-├── contact/ · devis/    # Formulaires
-└── ui/                  # Primitives réutilisables (Reveal, Counter, PageHero…)
-
-lib/
-├── site.ts              # Config du site (contacts, réseaux, navigation)
-├── services.ts          # Données des services
-└── fonts.ts             # Polices
-
-public/images/           # Images & logos
-legacy/                  # Ancien site HTML (archive de référence)
+├── (frontend)/         # Le site public (accueil, services, société, carrières, actualités, contact, devis)
+├── (payload)/          # Le back-office Payload (panneau /admin + API)
+├── sitemap.ts, robots.ts
+collections/            # Modèles de données du CMS (Jobs, Partners, News, Testimonials, Submissions, Media, Users)
+components/             # Composants UI + sections
+lib/                    # Config site, données services, client Payload, server actions
+payload.config.ts       # Configuration Payload (collections, DB, auth)
 ```
 
----
+## 🧩 Modules gérables depuis le dashboard
 
-## 🎨 Design system
-
-Les couleurs de marque sont définies dans `tailwind.config.ts` :
-
-| Token | Valeur |
-|-------|--------|
-| `brand.blue` | `#1f429b` |
-| `brand.light` | `#1db9ff` |
-| `brand.cyan` | `#22d3ee` |
-| `ink` | `#070b18` (fonds sombres) |
-
-Classes utilitaires clés : `.text-gradient`, `.card-glow`, `.btn-primary`,
-`.glass`, `.aurora-bg`, `.container-x`.
+| Collection | Rôle |
+|---|---|
+| **Offres d'emploi** | Alimente la page publique `/carrieres` |
+| **Partenaires** | Bandeau « Ils nous font confiance » sur l'accueil |
+| **Actualités** | Blog public `/actualites` |
+| **Témoignages** | Section avis sur l'accueil (option « mis en avant ») |
+| **Messages reçus** | Réception des formulaires Contact & Devis |
+| **Médias** | Images (logos, couvertures…) |
 
 ---
 
-## 📬 Formulaires
+## 🛠️ Démarrage local
 
-Les formulaires **Contact** et **Devis** sont envoyés via
-[Formspree](https://formspree.io/) en AJAX. Remplacez les identifiants de
-formulaire dans `components/contact/ContactForm.tsx` et
-`components/devis/QuoteForm.tsx` par les vôtres.
+```bash
+# 1. Installer les dépendances
+npm install
+
+# 2. Configurer l'environnement
+cp .env.example .env
+#    puis générer un secret :
+#    node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+#    et le coller dans PAYLOAD_SECRET
+
+# 3. Lancer le serveur de développement
+npm run dev
+```
+
+- Site : http://localhost:3000
+- Dashboard : http://localhost:3000/admin
+
+Au **premier accès à `/admin`**, un écran vous invite à **créer le compte administrateur**. La base SQLite (`payload.db`) et les types sont générés automatiquement.
 
 ---
 
-## 🔍 SEO
+## ☁️ Déploiement (production)
 
-- Metadata par page (export `metadata`)
-- Open Graph & Twitter Cards
-- Données structurées JSON-LD (`ProfessionalService`)
-- `sitemap.xml` et `robots.txt` générés automatiquement
+Le site est prêt pour **Vercel** / **Netlify**. Points à prévoir pour la prod :
+
+1. **Base de données Postgres** (le SQLite ne persiste pas en serverless). Créez une base gratuite (Neon, Supabase) et :
+   - installez l'adaptateur : `npm i @payloadcms/db-postgres`
+   - remplacez `sqliteAdapter` par `postgresAdapter` dans `payload.config.ts`
+   - définissez `DATABASE_URI` sur l'URL Postgres
+2. **Variables d'environnement** sur l'hébergeur : `PAYLOAD_SECRET`, `DATABASE_URI`.
+3. **Stockage des médias** : en serverless, configurez un stockage externe (S3, Vercel Blob) via un plugin Payload, sinon les uploads ne persistent pas.
+4. (Recommandé) **Adaptateur email** (Resend, SMTP…) pour les réinitialisations de mot de passe.
+
+---
+
+## 📌 Durcissement « production » (améliorations futures)
+
+- Base Postgres + stockage média externe (voir ci-dessus)
+- Adaptateur email
+- Tests automatisés + CI/CD
+- Limitation de débit (rate limiting) sur les formulaires
 
 ---
 
 ## 👤 Auteur
 
-Développé pour **AnyxTech Bénin** — © AnyxTech Bénin. Tous droits réservés.
+Développé pour **AnyxTech Bénin** — Cotonou, Bénin.
