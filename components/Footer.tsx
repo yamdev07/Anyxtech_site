@@ -30,6 +30,7 @@ const navFooter = [
   { label: "Accueil", href: "/" },
   { label: "Société", href: "/societe" },
   { label: "Services", href: "/services" },
+  { label: "Actualités", href: "/actualites" },
   { label: "Carrières", href: "/carrieres" },
   { label: "Contact", href: "/contact" },
   { label: "Devis", href: "/devis" },
