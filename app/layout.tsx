@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { dmSans, outfit } from "@/lib/fonts";
+import { jakarta, cormorant } from "@/lib/fonts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/ui/BackToTop";
@@ -78,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${dmSans.variable} ${outfit.variable}`}
+      className={`${jakarta.variable} ${cormorant.variable}`}
       suppressHydrationWarning
     >
       <head>

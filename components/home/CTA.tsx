@@ -25,7 +25,7 @@ export default function CTA() {
 
         <div className="relative">
           <motion.h2
-            className="mx-auto max-w-3xl font-display text-3xl font-bold heading-tight sm:text-4xl md:text-5xl"
+            className="mx-auto max-w-3xl font-display text-3xl font-light heading-tight sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
@@ -34,7 +34,7 @@ export default function CTA() {
             Voulez-vous démarrer votre projet au Bénin ?
           </motion.h2>
           <motion.p
-            className="mx-auto mt-5 max-w-2xl text-lg text-white/80 text-elegant"
+            className="mx-auto mt-5 max-w-2xl text-subtitle text-white/80"
             initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}

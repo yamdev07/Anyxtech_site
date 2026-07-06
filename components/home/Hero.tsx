@@ -119,25 +119,25 @@ export default function Hero() {
         <motion.div variants={container} initial="hidden" animate="visible" className="min-w-0">
           <motion.span variants={item} className="chip mb-6 glass-heavy">
             <Sparkles className="h-4 w-4 text-brand-light" />
-            Vos besoins avant les nôtres
+            <span className="text-eyebrow">Vos besoins avant les nôtres</span>
           </motion.span>
 
           <motion.h1
             variants={item}
-            className="font-display text-5xl font-bold leading-[1.03] tracking-tight sm:text-6xl xl:text-7xl heading-tight"
+            className="font-display text-5xl font-light leading-[1.02] sm:text-6xl xl:text-7xl heading-tight"
           >
             <TextReveal as="span">
               Toujours plus proche de vous
             </TextReveal>
             <br />
-            <span className="text-shimmer text-glow">
+            <span className="text-shimmer text-glow font-semibold">
               <TextReveal as="span">
                 pour votre réussite digitale
               </TextReveal>
             </span>
           </motion.h1>
 
-          <motion.p variants={item} className="mt-6 max-w-xl text-lg leading-relaxed text-soft">
+          <motion.p variants={item} className="mt-6 max-w-xl text-lg text-elegant text-soft">
             AnyxTech accompagne les entreprises béninoises dans leur transformation
             numérique : communication digitale, réseaux, énergie et marketing.
           </motion.p>

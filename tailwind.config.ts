@@ -39,8 +39,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-outfit)", "var(--font-dm-sans)", "sans-serif"],
+        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        display: ["var(--font-cormorant)", "var(--font-jakarta)", "sans-serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
       },
       boxShadow: {
         glow: "0 0 30px rgba(29, 185, 255, 0.35)",

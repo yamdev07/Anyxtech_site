@@ -71,16 +71,16 @@ export default function About() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-light" />
             Qui sommes-nous ?
           </span>
-          <h2 className="section-title heading-tight">
+          <h2 className="section-title heading-display">
             Une entreprise béninoise, une ambition{" "}
             <span className="text-gradient">panafricaine</span>
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-soft text-elegant">
+          <p className="mt-5 text-lg text-elegant text-soft">
             ANYXTECH est spécialisée dans le numérique, les solutions digitales et
             les télécommunications. Nous regroupons des professionnels passionnés
             par les technologies modernes et l&apos;innovation.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-soft text-elegant">
+          <p className="mt-4 text-lg text-elegant text-soft">
             En mettant vos besoins avant les nôtres, nous construisons un
             partenariat durable pour votre réussite digitale en Afrique de
             l&apos;Ouest.
