@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider">
+            <h3 className="text-eyebrow text-brand-blue dark:text-brand-light">
               Navigation
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
@@ -86,7 +86,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider">
+            <h3 className="text-eyebrow text-brand-blue dark:text-brand-light">
               Services
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider">
+            <h3 className="text-eyebrow text-brand-blue dark:text-brand-light">
               Contact
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-soft">
@@ -131,8 +131,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pt-8 text-sm text-soft sm:flex-row">
-          <p>© {new Date().getFullYear()} AnyxTech Bénin. Tous droits réservés.</p>
-          <p>
+          <p className="tracking-tight">© {new Date().getFullYear()} AnyxTech Bénin. Tous droits réservés.</p>
+          <p className="tracking-tight">
             Conçu avec passion à Cotonou <span className="text-brand-light">•</span> Bénin
           </p>
         </div>

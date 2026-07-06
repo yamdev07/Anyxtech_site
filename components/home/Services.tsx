@@ -56,10 +56,10 @@ export default function Services() {
                       </div>
                       <ArrowUpRight className="h-4 w-4 text-soft transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-light" />
                     </div>
-                    <h3 className="mt-6 font-display text-[15px] font-semibold leading-snug [transform:translateZ(20px)]">
+                    <h3 className="mt-6 font-display text-[15px] font-semibold leading-snug tracking-tight [transform:translateZ(20px)]">
                       {s.title}
                     </h3>
-                    <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-soft">
+                    <p className="mt-2 line-clamp-3 text-xs text-elegant text-soft">
                       {s.short}
                     </p>
                   </Link>

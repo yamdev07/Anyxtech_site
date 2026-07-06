@@ -86,8 +86,8 @@ export default function Process() {
                       <Icon className="h-7 w-7" />
                     </div>
 
-                    <h3 className="relative mt-5 font-display text-xl font-semibold">{s.title}</h3>
-                    <p className="relative mt-2 text-sm leading-relaxed text-soft">{s.text}</p>
+                    <h3 className="relative mt-5 font-display text-xl font-semibold tracking-tight">{s.title}</h3>
+                    <p className="relative mt-2 text-sm text-elegant text-soft">{s.text}</p>
                   </div>
                 </ScrollParallax>
               </Reveal>

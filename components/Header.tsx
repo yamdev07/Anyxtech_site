@@ -58,7 +58,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative rounded-full px-4 py-2 text-[15px] font-medium transition-colors ${
+                  className={`relative rounded-full px-4 py-2 text-[15px] font-medium tracking-tight transition-colors ${
                     isActive(link.href)
                       ? "text-brand-blue dark:text-brand-light"
                       : "text-soft hover:text-[var(--text)]"

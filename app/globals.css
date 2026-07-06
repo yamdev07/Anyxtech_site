@@ -158,7 +158,9 @@
 
   /* Bouton principal */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 font-semibold text-white transition-all duration-300;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 text-white transition-all duration-300;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     background-image: linear-gradient(120deg, #1f429b, #1db9ff);
     box-shadow: 0 12px 30px -10px rgba(29, 185, 255, 0.6);
   }
@@ -168,7 +170,9 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 font-semibold transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 transition-all duration-300;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     border-color: var(--border);
     color: var(--text);
   }
@@ -179,7 +183,9 @@
 
   /* Puce / badge */
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium;
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     border-color: var(--border);
     background: color-mix(in srgb, var(--card) 60%, transparent);
   }
