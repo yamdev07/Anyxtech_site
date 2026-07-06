@@ -124,7 +124,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-display text-5xl font-bold leading-[1.03] tracking-tight sm:text-6xl xl:text-7xl"
+            className="font-display text-5xl font-bold leading-[1.03] tracking-tight sm:text-6xl xl:text-7xl heading-tight"
           >
             <TextReveal as="span">
               Toujours plus proche de vous

@@ -39,8 +39,10 @@
     background-color: var(--bg);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
   }
 
   ::selection {
@@ -197,6 +199,20 @@
 
   .section-title {
     @apply font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  /* Heading with tight tracking for premium feel */
+  .heading-tight {
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  /* Elegant body text with optically adjusted spacing */
+  .text-elegant {
+    letter-spacing: -0.01em;
+    line-height: 1.75;
   }
 
   /* Titre avec reflet lumineux qui balaie */

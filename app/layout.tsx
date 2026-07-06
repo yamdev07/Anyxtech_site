@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { poppins, spaceGrotesk } from "@/lib/fonts";
+import { dmSans, outfit } from "@/lib/fonts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/ui/BackToTop";
@@ -78,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${poppins.variable} ${spaceGrotesk.variable}`}
+      className={`${dmSans.variable} ${outfit.variable}`}
       suppressHydrationWarning
     >
       <head>

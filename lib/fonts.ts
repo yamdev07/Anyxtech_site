@@ -1,15 +1,15 @@
-import { Poppins, Space_Grotesk } from "next/font/google";
+import { DM_Sans, Outfit } from "next/font/google";
 
-export const poppins = Poppins({
+export const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
-export const spaceGrotesk = Space_Grotesk({
+export const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-outfit",
   display: "swap",
 });

@@ -4,6 +4,7 @@ import { MessageSquare, PenTool, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
+import ScrollParallax from "@/components/ui/ScrollParallax";
 
 const steps = [
   {
@@ -36,14 +37,16 @@ export default function Process() {
   return (
     <section className="bg-soft py-16 md:py-24">
       <div className="container-x">
-        <SectionHeading
-          eyebrow="Comment ça marche"
-          title={
-            <>
-              Trois étapes, <span className="text-shimmer">zéro friction</span>
-            </>
-          }
-        />
+        <Reveal variant="blur">
+          <SectionHeading
+            eyebrow="Comment ça marche"
+            title={
+              <>
+                Trois étapes, <span className="text-shimmer">zéro friction</span>
+              </>
+            }
+          />
+        </Reveal>
 
         <div className="relative mt-14 grid gap-5 md:grid-cols-3">
           {/* Timeline connector - desktop only */}
@@ -59,33 +62,34 @@ export default function Process() {
 
           {steps.map((s, i) => {
             const Icon = s.icon;
+            const variants = ["left", "scale", "right"] as const;
             return (
-              <Reveal key={s.n} delay={i} className="h-full">
-                <div className="group glass-heavy gradient-border-animated relative flex h-full flex-col overflow-hidden rounded-2xl p-7 transition-all duration-500 hover:-translate-y-2 hover-glow">
-                  {/* Step number — animated */}
-                  <motion.span
-                    className="pointer-events-none absolute -top-2 right-4 font-display text-6xl font-bold text-[var(--border)] transition-colors duration-500 group-hover:text-brand-light/20"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-                  >
-                    {s.n}
-                  </motion.span>
+              <Reveal key={s.n} delay={i} variant={variants[i]} className="h-full">
+                <ScrollParallax y={15 + i * 5} className="h-full">
+                  <div className="group glass-heavy gradient-border-animated relative flex h-full flex-col overflow-hidden rounded-2xl p-7 transition-all duration-500 hover:-translate-y-2 hover-glow">
+                    <motion.span
+                      className="pointer-events-none absolute -top-2 right-4 font-display text-6xl font-bold text-[var(--border)] transition-colors duration-500 group-hover:text-brand-light/20"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
+                    >
+                      {s.n}
+                    </motion.span>
 
-                  {/* Icon with glow on hover */}
-                  <div
-                    className={`relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${s.color} text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}
-                    style={{
-                      boxShadow: `0 8px 25px -5px ${s.glow}`,
-                    }}
-                  >
-                    <Icon className="h-7 w-7" />
+                    <div
+                      className={`relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${s.color} text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                      style={{
+                        boxShadow: `0 8px 25px -5px ${s.glow}`,
+                      }}
+                    >
+                      <Icon className="h-7 w-7" />
+                    </div>
+
+                    <h3 className="relative mt-5 font-display text-xl font-semibold">{s.title}</h3>
+                    <p className="relative mt-2 text-sm leading-relaxed text-soft">{s.text}</p>
                   </div>
-
-                  <h3 className="relative mt-5 font-display text-xl font-semibold">{s.title}</h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-soft">{s.text}</p>
-                </div>
+                </ScrollParallax>
               </Reveal>
             );
           })}

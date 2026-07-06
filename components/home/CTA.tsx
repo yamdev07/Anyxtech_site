@@ -4,24 +4,28 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
+import ScrollParallax from "@/components/ui/ScrollParallax";
 import { siteConfig } from "@/lib/site";
 
 export default function CTA() {
   return (
     <section className="container-x pb-24">
-      <Reveal className="relative overflow-hidden rounded-3xl bg-brand-blue px-6 py-16 text-center text-white sm:px-12 md:py-20">
-        {/* Multi-layer aurora background */}
+      <Reveal variant="scale" className="relative overflow-hidden rounded-3xl bg-brand-blue px-6 py-16 text-center text-white sm:px-12 md:py-20">
+        {/* Multi-layer aurora background with parallax */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-brand-light/25 blur-[80px]" />
-          <div className="absolute -bottom-28 -right-20 h-96 w-96 rounded-full bg-brand-cyan/20 blur-[100px]" />
+          <ScrollParallax y={20}>
+            <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-brand-light/25 blur-[80px]" />
+          </ScrollParallax>
+          <ScrollParallax y={-25}>
+            <div className="absolute -bottom-28 -right-20 h-96 w-96 rounded-full bg-brand-cyan/20 blur-[100px]" />
+          </ScrollParallax>
           <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-[60px]" />
-          {/* Noise texture overlay */}
           <div className="noise absolute inset-0" />
         </div>
 
         <div className="relative">
           <motion.h2
-            className="mx-auto max-w-3xl font-display text-3xl font-bold sm:text-4xl md:text-5xl"
+            className="mx-auto max-w-3xl font-display text-3xl font-bold heading-tight sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
@@ -30,7 +34,7 @@ export default function CTA() {
             Voulez-vous démarrer votre projet au Bénin ?
           </motion.h2>
           <motion.p
-            className="mx-auto mt-5 max-w-2xl text-lg text-white/80"
+            className="mx-auto mt-5 max-w-2xl text-lg text-white/80 text-elegant"
             initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
