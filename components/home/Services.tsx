@@ -8,10 +8,11 @@ import { services } from "@/lib/services";
 export default function Services() {
   return (
     <section id="services" className="relative scroll-mt-24 overflow-hidden py-16 md:py-24">
-      {/* Décor de fond */}
+      {/* Decor de fond multi-couche */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 grid-bg opacity-[0.35] mask-fade-b" />
-        <div className="absolute -right-32 top-10 h-80 w-80 rounded-full bg-brand-light/10 blur-3xl" />
+        <div className="absolute inset-0 grid-bg opacity-[0.30] mask-fade-b" />
+        <div className="absolute -right-32 top-10 h-96 w-96 rounded-full bg-brand-light/8 blur-[100px]" />
+        <div className="absolute -left-20 bottom-20 h-72 w-72 rounded-full bg-brand-cyan/10 blur-[80px]" />
       </div>
 
       <div className="container-x relative">
@@ -25,28 +26,28 @@ export default function Services() {
           subtitle="Solutions complètes pour votre transformation numérique et énergétique au Bénin."
         />
 
-        {/* Rangée pleine largeur, responsive */}
-        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        {/* Rangee pleine largeur, responsive */}
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {services.slice(0, 6).map((s, i) => {
             const Icon = s.icon;
             return (
               <Reveal key={s.slug} delay={i} className="perspective h-full">
-                <Spotlight className="h-full rounded-2xl">
+                <Spotlight tilt={8} glow="rgba(29,185,255,0.25)" className="h-full rounded-2xl">
                   <Link
                     href={`/services#${s.slug}`}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-light/50 hover:shadow-card"
+                    className="group glass-heavy gradient-border-animated relative flex h-full flex-col overflow-hidden rounded-2xl p-5 transition-all duration-500 hover:-translate-y-2 hover-glow"
                   >
-                    {/* Accent supérieur au survol */}
+                    {/* Accent superieur anime */}
                     <span
-                      className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r ${s.color} transition-transform duration-300 group-hover:scale-x-100`}
+                      className={`absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r ${s.color} transition-transform duration-500 group-hover:scale-x-100`}
                     />
                     <div className="flex items-start justify-between [transform:translateZ(30px)]">
                       <div
-                        className={`grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.color} text-white shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                        className={`grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.color} text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow`}
                       >
                         <Icon className="h-6 w-6" />
                       </div>
-                      <ArrowUpRight className="h-4 w-4 text-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-light" />
+                      <ArrowUpRight className="h-4 w-4 text-soft transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-light" />
                     </div>
                     <h3 className="mt-6 font-display text-[15px] font-semibold leading-snug [transform:translateZ(20px)]">
                       {s.title}
@@ -62,9 +63,9 @@ export default function Services() {
         </div>
 
         <Reveal className="mt-12 text-center">
-          <Link href="/services" className="btn-ghost">
+          <Link href="/services" className="btn-ghost group">
             Voir tous les services
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </Reveal>
       </div>
