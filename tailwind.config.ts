@@ -83,6 +83,18 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "scale-in": {
+          "0%": { transform: "scale(0.85)", opacity: "0", filter: "blur(8px)" },
+          "100%": { transform: "scale(1)", opacity: "1", filter: "blur(0px)" },
+        },
+        "slide-in-left": {
+          "0%": { transform: "translateX(-60px)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(60px)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.8s ease-in-out",
@@ -92,6 +104,9 @@ const config: Config = {
         shimmer: "shimmer 2.5s linear infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         marquee: "marquee 30s linear infinite",
+        "scale-in": "scale-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
+        "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
+        "slide-in-right": "slide-in-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
       },
     },
   },
