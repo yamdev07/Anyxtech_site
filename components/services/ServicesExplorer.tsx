@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
-import { services, categories, type ServiceCategory } from "@/lib/services";
+import { categories, resolveIcon, type Service, type ServiceCategory } from "@/lib/services";
 
-export default function ServicesExplorer() {
+export default function ServicesExplorer({ services }: { services: Service[] }) {
   const [filter, setFilter] = useState<ServiceCategory | "all">("all");
 
   const visible =
@@ -38,7 +38,7 @@ export default function ServicesExplorer() {
       <motion.div layout className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {visible.map((s) => {
-            const Icon = s.icon;
+            const Icon = resolveIcon(s.icon);
             return (
               <motion.article
                 key={s.slug}

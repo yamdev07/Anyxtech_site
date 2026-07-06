@@ -1,0 +1,102 @@
+/* === Habillage AnyxTech pour le panneau d'administration Payload === */
+
+$brand: #1f429b;
+$brand-light: #1db9ff;
+
+/* Accent de marque global */
+:root {
+  --theme-success-500: #{$brand-light};
+}
+
+/* Boutons principaux : dégradé bleu de marque */
+.btn--style-primary:not(:disabled):not(.btn--disabled) {
+  background: linear-gradient(120deg, $brand, $brand-light);
+  border-color: transparent;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(120deg, #1b3a86, #12a3e8);
+    border-color: transparent;
+  }
+}
+
+/* Liens */
+a {
+  color: $brand;
+}
+
+/* Titres des groupes du tableau de bord */
+.dashboard__label,
+.dashboard h2,
+.dashboard h3 {
+  color: $brand;
+  letter-spacing: -0.01em;
+}
+
+/* Cartes du tableau de bord (collections / globals) */
+.dashboard .card,
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(31, 66, 155, 0.12);
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  /* Bande de marque à gauche */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, $brand, $brand-light);
+  }
+
+  &:hover {
+    border-color: rgba(29, 185, 255, 0.55);
+    box-shadow: 0 14px 34px -16px rgba(31, 66, 155, 0.4);
+    transform: translateY(-3px);
+  }
+}
+
+/* Titres de sections plus présents */
+.dashboard h2 {
+  font-weight: 700;
+}
+
+/* Bouton « + » d'ajout sur les cartes */
+.card .btn,
+.card__actions .btn {
+  color: $brand-light;
+  &:hover {
+    color: $brand;
+  }
+}
+
+/* Barre de navigation latérale */
+.nav {
+  border-right: 1px solid rgba(29, 185, 255, 0.15);
+
+  .nav__link {
+    border-radius: 8px;
+
+    &:hover {
+      background: rgba(29, 185, 255, 0.08);
+      color: $brand;
+    }
+  }
+
+  .nav__link--active,
+  .nav__link.active {
+    background: linear-gradient(120deg, rgba(31, 66, 155, 0.12), rgba(29, 185, 255, 0.12));
+    color: $brand;
+    font-weight: 600;
+  }
+}
+
+/* Écran de connexion : logo aéré */
+.login__brand {
+  margin-bottom: 1.5rem;
+}

@@ -4,7 +4,9 @@ import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Spotlight from "@/components/ui/Spotlight";
-import { services } from "@/lib/services";
+import AdminEdit from "@/components/admin/AdminEdit";
+import { resolveIcon } from "@/lib/services";
+import { getServices } from "@/lib/services-data";
 
 const imageMap: Record<string, string> = {
   communication: "/images/team.png",
@@ -15,7 +17,8 @@ const imageMap: Record<string, string> = {
   support: "/images/support.jpeg",
 };
 
-export default function ServicesRefined() {
+export default async function ServicesRefined() {
+  const services = await getServices();
   return (
     <section id="services" className="scroll-mt-24 py-16 md:py-24">
       <div className="container-x">
@@ -24,10 +27,13 @@ export default function ServicesRefined() {
           title={<>Nos <span className="text-gradient">domaines d&apos;expertise</span></>}
           subtitle="Solutions complètes pour votre transformation numérique et énergétique au Bénin."
         />
+        <div className="mt-4 text-center">
+          <AdminEdit href="/admin/collections/services" label="Gérer les services" />
+        </div>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.slice(0, 6).map((s, i) => {
-            const Icon = s.icon;
+            const Icon = resolveIcon(s.icon);
             return (
               <Reveal key={s.slug} delay={i % 3} className="perspective h-full">
                 <Spotlight tilt={6} className="h-full rounded-2xl">
@@ -38,7 +44,7 @@ export default function ServicesRefined() {
                     <span className={`absolute inset-x-0 top-0 z-20 h-1 origin-left scale-x-0 bg-gradient-to-r ${s.color} transition-transform duration-500 group-hover:scale-x-100`} />
                     <div className="relative h-44 overflow-hidden">
                       <Image
-                        src={imageMap[s.slug] ?? "/images/Business_tech.jpg"}
+                        src={s.image ?? imageMap[s.slug] ?? "/images/Business_tech.jpg"}
                         alt={s.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
