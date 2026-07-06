@@ -14,6 +14,7 @@ import { Testimonials } from "./collections/Testimonials";
 import { Submissions } from "./collections/Submissions";
 import { Services } from "./collections/Services";
 import { SiteSettings } from "./globals/SiteSettings";
+import { HomeContent } from "./globals/HomeContent";
 import { services as defaultServices } from "./lib/services";
 
 const filename = fileURLToPath(import.meta.url);
@@ -39,7 +40,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Services, Jobs, Partners, News, Testimonials, Submissions],
-  globals: [SiteSettings],
+  globals: [SiteSettings, HomeContent],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   db: sqliteAdapter({

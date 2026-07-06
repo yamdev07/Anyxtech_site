@@ -6,11 +6,12 @@ import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
 import { Rocket, Info, ChevronDown, Star, ShieldCheck, Headset } from "lucide-react";
 import Particles from "@/components/ui/Particles";
 import Magnetic from "@/components/ui/Magnetic";
+import type { HomeContent } from "@/lib/home-content";
 
 const container = { hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } };
 const item = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } };
 
-export default function HeroRefined() {
+export default function HeroRefined({ hero }: { hero: HomeContent["hero"] }) {
   const mx = useMotionValue(50);
   const my = useMotionValue(40);
   const spotlight = useMotionTemplate`radial-gradient(650px circle at ${mx}% ${my}%, rgba(29,185,255,0.18), transparent 60%)`;
@@ -29,7 +30,7 @@ export default function HeroRefined() {
         animate={{ scale: 1 }}
         transition={{ duration: 12, ease: "easeOut" }}
       >
-        <Image src="/images/Business_tech.jpg" alt="AnyxTech — solutions numériques au Bénin" fill priority className="object-cover" />
+        <Image src={hero.image} alt="AnyxTech — solutions numériques au Bénin" fill priority className="object-cover" />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/70 to-ink/90" />
       <div className="absolute inset-0 grid-bg opacity-[0.15]" />
@@ -48,17 +49,17 @@ export default function HeroRefined() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-light opacity-75" />
             <span className="relative inline-flex h-3 w-3 rounded-full bg-brand-light" />
           </span>
-          Vos besoins avant les nôtres
+          {hero.badge}
         </motion.span>
 
         <motion.h1 variants={item} className="mt-8 font-display text-4xl font-bold leading-tight sm:text-6xl lg:text-7xl">
-          Toujours plus <span className="text-shimmer">proche de vous</span>
+          {hero.titlePrefix} <span className="text-shimmer">{hero.titleHighlight}</span>
           <br />
-          pour une meilleure satisfaction
+          {hero.titleSuffix}
         </motion.h1>
 
         <motion.p variants={item} className="mx-auto mt-8 max-w-2xl text-xl text-white/85">
-          Des solutions numériques innovantes pour propulser votre entreprise vers l&apos;excellence au Bénin.
+          {hero.subtitle}
         </motion.p>
 
         <motion.div variants={item} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
