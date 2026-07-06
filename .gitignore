@@ -30,3 +30,7 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# editors
+.vscode
+.idea
