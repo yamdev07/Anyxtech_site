@@ -99,11 +99,11 @@ export default function DashboardBanner() {
             aria-hidden
             style={{
               position: "absolute",
-              inset: "-3px",
+              inset: "-4px",
               borderRadius: "18px",
-              background: "conic-gradient(from 0deg, transparent, rgba(29,185,255,0.3), transparent, rgba(34,211,238,0.2), transparent)",
-              animation: "spin-slow 12s linear infinite",
-              opacity: 0.5,
+              background: "linear-gradient(135deg, rgba(29,185,255,0.25), rgba(34,211,238,0.15))",
+              filter: "blur(8px)",
+              opacity: 0.6,
             }}
           />
         </div>
@@ -168,10 +168,6 @@ export default function DashboardBanner() {
         @keyframes orb-float {
           0%, 100% { transform: translateY(0px) scale(1); }
           50% { transform: translateY(-12px) scale(1.05); }
-        }
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
         }
         .banner-cta:hover {
           transform: translateY(-2px) scale(1.02);
