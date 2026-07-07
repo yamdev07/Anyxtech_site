@@ -23,7 +23,7 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     user: Users.slug,
-    theme: "light",
+    theme: "dark",
     meta: {
       titleSuffix: " — AnyxTech Admin",
       icons: [{ rel: "icon", type: "image/x-icon", url: "/images/favicon.ico" }],
