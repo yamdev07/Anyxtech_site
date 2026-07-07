@@ -159,14 +159,7 @@ export default function DashboardBanner() {
           border: "none",
           cursor: "pointer",
         }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
-          e.currentTarget.style.boxShadow = "0 12px 32px -4px rgba(29,185,255,0.7)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0) scale(1)";
-          e.currentTarget.style.boxShadow = "0 8px 24px -6px rgba(29,185,255,0.5)";
-        }}
+        className="banner-cta"
       >
         Voir le site ↗
       </a>
@@ -179,6 +172,10 @@ export default function DashboardBanner() {
         @keyframes spin-slow {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        .banner-cta:hover {
+          transform: translateY(-2px) scale(1.02);
+          box-shadow: 0 12px 32px -4px rgba(29,185,255,0.7) !important;
         }
       `}</style>
     </div>
