@@ -1,305 +1,102 @@
-/* === AnyxTech Admin — Glassmorphism Dark Theme === */
+/* === Habillage AnyxTech pour le panneau d'administration Payload === */
 
 $brand: #1f429b;
 $brand-light: #1db9ff;
-$brand-cyan: #22d3ee;
-$ink-900: #070b18;
-$ink-800: #0b1120;
-$ink-700: #0f172a;
-$ink-600: #131c33;
 
-/* ── Global CSS variables override ── */
+/* Accent de marque global */
 :root {
   --theme-success-500: #{$brand-light};
-  --theme-success-100: rgba(29, 185, 255, 0.15);
-  --theme-success-550: #{$brand-light};
-
-  /* Dark palette */
-  --theme-bg: #{$ink-900};
-  --theme-bg-soft: #{$ink-800};
-  --theme-elevation-0: #{$ink-700};
-  --theme-elevation-50: #{$ink-600};
-  --theme-elevation-100: #{$ink-600};
-  --theme-elevation-150: #{$ink-600};
-  --theme-elevation-200: #{$ink-600};
-  --theme-elevation-250: #{$ink-600};
-  --theme-elevation-300: #{$ink-600};
-  --theme-elevation-350: #{$ink-600};
-  --theme-elevation-400: #{$ink-600};
-  --theme-elevation-450: #{$ink-600};
-  --theme-elevation-500: #{$ink-600};
-  --theme-elevation-550: #{$ink-600};
-  --theme-elevation-600: #{$ink-600};
-  --theme-elevation-650: #{$ink-600};
-  --theme-elevation-700: #{$ink-600};
-  --theme-text: #e2e8f0;
-  --theme-text-soft: #94a3b8;
-  --theme-border: rgba(148, 163, 184, 0.12);
-  --theme-input-bg: #{$ink-700};
-  --theme-input-bg-active: #{$ink-600};
 }
 
-/* ── Body & base ── */
-body {
-  background: $ink-900 !important;
-  color: #e2e8f0 !important;
-}
+/* Boutons principaux : dégradé bleu de marque */
+.btn--style-primary:not(:disabled):not(.btn--disabled) {
+  background: linear-gradient(120deg, $brand, $brand-light);
+  border-color: transparent;
+  color: #fff;
 
-/* ── Custom scrollbar ── */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, $brand, $brand-light);
-  border-radius: 999px;
-  border: 2px solid $ink-900;
-}
-
-/* ── Selection ── */
-::selection {
-  background: rgba(29, 185, 255, 0.3);
-  color: inherit;
-}
-
-/* ── Focus ring ── */
-:focus-visible {
-  outline: 2px solid $brand-light;
-  outline-offset: 2px;
-}
-
-/* ── Links ── */
-a {
-  color: $brand-light;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: lighten($brand-light, 12%);
+  &:hover,
+  &:focus {
+    background: linear-gradient(120deg, #1b3a86, #12a3e8);
+    border-color: transparent;
   }
 }
 
-/* ── Sidebar / Nav ── */
+/* Liens */
+a {
+  color: $brand;
+}
+
+/* Titres des groupes du tableau de bord */
+.dashboard__label,
+.dashboard h2,
+.dashboard h3 {
+  color: $brand;
+  letter-spacing: -0.01em;
+}
+
+/* Cartes du tableau de bord (collections / globals) */
+.dashboard .card,
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(31, 66, 155, 0.12);
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  /* Bande de marque à gauche */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, $brand, $brand-light);
+  }
+
+  &:hover {
+    border-color: rgba(29, 185, 255, 0.55);
+    box-shadow: 0 14px 34px -16px rgba(31, 66, 155, 0.4);
+    transform: translateY(-3px);
+  }
+}
+
+/* Titres de sections plus présents */
+.dashboard h2 {
+  font-weight: 700;
+}
+
+/* Bouton « + » d'ajout sur les cartes */
+.card .btn,
+.card__actions .btn {
+  color: $brand-light;
+  &:hover {
+    color: $brand;
+  }
+}
+
+/* Barre de navigation latérale */
 .nav {
-  background: rgba($ink-800, 0.85) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-right: 1px solid rgba(148, 163, 184, 0.08) !important;
+  border-right: 1px solid rgba(29, 185, 255, 0.15);
 
   .nav__link {
-    border-radius: 10px;
-    margin: 2px 8px;
-    padding: 10px 14px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    color: #94a3b8 !important;
+    border-radius: 8px;
 
     &:hover {
-      background: rgba(29, 185, 255, 0.08) !important;
-      color: $brand-light !important;
-      transform: translateX(2px);
+      background: rgba(29, 185, 255, 0.08);
+      color: $brand;
     }
   }
 
   .nav__link--active,
   .nav__link.active {
-    background: linear-gradient(135deg, rgba($brand, 0.25), rgba($brand-light, 0.15)) !important;
-    color: $brand-light !important;
-    font-weight: 600;
-    box-shadow: 0 0 20px rgba(29, 185, 255, 0.1);
-  }
-
-  /* Group headings */
-  .nav__group-label,
-  .nav__section-label {
-    color: rgba(148, 163, 184, 0.5) !important;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 16px 14px 6px;
-  }
-}
-
-/* ── Header / Top bar ── */
-.header {
-  background: rgba($ink-900, 0.8) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.08) !important;
-}
-
-/* ── Dashboard cards ── */
-.dashboard {
-  .card,
-  .card--clickable {
-    background: rgba($ink-700, 0.5) !important;
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(148, 163, 184, 0.08) !important;
-    border-radius: 16px !important;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
-    position: relative;
-    overflow: hidden;
-
-    /* Gradient glow border on hover */
-    &:hover {
-      border-color: rgba(29, 185, 255, 0.3) !important;
-      box-shadow:
-        0 20px 60px -15px rgba(29, 185, 255, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
-      transform: translateY(-4px) !important;
-    }
-
-    /* Left gradient stripe */
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, $brand, $brand-light);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    &:hover::before {
-      opacity: 1;
-    }
-  }
-
-  h2, h3 {
-    color: #e2e8f0 !important;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-
-  .dashboard__label {
-    color: $brand-light !important;
+    background: linear-gradient(120deg, rgba(31, 66, 155, 0.12), rgba(29, 185, 255, 0.12));
+    color: $brand;
     font-weight: 600;
   }
 }
 
-/* ── Buttons ── */
-.btn--style-primary:not(:disabled):not(.btn--disabled) {
-  background: linear-gradient(135deg, $brand, $brand-light) !important;
-  border-color: transparent !important;
-  color: #fff !important;
-  box-shadow: 0 8px 24px -8px rgba(29, 185, 255, 0.5);
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
-
-  &:hover,
-  &:focus {
-    background: linear-gradient(135deg, lighten($brand, 8%), lighten($brand-light, 8%)) !important;
-    box-shadow: 0 12px 32px -6px rgba(29, 185, 255, 0.7) !important;
-    transform: translateY(-1px);
-  }
-}
-
-.btn--style-secondary {
-  background: rgba(29, 185, 255, 0.08) !important;
-  border-color: rgba(29, 185, 255, 0.2) !important;
-  color: $brand-light !important;
-
-  &:hover {
-    background: rgba(29, 185, 255, 0.15) !important;
-    border-color: rgba(29, 185, 255, 0.4) !important;
-  }
-}
-
-.btn--style-danger:not(:disabled):not(.btn--disabled) {
-  background: rgba(239, 68, 68, 0.12) !important;
-  border-color: rgba(239, 68, 68, 0.25) !important;
-  color: #f87171 !important;
-
-  &:hover {
-    background: rgba(239, 68, 68, 0.2) !important;
-    border-color: rgba(239, 68, 68, 0.4) !important;
-  }
-}
-
-/* ── Form inputs ── */
-.field-input,
-.text-input,
-.textarea,
-.select {
-  background: rgba($ink-700, 0.7) !important;
-  border: 1px solid rgba(148, 163, 184, 0.12) !important;
-  border-radius: 10px !important;
-  color: #e2e8f0 !important;
-  transition: all 0.25s ease !important;
-
-  &:focus,
-  &:focus-within {
-    border-color: rgba(29, 185, 255, 0.5) !important;
-    box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12) !important;
-  }
-
-  &::placeholder {
-    color: rgba(148, 163, 184, 0.5) !important;
-  }
-}
-
-/* ── Collection list tables ── */
-.table {
-  border-color: rgba(148, 163, 184, 0.08) !important;
-
-  .table-row {
-    border-color: rgba(148, 163, 184, 0.06) !important;
-    transition: background 0.2s ease;
-
-    &:hover {
-      background: rgba(29, 185, 255, 0.04) !important;
-    }
-  }
-}
-
-/* ── Pill / badge styling ── */
-.pill {
-  background: rgba(29, 185, 255, 0.1) !important;
-  color: $brand-light !important;
-  border-radius: 999px;
-}
-
-/* ── Toasts / notifications ── */
-.toast {
-  background: rgba($ink-600, 0.9) !important;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(148, 163, 184, 0.1) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.5) !important;
-}
-
-/* ── Login screen ── */
+/* Écran de connexion : logo aéré */
 .login__brand {
-  margin-bottom: 2rem;
-}
-
-.login {
-  background: $ink-900 !important;
-}
-
-/* ── Animations ── */
-@keyframes admin-fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.dashboard .card {
-  animation: admin-fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-
-  @for $i from 1 through 12 {
-    &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.05}s;
-    }
-  }
-}
-
-/* ── Payload version badge ── */
-.version {
-  color: rgba(148, 163, 184, 0.4) !important;
+  margin-bottom: 1.5rem;
 }
