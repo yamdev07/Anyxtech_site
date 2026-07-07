@@ -3,20 +3,21 @@ export default function DashboardBanner() {
     <div
       style={{
         position: "relative",
-        background: "linear-gradient(135deg, rgba(15,23,42,0.8), rgba(11,17,32,0.9))",
-        WebkitBackdropFilter: "blur(20px) saturate(1.5)",
-        backdropFilter: "blur(20px) saturate(1.5)",
+        background: "linear-gradient(135deg, rgba(15,23,42,0.85), rgba(11,17,32,0.95))",
+        WebkitBackdropFilter: "blur(24px) saturate(1.5)",
+        backdropFilter: "blur(24px) saturate(1.5)",
         border: "1px solid rgba(29,185,255,0.15)",
         borderRadius: "20px",
-        padding: "32px 36px",
-        marginBottom: "32px",
+        padding: "36px 40px",
+        marginBottom: "36px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         gap: "24px",
         flexWrap: "wrap",
         overflow: "hidden",
-        boxShadow: "0 24px 60px -20px rgba(29,185,255,0.2), inset 0 1px 0 rgba(255,255,255,0.04)",
+        boxShadow:
+          "0 24px 60px -20px rgba(29,185,255,0.2), 0 0 80px -40px rgba(29,185,255,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
       }}
     >
       {/* Decorative gradient orbs */}
@@ -26,24 +27,40 @@ export default function DashboardBanner() {
           position: "absolute",
           right: "-60px",
           top: "-80px",
-          width: "280px",
-          height: "280px",
+          width: "300px",
+          height: "300px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(29,185,255,0.15), transparent 70%)",
+          background: "radial-gradient(circle, rgba(29,185,255,0.18), transparent 70%)",
           filter: "blur(40px)",
+          animation: "orb-float 8s ease-in-out infinite",
         }}
       />
       <div
         aria-hidden
         style={{
           position: "absolute",
-          left: "-40px",
-          bottom: "-60px",
-          width: "200px",
-          height: "200px",
+          left: "-50px",
+          bottom: "-70px",
+          width: "220px",
+          height: "220px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(34,211,238,0.1), transparent 70%)",
+          background: "radial-gradient(circle, rgba(34,211,238,0.12), transparent 70%)",
+          filter: "blur(35px)",
+          animation: "orb-float 10s ease-in-out infinite reverse",
+        }}
+      />
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          right: "30%",
+          bottom: "-40px",
+          width: "160px",
+          height: "160px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(89,139,255,0.1), transparent 70%)",
           filter: "blur(30px)",
+          animation: "orb-float 12s ease-in-out infinite 2s",
         }}
       />
 
@@ -54,21 +71,22 @@ export default function DashboardBanner() {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "linear-gradient(rgba(148,163,184,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.04) 1px, transparent 1px)",
+            "linear-gradient(rgba(148,163,184,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.03) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           borderRadius: "inherit",
         }}
       />
 
-      <div style={{ display: "flex", alignItems: "center", gap: "18px", position: "relative", zIndex: 1 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "20px", position: "relative", zIndex: 1 }}>
         <div
           style={{
             background: "linear-gradient(135deg, #1f429b, #1db9ff)",
-            borderRadius: "14px",
-            padding: "12px 16px",
+            borderRadius: "16px",
+            padding: "14px 18px",
             display: "grid",
             placeItems: "center",
-            boxShadow: "0 8px 24px -6px rgba(29,185,255,0.5)",
+            boxShadow: "0 8px 24px -6px rgba(29,185,255,0.5), 0 0 40px -10px rgba(29,185,255,0.3)",
+            position: "relative",
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -77,15 +95,27 @@ export default function DashboardBanner() {
             alt="AnyxTech"
             style={{ height: "32px", width: "auto", objectFit: "contain" }}
           />
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: "-3px",
+              borderRadius: "18px",
+              background: "conic-gradient(from 0deg, transparent, rgba(29,185,255,0.3), transparent, rgba(34,211,238,0.2), transparent)",
+              animation: "spin-slow 12s linear infinite",
+              opacity: 0.5,
+            }}
+          />
         </div>
         <div>
           <div
             style={{
-              fontSize: "22px",
+              fontSize: "24px",
               fontWeight: 700,
               lineHeight: 1.2,
-              letterSpacing: "-0.01em",
-              background: "linear-gradient(120deg, #598bff, #1db9ff, #67e8f9)",
+              letterSpacing: "-0.02em",
+              fontFamily: "'Space Grotesk', 'Poppins', system-ui, sans-serif",
+              background: "linear-gradient(120deg, #598bff 0%, #1db9ff 45%, #67e8f9 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -93,7 +123,16 @@ export default function DashboardBanner() {
           >
             Bienvenue sur votre espace AnyxTech
           </div>
-          <div style={{ color: "#94a3b8", marginTop: "6px", fontSize: "14px", lineHeight: 1.5 }}>
+          <div
+            style={{
+              color: "#94a3b8",
+              marginTop: "8px",
+              fontSize: "14px",
+              lineHeight: 1.6,
+              fontFamily: "'Poppins', system-ui, sans-serif",
+              maxWidth: "480px",
+            }}
+          >
             Gérez le contenu de votre site : services, offres d&apos;emploi, partenaires,
             actualités, témoignages et messages reçus.
           </div>
@@ -110,16 +149,38 @@ export default function DashboardBanner() {
           color: "#fff",
           fontWeight: 600,
           fontSize: "14px",
-          padding: "12px 24px",
+          fontFamily: "'Poppins', system-ui, sans-serif",
+          padding: "12px 28px",
           borderRadius: "999px",
           textDecoration: "none",
           whiteSpace: "nowrap",
           boxShadow: "0 8px 24px -6px rgba(29,185,255,0.5)",
           transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+          border: "none",
+          cursor: "pointer",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
+          e.currentTarget.style.boxShadow = "0 12px 32px -4px rgba(29,185,255,0.7)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0) scale(1)";
+          e.currentTarget.style.boxShadow = "0 8px 24px -6px rgba(29,185,255,0.5)";
         }}
       >
         Voir le site ↗
       </a>
+
+      <style>{`
+        @keyframes orb-float {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-12px) scale(1.05); }
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   );
 }

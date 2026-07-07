@@ -1,5 +1,7 @@
 /* === AnyxTech Admin — Glassmorphism Dark Theme === */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 $brand: #1f429b;
 $brand-light: #1db9ff;
 $brand-cyan: #22d3ee;
@@ -14,7 +16,6 @@ $ink-600: #131c33;
   --theme-success-100: rgba(29, 185, 255, 0.15);
   --theme-success-550: #{$brand-light};
 
-  /* Dark palette */
   --theme-bg: #{$ink-900};
   --theme-bg-soft: #{$ink-800};
   --theme-elevation-0: #{$ink-700};
@@ -39,10 +40,17 @@ $ink-600: #131c33;
   --theme-input-bg-active: #{$ink-600};
 }
 
-/* ── Body & base ── */
+/* ── Body & fonts ── */
 body {
   background: $ink-900 !important;
   color: #e2e8f0 !important;
+  font-family: 'Poppins', system-ui, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-display,
+[class*="heading"] {
+  font-family: 'Space Grotesk', 'Poppins', system-ui, sans-serif !important;
 }
 
 /* ── Custom scrollbar ── */
@@ -69,12 +77,13 @@ body {
 :focus-visible {
   outline: 2px solid $brand-light;
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ── Links ── */
 a {
   color: $brand-light;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 
   &:hover {
     color: lighten($brand-light, 12%);
@@ -96,23 +105,38 @@ a {
     font-weight: 500;
     transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     color: #94a3b8 !important;
+    position: relative;
 
     &:hover {
       background: rgba(29, 185, 255, 0.08) !important;
       color: $brand-light !important;
-      transform: translateX(2px);
+      transform: translateX(3px);
+    }
+
+    &:active {
+      transform: translateX(1px) scale(0.98);
     }
   }
 
   .nav__link--active,
   .nav__link.active {
-    background: linear-gradient(135deg, rgba($brand, 0.25), rgba($brand-light, 0.15)) !important;
+    background: linear-gradient(135deg, rgba($brand, 0.3), rgba($brand-light, 0.15)) !important;
     color: $brand-light !important;
     font-weight: 600;
-    box-shadow: 0 0 20px rgba(29, 185, 255, 0.1);
+    box-shadow: 0 0 20px rgba(29, 185, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20%;
+      bottom: 20%;
+      width: 3px;
+      background: linear-gradient(180deg, $brand-light, $brand-cyan);
+      border-radius: 0 4px 4px 0;
+    }
   }
 
-  /* Group headings */
   .nav__group-label,
   .nav__section-label {
     color: rgba(148, 163, 184, 0.5) !important;
@@ -145,7 +169,6 @@ a {
     position: relative;
     overflow: hidden;
 
-    /* Gradient glow border on hover */
     &:hover {
       border-color: rgba(29, 185, 255, 0.3) !important;
       box-shadow:
@@ -154,7 +177,6 @@ a {
       transform: translateY(-4px) !important;
     }
 
-    /* Left gradient stripe */
     &::before {
       content: "";
       position: absolute;
@@ -167,6 +189,25 @@ a {
       transition: opacity 0.3s ease;
     }
     &:hover::before {
+      opacity: 1;
+    }
+
+    /* Gradient border glow on hover */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(29, 185, 255, 0.3), transparent 50%, rgba(34, 211, 238, 0.2));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    &:hover::after {
       opacity: 1;
     }
   }
@@ -190,12 +231,31 @@ a {
   color: #fff !important;
   box-shadow: 0 8px 24px -8px rgba(29, 185, 255, 0.5);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover,
   &:focus {
     background: linear-gradient(135deg, lighten($brand, 8%), lighten($brand-light, 8%)) !important;
     box-shadow: 0 12px 32px -6px rgba(29, 185, 255, 0.7) !important;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
   }
 }
 
@@ -203,10 +263,12 @@ a {
   background: rgba(29, 185, 255, 0.08) !important;
   border-color: rgba(29, 185, 255, 0.2) !important;
   color: $brand-light !important;
+  transition: all 0.25s ease !important;
 
   &:hover {
     background: rgba(29, 185, 255, 0.15) !important;
     border-color: rgba(29, 185, 255, 0.4) !important;
+    box-shadow: 0 4px 16px -4px rgba(29, 185, 255, 0.2);
   }
 }
 
@@ -214,10 +276,12 @@ a {
   background: rgba(239, 68, 68, 0.12) !important;
   border-color: rgba(239, 68, 68, 0.25) !important;
   color: #f87171 !important;
+  transition: all 0.25s ease !important;
 
   &:hover {
     background: rgba(239, 68, 68, 0.2) !important;
     border-color: rgba(239, 68, 68, 0.4) !important;
+    box-shadow: 0 4px 16px -4px rgba(239, 68, 68, 0.3);
   }
 }
 
@@ -231,11 +295,16 @@ a {
   border-radius: 10px !important;
   color: #e2e8f0 !important;
   transition: all 0.25s ease !important;
+  font-family: 'Poppins', system-ui, sans-serif !important;
+
+  &:hover {
+    border-color: rgba(148, 163, 184, 0.2) !important;
+  }
 
   &:focus,
   &:focus-within {
     border-color: rgba(29, 185, 255, 0.5) !important;
-    box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12) !important;
+    box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12), 0 4px 12px -4px rgba(29, 185, 255, 0.15) !important;
   }
 
   &::placeholder {
@@ -249,7 +318,7 @@ a {
 
   .table-row {
     border-color: rgba(148, 163, 184, 0.06) !important;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 
     &:hover {
       background: rgba(29, 185, 255, 0.04) !important;
@@ -271,7 +340,7 @@ a {
   backdrop-filter: blur(16px);
   border: 1px solid rgba(148, 163, 184, 0.1) !important;
   border-radius: 12px !important;
-  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(29, 185, 255, 0.1) !important;
 }
 
 /* ── Login screen ── */
@@ -285,8 +354,13 @@ a {
 
 /* ── Animations ── */
 @keyframes admin-fade-in {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes admin-glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(29, 185, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(29, 185, 255, 0.2); }
 }
 
 .dashboard .card {
@@ -294,12 +368,79 @@ a {
 
   @for $i from 1 through 12 {
     &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.05}s;
+      animation-delay: #{$i * 0.06}s;
     }
   }
+
+  &:hover {
+    animation: none;
+  }
+}
+
+/* ── Gradient text utility ── */
+.gradient-text {
+  background: linear-gradient(120deg, lighten($brand, 15%), $brand-light, $brand-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtle noise texture on body ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ── Payload version badge ── */
 .version {
   color: rgba(148, 163, 184, 0.4) !important;
+}
+
+/* ── Tooltip / popover ── */
+.tooltip,
+[role="tooltip"] {
+  background: rgba($ink-600, 0.95) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4) !important;
+  color: #e2e8f0 !important;
+}
+
+/* ── Modal / dialog ── */
+.modal,
+[role="dialog"] {
+  background: rgba($ink-700, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 80px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(29, 185, 255, 0.08) !important;
+}
+
+/* ── Dropdown menu ── */
+.dropdown-menu,
+[role="menu"] {
+  background: rgba($ink-600, 0.95) !important;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.5) !important;
+
+  button, a {
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(29, 185, 255, 0.1) !important;
+      color: $brand-light !important;
+    }
+  }
 }
