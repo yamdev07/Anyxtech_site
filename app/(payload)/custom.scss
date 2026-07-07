@@ -18,21 +18,28 @@ $ink-600: #131c33;
 
   --theme-bg: #{$ink-900};
   --theme-bg-soft: #{$ink-800};
+
+  /* Elevation scale: low = dark surfaces, high = text/icons */
   --theme-elevation-0: #{$ink-700};
-  --theme-elevation-50: #{$ink-600};
-  --theme-elevation-100: #{$ink-600};
-  --theme-elevation-150: #{$ink-600};
-  --theme-elevation-200: #{$ink-600};
-  --theme-elevation-250: #{$ink-600};
-  --theme-elevation-300: #{$ink-600};
-  --theme-elevation-350: #{$ink-600};
-  --theme-elevation-400: #{$ink-600};
-  --theme-elevation-450: #{$ink-600};
-  --theme-elevation-500: #{$ink-600};
-  --theme-elevation-550: #{$ink-600};
-  --theme-elevation-600: #{$ink-600};
-  --theme-elevation-650: #{$ink-600};
-  --theme-elevation-700: #{$ink-600};
+  --theme-elevation-50: rgba(15, 23, 42, 0.9);
+  --theme-elevation-100: rgba(20, 30, 55, 0.95);
+  --theme-elevation-150: rgba(30, 42, 70, 1);
+  --theme-elevation-200: rgba(40, 55, 85, 1);
+  --theme-elevation-250: rgba(55, 70, 100, 1);
+  --theme-elevation-300: rgba(71, 85, 105, 1);
+  --theme-elevation-350: rgba(100, 116, 139, 0.6);
+  --theme-elevation-400: rgba(100, 116, 139, 0.8);
+  --theme-elevation-450: rgba(120, 140, 165, 0.8);
+  --theme-elevation-500: #94a3b8;
+  --theme-elevation-550: #a0aec0;
+  --theme-elevation-600: #b0b8c8;
+  --theme-elevation-650: #cbd5e1;
+  --theme-elevation-700: #cbd5e1;
+  --theme-elevation-800: #e2e8f0;
+  --theme-elevation-900: #f1f5f9;
+  --theme-elevation-950: #f8fafc;
+  --theme-elevation-1000: #ffffff;
+
   --theme-text: #e2e8f0;
   --theme-text-soft: #94a3b8;
   --theme-border: rgba(148, 163, 184, 0.12);
@@ -97,6 +104,22 @@ a {
   backdrop-filter: blur(20px) saturate(1.5);
   border-right: 1px solid rgba(148, 163, 184, 0.08) !important;
 
+  .nav-group__toggle {
+    color: var(--theme-elevation-500) !important;
+
+    &:hover {
+      color: var(--theme-elevation-800) !important;
+    }
+  }
+
+  .nav-group__indicator {
+    color: var(--theme-elevation-400) !important;
+  }
+
+  .nav__label {
+    color: var(--theme-elevation-800) !important;
+  }
+
   .nav__link {
     border-radius: 10px;
     margin: 2px 8px;
@@ -104,7 +127,7 @@ a {
     font-size: 14px;
     font-weight: 500;
     transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    color: #94a3b8 !important;
+    color: var(--theme-elevation-500) !important;
     position: relative;
 
     &:hover {
@@ -137,14 +160,8 @@ a {
     }
   }
 
-  .nav__group-label,
-  .nav__section-label {
-    color: rgba(148, 163, 184, 0.75) !important;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 16px 14px 6px;
+  .nav__link-indicator {
+    color: var(--theme-elevation-400) !important;
   }
 }
 
@@ -213,7 +230,7 @@ a {
   }
 
   h2, h3 {
-    color: #e2e8f0 !important;
+    color: var(--theme-elevation-800) !important;
     font-weight: 700;
     letter-spacing: -0.01em;
   }
@@ -293,7 +310,7 @@ a {
   background: rgba($ink-700, 0.7) !important;
   border: 1px solid rgba(148, 163, 184, 0.12) !important;
   border-radius: 10px !important;
-  color: #e2e8f0 !important;
+  color: var(--theme-elevation-800) !important;
   transition: all 0.25s ease !important;
   font-family: 'Poppins', system-ui, sans-serif !important;
 
@@ -308,7 +325,7 @@ a {
   }
 
   &::placeholder {
-    color: rgba(148, 163, 184, 0.5) !important;
+    color: var(--theme-elevation-400) !important;
   }
 }
 
@@ -437,6 +454,7 @@ body::after {
   button, a {
     border-radius: 8px !important;
     transition: all 0.2s ease;
+    color: var(--theme-elevation-800) !important;
 
     &:hover {
       background: rgba(29, 185, 255, 0.1) !important;
