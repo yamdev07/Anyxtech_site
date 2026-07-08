@@ -1,93 +1,90 @@
 export default function DashboardBanner() {
   return (
     <div style={{ position: "relative" }}>
-      {/* Main banner */}
+      {/* ═══ Main hero banner ═══ */}
       <div
         style={{
           position: "relative",
-          background: "linear-gradient(135deg, rgba(15,23,42,0.85), rgba(11,17,32,0.95))",
-          WebkitBackdropFilter: "blur(24px) saturate(1.5)",
-          backdropFilter: "blur(24px) saturate(1.5)",
-          border: "1px solid rgba(29,185,255,0.15)",
           borderRadius: "20px",
-          padding: "32px 36px",
-          marginBottom: "28px",
+          padding: "36px 40px",
+          marginBottom: "24px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "24px",
           flexWrap: "wrap",
           overflow: "hidden",
-          boxShadow:
-            "0 24px 60px -20px rgba(29,185,255,0.2), 0 0 80px -40px rgba(29,185,255,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+          background: "linear-gradient(135deg, #1f429b 0%, #1db9ff 55%, #22d3ee 100%)",
+          boxShadow: "0 28px 70px -18px rgba(29,185,255,0.45), 0 0 100px -30px rgba(29,185,255,0.15)",
         }}
       >
-        {/* Decorative gradient orbs */}
+        {/* Decorative orbs */}
         <div
           aria-hidden
           style={{
             position: "absolute",
-            right: "-60px",
-            top: "-80px",
-            width: "300px",
-            height: "300px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(29,185,255,0.18), transparent 70%)",
-            filter: "blur(40px)",
-            animation: "orb-float 8s ease-in-out infinite",
+            inset: 0,
+            background:
+              "radial-gradient(ellipse 60% 80% at 85% 15%, rgba(255,255,255,0.18), transparent)," +
+              "radial-gradient(ellipse 40% 60% at 15% 85%, rgba(34,211,238,0.25), transparent)",
+            pointerEvents: "none",
           }}
         />
         <div
           aria-hidden
           style={{
             position: "absolute",
-            left: "-50px",
-            bottom: "-70px",
-            width: "220px",
-            height: "220px",
+            top: "-100px",
+            right: "-80px",
+            width: "320px",
+            height: "320px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(34,211,238,0.12), transparent 70%)",
-            filter: "blur(35px)",
-            animation: "orb-float 10s ease-in-out infinite reverse",
+            background: "rgba(255,255,255,0.06)",
+            filter: "blur(60px)",
+            pointerEvents: "none",
           }}
         />
         <div
           aria-hidden
           style={{
             position: "absolute",
-            right: "30%",
-            bottom: "-40px",
-            width: "160px",
-            height: "160px",
+            bottom: "-60px",
+            left: "20%",
+            width: "200px",
+            height: "200px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(89,139,255,0.1), transparent 70%)",
-            filter: "blur(30px)",
-            animation: "orb-float 12s ease-in-out infinite 2s",
+            background: "rgba(34,211,238,0.15)",
+            filter: "blur(50px)",
+            pointerEvents: "none",
+            animation: "banner-orb 12s ease-in-out infinite",
           }}
         />
 
-        {/* Grid pattern overlay */}
+        {/* Grid pattern */}
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(148,163,184,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.03) 1px, transparent 1px)",
+              "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
             borderRadius: "inherit",
+            pointerEvents: "none",
           }}
         />
 
+        {/* Left: logo + text */}
         <div style={{ display: "flex", alignItems: "center", gap: "20px", position: "relative", zIndex: 1 }}>
           <div
             style={{
-              background: "linear-gradient(135deg, #1f429b, #1db9ff)",
+              background: "rgba(255,255,255,0.15)",
+              backdropFilter: "blur(12px)",
               borderRadius: "16px",
               padding: "14px 18px",
               display: "grid",
               placeItems: "center",
-              boxShadow: "0 8px 24px -6px rgba(29,185,255,0.5), 0 0 40px -10px rgba(29,185,255,0.3)",
+              boxShadow: "0 8px 24px -6px rgba(0,0,0,0.2)",
               position: "relative",
             }}
           >
@@ -95,44 +92,31 @@ export default function DashboardBanner() {
             <img
               src="/images/logo-removebg-preview.png"
               alt="AnyxTech"
-              style={{ height: "32px", width: "auto", objectFit: "contain" }}
-            />
-            <div
-              aria-hidden
-              style={{
-                position: "absolute",
-                inset: "-4px",
-                borderRadius: "18px",
-                background: "linear-gradient(135deg, rgba(29,185,255,0.25), rgba(34,211,238,0.15))",
-                filter: "blur(8px)",
-                opacity: 0.6,
-              }}
+              style={{ height: "32px", width: "auto", objectFit: "contain", position: "relative", zIndex: 1 }}
             />
           </div>
           <div>
             <div
               style={{
-                fontSize: "22px",
-                fontWeight: 700,
-                lineHeight: 1.2,
-                letterSpacing: "-0.02em",
+                fontSize: "24px",
+                fontWeight: 800,
+                lineHeight: 1.15,
+                letterSpacing: "-0.03em",
                 fontFamily: "'Space Grotesk', 'Poppins', system-ui, sans-serif",
-                background: "linear-gradient(120deg, #598bff 0%, #1db9ff 45%, #67e8f9 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                color: "#fff",
+                textShadow: "0 2px 12px rgba(0,0,0,0.15)",
               }}
             >
               Bienvenue sur votre espace AnyxTech
             </div>
             <div
               style={{
-                color: "#94a3b8",
-                marginTop: "6px",
-                fontSize: "13px",
+                color: "rgba(255,255,255,0.8)",
+                marginTop: "8px",
+                fontSize: "14px",
                 lineHeight: 1.6,
                 fontFamily: "'Poppins', system-ui, sans-serif",
-                maxWidth: "480px",
+                maxWidth: "520px",
               }}
             >
               Gérez le contenu de votre site : services, offres d&apos;emploi, partenaires,
@@ -141,30 +125,31 @@ export default function DashboardBanner() {
           </div>
         </div>
 
+        {/* Right: action buttons */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px", position: "relative", zIndex: 1, flexWrap: "wrap" }}>
           <a
             href="/dashboard"
             style={{
-              background: "linear-gradient(135deg, #1f429b, #1db9ff)",
-              color: "#fff",
-              fontWeight: 600,
+              background: "#fff",
+              color: "#1f429b",
+              fontWeight: 700,
               fontSize: "13px",
               fontFamily: "'Poppins', system-ui, sans-serif",
-              padding: "10px 22px",
+              padding: "11px 24px",
               borderRadius: "12px",
               textDecoration: "none",
               whiteSpace: "nowrap",
-              boxShadow: "0 6px 20px -4px rgba(29,185,255,0.5)",
-              transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+              boxShadow: "0 8px 24px -4px rgba(0,0,0,0.2)",
+              transition: "all 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
               border: "none",
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
-              gap: "6px",
+              gap: "8px",
             }}
-            className="banner-btn"
+            className="banner-hero-btn"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             Dashboard
           </a>
           <a
@@ -172,44 +157,45 @@ export default function DashboardBanner() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              background: "rgba(29,185,255,0.08)",
-              color: "#1db9ff",
+              background: "rgba(255,255,255,0.12)",
+              backdropFilter: "blur(8px)",
+              color: "#fff",
               fontWeight: 600,
               fontSize: "13px",
               fontFamily: "'Poppins', system-ui, sans-serif",
-              padding: "10px 22px",
+              padding: "11px 24px",
               borderRadius: "12px",
               textDecoration: "none",
               whiteSpace: "nowrap",
-              border: "1px solid rgba(29,185,255,0.2)",
-              transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              transition: "all 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
-              gap: "6px",
+              gap: "8px",
             }}
-            className="banner-btn-ghost"
+            className="banner-ghost-btn"
           >
             Voir le site ↗
           </a>
         </div>
       </div>
 
-      {/* Quick stats row */}
+      {/* ═══ Quick stat cards ═══ */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
           gap: "12px",
           marginBottom: "28px",
         }}
       >
         {[
-          { label: "Services", icon: "⚙", color: "#1db9ff", href: "/admin/collections/services" },
-          { label: "Offres", icon: "💼", color: "#a78bfa", href: "/admin/collections/jobs" },
-          { label: "Partenaires", icon: "🤝", color: "#fbbf24", href: "/admin/collections/partners" },
-          { label: "Actualités", icon: "📰", color: "#34d399", href: "/admin/collections/news" },
-          { label: "Messages", icon: "📬", color: "#f87171", href: "/admin/collections/submissions" },
+          { label: "Services", icon: "⚙", gradient: "linear-gradient(135deg, #22d3ee, #06b6d4)", href: "/admin/collections/services" },
+          { label: "Offres", icon: "💼", gradient: "linear-gradient(135deg, #a78bfa, #7c3aed)", href: "/admin/collections/jobs" },
+          { label: "Partenaires", icon: "🤝", gradient: "linear-gradient(135deg, #fbbf24, #f59e0b)", href: "/admin/collections/partners" },
+          { label: "Actualités", icon: "📰", gradient: "linear-gradient(135deg, #1db9ff, #1f429b)", href: "/admin/collections/news" },
+          { label: "Messages", icon: "📬", gradient: "linear-gradient(135deg, #f87171, #ef4444)", href: "/admin/collections/submissions" },
         ].map((item) => (
           <a
             key={item.label}
@@ -217,29 +203,32 @@ export default function DashboardBanner() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "10px",
-              padding: "14px 16px",
+              gap: "12px",
+              padding: "16px 18px",
               borderRadius: "14px",
-              background: "rgba(15,23,42,0.55)",
-              border: "1px solid rgba(148,163,184,0.1)",
+              background: "rgba(15,23,42,0.45)",
+              border: "1px solid rgba(255,255,255,0.06)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
               textDecoration: "none",
-              transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+              transition: "all 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
               cursor: "pointer",
+              position: "relative",
+              overflow: "hidden",
             }}
-            className="quick-stat-card"
+            className="admin-stat-card"
           >
             <span
               style={{
                 display: "grid",
                 placeItems: "center",
-                width: "36px",
-                height: "36px",
-                borderRadius: "10px",
-                background: `${item.color}18`,
-                fontSize: "16px",
+                width: "40px",
+                height: "40px",
+                borderRadius: "12px",
+                background: item.gradient,
+                fontSize: "18px",
                 flexShrink: 0,
+                boxShadow: `0 6px 16px -4px ${item.gradient.includes('#22d3ee') ? 'rgba(34,211,238,0.4)' : item.gradient.includes('#a78bfa') ? 'rgba(167,139,250,0.4)' : item.gradient.includes('#fbbf24') ? 'rgba(251,191,36,0.4)' : item.gradient.includes('#1db9ff') ? 'rgba(29,185,255,0.4)' : 'rgba(248,113,113,0.4)'}`,
               }}
             >
               {item.icon}
@@ -263,7 +252,8 @@ export default function DashboardBanner() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={{ marginLeft: "auto", flexShrink: 0 }}
+              style={{ marginLeft: "auto", flexShrink: 0, transition: "all 0.3s ease" }}
+              className="stat-chevron"
             >
               <path d="m9 18 6-6-6-6" />
             </svg>
@@ -272,26 +262,34 @@ export default function DashboardBanner() {
       </div>
 
       <style>{`
-        @keyframes orb-float {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-12px) scale(1.05); }
+        @keyframes banner-orb {
+          0%, 100% { transform: translateY(0) scale(1); }
+          50% { transform: translateY(-15px) scale(1.08); }
         }
-        .banner-btn:hover {
-          transform: translateY(-2px) scale(1.02) !important;
-          box-shadow: 0 12px 32px -4px rgba(29,185,255,0.7) !important;
+        .banner-hero-btn {
+          transform: translateY(0);
         }
-        .banner-btn-ghost:hover {
-          background: rgba(29,185,255,0.15) !important;
-          border-color: rgba(29,185,255,0.4) !important;
-          box-shadow: 0 4px 16px -4px rgba(29,185,255,0.3) !important;
+        .banner-hero-btn:hover {
+          transform: translateY(-3px) scale(1.03) !important;
+          box-shadow: 0 14px 40px -4px rgba(0,0,0,0.3) !important;
         }
-        .quick-stat-card:hover {
+        .banner-ghost-btn:hover {
+          background: rgba(255,255,255,0.22) !important;
+          border-color: rgba(255,255,255,0.45) !important;
+          box-shadow: 0 6px 20px -4px rgba(29,185,255,0.3) !important;
+          transform: translateY(-2px) !important;
+        }
+        .admin-stat-card {
+          transform: translateY(0);
+        }
+        .admin-stat-card:hover {
           border-color: rgba(29,185,255,0.3) !important;
-          transform: translateY(-2px);
-          box-shadow: 0 12px 32px -8px rgba(29,185,255,0.15);
+          transform: translateY(-4px) !important;
+          box-shadow: 0 16px 40px -10px rgba(29,185,255,0.15), inset 0 1px 0 rgba(255,255,255,0.05) !important;
         }
-        .quick-stat-card:hover svg:last-child {
+        .admin-stat-card:hover .stat-chevron {
           stroke: #1db9ff !important;
+          transform: translateX(2px);
         }
       `}</style>
     </div>
