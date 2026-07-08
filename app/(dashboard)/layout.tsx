@@ -21,8 +21,11 @@ export default async function DashboardLayout({
   return (
     <html lang="fr" className={`dark ${poppins.variable} ${spaceGrotesk.variable}`}>
       <body className="bg-soft font-sans">
+        <div className="aurora-bg pointer-events-none fixed inset-0 z-0 opacity-30" />
         <Sidebar email={user.email as string | undefined} />
-        <main className="min-h-screen pt-16 lg:pl-64 lg:pt-0">{children}</main>
+        <main className="relative z-10 min-h-screen pt-16 lg:pl-64 lg:pt-0">
+          {children}
+        </main>
       </body>
     </html>
   );
