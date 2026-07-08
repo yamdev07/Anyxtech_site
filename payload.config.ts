@@ -34,7 +34,7 @@ export default buildConfig({
         Logo: "/components/admin/Logo",
         Icon: "/components/admin/Icon",
       },
-      beforeDashboard: ["/components/admin/DashboardBanner"],
+      beforeDashboard: ["/components/admin/AdminStyles", "/components/admin/DashboardBanner"],
     },
     importMap: {
       baseDir: path.resolve(dirname),
