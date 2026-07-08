@@ -48,28 +48,44 @@ export default function MessageItem({ m }: { m: Message }) {
 
   return (
     <article
-      className={`rounded-2xl border backdrop-blur-sm overflow-hidden transition-all ${
+      className={`dash-card transition-all ${
         handled
-          ? "border-[var(--border)] bg-white/60 opacity-80"
-          : "border-blue-200 bg-white/80 shadow-md shadow-blue-100/50"
+          ? "opacity-80"
+          : "shadow-lg shadow-brand-light/10"
       }`}
     >
       <div className="px-6 py-4 border-b border-[var(--border)]">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <h3 className="font-display font-bold text-[var(--text)]">{m.name || "Anonyme"}</h3>
-            <span
-              className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
-                isDevis
-                  ? "bg-violet-100 text-violet-600"
-                  : "bg-blue-100 text-brand-blue"
-              }`}
-            >
-              {isDevis ? "Devis" : "Contact"}
-            </span>
-            {!handled && <span className="h-2 w-2 rounded-full bg-red-500 shadow-sm shadow-red-500/50" />}
+          <div className="flex items-center gap-3">
+            <div className={`grid h-9 w-9 place-items-center rounded-xl text-white shadow-md ${
+              isDevis
+                ? "bg-gradient-to-br from-violet-400 to-violet-600"
+                : "bg-gradient-to-br from-brand-blue to-brand-light"
+            }`}>
+              {isDevis ? "💼" : "✉️"}
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="font-display font-bold text-[var(--text)]">{m.name || "Anonyme"}</h3>
+                {!handled && (
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
+                  isDevis
+                    ? "bg-violet-100 text-violet-600"
+                    : "bg-brand-50 text-brand-blue"
+                }`}>
+                  {isDevis ? "Devis" : "Contact"}
+                </span>
+                <span className="text-xs text-[var(--text-muted)]">{fmt(m.createdAt)}</span>
+              </div>
+            </div>
           </div>
-          <div className="text-xs text-[var(--text-muted)]">{fmt(m.createdAt)}</div>
         </div>
       </div>
 
@@ -100,7 +116,7 @@ export default function MessageItem({ m }: { m: Message }) {
         )}
 
         {m.message && (
-          <p className="whitespace-pre-wrap rounded-xl bg-blue-50/60 p-4 text-sm leading-relaxed text-[var(--text-soft)]">
+          <p className="whitespace-pre-wrap rounded-xl bg-gradient-to-br from-blue-50/80 to-cyan-50/40 p-4 text-sm leading-relaxed text-[var(--text-soft)] border border-blue-100/50">
             {m.message}
           </p>
         )}
@@ -108,31 +124,31 @@ export default function MessageItem({ m }: { m: Message }) {
         {isDevis && m.meta && (
           <div className="flex flex-wrap gap-2 text-xs">
             {(m.meta.services ?? []).map((s) => (
-              <span key={s} className="rounded-full border border-[var(--border)] px-2.5 py-1 text-[var(--text-soft)]">
+              <span key={s} className="rounded-full bg-brand-50 border border-brand-light/20 px-3 py-1 text-brand-blue font-medium">
                 {s}
               </span>
             ))}
             {m.meta.budget ? (
-              <span className="rounded-full bg-blue-100 px-2.5 py-1 font-medium text-brand-blue">
+              <span className="rounded-full bg-gradient-to-r from-brand-blue to-brand-light px-3 py-1 font-semibold text-white shadow-sm">
                 Budget : {new Intl.NumberFormat("fr-FR").format(m.meta.budget)} FCFA
               </span>
             ) : null}
             {m.meta.delai ? (
-              <span className="rounded-full border border-[var(--border)] px-2.5 py-1 text-[var(--text-soft)]">Délai : {m.meta.delai}</span>
+              <span className="rounded-full border border-[var(--border)] bg-white/60 px-3 py-1 text-[var(--text-soft)]">Délai : {m.meta.delai}</span>
             ) : null}
           </div>
         )}
       </div>
 
-      <div className="px-6 py-3 flex flex-wrap items-center gap-2 border-t border-[var(--border)] bg-blue-50/40">
+      <div className="px-6 py-3 flex flex-wrap items-center gap-2 border-t border-[var(--border)] bg-gradient-to-r from-blue-50/40 to-transparent">
         <button
           type="button"
           onClick={toggle}
           disabled={pending}
-          className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+          className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
             handled
               ? "bg-emerald-100 text-emerald-600"
-              : "bg-blue-100 text-brand-blue hover:bg-blue-200"
+              : "bg-gradient-to-r from-brand-blue to-brand-light text-white shadow-md shadow-brand-light/20 hover:shadow-lg hover:shadow-brand-light/30"
           }`}
         >
           {pending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Check className="h-3.5 w-3.5" />}
@@ -141,7 +157,7 @@ export default function MessageItem({ m }: { m: Message }) {
         {m.email && (
           <a
             href={`mailto:${m.email}?subject=Re: votre demande — AnyxTech`}
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-[var(--text-soft)] transition-colors hover:bg-blue-100 hover:text-brand-blue"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] bg-white/60 px-3 py-1.5 text-xs font-semibold text-[var(--text-soft)] transition-all hover:border-brand-light/40 hover:text-brand-blue hover:bg-white/80"
           >
             <Reply className="h-3.5 w-3.5" /> Répondre
           </a>

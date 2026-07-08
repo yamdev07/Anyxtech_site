@@ -1,4 +1,5 @@
-import { Inbox } from "lucide-react";
+import { Inbox, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { getPayloadClient } from "@/lib/payload";
 import MessageItem, { type Message } from "@/components/dashboard/MessageItem";
 
@@ -15,31 +16,42 @@ export default async function MessagesPage() {
 
   return (
     <div className="p-5 md:p-8 lg:p-10 space-y-6">
-      <header className="flex flex-wrap items-end justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-lg shadow-brand-blue/20">
-            <Inbox className="h-5 w-5" />
+      {/* Hero banner */}
+      <div className="dash-hero">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white/15 backdrop-blur-sm shadow-lg shadow-black/10">
+              <Inbox className="h-7 w-7" />
+            </div>
+            <div>
+              <h1 className="font-display text-2xl font-bold sm:text-3xl text-white drop-shadow-sm">
+                Messages reçus
+              </h1>
+              <p className="mt-1 text-sm text-white/80">
+                Soumissions des formulaires Contact et Devis.
+                {unread.totalDocs > 0 && (
+                  <span className="ml-2 inline-flex items-center rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-bold text-white backdrop-blur-sm">
+                    {unread.totalDocs} non lu{unread.totalDocs > 1 ? "s" : ""}
+                  </span>
+                )}
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="font-display text-2xl font-bold sm:text-3xl text-[var(--text)]">Messages reçus</h1>
-            <p className="mt-0.5 text-sm text-[var(--text-soft)]">
-              Soumissions des formulaires Contact et Devis.
-              {unread.totalDocs > 0 && (
-                <span className="ml-2 rounded-full bg-red-500 px-2 py-0.5 text-[11px] font-bold text-white shadow-sm shadow-red-500/30">
-                  {unread.totalDocs} non lu{unread.totalDocs > 1 ? "s" : ""}
-                </span>
-              )}
-            </p>
-          </div>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"
+          >
+            <ArrowLeft className="h-4 w-4" /> Retour
+          </Link>
         </div>
-      </header>
+      </div>
 
       {messages.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-[var(--border)] bg-white/60 backdrop-blur-sm p-12 text-center">
-          <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-100 text-brand-blue">
-            <Inbox className="h-7 w-7" />
+        <div className="dash-card p-12 text-center">
+          <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-rose-100 to-rose-50 text-rose-500">
+            <Inbox className="h-8 w-8" />
           </div>
-          <p className="mt-4 text-sm text-[var(--text-soft)]">Aucun message pour le moment.</p>
+          <p className="mt-4 text-sm font-medium text-[var(--text-soft)]">Aucun message pour le moment.</p>
         </div>
       ) : (
         <div className="grid gap-4">

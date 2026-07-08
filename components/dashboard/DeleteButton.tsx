@@ -42,10 +42,10 @@ export default function DeleteButton({
       type="button"
       onClick={onClick}
       disabled={pending}
-      className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+      className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
         confirm
-          ? "bg-red-500 text-white"
-          : "text-slate-400 hover:bg-red-50 hover:text-red-500"
+          ? "bg-red-500 text-white shadow-md shadow-red-500/20"
+          : "border border-[var(--border)] bg-white/60 text-slate-400 hover:border-red-300 hover:bg-red-50 hover:text-red-500"
       }`}
     >
       {pending ? (

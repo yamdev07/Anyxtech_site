@@ -40,6 +40,229 @@
   animation: aurora 15s ease-in-out infinite;
 }
 
+/* Dashboard mesh background — subtle animated gradient blobs */
+.aurora-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(29, 185, 255, 0.12), transparent),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(31, 66, 155, 0.10), transparent),
+    radial-gradient(ellipse 50% 70% at 50% 80%, rgba(34, 211, 238, 0.08), transparent),
+    var(--bg);
+  animation: mesh-drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-drift {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  100% { background-position: 100% 100%, 0% 100%, 80% 0%; }
+}
+
+/* Dashboard glass card */
+.dash-glass {
+  background: rgba(255, 255, 255, 0.65);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 4px 24px -4px rgba(31, 66, 155, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Dashboard card with gradient border on hover */
+.dash-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 12px -2px rgba(31, 66, 155, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+.dash-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(29, 185, 255, 0.5), transparent 40%, transparent 60%, rgba(34, 211, 238, 0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.dash-card:hover::before {
+  opacity: 1;
+}
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -12px rgba(31, 66, 155, 0.18),
+    0 0 0 1px rgba(29, 185, 255, 0.15);
+}
+
+/* Dashboard stat card — bolder variant */
+.dash-stat {
+  position: relative;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+.dash-stat::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(29, 185, 255, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.dash-stat:hover::after {
+  opacity: 1;
+}
+.dash-stat:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 25px 60px -15px rgba(31, 66, 155, 0.22),
+    0 0 0 1px rgba(29, 185, 255, 0.2);
+}
+
+/* Sidebar glass */
+.sidebar-glass {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Sidebar nav pill */
+.sidebar-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.875rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  color: var(--text-soft);
+}
+.sidebar-pill:hover {
+  background: rgba(29, 185, 255, 0.06);
+  color: var(--text);
+  transform: translateX(2px);
+}
+.sidebar-pill.active {
+  background: linear-gradient(90deg, rgba(31, 66, 155, 0.12), rgba(29, 185, 255, 0.08));
+  color: var(--brand-blue);
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.sidebar-pill.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 3px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(180deg, #1f429b, #1db9ff);
+}
+
+/* Back-to-site button */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(31, 66, 155, 0.08), rgba(29, 185, 255, 0.06));
+  border: 1px solid rgba(29, 185, 255, 0.2);
+  color: var(--brand-blue);
+  transition: all 0.3s ease;
+}
+.back-btn:hover {
+  background: linear-gradient(135deg, rgba(31, 66, 155, 0.15), rgba(29, 185, 255, 0.12));
+  border-color: rgba(29, 185, 255, 0.4);
+  box-shadow: 0 4px 16px -4px rgba(29, 185, 255, 0.3);
+  transform: translateX(-2px);
+}
+
+/* Dashboard hero banner */
+.dash-hero {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f429b 0%, #1db9ff 60%, #22d3ee 100%);
+  color: white;
+  box-shadow: 0 20px 50px -15px rgba(31, 66, 155, 0.45);
+}
+.dash-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(34, 211, 238, 0.2), transparent);
+  pointer-events: none;
+}
+.dash-hero::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Quick action gradient button */
+.dash-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 1rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+.dash-action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dash-action:hover::before {
+  opacity: 1;
+}
+.dash-action:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px -8px rgba(31, 66, 155, 0.4);
+}
+
 .dashboard-light a {
   color: var(--brand-blue);
 }
@@ -219,18 +442,6 @@
     mask-composite: exclude;
     pointer-events: none;
   }
-}
-
-@keyframes text-sheen {
-  to {
-    background-position: 200% center;
-  }
-}
-
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
-  }
 
   /* Champs de formulaire */
   .form-input {
@@ -247,6 +458,23 @@
     border-color: rgba(29, 185, 255, 0.6);
     box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.15);
   }
+}
+
+@keyframes text-sheen {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aurora {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @layer utilities {

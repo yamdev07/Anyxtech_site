@@ -21,7 +21,16 @@ export default async function DashboardLayout({
   return (
     <html lang="fr" className={`dashboard-light ${poppins.variable} ${spaceGrotesk.variable}`}>
       <body className="bg-soft font-sans">
-        <div className="aurora-bg pointer-events-none fixed inset-0 z-0 opacity-40" />
+        {/* Top gradient accent strip */}
+        <div className="fixed inset-x-0 top-0 z-[60] h-[3px]"
+          style={{
+            background: "linear-gradient(90deg, #1f429b, #1db9ff, #22d3ee, #1db9ff, #1f429b)",
+            backgroundSize: "200% 100%",
+            animation: "shimmer 4s linear infinite",
+          }}
+        />
+        {/* Animated mesh background */}
+        <div className="aurora-mesh pointer-events-none fixed inset-0 z-0" />
         <Sidebar email={user.email as string | undefined} />
         <main className="relative z-10 min-h-screen pt-16 lg:pl-64 lg:pt-0">
           {children}
