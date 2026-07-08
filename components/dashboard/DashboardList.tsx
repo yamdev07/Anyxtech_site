@@ -38,35 +38,35 @@ export default function DashboardList({
         </div>
         <a
           href={`${editBase}/create`}
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-light/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-light/40"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-blue/30"
         >
           <Plus className="h-4 w-4" /> {addLabel}
         </a>
       </header>
 
       {items.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--card)] backdrop-blur-xl p-12 text-center">
+        <div className="rounded-2xl border border-dashed border-[var(--border)] bg-white/60 backdrop-blur-sm p-12 text-center">
           <p className="text-sm text-[var(--text-soft)]">{emptyText}</p>
           <a
             href={`${editBase}/create`}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-light/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-light/40"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-blue/30"
           >
             <Plus className="h-4 w-4" /> {addLabel}
           </a>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl">
+        <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm">
           <ul className="divide-y divide-[var(--border)]">
             {items.map((it) => (
               <li
                 key={it.id}
-                className="flex flex-wrap items-center gap-4 px-6 py-4 transition-colors hover:bg-brand-light/5"
+                className="flex flex-wrap items-center gap-4 px-6 py-4 transition-colors hover:bg-blue-50/60"
               >
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="truncate font-display font-semibold text-[var(--text)]">{it.title}</span>
                     {it.meta && (
-                      <span className="shrink-0 rounded-full bg-brand-light/10 px-2.5 py-0.5 text-xs font-medium text-brand-light">
+                      <span className="shrink-0 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-brand-blue">
                         {it.meta}
                       </span>
                     )}
@@ -78,7 +78,7 @@ export default function DashboardList({
                 <div className="flex items-center gap-1">
                   <a
                     href={`${editBase}/${it.id}`}
-                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-brand-light transition-colors hover:bg-brand-light/10"
+                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-brand-blue transition-colors hover:bg-blue-100"
                   >
                     <Pencil className="h-3.5 w-3.5" /> Modifier
                   </a>

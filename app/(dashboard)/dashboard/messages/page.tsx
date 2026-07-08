@@ -17,7 +17,7 @@ export default async function MessagesPage() {
     <div className="p-5 md:p-8 lg:p-10 space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-lg shadow-brand-light/20">
+          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-lg shadow-brand-blue/20">
             <Inbox className="h-5 w-5" />
           </div>
           <div>
@@ -35,8 +35,8 @@ export default async function MessagesPage() {
       </header>
 
       {messages.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--card)] backdrop-blur-xl p-12 text-center">
-          <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-light/10 text-brand-light">
+        <div className="rounded-2xl border border-dashed border-[var(--border)] bg-white/60 backdrop-blur-sm p-12 text-center">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-100 text-brand-blue">
             <Inbox className="h-7 w-7" />
           </div>
           <p className="mt-4 text-sm text-[var(--text-soft)]">Aucun message pour le moment.</p>

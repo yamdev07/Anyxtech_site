@@ -25,7 +25,7 @@ export default async function ParametresPage() {
     <div className="p-5 md:p-8 lg:p-10 space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-lg shadow-brand-light/20">
+          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light text-white shadow-lg shadow-brand-blue/20">
             <Settings className="h-5 w-5" />
           </div>
           <div>
@@ -35,16 +35,16 @@ export default async function ParametresPage() {
         </div>
         <a
           href="/admin/globals/site-settings"
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-light/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-light/40"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-blue/30"
         >
           <Pencil className="h-4 w-4" /> Modifier
         </a>
       </header>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <Phone className="h-4 w-4 text-brand-light" />
+            <Phone className="h-4 w-4 text-brand-blue" />
             <h2 className="font-display text-sm font-bold text-[var(--text)]">Coordonnées</h2>
           </div>
           <div className="p-6 space-y-4">
@@ -52,7 +52,7 @@ export default async function ParametresPage() {
               const Icon = c.icon;
               return (
                 <div key={c.label} className="flex items-start gap-3">
-                  <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-light/10 text-brand-light">
+                  <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-blue-100 text-brand-blue">
                     <Icon className="h-4 w-4" />
                   </div>
                   <div>
@@ -65,15 +65,15 @@ export default async function ParametresPage() {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <Globe className="h-4 w-4 text-brand-light" />
+            <Globe className="h-4 w-4 text-brand-blue" />
             <h2 className="font-display text-sm font-bold text-[var(--text)]">Réseaux sociaux</h2>
           </div>
           <div className="p-6 space-y-4">
             {socials.map((c) => (
               <div key={c.label} className="flex items-start gap-3">
-                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-light/10 text-brand-light">
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-blue-100 text-brand-blue">
                   <Globe className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">

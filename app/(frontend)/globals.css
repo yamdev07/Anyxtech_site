@@ -20,6 +20,34 @@
   --card: #0f172a;
 }
 
+/* Dashboard light-blue theme — contrasts with the deep-blue /admin */
+.dashboard-light {
+  --bg: #eef4fd;
+  --bg-soft: #e3edfa;
+  --text: #0f1d3a;
+  --text-soft: #4a6180;
+  --text-muted: #8a9bb5;
+  --border: rgba(31, 66, 155, 0.10);
+  --card: #ffffff;
+  --brand-blue: #1f429b;
+  --brand-light: #1db9ff;
+  --brand-cyan: #22d3ee;
+}
+
+.dashboard-light .aurora-bg {
+  background: linear-gradient(-45deg, #d0e4ff, #b8d8ff, #e0f0ff, #c7e6ff);
+  background-size: 400% 400%;
+  animation: aurora 15s ease-in-out infinite;
+}
+
+.dashboard-light a {
+  color: var(--brand-blue);
+}
+
+.dashboard-light a:hover {
+  color: var(--brand-light);
+}
+
 @layer base {
   * {
     border-color: var(--border);

@@ -48,10 +48,10 @@ export default function MessageItem({ m }: { m: Message }) {
 
   return (
     <article
-      className={`rounded-2xl border backdrop-blur-xl overflow-hidden transition-all ${
+      className={`rounded-2xl border backdrop-blur-sm overflow-hidden transition-all ${
         handled
-          ? "border-[var(--border)] bg-[var(--card)] opacity-80"
-          : "border-brand-light/30 bg-[var(--card)] shadow-lg shadow-brand-light/5"
+          ? "border-[var(--border)] bg-white/60 opacity-80"
+          : "border-blue-200 bg-white/80 shadow-md shadow-blue-100/50"
       }`}
     >
       <div className="px-6 py-4 border-b border-[var(--border)]">
@@ -61,8 +61,8 @@ export default function MessageItem({ m }: { m: Message }) {
             <span
               className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
                 isDevis
-                  ? "bg-violet-500/10 text-violet-400"
-                  : "bg-brand-light/10 text-brand-light"
+                  ? "bg-violet-100 text-violet-600"
+                  : "bg-blue-100 text-brand-blue"
               }`}
             >
               {isDevis ? "Devis" : "Contact"}
@@ -76,12 +76,12 @@ export default function MessageItem({ m }: { m: Message }) {
       <div className="px-6 py-4 space-y-3">
         <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-[var(--text-soft)]">
           {m.email && (
-            <a href={`mailto:${m.email}`} className="inline-flex items-center gap-1.5 hover:text-brand-light transition-colors">
+            <a href={`mailto:${m.email}`} className="inline-flex items-center gap-1.5 hover:text-brand-blue transition-colors">
               <Mail className="h-4 w-4" /> {m.email}
             </a>
           )}
           {m.phone && (
-            <a href={`tel:${m.phone}`} className="inline-flex items-center gap-1.5 hover:text-brand-light transition-colors">
+            <a href={`tel:${m.phone}`} className="inline-flex items-center gap-1.5 hover:text-brand-blue transition-colors">
               <Phone className="h-4 w-4" /> {m.phone}
             </a>
           )}
@@ -100,7 +100,7 @@ export default function MessageItem({ m }: { m: Message }) {
         )}
 
         {m.message && (
-          <p className="whitespace-pre-wrap rounded-xl bg-[var(--bg-soft)] p-4 text-sm leading-relaxed text-[var(--text-soft)]">
+          <p className="whitespace-pre-wrap rounded-xl bg-blue-50/60 p-4 text-sm leading-relaxed text-[var(--text-soft)]">
             {m.message}
           </p>
         )}
@@ -113,7 +113,7 @@ export default function MessageItem({ m }: { m: Message }) {
               </span>
             ))}
             {m.meta.budget ? (
-              <span className="rounded-full bg-brand-light/10 px-2.5 py-1 font-medium text-brand-light">
+              <span className="rounded-full bg-blue-100 px-2.5 py-1 font-medium text-brand-blue">
                 Budget : {new Intl.NumberFormat("fr-FR").format(m.meta.budget)} FCFA
               </span>
             ) : null}
@@ -124,15 +124,15 @@ export default function MessageItem({ m }: { m: Message }) {
         )}
       </div>
 
-      <div className="px-6 py-3 flex flex-wrap items-center gap-2 border-t border-[var(--border)] bg-[var(--bg-soft)]/50">
+      <div className="px-6 py-3 flex flex-wrap items-center gap-2 border-t border-[var(--border)] bg-blue-50/40">
         <button
           type="button"
           onClick={toggle}
           disabled={pending}
           className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
             handled
-              ? "bg-emerald-500/10 text-emerald-400"
-              : "bg-brand-light/10 text-brand-light hover:bg-brand-light/20"
+              ? "bg-emerald-100 text-emerald-600"
+              : "bg-blue-100 text-brand-blue hover:bg-blue-200"
           }`}
         >
           {pending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Check className="h-3.5 w-3.5" />}
@@ -141,7 +141,7 @@ export default function MessageItem({ m }: { m: Message }) {
         {m.email && (
           <a
             href={`mailto:${m.email}?subject=Re: votre demande — AnyxTech`}
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-[var(--text-soft)] transition-colors hover:bg-brand-light/10 hover:text-brand-light"
+            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-[var(--text-soft)] transition-colors hover:bg-blue-100 hover:text-brand-blue"
           >
             <Reply className="h-3.5 w-3.5" /> Répondre
           </a>

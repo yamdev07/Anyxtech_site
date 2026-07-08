@@ -34,10 +34,10 @@ export default async function AnalyticsPage() {
   const visits = recentVisits.docs as Record<string, unknown>[];
 
   const stats = [
-    { icon: Eye, label: "Total visites", value: totalVisits.totalDocs, accent: "text-cyan-400", bg: "bg-cyan-500/10" },
-    { icon: TrendingUp, label: "Aujourd'hui", value: todayVisits.totalDocs, accent: "text-emerald-400", bg: "bg-emerald-500/10" },
-    { icon: Globe, label: "Cette semaine", value: weekVisits.totalDocs, accent: "text-indigo-400", bg: "bg-indigo-500/10" },
-    { icon: Clock, label: "Ce mois", value: monthVisits.totalDocs, accent: "text-amber-400", bg: "bg-amber-500/10" },
+    { icon: Eye, label: "Total visites", value: totalVisits.totalDocs, accent: "text-cyan-600", bg: "bg-cyan-100" },
+    { icon: TrendingUp, label: "Aujourd'hui", value: todayVisits.totalDocs, accent: "text-emerald-600", bg: "bg-emerald-100" },
+    { icon: Globe, label: "Cette semaine", value: weekVisits.totalDocs, accent: "text-indigo-600", bg: "bg-indigo-100" },
+    { icon: Clock, label: "Ce mois", value: monthVisits.totalDocs, accent: "text-amber-600", bg: "bg-amber-100" },
   ];
 
   const pageCounts: Record<string, number> = {};
@@ -71,7 +71,7 @@ export default async function AnalyticsPage() {
           return (
             <div
               key={s.label}
-              className="group relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-brand-light/30 hover:shadow-lg hover:shadow-brand-light/5"
+              className="group relative overflow-hidden rounded-2xl border border-[var(--border)] bg-white/70 p-5 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100/50"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-light/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative">
@@ -87,9 +87,9 @@ export default async function AnalyticsPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-5">
-        <section className="lg:col-span-3 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="lg:col-span-3 rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <Globe className="h-4 w-4 text-brand-light" />
+            <Globe className="h-4 w-4 text-brand-blue" />
             <h2 className="font-display text-sm font-bold text-[var(--text)]">Pages les plus visitées</h2>
           </div>
           <div className="p-6">
@@ -101,7 +101,7 @@ export default async function AnalyticsPage() {
                   <div key={page}>
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="truncate text-sm font-medium text-[var(--text)]">{page}</span>
-                      <span className="ml-2 shrink-0 rounded-full bg-brand-light/10 px-2.5 py-0.5 text-xs font-semibold text-brand-light">
+                      <span className="ml-2 shrink-0 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-brand-blue">
                         {count}
                       </span>
                     </div>
@@ -118,9 +118,9 @@ export default async function AnalyticsPage() {
           </div>
         </section>
 
-        <section className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <Monitor className="h-4 w-4 text-brand-light" />
+            <Monitor className="h-4 w-4 text-brand-blue" />
             <h2 className="font-display text-sm font-bold text-[var(--text)]">Dernières visites</h2>
           </div>
           <div className="max-h-96 overflow-y-auto">
@@ -129,8 +129,8 @@ export default async function AnalyticsPage() {
                 <div className="p-8 text-center text-sm text-[var(--text-soft)]">Aucune visite enregistrée.</div>
               ) : (
                 visits.slice(0, 20).map((v, i) => (
-                  <div key={i} className="flex items-start gap-3 px-6 py-3 transition-colors hover:bg-brand-light/5">
-                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-light/10 text-brand-light mt-0.5">
+                  <div key={i} className="flex items-start gap-3 px-6 py-3 transition-colors hover:bg-blue-50/60">
+                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-blue-100 text-brand-blue mt-0.5">
                       <Monitor className="h-3.5 w-3.5" />
                     </div>
                     <div className="min-w-0 flex-1">

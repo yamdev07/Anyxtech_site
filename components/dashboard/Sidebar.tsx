@@ -20,7 +20,6 @@ import {
   X,
   BarChart3,
   ChevronDown,
-  LayoutGrid,
 } from "lucide-react";
 
 interface NavItem {
@@ -84,12 +83,12 @@ export default function Sidebar({ email }: { email?: string | null }) {
   return (
     <>
       {/* Mobile top bar */}
-      <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-[var(--border)] bg-[var(--card)]/80 backdrop-blur-xl px-4 py-3 lg:hidden">
+      <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-[var(--border)] bg-white/80 backdrop-blur-xl px-4 py-3 lg:hidden">
         <Image src="/images/logo-removebg-preview.png" alt="AnyxTech" width={120} height={36} className="h-8 w-auto object-contain" />
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
-          className="grid h-10 w-10 place-items-center rounded-xl border border-[var(--border)] bg-[var(--card)]"
+          className="grid h-10 w-10 place-items-center rounded-xl border border-[var(--border)] bg-white"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -97,26 +96,20 @@ export default function Sidebar({ email }: { email?: string | null }) {
 
       {/* Mobile overlay */}
       {open && (
-        <button aria-label="Fermer" onClick={() => setOpen(false)} className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden" />
+        <button aria-label="Fermer" onClick={() => setOpen(false)} className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm lg:hidden" />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-[var(--border)] bg-[var(--card)]/80 backdrop-blur-2xl transition-transform lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-[var(--border)] bg-white/80 backdrop-blur-2xl transition-transform lg:translate-x-0 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{
-          background: "rgba(7, 11, 24, 0.85)",
-        }}
       >
         {/* Logo */}
         <div className="flex items-center justify-between px-5 pb-5 border-b border-[var(--border)]">
           <Link href="/dashboard" className="flex items-center gap-3">
             <div
               className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-light shadow-lg shadow-brand-light/20"
-              style={{
-                boxShadow: "0 4px 16px rgba(29,185,255,0.35)",
-              }}
             >
               <Image src="/images/logo-removebg-preview.png" alt="" width={28} height={28} className="h-7 w-7 object-contain" />
             </div>
@@ -134,12 +127,11 @@ export default function Sidebar({ email }: { email?: string | null }) {
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
           {navGroups.map((group) => {
             const isCollapsed = collapsed[group.label] === false;
-            const hasActive = group.items.some((n) => isActive(n.href));
             return (
               <div key={group.label} className="mb-4">
                 <button
                   onClick={() => toggleGroup(group.label)}
-                  className="flex w-full items-center justify-between px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--text-muted)] hover:text-[var(--text-soft)] transition-colors"
+                  className="flex w-full items-center justify-between px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-slate-400 hover:text-slate-600 transition-colors"
                 >
                   {group.label}
                   <ChevronDown className={`h-3 w-3 transition-transform ${isCollapsed ? "-rotate-90" : ""}`} />
@@ -154,14 +146,14 @@ export default function Sidebar({ email }: { email?: string | null }) {
                       onClick={() => setOpen(false)}
                       className={`group relative flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[13px] font-medium transition-all duration-300 mb-0.5 ${
                         active
-                          ? "text-brand-light border border-brand-light/20"
-                          : "text-[var(--text-soft)] hover:bg-brand-light/5 hover:text-[var(--text)]"
+                          ? "text-brand-blue font-semibold"
+                          : "text-slate-500 hover:bg-blue-50 hover:text-slate-800"
                       }`}
                       style={
                         active
                           ? {
-                              background: "linear-gradient(90deg, rgba(31,66,155,0.35), rgba(29,185,255,0.12))",
-                              boxShadow: "0 0 20px rgba(29,185,255,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+                              background: "linear-gradient(90deg, rgba(31,66,155,0.10), rgba(29,185,255,0.08))",
+                              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.8)",
                             }
                           : undefined
                       }
@@ -170,11 +162,11 @@ export default function Sidebar({ email }: { email?: string | null }) {
                         <div
                           className="absolute left-0 top-1/2 -translate-y-1/2 h-[60%] w-[3px] rounded-r-full"
                           style={{
-                            background: "linear-gradient(180deg, #1db9ff, #22d3ee)",
+                            background: "linear-gradient(180deg, #1f429b, #1db9ff)",
                           }}
                         />
                       )}
-                      <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-brand-light" : "opacity-60 group-hover:opacity-100"}`} />
+                      <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-brand-blue" : "opacity-50 group-hover:opacity-80"}`} />
                       {n.label}
                       {n.badge ? (
                         <span className="ml-auto rounded-full bg-gradient-to-r from-brand-blue to-brand-light px-2 py-0.5 text-[10px] font-bold text-white">
@@ -194,9 +186,6 @@ export default function Sidebar({ email }: { email?: string | null }) {
           <div className="flex items-center gap-3 rounded-xl px-3 py-2.5">
             <div
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-light text-sm font-bold text-white shadow-lg shadow-brand-light/20"
-              style={{
-                boxShadow: "0 4px 12px rgba(29,185,255,0.35)",
-              }}
             >
               {userInitial}
             </div>
@@ -209,13 +198,13 @@ export default function Sidebar({ email }: { email?: string | null }) {
             <Link
               href="/"
               target="_blank"
-              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-medium text-[var(--text-soft)] transition-all duration-300 hover:border-brand-light/30 hover:text-brand-light hover:bg-brand-light/5"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-medium text-[var(--text-soft)] transition-all duration-300 hover:border-brand-light/40 hover:text-brand-blue hover:bg-blue-50"
             >
               <ExternalLink className="h-3.5 w-3.5" /> Site
             </Link>
             <a
               href="/admin/logout"
-              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-medium text-[var(--text-soft)] transition-all duration-300 hover:border-red-500/30 hover:text-red-400 hover:bg-red-500/5"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-medium text-[var(--text-soft)] transition-all duration-300 hover:border-red-300 hover:text-red-500 hover:bg-red-50"
             >
               <LogOut className="h-3.5 w-3.5" /> Déconnexion
             </a>

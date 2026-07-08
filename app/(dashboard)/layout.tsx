@@ -19,9 +19,9 @@ export default async function DashboardLayout({
   if (!user) redirect("/admin");
 
   return (
-    <html lang="fr" className={`dark ${poppins.variable} ${spaceGrotesk.variable}`}>
+    <html lang="fr" className={`dashboard-light ${poppins.variable} ${spaceGrotesk.variable}`}>
       <body className="bg-soft font-sans">
-        <div className="aurora-bg pointer-events-none fixed inset-0 z-0 opacity-30" />
+        <div className="aurora-bg pointer-events-none fixed inset-0 z-0 opacity-40" />
         <Sidebar email={user.email as string | undefined} />
         <main className="relative z-10 min-h-screen pt-16 lg:pl-64 lg:pt-0">
           {children}

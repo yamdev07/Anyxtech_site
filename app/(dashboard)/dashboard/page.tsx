@@ -91,8 +91,8 @@ export default async function DashboardOverview() {
       value: totalVisits.totalDocs,
       delta: `+${todayVisits.totalDocs} aujourd'hui`,
       deltaType: "up" as const,
-      accent: "from-cyan-500/20 to-cyan-500/5",
-      iconBg: "bg-cyan-500/15 text-cyan-400",
+      accent: "from-cyan-500/15 to-cyan-500/5",
+      iconBg: "bg-cyan-100 text-cyan-600",
       href: "/dashboard/analytics",
     },
     {
@@ -101,8 +101,8 @@ export default async function DashboardOverview() {
       value: weekVisits.totalDocs,
       delta: "7 derniers jours",
       deltaType: "up" as const,
-      accent: "from-emerald-500/20 to-emerald-500/5",
-      iconBg: "bg-emerald-500/15 text-emerald-400",
+      accent: "from-emerald-500/15 to-emerald-500/5",
+      iconBg: "bg-emerald-100 text-emerald-600",
       href: "/dashboard/analytics",
     },
     {
@@ -111,8 +111,8 @@ export default async function DashboardOverview() {
       value: totalJobs.totalDocs,
       delta: "publiées",
       deltaType: "up" as const,
-      accent: "from-violet-500/20 to-violet-500/5",
-      iconBg: "bg-violet-500/15 text-violet-400",
+      accent: "from-violet-500/15 to-violet-500/5",
+      iconBg: "bg-violet-100 text-violet-600",
       href: "/dashboard/offres",
     },
     {
@@ -121,8 +121,8 @@ export default async function DashboardOverview() {
       value: totalPartners.totalDocs,
       delta: "actifs",
       deltaType: "up" as const,
-      accent: "from-amber-500/20 to-amber-500/5",
-      iconBg: "bg-amber-500/15 text-amber-400",
+      accent: "from-amber-500/15 to-amber-500/5",
+      iconBg: "bg-amber-100 text-amber-600",
       href: "/dashboard/partenaires",
     },
     {
@@ -131,8 +131,8 @@ export default async function DashboardOverview() {
       value: totalNews.totalDocs,
       delta: "articles",
       deltaType: "up" as const,
-      accent: "from-brand-light/20 to-brand-light/5",
-      iconBg: "bg-brand-light/15 text-brand-light",
+      accent: "from-brand-light/15 to-brand-light/5",
+      iconBg: "bg-blue-100 text-brand-blue",
       href: "/dashboard/actualites",
     },
     {
@@ -141,8 +141,8 @@ export default async function DashboardOverview() {
       value: totalMessages.totalDocs,
       delta: unreadMessages.totalDocs > 0 ? `${unreadMessages.totalDocs} non lus` : "tous lus",
       deltaType: unreadMessages.totalDocs > 0 ? "down" as const : "up" as const,
-      accent: "from-rose-500/20 to-rose-500/5",
-      iconBg: "bg-rose-500/15 text-rose-400",
+      accent: "from-rose-500/15 to-rose-500/5",
+      iconBg: "bg-rose-100 text-rose-600",
       href: "/dashboard/messages",
     },
   ];
@@ -152,14 +152,14 @@ export default async function DashboardOverview() {
     { label: "Nouveau partenaire", href: "/admin/collections/partners/create", icon: Handshake, color: "from-amber-500 to-amber-600" },
     { label: "Nouvel article", href: "/admin/collections/news/create", icon: Newspaper, color: "from-brand-blue to-brand-light" },
     { label: "Contenu accueil", href: "/admin/globals/home-content", icon: FileText, color: "from-cyan-500 to-cyan-600" },
-    { label: "Paramètres", href: "/admin/globals/site-settings", icon: Settings, color: "from-slate-500 to-slate-600" },
+    { label: "Paramètres", href: "/admin/globals/site-settings", icon: Settings, color: "from-slate-400 to-slate-500" },
     { label: "Voir le site", href: "/", icon: ExternalLink, color: "from-emerald-500 to-emerald-600", external: true },
   ];
 
   return (
     <div className="p-5 md:p-8 lg:p-10 space-y-8">
       {/* Welcome header */}
-      <header className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl p-6 md:p-8">
+      <header className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm p-6 md:p-8">
         <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-light/10 blur-3xl" />
         <div className="absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-brand-cyan/8 blur-3xl" />
         <div className="relative flex flex-wrap items-center justify-between gap-4">
@@ -179,7 +179,7 @@ export default async function DashboardOverview() {
           <div className="flex items-center gap-2">
             <Link
               href="/dashboard/analytics"
-              className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-2.5 text-sm font-medium text-[var(--text-soft)] transition-all hover:border-brand-light/30 hover:text-brand-light"
+              className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-white/70 px-4 py-2.5 text-sm font-medium text-[var(--text-soft)] transition-all hover:border-blue-300 hover:text-brand-blue"
             >
               <BarChart3 className="h-4 w-4" /> Analytique
             </Link>
@@ -202,7 +202,7 @@ export default async function DashboardOverview() {
             <Link
               key={s.label}
               href={s.href}
-              className="group relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-light/30 hover:shadow-xl hover:shadow-brand-light/5"
+              className="group relative overflow-hidden rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100/50"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${s.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -230,8 +230,8 @@ export default async function DashboardOverview() {
                   <span
                     className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
                       s.deltaType === "up"
-                        ? "bg-emerald-500/10 text-emerald-400"
-                        : "bg-amber-500/10 text-amber-400"
+                        ? "bg-emerald-100 text-emerald-700"
+                        : "bg-amber-100 text-amber-700"
                     }`}
                   >
                     {s.deltaType === "up" && <TrendingUp className="h-3 w-3" />}
@@ -258,7 +258,7 @@ export default async function DashboardOverview() {
                 key={a.label}
                 href={a.href}
                 {...(a.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl px-4 py-2.5 text-sm font-medium text-[var(--text-soft)] transition-all duration-300 hover:border-brand-light/30 hover:text-[var(--text)] hover:shadow-lg hover:shadow-brand-light/5 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-white/70 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-[var(--text-soft)] transition-all duration-300 hover:border-blue-300 hover:text-[var(--text)] hover:shadow-md hover:shadow-blue-100 hover:-translate-y-0.5"
               >
                 <div className={`grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br ${a.color} text-white shadow-md`}>
                   <Icon className="h-3.5 w-3.5" />
@@ -273,15 +273,15 @@ export default async function DashboardOverview() {
       {/* Two-column: Top pages + Recent messages */}
       <div className="grid gap-6 lg:grid-cols-5">
         {/* Top pages */}
-        <section className="lg:col-span-3 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="lg:col-span-3 rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Eye className="h-4 w-4 text-brand-light" />
+              <Eye className="h-4 w-4 text-brand-blue" />
               <h2 className="font-display text-sm font-bold text-[var(--text)]">Pages les plus visitées</h2>
             </div>
             <Link
               href="/dashboard/analytics"
-              className="text-xs font-medium text-brand-light hover:underline"
+              className="text-xs font-medium text-brand-blue hover:underline"
             >
               Tout voir
             </Link>
@@ -297,7 +297,7 @@ export default async function DashboardOverview() {
                   <div key={page}>
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="truncate text-sm font-medium text-[var(--text)]">{page}</span>
-                      <span className="ml-2 shrink-0 rounded-full bg-brand-light/10 px-2.5 py-0.5 text-xs font-semibold text-brand-light tabular-nums">
+                      <span className="ml-2 shrink-0 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-brand-blue tabular-nums">
                         {count}
                       </span>
                     </div>
@@ -315,15 +315,15 @@ export default async function DashboardOverview() {
         </section>
 
         {/* Recent messages */}
-        <section className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Inbox className="h-4 w-4 text-brand-light" />
+              <Inbox className="h-4 w-4 text-brand-blue" />
               <h2 className="font-display text-sm font-bold text-[var(--text)]">Messages récents</h2>
             </div>
             <Link
               href="/dashboard/messages"
-              className="text-xs font-medium text-brand-light hover:underline"
+              className="text-xs font-medium text-brand-blue hover:underline"
             >
               Tout voir
             </Link>
@@ -337,9 +337,9 @@ export default async function DashboardOverview() {
                   <Link
                     key={i}
                     href="/dashboard/messages"
-                    className="flex items-start gap-3 px-6 py-3 transition-colors hover:bg-brand-light/5"
+                    className="flex items-start gap-3 px-6 py-3 transition-colors hover:bg-blue-50/60"
                   >
-                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-light/10 text-brand-light mt-0.5">
+                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-blue-100 text-brand-blue mt-0.5">
                       <Users className="h-3.5 w-3.5" />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -367,15 +367,15 @@ export default async function DashboardOverview() {
       {/* Bottom row: Recent visits + Stats summary */}
       <div className="grid gap-6 lg:grid-cols-5">
         {/* Recent visits */}
-        <section className="lg:col-span-3 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="lg:col-span-3 rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-brand-light" />
+              <Clock className="h-4 w-4 text-brand-blue" />
               <h2 className="font-display text-sm font-bold text-[var(--text)]">Dernières visites</h2>
             </div>
             <Link
               href="/dashboard/analytics"
-              className="text-xs font-medium text-brand-light hover:underline"
+              className="text-xs font-medium text-brand-blue hover:underline"
             >
               Tout voir
             </Link>
@@ -387,7 +387,7 @@ export default async function DashboardOverview() {
               <div className="divide-y divide-[var(--border)]">
                 {visits.map((v, i) => (
                   <div key={i} className="flex items-start gap-3 px-6 py-3 transition-colors hover:bg-brand-light/5">
-                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-light/10 text-brand-light mt-0.5">
+                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-blue-100 text-brand-blue mt-0.5">
                       <Eye className="h-3.5 w-3.5" />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -408,9 +408,9 @@ export default async function DashboardOverview() {
         </section>
 
         {/* Site summary */}
-        <section className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl overflow-hidden">
+        <section className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-white/70 backdrop-blur-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <Star className="h-4 w-4 text-brand-light" />
+            <Star className="h-4 w-4 text-brand-blue" />
             <h2 className="font-display text-sm font-bold text-[var(--text)]">Résumé du site</h2>
           </div>
           <div className="p-6 space-y-4">
