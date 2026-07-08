@@ -13,6 +13,7 @@ import { News } from "./collections/News";
 import { Testimonials } from "./collections/Testimonials";
 import { Submissions } from "./collections/Submissions";
 import { Services } from "./collections/Services";
+import { Visitors } from "./collections/Visitors";
 import { SiteSettings } from "./globals/SiteSettings";
 import { HomeContent } from "./globals/HomeContent";
 import { services as defaultServices } from "./lib/services";
@@ -39,7 +40,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Services, Jobs, Partners, News, Testimonials, Submissions],
+  collections: [Users, Media, Services, Jobs, Partners, News, Testimonials, Submissions, Visitors],
   globals: [SiteSettings, HomeContent],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

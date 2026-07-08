@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/ui/BackToTop";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import StructuredData from "@/components/StructuredData";
+import VisitorTracker from "@/components/VisitorTracker";
 import "./globals.css";
 
 const SITE_URL = "https://www.anyxtech.com";
@@ -92,6 +93,7 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <ScrollProgress />
+        <VisitorTracker />
         <Header />
         {children}
         <Footer />

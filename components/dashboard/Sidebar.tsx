@@ -18,10 +18,12 @@ import {
   LogOut,
   Menu,
   X,
+  BarChart3,
 } from "lucide-react";
 
 const nav = [
   { label: "Vue d'ensemble", href: "/dashboard", icon: LayoutDashboard },
+  { label: "Analytique", href: "/dashboard/analytics", icon: BarChart3 },
   { label: "Contenu de l'accueil", href: "/admin/globals/home-content", icon: FileText },
   { label: "Services", href: "/dashboard/services", icon: Cog },
   { label: "Offres d'emploi", href: "/dashboard/offres", icon: Briefcase },

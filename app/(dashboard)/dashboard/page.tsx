@@ -8,6 +8,8 @@ import {
   Inbox,
   Mail,
   ArrowUpRight,
+  Eye,
+  TrendingUp,
 } from "lucide-react";
 import { getPayloadClient } from "@/lib/payload";
 
@@ -34,7 +36,11 @@ function fmt(d?: string | null) {
 
 export default async function DashboardHome() {
   const payload = await getPayloadClient();
-  const [services, jobs, partners, news, testimonials, messages, unread, recent] =
+
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const [services, jobs, partners, news, testimonials, messages, unread, recent, totalVisits, todayVisits] =
     await Promise.all([
       payload.count({ collection: "services" }),
       payload.count({ collection: "jobs" }),
@@ -44,10 +50,14 @@ export default async function DashboardHome() {
       payload.count({ collection: "submissions" }),
       payload.count({ collection: "submissions", where: { handled: { not_equals: true } } }),
       payload.find({ collection: "submissions", sort: "-createdAt", limit: 6, depth: 0 }),
+      payload.count({ collection: "visitors" }),
+      payload.count({ collection: "visitors", where: { createdAt: { greater_than: todayStart.toISOString() } } }),
     ]);
   const recentMsgs = recent.docs as unknown as Submission[];
 
   const stats = [
+    { icon: Eye, label: "Visites totales", value: totalVisits.totalDocs, color: "from-cyan-500 to-blue-400", href: "/dashboard/analytics" },
+    { icon: TrendingUp, label: "Aujourd'hui", value: todayVisits.totalDocs, color: "from-emerald-500 to-teal-400", href: "/dashboard/analytics" },
     { icon: Cog, label: "Services", value: services.totalDocs, color: "from-sky-500 to-cyan-400", href: "/dashboard/services" },
     { icon: Briefcase, label: "Offres", value: jobs.totalDocs, color: "from-indigo-500 to-blue-500", href: "/dashboard/offres" },
     { icon: Handshake, label: "Partenaires", value: partners.totalDocs, color: "from-emerald-500 to-teal-400", href: "/dashboard/partenaires" },
@@ -60,11 +70,10 @@ export default async function DashboardHome() {
     <div className="p-5 md:p-8 lg:p-10">
       <header className="mb-8">
         <h1 className="font-display text-2xl font-bold sm:text-3xl">Vue d&apos;ensemble</h1>
-        <p className="mt-1 text-soft">Bienvenue sur votre espace de gestion AnyxTech 👋</p>
+        <p className="mt-1 text-soft">Bienvenue sur votre espace de gestion AnyxTech</p>
       </header>
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-4">
         {stats.map((s) => {
           const Icon = s.icon;
           return (
@@ -90,7 +99,6 @@ export default async function DashboardHome() {
         })}
       </div>
 
-      {/* Derniers messages */}
       <section className="mt-8">
         <div className="flex items-center justify-between">
           <h2 className="font-display text-xl font-bold">Derniers messages</h2>

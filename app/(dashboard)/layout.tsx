@@ -19,7 +19,7 @@ export default async function DashboardLayout({
   if (!user) redirect("/admin");
 
   return (
-    <html lang="fr" className={`${poppins.variable} ${spaceGrotesk.variable}`}>
+    <html lang="fr" className={`dark ${poppins.variable} ${spaceGrotesk.variable}`}>
       <body className="bg-soft font-sans">
         <Sidebar email={user.email as string | undefined} />
         <main className="min-h-screen pt-16 lg:pl-64 lg:pt-0">{children}</main>
