@@ -462,3 +462,301 @@ body::after {
     }
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANYXTECH ADMIN — GLASSMORPHIC DASHBOARD MODEL STYLES
+   Applied to the Payload admin dashboard for enhanced UX
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Aurora background ── */
+.dashboard::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+  &::before {
+    content: '';
+  }
+}
+
+/* ── Stat cards in dashboard ── */
+.dashboard .card--clickable,
+.dashboard .card {
+  &:hover {
+    border-color: rgba(29, 185, 255, 0.3) !important;
+  }
+}
+
+/* ── Collection edit view enhancements ── */
+.field-type-text,
+.field-type-textarea,
+.field-type-number,
+.field-type-email,
+.field-type-select {
+  .field-input,
+  .text-input,
+  .textarea,
+  .select {
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+
+    &:hover {
+      border-color: rgba(148, 163, 184, 0.2) !important;
+    }
+
+    &:focus,
+    &:focus-within {
+      border-color: rgba(29, 185, 255, 0.5) !important;
+      box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12), 0 4px 12px -4px rgba(29, 185, 255, 0.15) !important;
+    }
+  }
+}
+
+/* ── Rich text editor container ── */
+.field-type-richtext {
+  .tiptap,
+  .ProseMirror {
+    background: rgba($ink-700, 0.6) !important;
+    border: 1px solid rgba(148, 163, 184, 0.12) !important;
+    border-radius: 10px !important;
+    color: var(--theme-elevation-800) !important;
+    transition: all 0.25s ease !important;
+
+    &:focus,
+    &:focus-within {
+      border-color: rgba(29, 185, 255, 0.5) !important;
+      box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12) !important;
+    }
+  }
+}
+
+/* ── Upload / file field ── */
+.field-type-upload {
+  .upload-provider {
+    background: rgba($ink-700, 0.5) !important;
+    border: 1px dashed rgba(148, 163, 184, 0.2) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      border-color: rgba(29, 185, 255, 0.4) !important;
+      background: rgba(29, 185, 255, 0.04) !important;
+    }
+  }
+}
+
+/* ── Relationship field ── */
+.field-type-relationship {
+  .rs__control {
+    background: rgba($ink-700, 0.7) !important;
+    border: 1px solid rgba(148, 163, 184, 0.12) !important;
+    border-radius: 10px !important;
+    transition: all 0.25s ease !important;
+
+    &:hover {
+      border-color: rgba(148, 163, 184, 0.2) !important;
+    }
+
+    &:focus-within {
+      border-color: rgba(29, 185, 255, 0.5) !important;
+      box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12) !important;
+    }
+  }
+
+  .rs__menu {
+    background: rgba($ink-600, 0.95) !important;
+    border: 1px solid rgba(148, 163, 184, 0.1) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.5) !important;
+
+    [class*="option"] {
+      transition: all 0.15s ease !important;
+
+      &:hover {
+        background: rgba(29, 185, 255, 0.1) !important;
+      }
+    }
+  }
+}
+
+/* ── Array / repeater field rows ── */
+.field-type-array {
+  .array-field {
+    border-color: rgba(148, 163, 184, 0.08) !important;
+
+    &:hover {
+      border-color: rgba(29, 185, 255, 0.2) !important;
+    }
+  }
+
+  .array-actions {
+    button {
+      transition: all 0.2s ease !important;
+    }
+  }
+}
+
+/* ── Tabs ── */
+.tabs {
+  .tabs-tab-wrap {
+    .tabs-tab {
+      color: var(--theme-elevation-500) !important;
+      transition: all 0.25s ease !important;
+      border-radius: 8px 8px 0 0 !important;
+      position: relative;
+
+      &:hover {
+        color: $brand-light !important;
+      }
+
+      &--active {
+        color: $brand-light !important;
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, $brand, $brand-light);
+          border-radius: 2px 2px 0 0;
+        }
+      }
+    }
+  }
+}
+
+/* ── Save / publish button area ── */
+.doc-controls {
+  background: rgba($ink-800, 0.8) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(148, 163, 184, 0.08) !important;
+}
+
+/* ── Sidebar bottom user area ── */
+.nav__footer {
+  background: rgba($ink-800, 0.6) !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.08) !important;
+}
+
+/* ── Pagination ── */
+.pagination {
+  button {
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+
+    &:hover {
+      background: rgba(29, 185, 255, 0.1) !important;
+    }
+
+    &.active {
+      background: linear-gradient(135deg, $brand, $brand-light) !important;
+      color: #fff !important;
+    }
+  }
+}
+
+/* ── Search input in header ── */
+.header .search {
+  background: rgba($ink-700, 0.6) !important;
+  border: 1px solid rgba(148, 163, 184, 0.1) !important;
+  border-radius: 10px !important;
+  transition: all 0.25s ease !important;
+
+  &:focus-within {
+    border-color: rgba(29, 185, 255, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.08) !important;
+  }
+
+  input {
+    color: var(--theme-elevation-800) !important;
+
+    &::placeholder {
+      color: var(--theme-elevation-400) !important;
+    }
+  }
+}
+
+/* ── Step / progress indicator ── */
+.step-list {
+  .step {
+    border-color: rgba(148, 163, 184, 0.08) !important;
+
+    &--has-many-errors {
+      border-color: rgba(239, 68, 68, 0.3) !important;
+    }
+  }
+}
+
+/* ── API endpoint view ── */
+.code-editor {
+  background: rgba($ink-900, 0.8) !important;
+  border: 1px solid rgba(148, 163, 184, 0.08) !important;
+  border-radius: 10px !important;
+}
+
+/* ── Skeleton loading ── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba($ink-700, 0.5) 25%,
+    rgba($ink-600, 0.5) 50%,
+    rgba($ink-700, 0.5) 75%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: shimmer-loading 1.5s ease-in-out infinite !important;
+  border-radius: 8px !important;
+}
+
+@keyframes shimmer-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Global aurora ambient glow ── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(31, 66, 155, 0.12), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: admin-orb-drift 20s ease-in-out infinite;
+}
+
+@keyframes admin-orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, 30px) scale(1.05); }
+  66% { transform: translate(-20px, 50px) scale(0.95); }
+}
+
+/* ── Pill badges in collection lists ── */
+.table .pill,
+.pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Action bar / breadcrumb styling ── */
+.action-bar,
+.breadcrumb {
+  a, button {
+    transition: all 0.2s ease !important;
+  }
+}
