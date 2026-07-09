@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { autoSlugHook } from "../lib/slugify";
 
 export const News: CollectionConfig = {
   slug: "news",
@@ -9,6 +10,7 @@ export const News: CollectionConfig = {
     group: "Contenu",
   },
   access: { read: () => true },
+  hooks: { beforeValidate: [autoSlugHook("title")] },
   fields: [
     { name: "title", type: "text", label: "Titre", required: true },
     {

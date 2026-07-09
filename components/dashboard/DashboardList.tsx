@@ -18,6 +18,8 @@ export default function DashboardList({
   path,
   addLabel = "Ajouter",
   emptyText = "Aucun élément pour le moment.",
+  createHref,
+  editHref,
 }: {
   title: string;
   description?: string;
@@ -26,8 +28,13 @@ export default function DashboardList({
   path: string;
   addLabel?: string;
   emptyText?: string;
+  /** Si fourni, "Ajouter" pointe vers un formulaire natif du dashboard plutôt que vers /admin. */
+  createHref?: string;
+  /** Si fourni, "Modifier" pointe vers un formulaire natif du dashboard plutôt que vers /admin. */
+  editHref?: (id: string) => string;
 }) {
   const editBase = `/admin/collections/${collection}`;
+  const addUrl = createHref ?? `${editBase}/create`;
 
   return (
     <div className="p-5 md:p-8 lg:p-10">
@@ -36,7 +43,7 @@ export default function DashboardList({
           <h1 className="font-display text-2xl font-bold sm:text-3xl">{title}</h1>
           {description && <p className="mt-1 text-soft">{description}</p>}
         </div>
-        <a href={`${editBase}/create`} className="btn-primary text-sm">
+        <a href={addUrl} className="btn-primary text-sm">
           <Plus className="h-4 w-4" /> {addLabel}
         </a>
       </header>
@@ -44,7 +51,7 @@ export default function DashboardList({
       {items.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--card)] p-12 text-center">
           <p className="text-soft">{emptyText}</p>
-          <a href={`${editBase}/create`} className="btn-primary mt-5 text-sm">
+          <a href={addUrl} className="btn-primary mt-5 text-sm">
             <Plus className="h-4 w-4" /> {addLabel}
           </a>
         </div>
@@ -71,7 +78,7 @@ export default function DashboardList({
                 </div>
                 <div className="flex items-center gap-1">
                   <a
-                    href={`${editBase}/${it.id}`}
+                    href={editHref ? editHref(it.id) : `${editBase}/${it.id}`}
                     className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-brand-blue transition-colors hover:bg-brand-light/10 dark:text-brand-light"
                   >
                     <Pencil className="h-3.5 w-3.5" /> Modifier

@@ -20,7 +20,7 @@ export default async function DashboardLayout({
 
   return (
     <html lang="fr" className={`${poppins.variable} ${spaceGrotesk.variable}`}>
-      <body className="bg-soft font-sans">
+      <body className="bg-soft font-sans" suppressHydrationWarning>
         <Sidebar email={user.email as string | undefined} />
         <main className="min-h-screen pt-16 lg:pl-64 lg:pt-0">{children}</main>
       </body>

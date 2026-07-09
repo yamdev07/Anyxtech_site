@@ -22,6 +22,8 @@ export default async function Page() {
       collection="news"
       path="/dashboard/actualites"
       addLabel="Nouvel article"
+      createHref="/dashboard/actualites/nouvel-article"
+      editHref={(id) => `/dashboard/actualites/${id}`}
     />
   );
 }

@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { iconNames, colorPresets } from "../lib/services";
+import { autoSlugHook } from "../lib/slugify";
 
 export const Services: CollectionConfig = {
   slug: "services",
@@ -10,6 +11,7 @@ export const Services: CollectionConfig = {
     group: "Contenu",
   },
   access: { read: () => true },
+  hooks: { beforeValidate: [autoSlugHook("title")] },
   fields: [
     { name: "title", type: "text", label: "Titre", required: true },
     { name: "slug", type: "text", label: "Identifiant d'URL", admin: { position: "sidebar" } },
