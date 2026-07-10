@@ -33,10 +33,10 @@ export default async function DashboardLayout({
           />
           <div className="aurora-mesh pointer-events-none fixed inset-0 z-0" />
           <Sidebar email={user.email as string | undefined} />
-          <main className="relative z-10 min-h-screen pt-16 pb-20 lg:pl-64 lg:pt-0">
+          <main className="relative z-10 min-h-screen pt-16 lg:pl-64 lg:pt-0">
             {children}
           </main>
-          <DashboardFooter />
+          <DashboardFooter email={user.email as string | undefined} />
         </ThemeProvider>
       </body>
     </html>
