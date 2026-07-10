@@ -74,27 +74,80 @@
   color: #4F46E5;
 }
 
-.dashboard-light .dash-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-.dashboard-light .dash-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: rgba(79, 70, 229, 0.2);
-}
-.dashboard-light .dash-card::before {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), transparent 40%, transparent 60%, rgba(129, 140, 248, 0.2));
+
+
+/* ============================================================
+   LIGHT MODE — override hardcoded dark Tailwind utility classes
+   used inside dash-card, dash-stat, and sidebar areas.
+   Server components cannot use useTheme(), so we apply CSS here.
+   ============================================================ */
+
+/* text-white → dark slate in light mode */
+.dashboard-light .dash-card .text-white,
+.dashboard-light .dash-stat .text-white,
+.dashboard-light .dash-card h1,
+.dashboard-light .dash-card h2,
+.dashboard-light .dash-card h3,
+.dashboard-light .dash-stat h1,
+.dashboard-light .dash-stat h2,
+.dashboard-light .dash-stat h3 {
+  color: #0F172A;
 }
 
-.dashboard-light .dash-stat {
-  background: #FFFFFF;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+/* Stat value numbers */
+.dashboard-light .dash-stat .text-white.tabular-nums {
+  color: #0F172A;
 }
-.dashboard-light .dash-stat:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: rgba(79, 70, 229, 0.2);
+
+/* text-gray-400 → gray-600 in light mode for better contrast */
+.dashboard-light .dash-card .text-gray-400,
+.dashboard-light .dash-stat .text-gray-400 {
+  color: #4B5563;
+}
+
+/* Dividers: divide-white/10 → gray-100 */
+.dashboard-light .dash-card .divide-y > * + * {
+  border-top-color: rgba(15, 23, 42, 0.07);
+}
+
+/* Card section header separators: border-white/10 → gray-100 */
+.dashboard-light .dash-card > div[class*="border-b"],
+.dashboard-light .dash-card > section > div[class*="border-b"] {
+  border-bottom-color: rgba(15, 23, 42, 0.07);
+}
+
+/* Progress bar track: bg-white/5 → gray-100 */
+.dashboard-light .dash-card .bg-white\/5,
+.dashboard-light .dash-stat .bg-white\/5 {
+  background-color: #F1F5F9;
+}
+
+/* IP badge: bg-white/10 → gray-100 */
+.dashboard-light .dash-card .bg-white\/10 {
+  background-color: #EFF6FF;
+  color: #3730A3;
+}
+
+/* Hover rows inside cards */
+.dashboard-light .dash-card a:hover,
+.dashboard-light .dash-card div[class*="hover:bg-white/5"]:hover {
+  background-color: rgba(79, 70, 229, 0.04);
+}
+
+/* Message item divider & actions bar */
+.dashboard-light article.dash-card > div[class*="border-b"],
+.dashboard-light article.dash-card > div[class*="border-t"] {
+  border-color: rgba(15, 23, 42, 0.07);
+}
+.dashboard-light article.dash-card > div[class*="bg-white/[0.02]"] {
+  background-color: #F8FAFC;
+}
+
+/* Message item: message body bubble */
+.dashboard-light article.dash-card .whitespace-pre-wrap {
+  background-color: #F1F5F9;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #374151;
 }
 
 .dashboard-light .dash-hero {
@@ -190,6 +243,18 @@
     0 0 0 1px rgba(79, 70, 229, 0.2);
 }
 
+/* Dashboard card — light mode */
+.dashboard-light .dash-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.08);
+}
+.dashboard-light .dash-card:hover {
+  box-shadow:
+    0 20px 50px -12px rgba(79, 70, 229, 0.12),
+    0 0 0 1px rgba(79, 70, 229, 0.15);
+}
+
 /* Dashboard stat card — bolder variant (dark) */
 .dash-stat {
   position: relative;
@@ -224,12 +289,31 @@
     0 0 0 1px rgba(79, 70, 229, 0.25);
 }
 
+/* Stat card — light mode */
+.dashboard-light .dash-stat {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.06);
+}
+.dashboard-light .dash-stat:hover {
+  box-shadow:
+    0 25px 60px -15px rgba(79, 70, 229, 0.14),
+    0 0 0 1px rgba(79, 70, 229, 0.2);
+}
+
 /* Sidebar glass (dark) */
 .sidebar-glass {
   background: rgba(19, 21, 26, 0.95);
   -webkit-backdrop-filter: blur(24px) saturate(1.6);
   backdrop-filter: blur(24px) saturate(1.6);
   border-right: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Sidebar glass — light mode */
+.dashboard-light .sidebar-glass {
+  background: rgba(255, 255, 255, 0.97);
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 4px 0 24px -4px rgba(15, 23, 42, 0.06);
 }
 
 /* Sidebar nav pill (dark) */
@@ -350,12 +434,15 @@
   box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.4);
 }
 
-.dashboard-dark a {
+/* Scope link color overrides to non-button, non-interactive links inside dashboard */
+.dashboard-dark .dash-card a:not([class]),
+.dashboard-dark .dash-stat a:not([class]) {
   color: var(--brand-light);
 }
 
-.dashboard-dark a:hover {
-  color: #A5B4FC;
+.dashboard-light .dash-card a:not([class]),
+.dashboard-light .dash-stat a:not([class]) {
+  color: #4F46E5;
 }
 
 @layer base {

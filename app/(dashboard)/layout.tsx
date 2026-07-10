@@ -24,8 +24,8 @@ export default async function DashboardLayout({
   const settings = await getSiteSettings();
 
   return (
-    <html lang="fr" className={`dashboard-dark ${poppins.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
-      <body className="bg-[#13151A] font-sans">
+    <html lang="fr" className={`${poppins.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+      <body className="font-sans transition-colors duration-300">
         <ThemeProvider>
           <div className="fixed inset-x-0 top-0 z-[60] h-[3px]"
             style={{

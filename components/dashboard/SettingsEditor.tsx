@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Loader2, Save, ArrowLeft, Settings } from "lucide-react";
 import Link from "next/link";
 import { saveGlobal } from "@/lib/dashboard-actions";
+import { useTheme } from "@/components/dashboard/ThemeProvider";
 
 interface SettingsData {
   tagline?: string;
@@ -24,6 +25,8 @@ interface SettingsData {
 
 export default function SettingsEditor({ initial }: { initial: SettingsData }) {
   const router = useRouter();
+  const { resolvedTheme } = useTheme();
+  const dark = resolvedTheme === "dark";
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [data, setData] = useState(initial);
@@ -46,7 +49,12 @@ export default function SettingsEditor({ initial }: { initial: SettingsData }) {
     }
   }
 
-  const inputClass = "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-indigo-400/50 focus:ring-2 focus:ring-indigo-400/20 outline-none transition-all";
+  const inputClass = dark
+    ? "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-indigo-400/50 focus:ring-2 focus:ring-indigo-400/20 outline-none transition-all"
+    : "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 outline-none transition-all";
+
+  const labelClass = dark ? "block text-sm font-medium text-gray-300 mb-2" : "block text-sm font-medium text-gray-600 mb-2";
+  const headingClass = `font-display text-sm font-bold ${dark ? "text-white" : "text-gray-900"}`;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -63,14 +71,14 @@ export default function SettingsEditor({ initial }: { initial: SettingsData }) {
             <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
               <Settings className="h-3.5 w-3.5" />
             </div>
-            <h3 className="font-display text-sm font-bold text-white">Identité</h3>
+            <h3 className={headingClass}>Identité</h3>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Slogan</label>
+            <label className={labelClass}>Slogan</label>
             <input type="text" value={data.tagline || ""} onChange={(e) => set("tagline", e.target.value)} className={inputClass} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Description (pied de page)</label>
+            <label className={labelClass}>Description (pied de page)</label>
             <textarea value={data.description || ""} onChange={(e) => set("description", e.target.value)} rows={3} className={inputClass + " resize-y"} />
           </div>
         </section>
@@ -81,32 +89,32 @@ export default function SettingsEditor({ initial }: { initial: SettingsData }) {
             <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
             </div>
-            <h3 className="font-display text-sm font-bold text-white">Coordonnées</h3>
+            <h3 className={headingClass}>Coordonnées</h3>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Téléphone</label>
+              <label className={labelClass}>Téléphone</label>
               <input type="text" value={data.phone || ""} onChange={(e) => set("phone", e.target.value)} className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Lien tel:</label>
+              <label className={labelClass}>Lien tel:</label>
               <input type="text" value={data.phoneHref || ""} onChange={(e) => set("phoneHref", e.target.value)} className={inputClass} />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
+            <label className={labelClass}>Email</label>
             <input type="email" value={data.email || ""} onChange={(e) => set("email", e.target.value)} className={inputClass} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">WhatsApp</label>
+            <label className={labelClass}>WhatsApp</label>
             <input type="text" value={data.whatsapp || ""} onChange={(e) => set("whatsapp", e.target.value)} className={inputClass} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Adresse</label>
+            <label className={labelClass}>Adresse</label>
             <textarea value={data.address || ""} onChange={(e) => set("address", e.target.value)} rows={2} className={inputClass + " resize-y"} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Horaires</label>
+            <label className={labelClass}>Horaires</label>
             <input type="text" value={data.hours || ""} onChange={(e) => set("hours", e.target.value)} className={inputClass} />
           </div>
         </section>
@@ -117,23 +125,23 @@ export default function SettingsEditor({ initial }: { initial: SettingsData }) {
             <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" /><path strokeLinecap="round" strokeLinejoin="round" d="M10.172 13.828a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
             </div>
-            <h3 className="font-display text-sm font-bold text-white">Réseaux sociaux</h3>
+            <h3 className={headingClass}>Réseaux sociaux</h3>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Facebook</label>
+              <label className={labelClass}>Facebook</label>
               <input type="text" value={data.facebook || ""} onChange={(e) => set("facebook", e.target.value)} className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Twitter / X</label>
+              <label className={labelClass}>Twitter / X</label>
               <input type="text" value={data.twitter || ""} onChange={(e) => set("twitter", e.target.value)} className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">LinkedIn</label>
+              <label className={labelClass}>LinkedIn</label>
               <input type="text" value={data.linkedin || ""} onChange={(e) => set("linkedin", e.target.value)} className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Instagram</label>
+              <label className={labelClass}>Instagram</label>
               <input type="text" value={data.instagram || ""} onChange={(e) => set("instagram", e.target.value)} className={inputClass} />
             </div>
           </div>
