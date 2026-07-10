@@ -42,7 +42,7 @@ export default async function ParametresPage() {
           <div className="flex items-center gap-2">
             <Link
               href="/dashboard/settings"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <Pencil className="h-4 w-4" /> Modifier
             </Link>
