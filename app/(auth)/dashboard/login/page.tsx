@@ -6,7 +6,6 @@ import { Loader2, Lock, Mail, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import { login } from "@/lib/dashboard-actions";
 import { useTheme } from "@/components/dashboard/ThemeProvider";
-import DashboardFooter from "@/components/dashboard/DashboardFooter";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -122,10 +121,6 @@ export default function LoginPage() {
             </button>
           </form>
         </div>
-      </div>
-
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pb-6 pt-2">
-        <DashboardFooter noSidebar />
       </div>
     </div>
   );

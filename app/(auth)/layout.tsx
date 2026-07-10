@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { poppins, spaceGrotesk } from "@/lib/fonts";
+import { getSiteSettings } from "@/lib/settings";
 import ThemeProvider from "@/components/dashboard/ThemeProvider";
+import DashboardFooter from "@/components/dashboard/DashboardFooter";
 import "../(frontend)/globals.css";
 
 export const metadata: Metadata = {
@@ -8,11 +10,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function AuthLayout({
+export default async function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const settings = await getSiteSettings();
+
   return (
     <html lang="fr" className={`dashboard-dark ${poppins.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body className="bg-[#13151A] font-sans">
@@ -25,7 +29,21 @@ export default function AuthLayout({
             }}
           />
           <div className="aurora-mesh pointer-events-none fixed inset-0 z-0" />
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <div className="flex-1">
+              {children}
+            </div>
+            <DashboardFooter
+              noSidebar
+              isAuth
+              contact={{
+                phone: settings.phone,
+                email: settings.email,
+                address: settings.addressShort || settings.address,
+                hours: settings.hours,
+              }}
+            />
+          </div>
         </ThemeProvider>
       </body>
     </html>

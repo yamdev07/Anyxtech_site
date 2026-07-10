@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { poppins, spaceGrotesk } from "@/lib/fonts";
 import { getAdminUser } from "@/lib/admin";
+import { getSiteSettings } from "@/lib/settings";
 import Sidebar from "@/components/dashboard/Sidebar";
 import ThemeProvider from "@/components/dashboard/ThemeProvider";
 import DashboardFooter from "@/components/dashboard/DashboardFooter";
@@ -20,6 +21,8 @@ export default async function DashboardLayout({
   const user = await getAdminUser();
   if (!user) redirect("/dashboard/login");
 
+  const settings = await getSiteSettings();
+
   return (
     <html lang="fr" className={`dashboard-dark ${poppins.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body className="bg-[#13151A] font-sans">
@@ -36,7 +39,15 @@ export default async function DashboardLayout({
           <main className="relative z-10 min-h-screen pt-16 lg:pl-64 lg:pt-0">
             {children}
           </main>
-          <DashboardFooter email={user.email as string | undefined} />
+          <DashboardFooter
+            email={user.email as string | undefined}
+            contact={{
+              phone: settings.phone,
+              email: settings.email,
+              address: settings.addressShort || settings.address,
+              hours: settings.hours,
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>
