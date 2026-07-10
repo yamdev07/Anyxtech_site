@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { autoSlugHook } from "../lib/slugify";
+import { isAdmin } from "../lib/access";
 
 export const News: CollectionConfig = {
   slug: "news",
@@ -9,7 +10,7 @@ export const News: CollectionConfig = {
     defaultColumns: ["title", "status", "publishedAt"],
     group: "Contenu",
   },
-  access: { read: () => true },
+  access: { read: () => true, create: isAdmin, update: isAdmin, delete: isAdmin },
   hooks: { beforeValidate: [autoSlugHook("title")] },
   fields: [
     { name: "title", type: "text", label: "Titre", required: true },

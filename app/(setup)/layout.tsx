@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SetupLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${poppins.variable} ${spaceGrotesk.variable}`}>
+    <html lang="fr" className={`dark ${poppins.variable} ${spaceGrotesk.variable}`}>
       <body className="bg-soft font-sans" suppressHydrationWarning>{children}</body>
     </html>
   );

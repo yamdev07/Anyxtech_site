@@ -1,10 +1,11 @@
 import type { CollectionConfig } from "payload";
+import { isAdmin } from "../lib/access";
 
 export const Testimonials: CollectionConfig = {
   slug: "testimonials",
   labels: { singular: "Témoignage", plural: "Témoignages" },
   admin: { useAsTitle: "author", defaultColumns: ["author", "company", "featured"], group: "Contenu" },
-  access: { read: () => true },
+  access: { read: () => true, create: isAdmin, update: isAdmin, delete: isAdmin },
   fields: [
     { name: "author", type: "text", label: "Auteur", required: true },
     { name: "role", type: "text", label: "Fonction" },

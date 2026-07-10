@@ -27,7 +27,7 @@ export default async function Partners() {
           Ils nous font confiance
         </p>
         <div className="mt-3 text-center">
-          <AdminEdit href="/admin/collections/partners" label="Gérer les partenaires" />
+          <AdminEdit href="/dashboard/partenaires" label="Gérer les partenaires" />
         </div>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
           {partners.map((p) => {

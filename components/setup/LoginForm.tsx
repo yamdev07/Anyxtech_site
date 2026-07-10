@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Mail, User, Lock, ArrowRight } from "lucide-react";
-import { createFirstAdmin } from "@/lib/setup-actions";
+import { Mail, Lock, ArrowRight } from "lucide-react";
+import { loginAdmin } from "@/lib/login-actions";
 
-export default function SetupForm() {
+export default function LoginForm() {
   const router = useRouter();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -14,7 +14,7 @@ export default function SetupForm() {
   async function handleSubmit(formData: FormData) {
     setPending(true);
     setError(null);
-    const result = await createFirstAdmin(formData);
+    const result = await loginAdmin(formData);
     if (result.ok) {
       router.push("/dashboard");
       router.refresh();
@@ -26,7 +26,6 @@ export default function SetupForm() {
 
   const fieldWrap = "relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 transition-all focus-within:border-brand-light/60 focus-within:bg-white/[0.06] focus-within:shadow-[0_0_0_3px_rgba(29,185,255,0.15)]";
   const fieldInput = "w-full border-none bg-transparent p-0 text-[15px] text-white placeholder:text-white/35 outline-none";
-  const fieldLabel = "mb-2 block text-xs font-semibold uppercase tracking-wider text-white/50";
 
   return (
     <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[#0b1120] p-8 shadow-[0_30px_80px_-20px_rgba(29,185,255,0.18)] sm:p-10">
@@ -38,43 +37,38 @@ export default function SetupForm() {
           height={50}
           className="mb-6 h-12 w-auto object-contain"
         />
-        <h1 className="font-display text-[26px] font-bold leading-tight text-white">Bienvenue sur AnyxTech</h1>
-        <p className="mt-2 text-[15px] leading-relaxed text-white/50">
-          Créez votre compte administrateur pour commencer à gérer votre site.
-        </p>
+        <h1 className="font-display text-[26px] font-bold leading-tight text-white">Espace administrateur</h1>
+        <p className="mt-2 text-[15px] text-white/50">Connectez-vous pour gérer votre site.</p>
       </div>
 
       <form action={handleSubmit} className="space-y-4">
         <div>
-          <label className={fieldLabel}>Email</label>
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-white/50">Email</label>
           <div className={fieldWrap}>
             <Mail className="h-[18px] w-[18px] shrink-0 text-white/35" />
-            <input name="email" type="email" required autoComplete="email" placeholder="vous@anyxtech.com" className={fieldInput} />
+            <input
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="vous@anyxtech.com"
+              className={fieldInput}
+            />
           </div>
         </div>
 
         <div>
-          <label className={fieldLabel}>Nom</label>
-          <div className={fieldWrap}>
-            <User className="h-[18px] w-[18px] shrink-0 text-white/35" />
-            <input name="name" autoComplete="name" placeholder="Votre nom" className={fieldInput} />
-          </div>
-        </div>
-
-        <div>
-          <label className={fieldLabel}>Mot de passe</label>
-          <div className={fieldWrap}>
-            <Lock className="h-[18px] w-[18px] shrink-0 text-white/35" />
-            <input name="password" type="password" required minLength={8} autoComplete="new-password" placeholder="••••••••" className={fieldInput} />
-          </div>
-          <p className="mt-1.5 text-xs text-white/35">8 caractères minimum.</p>
-        </div>
-
-        <div>
-          <label className={fieldLabel}>Confirmer le mot de passe</label>
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-white/50">Mot de passe</label>
           <div className={fieldWrap}>
             <Lock className="h-[18px] w-[18px] shrink-0 text-white/35" />
-            <input name="confirmPassword" type="password" required minLength={8} autoComplete="new-password" placeholder="••••••••" className={fieldInput} />
+            <input
+              name="password"
+              type="password"
+              required
+              autoComplete="current-password"
+              placeholder="••••••••"
+              className={fieldInput}
+            />
           </div>
         </div>
 
@@ -85,7 +79,7 @@ export default function SetupForm() {
           disabled={pending}
           className="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light py-3.5 text-[15px] font-semibold text-white shadow-[0_16px_36px_-12px_rgba(29,185,255,0.55)] transition-all hover:brightness-110 disabled:opacity-60"
         >
-          {pending ? "Création du compte..." : "Créer mon compte"}
+          {pending ? "Connexion..." : "Se connecter"}
           {!pending && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />}
         </button>
       </form>

@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { autoSlugHook } from "../lib/slugify";
+import { isAdmin } from "../lib/access";
 
 export const Jobs: CollectionConfig = {
   slug: "jobs",
@@ -9,7 +10,7 @@ export const Jobs: CollectionConfig = {
     defaultColumns: ["title", "location", "type", "status"],
     group: "Contenu",
   },
-  access: { read: () => true },
+  access: { read: () => true, create: isAdmin, update: isAdmin, delete: isAdmin },
   hooks: { beforeValidate: [autoSlugHook("title")] },
   fields: [
     { name: "title", type: "text", label: "Intitulé du poste", required: true },

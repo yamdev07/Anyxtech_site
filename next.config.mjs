@@ -4,6 +4,9 @@ import { withPayload } from "@payloadcms/next/withPayload";
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    // Contournement temporaire : "sharp" pose problème sous Windows sur cette
+    // machine (erreur ERR_DLOPEN_FAILED). À retirer une fois sharp réparé.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
