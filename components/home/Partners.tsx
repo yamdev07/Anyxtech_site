@@ -37,9 +37,9 @@ export default async function Partners() {
               <Image
                 src={logoUrl}
                 alt={p.name}
-                width={150}
-                height={48}
-                className="h-10 w-auto object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                width={220}
+                height={88}
+                className="h-16 w-auto object-contain opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:h-20"
               />
             ) : (
               <span className="font-display text-xl font-bold text-soft transition-colors hover:text-brand-light">

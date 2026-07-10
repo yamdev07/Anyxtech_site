@@ -1,4 +1,5 @@
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import { buildConfig } from "payload";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
@@ -137,6 +138,35 @@ export default buildConfig({
       }
     } catch (e) {
       payload.logger.error("Seed échoué : " + (e as Error).message);
+    }
+
+    // Partenaire BCG (Sénégal) : créé automatiquement si le logo est présent
+    // et qu'il n'existe pas déjà. Déposez le logo dans public/images/bcg.png.
+    try {
+      const bcgLogo = path.resolve(dirname, "public/images/bcg.png");
+      const existing = await payload.count({
+        collection: "partners",
+        where: { name: { equals: "Benga Consulting Group" } },
+      });
+      if (existing.totalDocs === 0 && fs.existsSync(bcgLogo)) {
+        const media = await payload.create({
+          collection: "media",
+          filePath: bcgLogo,
+          data: { alt: "Benga Consulting Group" },
+        });
+        await payload.create({
+          collection: "partners",
+          data: {
+            name: "Benga Consulting Group",
+            description: "Partenaire au Sénégal",
+            logo: media.id,
+            order: 1,
+          },
+        });
+        payload.logger.info("Seed : partenaire BCG créé.");
+      }
+    } catch (e) {
+      payload.logger.error("Seed partenaire BCG échoué : " + (e as Error).message);
     }
   },
 });
