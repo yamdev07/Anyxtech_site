@@ -48,7 +48,7 @@ export default async function MessagesPage() {
 
       {messages.length === 0 ? (
         <div className="dash-card p-12 text-center">
-          <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-500/10 text-rose-400">
+          <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500/20 to-indigo-400/10 text-indigo-400">
             <Inbox className="h-8 w-8" />
           </div>
           <p className="mt-4 text-sm font-medium text-gray-400">Aucun message pour le moment.</p>

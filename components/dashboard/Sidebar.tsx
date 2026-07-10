@@ -176,7 +176,7 @@ export default function Sidebar({ email }: { email?: string | null }) {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-indigo-400 text-sm font-bold text-white shadow-lg shadow-indigo-500/25">
                 {userInitial}
               </div>
-              <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#13151A] bg-emerald-400" />
+              <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#13151A] bg-indigo-400" />
             </div>
             <div className="min-w-0 flex-1">
               <div className="truncate text-[13px] font-semibold text-white">{email || "Admin"}</div>
