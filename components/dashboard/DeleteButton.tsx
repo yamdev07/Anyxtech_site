@@ -45,7 +45,7 @@ export default function DeleteButton({
       className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
         confirm
           ? "bg-red-500 text-white shadow-md shadow-red-500/20"
-          : "border border-[var(--border)] bg-white/60 text-slate-400 hover:border-red-300 hover:bg-red-50 hover:text-red-500"
+          : "border border-white/10 bg-white/5 text-gray-500 hover:border-red-400/40 hover:bg-red-500/10 hover:text-red-400"
       }`}
     >
       {pending ? (

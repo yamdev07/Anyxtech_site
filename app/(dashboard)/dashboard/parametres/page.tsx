@@ -9,17 +9,17 @@ export default async function ParametresPage() {
   const s = await getSiteSettings();
 
   const coords = [
-    { icon: Phone, label: "Téléphone", value: s.phone, gradient: "from-brand-blue to-brand-light" },
-    { icon: Mail, label: "Email", value: s.email, gradient: "from-cyan-400 to-cyan-600" },
-    { icon: MapPin, label: "Adresse", value: s.address, gradient: "from-rose-400 to-rose-600" },
-    { icon: Clock, label: "Horaires", value: s.hours, gradient: "from-amber-400 to-amber-600" },
-    { icon: MessageCircle, label: "WhatsApp", value: s.whatsapp, gradient: "from-emerald-400 to-emerald-600" },
+    { icon: Phone, label: "Téléphone", value: s.phone, gradient: "from-indigo-500 to-indigo-400" },
+    { icon: Mail, label: "Email", value: s.email, gradient: "from-cyan-500 to-cyan-400" },
+    { icon: MapPin, label: "Adresse", value: s.address, gradient: "from-rose-500 to-rose-400" },
+    { icon: Clock, label: "Horaires", value: s.hours, gradient: "from-amber-500 to-amber-400" },
+    { icon: MessageCircle, label: "WhatsApp", value: s.whatsapp, gradient: "from-emerald-500 to-emerald-400" },
   ];
   const socials = [
-    { label: "Facebook", value: s.socials.facebook, gradient: "from-blue-500 to-blue-700" },
-    { label: "Twitter / X", value: s.socials.twitter, gradient: "from-slate-600 to-slate-800" },
-    { label: "LinkedIn", value: s.socials.linkedin, gradient: "from-blue-600 to-blue-800" },
-    { label: "Instagram", value: s.socials.instagram, gradient: "from-pink-500 to-purple-600" },
+    { label: "Facebook", value: s.socials.facebook, gradient: "from-blue-500 to-blue-400" },
+    { label: "Twitter / X", value: s.socials.twitter, gradient: "from-slate-500 to-slate-400" },
+    { label: "LinkedIn", value: s.socials.linkedin, gradient: "from-blue-600 to-blue-500" },
+    { label: "Instagram", value: s.socials.instagram, gradient: "from-pink-500 to-purple-400" },
   ];
 
   return (
@@ -43,7 +43,7 @@ export default async function ParametresPage() {
           <div className="flex items-center gap-2">
             <a
               href="/admin/globals/site-settings"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-brand-blue shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <Pencil className="h-4 w-4" /> Modifier
             </a>
@@ -60,11 +60,11 @@ export default async function ParametresPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Coordonnées */}
         <section className="dash-card overflow-hidden">
-          <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-light text-white">
+          <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+            <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
               <Phone className="h-3.5 w-3.5" />
             </div>
-            <h2 className="font-display text-sm font-bold text-[var(--text)]">Coordonnées</h2>
+            <h2 className="font-display text-sm font-bold text-white">Coordonnées</h2>
           </div>
           <div className="p-6 space-y-5">
             {coords.map((c) => {
@@ -75,8 +75,8 @@ export default async function ParametresPage() {
                     <Icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">{c.label}</div>
-                    <div className="text-sm font-medium text-[var(--text)]">{c.value}</div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">{c.label}</div>
+                    <div className="text-sm font-medium text-white">{c.value}</div>
                   </div>
                 </div>
               );
@@ -86,11 +86,11 @@ export default async function ParametresPage() {
 
         {/* Réseaux sociaux */}
         <section className="dash-card overflow-hidden">
-          <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-white">
+          <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+            <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-400 text-white">
               <Globe className="h-3.5 w-3.5" />
             </div>
-            <h2 className="font-display text-sm font-bold text-[var(--text)]">Réseaux sociaux</h2>
+            <h2 className="font-display text-sm font-bold text-white">Réseaux sociaux</h2>
           </div>
           <div className="p-6 space-y-5">
             {socials.map((c) => {
@@ -101,8 +101,8 @@ export default async function ParametresPage() {
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">{c.label}</div>
-                    <div className="truncate text-sm font-medium text-[var(--text)]">{c.value}</div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">{c.label}</div>
+                    <div className="truncate text-sm font-medium text-white">{c.value}</div>
                   </div>
                 </div>
               );

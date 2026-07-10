@@ -41,11 +41,11 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const gradientMap: Record<string, string> = {
-  services: "from-cyan-400 to-cyan-600",
-  jobs: "from-violet-400 to-violet-600",
-  partners: "from-amber-400 to-amber-600",
-  news: "from-brand-blue to-brand-light",
-  testimonials: "from-rose-400 to-rose-600",
+  services: "from-indigo-500 to-indigo-400",
+  jobs: "from-violet-500 to-violet-400",
+  partners: "from-amber-500 to-amber-400",
+  news: "from-cyan-500 to-cyan-400",
+  testimonials: "from-rose-500 to-rose-400",
 };
 
 export default function DashboardList({
@@ -66,7 +66,7 @@ export default function DashboardList({
   emptyText?: string;
 }) {
   const editBase = `/admin/collections/${collection}`;
-  const gradient = gradientMap[collection] || "from-brand-blue to-brand-light";
+  const gradient = gradientMap[collection] || "from-indigo-500 to-indigo-400";
   const IconComponent = iconMap[collection];
 
   return (
@@ -86,7 +86,7 @@ export default function DashboardList({
           <div className="flex items-center gap-2">
             <a
               href={`${editBase}/create`}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-brand-blue shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <Plus className="h-4 w-4" /> {addLabel}
             </a>
@@ -105,42 +105,42 @@ export default function DashboardList({
           <div className={`mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-lg`}>
             {IconComponent ? <IconComponent /> : <Inbox className="h-8 w-8" />}
           </div>
-          <p className="mt-4 text-sm font-medium text-[var(--text-soft)]">{emptyText}</p>
+          <p className="mt-4 text-sm font-medium text-gray-400">{emptyText}</p>
           <a
             href={`${editBase}/create`}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-blue/30"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-500/30"
           >
             <Plus className="h-4 w-4" /> {addLabel}
           </a>
         </div>
       ) : (
         <div className="dash-card overflow-hidden">
-          <ul className="divide-y divide-[var(--border)]">
+          <ul className="divide-y divide-white/10">
             {items.map((it) => (
               <li
                 key={it.id}
-                className="flex flex-wrap items-center gap-4 px-6 py-4 transition-all hover:bg-brand-light/5"
+                className="flex flex-wrap items-center gap-4 px-6 py-4 transition-all hover:bg-white/5"
               >
                 <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br ${gradient} text-white shadow-md`}>
                   {IconComponent ? <IconComponent /> : <Inbox className="h-5 w-5" />}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="truncate font-display font-semibold text-[var(--text)]">{it.title}</span>
+                    <span className="truncate font-display font-semibold text-white">{it.title}</span>
                     {it.meta && (
-                      <span className="shrink-0 rounded-full bg-gradient-to-r from-brand-blue/10 to-brand-light/10 border border-brand-light/20 px-2.5 py-0.5 text-xs font-semibold text-brand-blue">
+                      <span className="shrink-0 rounded-full bg-indigo-500/15 border border-indigo-500/20 px-2.5 py-0.5 text-xs font-semibold text-indigo-400">
                         {it.meta}
                       </span>
                     )}
                   </div>
                   {it.subtitle && (
-                    <p className="mt-0.5 line-clamp-1 text-sm text-[var(--text-soft)]">{it.subtitle}</p>
+                    <p className="mt-0.5 line-clamp-1 text-sm text-gray-400">{it.subtitle}</p>
                   )}
                 </div>
                 <div className="flex items-center gap-1">
                   <a
                     href={`${editBase}/${it.id}`}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] bg-white/60 px-3 py-1.5 text-xs font-semibold text-[var(--text-soft)] transition-all hover:border-brand-light/40 hover:text-brand-blue hover:bg-white/80"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-gray-400 transition-all hover:border-indigo-400/40 hover:text-indigo-400 hover:bg-white/10"
                   >
                     <Pencil className="h-3.5 w-3.5" /> Modifier
                   </a>
