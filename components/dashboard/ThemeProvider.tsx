@@ -58,8 +58,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   }, [theme]);
 
   useEffect(() => {
-    document.documentElement.classList.remove("dashboard-dark", "dashboard-light");
+    document.documentElement.classList.remove("dashboard-dark", "dashboard-light", "dark");
     document.documentElement.classList.add(resolved === "dark" ? "dashboard-dark" : "dashboard-light");
+    if (resolved === "dark") {
+      document.documentElement.classList.add("dark");
+    }
     document.body.className = document.body.className
       .replace(/bg-\[#[0-9a-fA-F]+\]|bg-white|bg-gray-50|bg-slate-900/, "")
       .trim();
