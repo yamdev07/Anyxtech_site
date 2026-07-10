@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Loader2, Save, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { saveDoc } from "@/lib/dashboard-actions";
+import { useTheme } from "@/components/dashboard/ThemeProvider";
 
 type FieldType = "text" | "email" | "textarea" | "number" | "select" | "checkbox" | "date";
 
@@ -115,6 +116,8 @@ export default function EditForm({
   initialData?: Record<string, unknown>;
 }) {
   const router = useRouter();
+  const { resolvedTheme } = useTheme();
+  const dark = resolvedTheme === "dark";
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const fields = collectionFields[collection];
@@ -158,7 +161,9 @@ export default function EditForm({
   }
 
   function renderField(f: Field) {
-    const baseClass = "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-indigo-400/50 focus:ring-2 focus:ring-indigo-400/20 outline-none transition-all";
+    const baseClass = dark
+      ? "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-indigo-400/50 focus:ring-2 focus:ring-indigo-400/20 outline-none transition-all"
+      : "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 outline-none transition-all";
 
     switch (f.type) {
       case "textarea":
@@ -191,9 +196,12 @@ export default function EditForm({
               type="checkbox"
               checked={Boolean(formData[f.name])}
               onChange={(e) => set(f.name, e.target.checked)}
-              className="h-4 w-4 rounded border-white/20 bg-white/5 text-indigo-500 focus:ring-indigo-400/20"
+              className={dark
+                ? "h-4 w-4 rounded border-white/20 bg-white/5 text-indigo-500 focus:ring-indigo-400/20"
+                : "h-4 w-4 rounded border-gray-300 bg-white text-indigo-500 focus:ring-indigo-400/20"
+              }
             />
-            <span className="text-sm text-gray-300">{f.label}</span>
+            <span className={dark ? "text-sm text-gray-300" : "text-sm text-gray-600"}>{f.label}</span>
           </label>
         );
       case "number":
@@ -242,11 +250,11 @@ export default function EditForm({
         {/* Main fields */}
         <div className="lg:col-span-2 space-y-5">
           <div className="dash-card p-6 space-y-5">
-            <h3 className="font-display text-sm font-bold text-white">Informations principales</h3>
+            <h3 className={dark ? "font-display text-sm font-bold text-white" : "font-display text-sm font-bold text-gray-900"}>Informations principales</h3>
             {fields.main.map((f) => (
               <div key={f.name}>
                 {f.type !== "checkbox" && (
-                  <label className="block text-sm font-medium text-gray-300 mb-2">{f.label}</label>
+                  <label className={dark ? "block text-sm font-medium text-gray-300 mb-2" : "block text-sm font-medium text-gray-600 mb-2"}>{f.label}</label>
                 )}
                 {renderField(f)}
               </div>
@@ -257,12 +265,12 @@ export default function EditForm({
         {/* Sidebar fields */}
         <div className="space-y-5">
           <div className="dash-card p-6 space-y-5">
-            <h3 className="font-display text-sm font-bold text-white">Paramètres</h3>
+            <h3 className={dark ? "font-display text-sm font-bold text-white" : "font-display text-sm font-bold text-gray-900"}>Paramètres</h3>
             {fields.sidebar.map((f) => (
               <div key={f.name}>
                 {f.type !== "checkbox" ? (
                   <>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">{f.label}</label>
+                    <label className={dark ? "block text-sm font-medium text-gray-300 mb-2" : "block text-sm font-medium text-gray-600 mb-2"}>{f.label}</label>
                     {renderField(f)}
                   </>
                 ) : (
