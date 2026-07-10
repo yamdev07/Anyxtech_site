@@ -47,7 +47,7 @@ export default async function CarrieresPage() {
 
       <section className="container-x py-16 md:py-24">
         <div className="mb-8 text-center">
-          <AdminEdit href="/admin/collections/jobs" label="Gérer les offres" />
+          <AdminEdit href="/dashboard/offres" label="Gérer les offres" />
         </div>
         {jobs.length === 0 ? (
           <Reveal className="mx-auto max-w-xl rounded-3xl border border-[var(--border)] bg-soft p-10 text-center">

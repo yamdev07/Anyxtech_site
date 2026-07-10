@@ -21,6 +21,8 @@ export default async function Page() {
       collection="partners"
       path="/dashboard/partenaires"
       addLabel="Nouveau partenaire"
+      createHref="/dashboard/partenaires/nouveau"
+      editHref={(id) => `/dashboard/partenaires/${id}`}
     />
   );
 }

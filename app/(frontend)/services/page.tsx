@@ -46,7 +46,7 @@ export default async function ServicesPage() {
       />
 
       <div className="container-x -mb-6 pt-8 text-center">
-        <AdminEdit href="/admin/collections/services" label="Gérer les services" />
+        <AdminEdit href="/dashboard/services" label="Gérer les services" />
       </div>
       <ServicesExplorer services={services} />
 

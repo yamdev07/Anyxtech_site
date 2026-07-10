@@ -22,6 +22,8 @@ export default async function Page() {
       collection="jobs"
       path="/dashboard/offres"
       addLabel="Nouvelle offre"
+      createHref="/dashboard/offres/nouvelle"
+      editHref={(id) => `/dashboard/offres/${id}`}
     />
   );
 }

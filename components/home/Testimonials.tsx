@@ -32,7 +32,7 @@ export default async function Testimonials() {
         subtitle="La satisfaction de nos clients au Bénin est notre meilleure référence."
       />
       <div className="mt-4 text-center">
-        <AdminEdit href="/admin/collections/testimonials" label="Gérer les témoignages" />
+        <AdminEdit href="/dashboard/temoignages" label="Gérer les témoignages" />
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {items.map((t, i) => (

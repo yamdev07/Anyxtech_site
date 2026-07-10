@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
+  BarChart3,
   Cog,
   Briefcase,
   Handshake,
@@ -20,16 +21,31 @@ import {
   X,
 } from "lucide-react";
 
-const nav = [
+const topNav = [
   { label: "Vue d'ensemble", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Contenu de l'accueil", href: "/admin/globals/home-content", icon: FileText },
-  { label: "Services", href: "/dashboard/services", icon: Cog },
-  { label: "Offres d'emploi", href: "/dashboard/offres", icon: Briefcase },
-  { label: "Partenaires", href: "/dashboard/partenaires", icon: Handshake },
-  { label: "Actualités", href: "/dashboard/actualites", icon: Newspaper },
-  { label: "Témoignages", href: "/dashboard/temoignages", icon: Star },
-  { label: "Messages", href: "/dashboard/messages", icon: Inbox },
-  { label: "Paramètres du site", href: "/dashboard/parametres", icon: Settings },
+  { label: "Analytique", href: "/dashboard/analytique", icon: BarChart3 },
+];
+
+const navGroups = [
+  {
+    label: "Contenu",
+    items: [
+      { label: "Contenu de l'accueil", href: "/dashboard/contenu-accueil", icon: FileText },
+      { label: "Services", href: "/dashboard/services", icon: Cog },
+      { label: "Offres d'emploi", href: "/dashboard/offres", icon: Briefcase },
+      { label: "Partenaires", href: "/dashboard/partenaires", icon: Handshake },
+      { label: "Actualités", href: "/dashboard/actualites", icon: Newspaper },
+      { label: "Témoignages", href: "/dashboard/temoignages", icon: Star },
+    ],
+  },
+  {
+    label: "Communication",
+    items: [{ label: "Messages", href: "/dashboard/messages", icon: Inbox }],
+  },
+  {
+    label: "Configuration",
+    items: [{ label: "Paramètres du site", href: "/dashboard/parametres", icon: Settings }],
+  },
 ];
 
 export default function Sidebar({ email }: { email?: string | null }) {
@@ -39,28 +55,38 @@ export default function Sidebar({ email }: { email?: string | null }) {
   const isActive = (href: string) =>
     href === "/dashboard" ? pathname === href : pathname.startsWith(href);
 
+  const navLink = (n: { label: string; href: string; icon: typeof LayoutDashboard }) => {
+    const Icon = n.icon;
+    const active = isActive(n.href);
+    return (
+      <Link
+        key={n.href}
+        href={n.href}
+        onClick={() => setOpen(false)}
+        className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all ${
+          active
+            ? "bg-gradient-to-r from-brand-blue to-brand-light text-white shadow-glow"
+            : "text-soft hover:bg-brand-light/10 hover:text-brand-blue dark:hover:text-brand-light"
+        }`}
+      >
+        <Icon className="h-[18px] w-[18px] shrink-0" />
+        {n.label}
+      </Link>
+    );
+  };
+
   const links = (
-    <nav className="flex-1 space-y-1 px-3">
-      {nav.map((n) => {
-        const Icon = n.icon;
-        const active = isActive(n.href);
-        return (
-          <Link
-            key={n.href}
-            href={n.href}
-            onClick={() => setOpen(false)}
-            className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all ${
-              active
-                ? "bg-gradient-to-r from-brand-blue to-brand-light text-white shadow-glow"
-                : "text-soft hover:bg-brand-light/10 hover:text-brand-blue dark:hover:text-brand-light"
-            }`}
-          >
-            <Icon className="h-[18px] w-[18px] shrink-0" />
-            {n.label}
-          </Link>
-        );
-      })}
-    </nav>
+    <div className="flex-1 space-y-1 overflow-y-auto px-3">
+      <nav className="space-y-1">{topNav.map(navLink)}</nav>
+      {navGroups.map((group) => (
+        <div key={group.label} className="pt-4">
+          <p className="px-3.5 pb-1 text-[11px] font-semibold uppercase tracking-wider text-soft/70">
+            {group.label}
+          </p>
+          <nav className="space-y-1">{group.items.map(navLink)}</nav>
+        </div>
+      ))}
+    </div>
   );
 
   const footer = (

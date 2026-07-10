@@ -22,6 +22,8 @@ export default async function Page() {
       collection="services"
       path="/dashboard/services"
       addLabel="Nouveau service"
+      createHref="/dashboard/services/nouveau"
+      editHref={(id) => `/dashboard/services/${id}`}
     />
   );
 }

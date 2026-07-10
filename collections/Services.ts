@@ -1,5 +1,7 @@
 import type { CollectionConfig } from "payload";
 import { iconNames, colorPresets } from "../lib/services";
+import { autoSlugHook } from "../lib/slugify";
+import { isAdmin } from "../lib/access";
 
 export const Services: CollectionConfig = {
   slug: "services",
@@ -9,7 +11,8 @@ export const Services: CollectionConfig = {
     defaultColumns: ["title", "category", "order"],
     group: "Contenu",
   },
-  access: { read: () => true },
+  access: { read: () => true, create: isAdmin, update: isAdmin, delete: isAdmin },
+  hooks: { beforeValidate: [autoSlugHook("title")] },
   fields: [
     { name: "title", type: "text", label: "Titre", required: true },
     { name: "slug", type: "text", label: "Identifiant d'URL", admin: { position: "sidebar" } },

@@ -22,6 +22,8 @@ export default async function Page() {
       collection="testimonials"
       path="/dashboard/temoignages"
       addLabel="Nouveau témoignage"
+      createHref="/dashboard/temoignages/nouveau"
+      editHref={(id) => `/dashboard/temoignages/${id}`}
     />
   );
 }
