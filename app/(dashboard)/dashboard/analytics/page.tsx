@@ -35,10 +35,10 @@ export default async function AnalyticsPage() {
   const visits = recentVisits.docs as Record<string, unknown>[];
 
   const stats = [
-    { icon: Eye, label: "Total visites", value: totalVisits.totalDocs, gradient: "from-cyan-400 to-cyan-600", glow: "rgba(34, 211, 238, 0.3)" },
-    { icon: TrendingUp, label: "Aujourd'hui", value: todayVisits.totalDocs, gradient: "from-emerald-400 to-emerald-600", glow: "rgba(52, 211, 153, 0.3)" },
-    { icon: Globe, label: "Cette semaine", value: weekVisits.totalDocs, gradient: "from-brand-blue to-brand-light", glow: "rgba(29, 185, 255, 0.3)" },
-    { icon: Clock, label: "Ce mois", value: monthVisits.totalDocs, gradient: "from-amber-400 to-amber-600", glow: "rgba(251, 191, 36, 0.3)" },
+    { icon: Eye, label: "Total visites", value: totalVisits.totalDocs, gradient: "from-indigo-500 to-indigo-400", glow: "rgba(79, 70, 229, 0.3)" },
+    { icon: TrendingUp, label: "Aujourd'hui", value: todayVisits.totalDocs, gradient: "from-emerald-500 to-emerald-400", glow: "rgba(16, 185, 129, 0.3)" },
+    { icon: Globe, label: "Cette semaine", value: weekVisits.totalDocs, gradient: "from-cyan-500 to-cyan-400", glow: "rgba(6, 182, 212, 0.3)" },
+    { icon: Clock, label: "Ce mois", value: monthVisits.totalDocs, gradient: "from-amber-500 to-amber-400", glow: "rgba(245, 158, 11, 0.3)" },
   ];
 
   const pageCounts: Record<string, number> = {};
@@ -90,8 +90,8 @@ export default async function AnalyticsPage() {
                 >
                   <Icon className="h-5 w-5" />
                 </div>
-                <div className="mt-4 font-display text-3xl font-extrabold text-[var(--text)] tabular-nums tracking-tight">{s.value}</div>
-                <div className="mt-1 text-sm font-medium text-[var(--text-soft)]">{s.label}</div>
+                <div className="mt-4 font-display text-3xl font-extrabold text-white tabular-nums tracking-tight">{s.value}</div>
+                <div className="mt-1 text-sm font-medium text-gray-400">{s.label}</div>
               </div>
             </div>
           );
@@ -100,28 +100,28 @@ export default async function AnalyticsPage() {
 
       <div className="grid gap-6 lg:grid-cols-5">
         <section className="dash-card lg:col-span-3">
-          <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <div className="grid h-7 w-7 place-items-center rounded-lg bg-cyan-100 text-cyan-600">
+          <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+            <div className="grid h-7 w-7 place-items-center rounded-lg bg-indigo-500/15 text-indigo-400">
               <Globe className="h-3.5 w-3.5" />
             </div>
-            <h2 className="font-display text-sm font-bold text-[var(--text)]">Pages les plus visitées</h2>
+            <h2 className="font-display text-sm font-bold text-white">Pages les plus visitées</h2>
           </div>
           <div className="p-6">
             {topPages.length === 0 ? (
-              <div className="py-8 text-center text-sm text-[var(--text-soft)]">Aucune donnée pour le moment.</div>
+              <div className="py-8 text-center text-sm text-gray-400">Aucune donnée pour le moment.</div>
             ) : (
               <div className="space-y-4">
                 {topPages.map(([page, count]) => (
                   <div key={page}>
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="truncate text-sm font-medium text-[var(--text)]">{page}</span>
-                      <span className="ml-2 shrink-0 rounded-full bg-gradient-to-r from-brand-blue/10 to-brand-light/10 px-2.5 py-0.5 text-xs font-semibold text-brand-blue tabular-nums border border-brand-light/20">
+                      <span className="truncate text-sm font-medium text-white">{page}</span>
+                      <span className="ml-2 shrink-0 rounded-full bg-indigo-500/15 px-2.5 py-0.5 text-xs font-semibold text-indigo-400 tabular-nums border border-indigo-500/20">
                         {count}
                       </span>
                     </div>
-                    <div className="h-2.5 rounded-full bg-[var(--bg-soft)] overflow-hidden">
+                    <div className="h-2.5 rounded-full bg-white/5 overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-blue via-brand-light to-brand-cyan transition-all duration-700 ease-out"
+                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-cyan-400 transition-all duration-700 ease-out"
                         style={{ width: `${(count / maxPageCount) * 100}%` }}
                       />
                     </div>
@@ -133,26 +133,26 @@ export default async function AnalyticsPage() {
         </section>
 
         <section className="dash-card lg:col-span-2">
-          <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <div className="grid h-7 w-7 place-items-center rounded-lg bg-violet-100 text-violet-600">
+          <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+            <div className="grid h-7 w-7 place-items-center rounded-lg bg-violet-500/15 text-violet-400">
               <Monitor className="h-3.5 w-3.5" />
             </div>
-            <h2 className="font-display text-sm font-bold text-[var(--text)]">Dernières visites</h2>
+            <h2 className="font-display text-sm font-bold text-white">Dernières visites</h2>
           </div>
           <div className="max-h-96 overflow-y-auto">
-            <div className="divide-y divide-[var(--border)]">
+            <div className="divide-y divide-white/10">
               {visits.length === 0 ? (
-                <div className="p-8 text-center text-sm text-[var(--text-soft)]">Aucune visite enregistrée.</div>
+                <div className="p-8 text-center text-sm text-gray-400">Aucune visite enregistrée.</div>
               ) : (
                 visits.slice(0, 20).map((v, i) => (
-                  <div key={i} className="flex items-start gap-3 px-6 py-3 transition-all hover:bg-brand-light/5">
-                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-100 to-violet-50 text-violet-600 mt-0.5">
+                  <div key={i} className="flex items-start gap-3 px-6 py-3 transition-all hover:bg-white/5">
+                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-500/20 to-violet-500/10 text-violet-400 mt-0.5">
                       <Monitor className="h-4 w-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="truncate text-sm font-medium text-[var(--text)]">{(v.path as string) || "/"}</div>
-                      <div className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-[var(--text-soft)]">
-                        {typeof v.ip === "string" && v.ip && <span className="rounded-full bg-slate-100 px-2 py-0.5 font-mono text-[10px]">{v.ip}</span>}
+                      <div className="truncate text-sm font-medium text-white">{(v.path as string) || "/"}</div>
+                      <div className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-gray-400">
+                        {typeof v.ip === "string" && v.ip && <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[10px]">{v.ip}</span>}
                         {typeof v.country === "string" && v.country && <span>{v.country}</span>}
                         <span>{fmt(v.createdAt as string)}</span>
                       </div>

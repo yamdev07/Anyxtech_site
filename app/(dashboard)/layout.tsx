@@ -19,12 +19,12 @@ export default async function DashboardLayout({
   if (!user) redirect("/admin");
 
   return (
-    <html lang="fr" className={`dashboard-light ${poppins.variable} ${spaceGrotesk.variable}`}>
-      <body className="bg-soft font-sans">
+    <html lang="fr" className={`dashboard-dark ${poppins.variable} ${spaceGrotesk.variable}`}>
+      <body className="bg-[#13151A] font-sans">
         {/* Top gradient accent strip */}
         <div className="fixed inset-x-0 top-0 z-[60] h-[3px]"
           style={{
-            background: "linear-gradient(90deg, #1f429b, #1db9ff, #22d3ee, #1db9ff, #1f429b)",
+            backgroundImage: "linear-gradient(90deg, #4F46E5, #818CF8, #22D3EE, #818CF8, #4F46E5)",
             backgroundSize: "200% 100%",
             animation: "shimmer 4s linear infinite",
           }}

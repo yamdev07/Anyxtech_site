@@ -92,8 +92,8 @@ export default async function DashboardOverview() {
       value: totalVisits.totalDocs,
       delta: `+${todayVisits.totalDocs} aujourd'hui`,
       deltaType: "up" as const,
-      gradient: "from-cyan-400 to-cyan-600",
-      glow: "rgba(34, 211, 238, 0.3)",
+      gradient: "from-indigo-500 to-indigo-400",
+      glow: "rgba(79, 70, 229, 0.3)",
       href: "/dashboard/analytics",
     },
     {
@@ -102,8 +102,8 @@ export default async function DashboardOverview() {
       value: weekVisits.totalDocs,
       delta: "7 derniers jours",
       deltaType: "up" as const,
-      gradient: "from-emerald-400 to-emerald-600",
-      glow: "rgba(52, 211, 153, 0.3)",
+      gradient: "from-emerald-500 to-emerald-400",
+      glow: "rgba(16, 185, 129, 0.3)",
       href: "/dashboard/analytics",
     },
     {
@@ -112,8 +112,8 @@ export default async function DashboardOverview() {
       value: totalJobs.totalDocs,
       delta: "publiées",
       deltaType: "up" as const,
-      gradient: "from-violet-400 to-violet-600",
-      glow: "rgba(167, 139, 250, 0.3)",
+      gradient: "from-violet-500 to-violet-400",
+      glow: "rgba(139, 92, 246, 0.3)",
       href: "/dashboard/offres",
     },
     {
@@ -122,8 +122,8 @@ export default async function DashboardOverview() {
       value: totalPartners.totalDocs,
       delta: "actifs",
       deltaType: "up" as const,
-      gradient: "from-amber-400 to-amber-600",
-      glow: "rgba(251, 191, 36, 0.3)",
+      gradient: "from-amber-500 to-amber-400",
+      glow: "rgba(245, 158, 11, 0.3)",
       href: "/dashboard/partenaires",
     },
     {
@@ -132,8 +132,8 @@ export default async function DashboardOverview() {
       value: totalNews.totalDocs,
       delta: "articles",
       deltaType: "up" as const,
-      gradient: "from-brand-blue to-brand-light",
-      glow: "rgba(29, 185, 255, 0.3)",
+      gradient: "from-cyan-500 to-cyan-400",
+      glow: "rgba(6, 182, 212, 0.3)",
       href: "/dashboard/actualites",
     },
     {
@@ -142,19 +142,19 @@ export default async function DashboardOverview() {
       value: totalMessages.totalDocs,
       delta: unreadMessages.totalDocs > 0 ? `${unreadMessages.totalDocs} non lus` : "tous lus",
       deltaType: unreadMessages.totalDocs > 0 ? "down" as const : "up" as const,
-      gradient: "from-rose-400 to-rose-600",
-      glow: "rgba(251, 113, 133, 0.3)",
+      gradient: "from-rose-500 to-rose-400",
+      glow: "rgba(244, 63, 94, 0.3)",
       href: "/dashboard/messages",
     },
   ];
 
   const quickActions = [
-    { label: "Nouvelle offre", href: "/admin/collections/jobs/create", icon: Briefcase, gradient: "from-violet-500 to-violet-700" },
-    { label: "Nouveau partenaire", href: "/admin/collections/partners/create", icon: Handshake, gradient: "from-amber-500 to-amber-700" },
-    { label: "Nouvel article", href: "/admin/collections/news/create", icon: Newspaper, gradient: "from-brand-blue to-brand-light" },
-    { label: "Contenu accueil", href: "/admin/globals/home-content", icon: FileText, gradient: "from-cyan-500 to-cyan-700" },
-    { label: "Paramètres", href: "/admin/globals/site-settings", icon: Settings, gradient: "from-slate-400 to-slate-600" },
-    { label: "Voir le site", href: "/", icon: ExternalLink, gradient: "from-emerald-500 to-emerald-700", external: true },
+    { label: "Nouvelle offre", href: "/dashboard/offres", icon: Briefcase, gradient: "from-violet-600 to-violet-500" },
+    { label: "Nouveau partenaire", href: "/dashboard/partenaires", icon: Handshake, gradient: "from-amber-600 to-amber-500" },
+    { label: "Nouvel article", href: "/dashboard/actualites", icon: Newspaper, gradient: "from-cyan-600 to-cyan-500" },
+    { label: "Services", href: "/dashboard/services", icon: FileText, gradient: "from-indigo-600 to-indigo-500" },
+    { label: "Paramètres", href: "/dashboard/parametres", icon: Settings, gradient: "from-slate-500 to-slate-400" },
+    { label: "Voir le site", href: "/", icon: ExternalLink, gradient: "from-emerald-600 to-emerald-500", external: true },
   ];
 
   return (
@@ -185,7 +185,7 @@ export default async function DashboardOverview() {
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-brand-blue shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <ExternalLink className="h-4 w-4" /> Voir le site
             </Link>
@@ -213,18 +213,18 @@ export default async function DashboardOverview() {
                   >
                     <Icon className="h-5 w-5" />
                   </div>
-                  <ArrowUpRight className="h-4 w-4 text-[var(--text-muted)] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="h-4 w-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
-                <div className="mt-5 font-display text-4xl font-extrabold text-[var(--text)] tabular-nums tracking-tight">
+                <div className="mt-5 font-display text-4xl font-extrabold text-white tabular-nums tracking-tight">
                   {s.value.toLocaleString("fr-FR")}
                 </div>
-                <div className="mt-1 text-sm font-medium text-[var(--text-soft)]">{s.label}</div>
+                <div className="mt-1 text-sm font-medium text-gray-400">{s.label}</div>
                 <div className="mt-2.5">
                   <span
                     className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold ${
                       s.deltaType === "up"
-                        ? "bg-emerald-100 text-emerald-700"
-                        : "bg-amber-100 text-amber-700"
+                        ? "bg-emerald-500/15 text-emerald-400"
+                        : "bg-amber-500/15 text-amber-400"
                     }`}
                   >
                     {s.deltaType === "up" && <TrendingUp className="h-3 w-3" />}
@@ -240,10 +240,10 @@ export default async function DashboardOverview() {
       {/* Quick actions */}
       <section>
         <div className="flex items-center gap-2 mb-4">
-          <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-light text-white">
+          <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
             <Plus className="h-3.5 w-3.5" />
           </div>
-          <h2 className="font-display text-sm font-bold text-[var(--text)]">Actions rapides</h2>
+          <h2 className="font-display text-sm font-bold text-white">Actions rapides</h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {quickActions.map((a) => {
@@ -267,23 +267,23 @@ export default async function DashboardOverview() {
       <div className="grid gap-6 lg:grid-cols-5">
         {/* Top pages */}
         <section className="dash-card lg:col-span-3">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
             <div className="flex items-center gap-2">
-              <div className="grid h-7 w-7 place-items-center rounded-lg bg-cyan-100 text-cyan-600">
+              <div className="grid h-7 w-7 place-items-center rounded-lg bg-indigo-500/15 text-indigo-400">
                 <Eye className="h-3.5 w-3.5" />
               </div>
-              <h2 className="font-display text-sm font-bold text-[var(--text)]">Pages les plus visitées</h2>
+              <h2 className="font-display text-sm font-bold text-white">Pages les plus visitées</h2>
             </div>
             <Link
               href="/dashboard/analytics"
-              className="text-xs font-medium text-brand-blue hover:underline"
+              className="text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
             >
               Tout voir
             </Link>
           </div>
           <div className="p-6">
             {topPages.length === 0 ? (
-              <div className="py-8 text-center text-sm text-[var(--text-soft)]">
+              <div className="py-8 text-center text-sm text-gray-400">
                 Aucune donnée pour le moment.
               </div>
             ) : (
@@ -291,14 +291,14 @@ export default async function DashboardOverview() {
                 {topPages.map(([page, count]) => (
                   <div key={page}>
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="truncate text-sm font-medium text-[var(--text)]">{page}</span>
-                      <span className="ml-2 shrink-0 rounded-full bg-gradient-to-r from-brand-blue/10 to-brand-light/10 px-2.5 py-0.5 text-xs font-semibold text-brand-blue tabular-nums border border-brand-light/20">
+                      <span className="truncate text-sm font-medium text-white">{page}</span>
+                      <span className="ml-2 shrink-0 rounded-full bg-indigo-500/15 px-2.5 py-0.5 text-xs font-semibold text-indigo-400 tabular-nums border border-indigo-500/20">
                         {count}
                       </span>
                     </div>
-                    <div className="h-2.5 rounded-full bg-[var(--bg-soft)] overflow-hidden">
+                    <div className="h-2.5 rounded-full bg-white/5 overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-blue via-brand-light to-brand-cyan transition-all duration-700 ease-out"
+                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-cyan-400 transition-all duration-700 ease-out"
                         style={{ width: `${(count / maxPageCount) * 100}%` }}
                       />
                     </div>
@@ -311,37 +311,37 @@ export default async function DashboardOverview() {
 
         {/* Recent messages */}
         <section className="dash-card lg:col-span-2">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
             <div className="flex items-center gap-2">
-              <div className="grid h-7 w-7 place-items-center rounded-lg bg-rose-100 text-rose-600">
+              <div className="grid h-7 w-7 place-items-center rounded-lg bg-rose-500/15 text-rose-400">
                 <Inbox className="h-3.5 w-3.5" />
               </div>
-              <h2 className="font-display text-sm font-bold text-[var(--text)]">Messages récents</h2>
+              <h2 className="font-display text-sm font-bold text-white">Messages récents</h2>
             </div>
             <Link
               href="/dashboard/messages"
-              className="text-xs font-medium text-brand-blue hover:underline"
+              className="text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
             >
               Tout voir
             </Link>
           </div>
           <div className="max-h-80 overflow-y-auto">
             {submissions.length === 0 ? (
-              <div className="p-8 text-center text-sm text-[var(--text-soft)]">Aucun message.</div>
+              <div className="p-8 text-center text-sm text-gray-400">Aucun message.</div>
             ) : (
-              <div className="divide-y divide-[var(--border)]">
+              <div className="divide-y divide-white/10">
                 {submissions.map((m, i) => (
                   <Link
                     key={i}
                     href="/dashboard/messages"
-                    className="flex items-start gap-3 px-6 py-3 transition-all hover:bg-brand-light/5"
+                    className="flex items-start gap-3 px-6 py-3 transition-all hover:bg-white/5"
                   >
-                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-rose-100 to-rose-50 text-rose-600 mt-0.5">
+                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-rose-500/20 to-rose-500/10 text-rose-400 mt-0.5">
                       <Users className="h-4 w-4" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="truncate text-sm font-medium text-[var(--text)]">
+                        <span className="truncate text-sm font-medium text-white">
                           {(m.name as string) || "Anonyme"}
                         </span>
                         {!m.handled && (
@@ -351,8 +351,8 @@ export default async function DashboardOverview() {
                           </span>
                         )}
                       </div>
-                      <div className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-[var(--text-soft)]">
-                        <span className="rounded-full bg-blue-50 px-2 py-0.5 text-brand-blue font-medium">{m.type === "devis" ? "Devis" : "Contact"}</span>
+                      <div className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-gray-400">
+                        <span className="rounded-full bg-indigo-500/15 px-2 py-0.5 text-indigo-400 font-medium">{m.type === "devis" ? "Devis" : "Contact"}</span>
                         <span>{fmt(m.createdAt as string)}</span>
                       </div>
                     </div>
@@ -368,36 +368,36 @@ export default async function DashboardOverview() {
       <div className="grid gap-6 lg:grid-cols-5">
         {/* Recent visits */}
         <section className="dash-card lg:col-span-3">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
             <div className="flex items-center gap-2">
-              <div className="grid h-7 w-7 place-items-center rounded-lg bg-violet-100 text-violet-600">
+              <div className="grid h-7 w-7 place-items-center rounded-lg bg-violet-500/15 text-violet-400">
                 <Clock className="h-3.5 w-3.5" />
               </div>
-              <h2 className="font-display text-sm font-bold text-[var(--text)]">Dernières visites</h2>
+              <h2 className="font-display text-sm font-bold text-white">Dernières visites</h2>
             </div>
             <Link
               href="/dashboard/analytics"
-              className="text-xs font-medium text-brand-blue hover:underline"
+              className="text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
             >
               Tout voir
             </Link>
           </div>
           <div className="max-h-80 overflow-y-auto">
             {visits.length === 0 ? (
-              <div className="p-8 text-center text-sm text-[var(--text-soft)]">Aucune visite enregistrée.</div>
+              <div className="p-8 text-center text-sm text-gray-400">Aucune visite enregistrée.</div>
             ) : (
-              <div className="divide-y divide-[var(--border)]">
+              <div className="divide-y divide-white/10">
                 {visits.map((v, i) => (
-                  <div key={i} className="flex items-start gap-3 px-6 py-3 transition-all hover:bg-brand-light/5">
-                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-100 to-violet-50 text-violet-600 mt-0.5">
+                  <div key={i} className="flex items-start gap-3 px-6 py-3 transition-all hover:bg-white/5">
+                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-violet-500/20 to-violet-500/10 text-violet-400 mt-0.5">
                       <Eye className="h-4 w-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="truncate text-sm font-medium text-[var(--text)]">
+                      <div className="truncate text-sm font-medium text-white">
                         {(v.path as string) || "/"}
                       </div>
-                      <div className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-[var(--text-soft)]">
-                        {typeof v.ip === "string" && v.ip && <span className="rounded-full bg-slate-100 px-2 py-0.5 font-mono text-[10px]">{v.ip}</span>}
+                      <div className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-gray-400">
+                        {typeof v.ip === "string" && v.ip && <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[10px]">{v.ip}</span>}
                         {typeof v.country === "string" && v.country && <span>{v.country}</span>}
                         <span>{fmt(v.createdAt as string)}</span>
                       </div>
@@ -411,20 +411,20 @@ export default async function DashboardOverview() {
 
         {/* Site summary */}
         <section className="dash-card lg:col-span-2">
-          <div className="flex items-center gap-2 px-6 py-4 border-b border-[var(--border)]">
-            <div className="grid h-7 w-7 place-items-center rounded-lg bg-amber-100 text-amber-600">
+          <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+            <div className="grid h-7 w-7 place-items-center rounded-lg bg-amber-500/15 text-amber-400">
               <Star className="h-3.5 w-3.5" />
             </div>
-            <h2 className="font-display text-sm font-bold text-[var(--text)]">Résumé du site</h2>
+            <h2 className="font-display text-sm font-bold text-white">Résumé du site</h2>
           </div>
           <div className="p-6 space-y-5">
             {[
-              { label: "Services", value: totalServices.totalDocs, icon: Cog, max: 20, gradient: "from-cyan-400 to-cyan-600" },
-              { label: "Offres d'emploi", value: totalJobs.totalDocs, icon: Briefcase, max: 50, gradient: "from-violet-400 to-violet-600" },
-              { label: "Partenaires", value: totalPartners.totalDocs, icon: Handshake, max: 30, gradient: "from-amber-400 to-amber-600" },
-              { label: "Actualités", value: totalNews.totalDocs, icon: Newspaper, max: 100, gradient: "from-brand-blue to-brand-light" },
-              { label: "Témoignages", value: totalTestimonials.totalDocs, icon: Star, max: 50, gradient: "from-rose-400 to-rose-600" },
-              { label: "Messages", value: totalMessages.totalDocs, icon: Inbox, max: 200, gradient: "from-emerald-400 to-emerald-600" },
+              { label: "Services", value: totalServices.totalDocs, icon: Cog, max: 20, gradient: "from-indigo-500 to-indigo-400" },
+              { label: "Offres d'emploi", value: totalJobs.totalDocs, icon: Briefcase, max: 50, gradient: "from-violet-500 to-violet-400" },
+              { label: "Partenaires", value: totalPartners.totalDocs, icon: Handshake, max: 30, gradient: "from-amber-500 to-amber-400" },
+              { label: "Actualités", value: totalNews.totalDocs, icon: Newspaper, max: 100, gradient: "from-cyan-500 to-cyan-400" },
+              { label: "Témoignages", value: totalTestimonials.totalDocs, icon: Star, max: 50, gradient: "from-rose-500 to-rose-400" },
+              { label: "Messages", value: totalMessages.totalDocs, icon: Inbox, max: 200, gradient: "from-emerald-500 to-emerald-400" },
             ].map((item) => {
               const Icon = item.icon;
               const pct = Math.min((item.value / item.max) * 100, 100);
@@ -435,11 +435,11 @@ export default async function DashboardOverview() {
                       <div className={`grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br ${item.gradient} text-white shadow-sm`}>
                         <Icon className="h-3.5 w-3.5" />
                       </div>
-                      <span className="text-sm font-medium text-[var(--text-soft)]">{item.label}</span>
+                      <span className="text-sm font-medium text-gray-400">{item.label}</span>
                     </div>
-                    <span className="text-lg font-extrabold text-[var(--text)] tabular-nums">{item.value}</span>
+                    <span className="text-lg font-extrabold text-white tabular-nums">{item.value}</span>
                   </div>
-                  <div className="h-2 rounded-full bg-[var(--bg-soft)] overflow-hidden">
+                  <div className="h-2 rounded-full bg-white/5 overflow-hidden">
                     <div
                       className={`h-full rounded-full bg-gradient-to-r ${item.gradient} transition-all duration-1000 ease-out`}
                       style={{ width: `${pct}%` }}
