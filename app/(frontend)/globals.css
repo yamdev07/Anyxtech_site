@@ -687,11 +687,7 @@
   }
 }
 
-/* Block browser translate */
-html {
-  -webkit-text-size-adjust: 100%;
-}
-.notranslate,
+/* Block browser translate — hide Google Translate widget only */
 .goog-te-banner-frame,
 .skiptranslate {
   display: none !important;
