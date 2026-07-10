@@ -47,7 +47,7 @@ export default function LoginPage() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-md flex-1 flex items-center justify-center">
+      <div className="relative z-10 w-full max-w-md flex-1 flex items-center justify-center pt-12">
         <div className="w-full mb-24">
           <div className="text-center mb-8">
             <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-400 shadow-lg shadow-indigo-500/25 mb-4">
@@ -124,8 +124,8 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full max-w-md">
-        <DashboardFooter />
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pb-6 pt-2">
+        <DashboardFooter noSidebar />
       </div>
     </div>
   );

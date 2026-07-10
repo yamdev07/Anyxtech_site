@@ -18,15 +18,15 @@ const navLinks = [
   { label: "Paramètres", href: "/dashboard/settings" },
 ];
 
-export default function DashboardFooter({ email }: { email?: string | null }) {
+export default function DashboardFooter({ email, noSidebar }: { email?: string | null; noSidebar?: boolean }) {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
 
   return (
-    <footer className="relative z-10 lg:pl-64">
+    <footer className={`relative z-10 ${noSidebar ? "" : "lg:pl-64"}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-6 pt-2">
         <div
-          className="rounded-2xl px-6 py-5"
+          className="rounded-2xl px-6 py-5 w-full"
           style={{
             background: "rgba(30, 33, 43, 0.85)",
             backdropFilter: "blur(20px) saturate(1.4)",
