@@ -78,7 +78,7 @@ export default async function EditCollectionPage({ params }: { params: Promise<{
                   <span className="block truncate font-display font-semibold text-white">
                     {String(item[meta.titleField] || "Sans titre")}
                   </span>
-                  {meta.subtitleField && item[meta.subtitleField] && (
+                  {meta.subtitleField && !!item[meta.subtitleField] && (
                     <p className="mt-0.5 line-clamp-1 text-sm text-gray-400">{String(item[meta.subtitleField])}</p>
                   )}
                 </div>

@@ -11,5 +11,12 @@ export const Partners: CollectionConfig = {
     { name: "website", type: "text", label: "Site web" },
     { name: "description", type: "textarea", label: "Description" },
     { name: "order", type: "number", label: "Ordre d'affichage", admin: { position: "sidebar" } },
+    {
+      name: "showOnSite",
+      type: "checkbox",
+      label: "Afficher aux visiteurs",
+      defaultValue: true,
+      admin: { position: "sidebar" },
+    },
   ],
 };

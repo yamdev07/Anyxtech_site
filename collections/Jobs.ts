@@ -39,5 +39,12 @@ export const Jobs: CollectionConfig = {
       admin: { position: "sidebar" },
     },
     { name: "publishedAt", type: "date", label: "Date de publication", admin: { position: "sidebar" } },
+    {
+      name: "showOnSite",
+      type: "checkbox",
+      label: "Afficher aux visiteurs",
+      defaultValue: true,
+      admin: { position: "sidebar" },
+    },
   ],
 };

@@ -39,7 +39,7 @@ export default function SettingsEditor({ initial }: { initial: SettingsData }) {
     e.preventDefault();
     setPending(true);
     setError("");
-    const res = await saveGlobal("site-settings", data, "/dashboard/settings");
+    const res = await saveGlobal("site-settings", data as unknown as Record<string, unknown>, "/dashboard/settings");
     if (res.ok) {
       router.refresh();
       setPending(false);

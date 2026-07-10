@@ -58,6 +58,7 @@ const collectionFields: Record<string, { main: Field[]; sidebar: Field[] }> = {
         { label: "Fermée", value: "closed" },
       ], defaultValue: "open" },
       { name: "publishedAt", label: "Date de publication", type: "date" },
+      { name: "showOnSite", label: "Afficher aux visiteurs", type: "checkbox", defaultValue: true },
     ],
   },
   partners: {
@@ -68,6 +69,7 @@ const collectionFields: Record<string, { main: Field[]; sidebar: Field[] }> = {
     ],
     sidebar: [
       { name: "order", label: "Ordre", type: "number", defaultValue: 0 },
+      { name: "showOnSite", label: "Afficher aux visiteurs", type: "checkbox", defaultValue: true },
     ],
   },
   news: {

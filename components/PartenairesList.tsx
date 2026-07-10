@@ -51,19 +51,21 @@ export default function PartenairesList() {
   return (
     <div>
       {/* Search */}
-      <form onSubmit={handleSearch} className="mb-10 flex max-w-md mx-auto">
-        <div className="relative flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-soft" />
-          <input
-            type="text"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="Rechercher un partenaire..."
-            className="form-input pl-11 pr-4"
-          />
-        </div>
-        <button type="submit" className="btn-primary ml-3">
-          Rechercher
+      <form onSubmit={handleSearch} className="relative mb-10 flex items-center max-w-md mx-auto">
+        <Search className="pointer-events-none absolute left-4 h-4 w-4 text-soft" />
+        <input
+          type="text"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          placeholder="Rechercher un partenaire..."
+          className="w-full rounded-full border border-[var(--border)] bg-[var(--card)] py-3 pl-11 pr-14 text-sm outline-none ring-0 transition focus:border-brand-light/60 focus:ring-2 focus:ring-brand-light/20 placeholder:text-soft"
+        />
+        <button
+          type="submit"
+          aria-label="Rechercher"
+          className="absolute right-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue text-white transition hover:bg-brand-light dark:bg-brand-light dark:text-ink dark:hover:opacity-90"
+        >
+          <Search className="h-3.5 w-3.5" />
         </button>
       </form>
 

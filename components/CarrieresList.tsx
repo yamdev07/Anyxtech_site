@@ -59,31 +59,36 @@ export default function CarrieresList() {
   return (
     <div>
       {/* Filters */}
-      <div className="mb-10 flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
-        <form onSubmit={handleSearch} className="flex flex-1">
-          <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-soft" />
-            <input
-              type="text"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              placeholder="Rechercher une offre..."
-              className="form-input pl-11 pr-4"
-            />
-          </div>
-          <button type="submit" className="btn-primary ml-3">
-            Rechercher
+      <div className="mb-10 space-y-4 max-w-2xl mx-auto">
+        {/* Search pill */}
+        <form onSubmit={handleSearch} className="relative flex items-center">
+          <Search className="pointer-events-none absolute left-4 h-4 w-4 text-soft" />
+          <input
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            placeholder="Rechercher une offre..."
+            className="w-full rounded-full border border-[var(--border)] bg-[var(--card)] py-3 pl-11 pr-14 text-sm outline-none ring-0 transition focus:border-brand-light/60 focus:ring-2 focus:ring-brand-light/20 placeholder:text-soft"
+          />
+          <button
+            type="submit"
+            aria-label="Rechercher"
+            className="absolute right-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue text-white transition hover:bg-brand-light dark:bg-brand-light dark:text-ink dark:hover:opacity-90"
+          >
+            <Search className="h-3.5 w-3.5" />
           </button>
         </form>
-        <div className="flex gap-1.5 flex-wrap">
+
+        {/* Type filter chips */}
+        <div className="flex flex-wrap justify-center gap-2">
           {types.map((t) => (
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
+              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
                 typeFilter === t
-                  ? "bg-brand-blue text-white dark:bg-brand-light dark:text-ink"
-                  : "border border-[var(--border)] bg-[var(--card)] text-soft hover:border-brand-light/50"
+                  ? "bg-brand-blue text-white dark:bg-brand-light dark:text-ink shadow-sm"
+                  : "border border-[var(--border)] bg-[var(--card)] text-soft hover:border-brand-light/50 hover:text-brand-blue dark:hover:text-brand-light"
               }`}
             >
               {t || "Tous"}
