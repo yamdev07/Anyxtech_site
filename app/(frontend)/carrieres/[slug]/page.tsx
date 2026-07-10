@@ -24,7 +24,12 @@ async function getJob(slug: string): Promise<JobDoc | null> {
   const payload = await getPayloadClient();
   const { docs } = await payload.find({
     collection: "jobs",
-    where: { or: [{ slug: { equals: slug } }, { id: { equals: slug } }] },
+    where: {
+      and: [
+        { or: [{ slug: { equals: slug } }, { id: { equals: slug } }] },
+        { showOnSite: { not_equals: false } },
+      ],
+    },
     limit: 1,
     depth: 0,
   });

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/ui/BackToTop";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import StructuredData from "@/components/StructuredData";
+import VisitorTracker from "@/components/VisitorTracker";
 import "./globals.css";
 
 const SITE_URL = "https://www.anyxtech.com";
@@ -81,10 +82,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta name="google" content="notranslate" />
+        <meta name="robots" content="notranslate" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <StructuredData />
       </head>
-      <body className="font-sans">
+      <body className="font-sans notranslate" translate="no">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
@@ -92,6 +95,7 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <ScrollProgress />
+        <VisitorTracker />
         <Header />
         {children}
         <Footer />
