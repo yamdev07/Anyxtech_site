@@ -99,10 +99,10 @@ const collectionFields: Record<string, { main: Field[]; sidebar: Field[] }> = {
 
 const gradientMap: Record<string, string> = {
   services: "from-indigo-500 to-indigo-400",
-  jobs: "from-violet-500 to-violet-400",
-  partners: "from-amber-500 to-amber-400",
-  news: "from-cyan-500 to-cyan-400",
-  testimonials: "from-rose-500 to-rose-400",
+  jobs: "from-indigo-500 to-indigo-400",
+  partners: "from-indigo-500 to-indigo-400",
+  news: "from-indigo-500 to-indigo-400",
+  testimonials: "from-indigo-500 to-indigo-400",
 };
 
 export default function EditForm({
