@@ -23,6 +23,7 @@ export const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "Société", href: "/societe" },
   { label: "Services", href: "/services" },
+  { label: "Partenaires", href: "/partenaires" },
   { label: "Carrières", href: "/carrieres" },
   { label: "Contact", href: "/contact" },
 ];

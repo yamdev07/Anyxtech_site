@@ -25,6 +25,7 @@ const navFooter = [
   { label: "Accueil", href: "/" },
   { label: "Société", href: "/societe" },
   { label: "Services", href: "/services" },
+  { label: "Partenaires", href: "/partenaires" },
   { label: "Actualités", href: "/actualites" },
   { label: "Carrières", href: "/carrieres" },
   { label: "Contact", href: "/contact" },
