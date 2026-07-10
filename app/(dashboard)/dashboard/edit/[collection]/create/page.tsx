@@ -30,7 +30,7 @@ export default async function CreateItemPage({
           </div>
           <Link
             href={`/dashboard/edit/${collection}`}
-            className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/20 backdrop-blur-sm px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-white/30 hover:border-white/50"
+            className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
           >
             <ArrowLeft className="h-4 w-4" /> Retour à la liste
           </Link>

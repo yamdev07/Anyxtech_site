@@ -49,19 +49,13 @@ export default function MessageItem({ m }: { m: Message }) {
   return (
     <article
       className={`dash-card transition-all ${
-        handled
-          ? "opacity-70"
-          : "shadow-lg shadow-indigo-500/10"
+        handled ? "opacity-70" : "shadow-lg shadow-indigo-500/10"
       }`}
     >
       <div className="px-6 py-4 border-b border-white/10">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className={`grid h-9 w-9 place-items-center rounded-xl text-white shadow-md ${
-              isDevis
-                ? "bg-gradient-to-br from-violet-500 to-violet-400"
-                : "bg-gradient-to-br from-indigo-500 to-indigo-400"
-            }`}>
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-400 text-white shadow-md">
               {isDevis ? "💼" : "✉️"}
             </div>
             <div>
@@ -69,17 +63,13 @@ export default function MessageItem({ m }: { m: Message }) {
                 <h3 className="font-display font-bold text-white">{m.name || "Anonyme"}</h3>
                 {!handled && (
                   <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
                   </span>
                 )}
               </div>
               <div className="flex items-center gap-2 mt-0.5">
-                <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
-                  isDevis
-                    ? "bg-violet-500/15 text-violet-400"
-                    : "bg-indigo-500/15 text-indigo-400"
-                }`}>
+                <span className="rounded-full bg-indigo-500/15 px-2.5 py-0.5 text-[11px] font-bold text-indigo-400">
                   {isDevis ? "Devis" : "Contact"}
                 </span>
                 <span className="text-xs text-gray-500">{fmt(m.createdAt)}</span>
@@ -124,17 +114,17 @@ export default function MessageItem({ m }: { m: Message }) {
         {isDevis && m.meta && (
           <div className="flex flex-wrap gap-2 text-xs">
             {(m.meta.services ?? []).map((s) => (
-              <span key={s} className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-indigo-400 font-medium">
+              <span key={s} className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-indigo-400 font-bold">
                 {s}
               </span>
             ))}
             {m.meta.budget ? (
-              <span className="rounded-full bg-gradient-to-r from-indigo-500 to-indigo-400 px-3 py-1 font-semibold text-white shadow-sm">
+              <span className="rounded-full bg-gradient-to-r from-indigo-500 to-indigo-400 px-3 py-1 font-bold text-white shadow-sm">
                 Budget : {new Intl.NumberFormat("fr-FR").format(m.meta.budget)} FCFA
               </span>
             ) : null}
             {m.meta.delai ? (
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-gray-400">Délai : {m.meta.delai}</span>
+              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-white font-medium">Délai : {m.meta.delai}</span>
             ) : null}
           </div>
         )}
@@ -145,9 +135,9 @@ export default function MessageItem({ m }: { m: Message }) {
           type="button"
           onClick={toggle}
           disabled={pending}
-          className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
+          className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
             handled
-              ? "bg-emerald-500/15 text-emerald-400"
+              ? "bg-indigo-500/15 text-indigo-400"
               : "bg-gradient-to-r from-indigo-500 to-indigo-400 text-white shadow-md shadow-indigo-500/20 hover:shadow-lg hover:shadow-indigo-500/30"
           }`}
         >
@@ -157,7 +147,7 @@ export default function MessageItem({ m }: { m: Message }) {
         {m.email && (
           <a
             href={`mailto:${m.email}?subject=Re: votre demande — AnyxTech`}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-gray-400 transition-all hover:border-indigo-400/40 hover:text-indigo-400 hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-white px-3 py-1.5 text-xs font-bold text-indigo-600 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
           >
             <Reply className="h-3.5 w-3.5" /> Répondre
           </a>

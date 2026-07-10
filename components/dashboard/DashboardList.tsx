@@ -40,14 +40,6 @@ const iconMap: Record<string, React.ElementType> = {
   ),
 };
 
-const gradientMap: Record<string, string> = {
-  services: "from-indigo-500 to-indigo-400",
-  jobs: "from-violet-500 to-violet-400",
-  partners: "from-amber-500 to-amber-400",
-  news: "from-cyan-500 to-cyan-400",
-  testimonials: "from-rose-500 to-rose-400",
-};
-
 export default function DashboardList({
   title,
   description,
@@ -66,12 +58,10 @@ export default function DashboardList({
   emptyText?: string;
 }) {
   const editBase = `/dashboard/edit/${collection}`;
-  const gradient = gradientMap[collection] || "from-indigo-500 to-indigo-400";
   const IconComponent = iconMap[collection];
 
   return (
     <div className="p-5 md:p-8 lg:p-10 space-y-8">
-      {/* Hero banner */}
       <div className="dash-hero">
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -84,15 +74,15 @@ export default function DashboardList({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <a
+            <Link
               href={`${editBase}/create`}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <Plus className="h-4 w-4" /> {addLabel}
-            </a>
+            </Link>
             <Link
               href="/dashboard"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/20 backdrop-blur-sm px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-white/30 hover:border-white/50"
             >
               <ArrowLeft className="h-4 w-4" /> Retour
             </Link>
@@ -102,16 +92,16 @@ export default function DashboardList({
 
       {items.length === 0 ? (
         <div className="dash-card p-12 text-center">
-          <div className={`mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-lg`}>
+          <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-400 text-white shadow-lg">
             {IconComponent ? <IconComponent /> : <Inbox className="h-8 w-8" />}
           </div>
           <p className="mt-4 text-sm font-medium text-gray-400">{emptyText}</p>
-          <a
+          <Link
             href={`${editBase}/create`}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-500/30"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:-translate-y-0.5 hover:shadow-xl"
           >
             <Plus className="h-4 w-4" /> {addLabel}
-          </a>
+          </Link>
         </div>
       ) : (
         <div className="dash-card overflow-hidden">
@@ -121,14 +111,14 @@ export default function DashboardList({
                 key={it.id}
                 className="flex flex-wrap items-center gap-4 px-6 py-4 transition-all hover:bg-white/5"
               >
-                <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br ${gradient} text-white shadow-md`}>
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-400 text-white shadow-md">
                   {IconComponent ? <IconComponent /> : <Inbox className="h-5 w-5" />}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="truncate font-display font-semibold text-white">{it.title}</span>
                     {it.meta && (
-                      <span className="shrink-0 rounded-full bg-indigo-500/15 border border-indigo-500/20 px-2.5 py-0.5 text-xs font-semibold text-indigo-400">
+                      <span className="shrink-0 rounded-full bg-indigo-500/15 border border-indigo-500/20 px-2.5 py-0.5 text-xs font-bold text-indigo-400">
                         {it.meta}
                       </span>
                     )}
@@ -138,12 +128,12 @@ export default function DashboardList({
                   )}
                 </div>
                 <div className="flex items-center gap-1">
-                  <a
+                  <Link
                     href={`${editBase}/${it.id}`}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-gray-400 transition-all hover:border-indigo-400/40 hover:text-indigo-400 hover:bg-white/10"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-white px-3 py-1.5 text-xs font-bold text-indigo-600 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
                   >
                     <Pencil className="h-3.5 w-3.5" /> Modifier
-                  </a>
+                  </Link>
                   <DeleteButton collection={collection} id={it.id} path={path} />
                 </div>
               </li>
