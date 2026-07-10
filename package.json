@@ -4,7 +4,7 @@
   "private": true,
   "description": "Site vitrine officiel d'AnyxTech Bénin — Next.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "sh scripts/dev.sh",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
