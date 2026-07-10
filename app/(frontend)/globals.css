@@ -37,8 +37,85 @@
   --danger: #EF4444;
 }
 
+/* Dashboard light theme — clean white with indigo accents */
+.dashboard-light {
+  --bg: #F8FAFC;
+  --bg-soft: #F1F5F9;
+  --text: #0F172A;
+  --text-soft: #475569;
+  --text-muted: #94A3B8;
+  --border: rgba(15, 23, 42, 0.08);
+  --card: #FFFFFF;
+  --card-hover: #F8FAFC;
+  --brand-blue: #4F46E5;
+  --brand-light: #818CF8;
+  --brand-cyan: #06B6D4;
+  --success: #10B981;
+  --danger: #EF4444;
+}
+
+.dashboard-light body,
+.dashboard-light {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Light mode component overrides */
+.dashboard-light .sidebar-glass {
+  background: rgba(255, 255, 255, 0.85);
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-light .sidebar-pill:hover {
+  background: rgba(79, 70, 229, 0.06);
+}
+.dashboard-light .sidebar-pill.active {
+  background: rgba(79, 70, 229, 0.1);
+  color: #4F46E5;
+}
+
+.dashboard-light .dash-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.dashboard-light .dash-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+.dashboard-light .dash-card::before {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), transparent 40%, transparent 60%, rgba(129, 140, 248, 0.2));
+}
+
+.dashboard-light .dash-stat {
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.dashboard-light .dash-stat:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+.dashboard-light .dash-hero {
+  background: linear-gradient(135deg, #4F46E5 0%, #818CF8 50%, #22D3EE 100%);
+  box-shadow: 0 20px 50px -15px rgba(79, 70, 229, 0.35);
+}
+
+.dashboard-light .back-btn {
+  background: rgba(79, 70, 229, 0.06);
+  border-color: rgba(79, 70, 229, 0.15);
+  color: #4F46E5;
+}
+
 .dashboard-dark .aurora-bg {
   background: linear-gradient(-45deg, #13151A, #1E222D, #252836, #1E212B);
+  background-size: 400% 400%;
+  animation: aurora 15s ease-in-out infinite;
+}
+
+.dashboard-light .aurora-bg {
+  background: linear-gradient(-45deg, #EEF2FF, #E0E7FF, #DBEAFE, #EDE9FE);
   background-size: 400% 400%;
   animation: aurora 15s ease-in-out infinite;
 }
@@ -51,6 +128,14 @@
     radial-gradient(ellipse 50% 70% at 50% 80%, rgba(129, 140, 248, 0.05), transparent),
     var(--bg);
   animation: mesh-drift 20s ease-in-out infinite alternate;
+}
+
+.dashboard-light .aurora-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(79, 70, 229, 0.04), transparent),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(34, 211, 238, 0.03), transparent),
+    radial-gradient(ellipse 50% 70% at 50% 80%, rgba(129, 140, 248, 0.03), transparent),
+    var(--bg);
 }
 
 @keyframes mesh-drift {
