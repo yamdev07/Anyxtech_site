@@ -25,7 +25,7 @@ export default async function DashboardLayout({
 
   return (
     <html lang="fr" className={`${poppins.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
-      <body className="font-sans transition-colors duration-300">
+      <body className="font-sans transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider>
           <div className="fixed inset-x-0 top-0 z-[60] h-[3px]"
             style={{
