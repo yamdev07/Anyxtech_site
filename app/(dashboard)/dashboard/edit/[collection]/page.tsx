@@ -39,13 +39,13 @@ export default async function EditCollectionPage({ params }: { params: Promise<{
           <div className="flex items-center gap-2">
             <Link
               href={`/dashboard/edit/${collection}/create`}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <Plus className="h-4 w-4" /> Ajouter
             </Link>
             <Link
               href="/dashboard"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white/20 hover:border-white/40"
             >
               <ArrowLeft className="h-4 w-4" /> Retour
             </Link>
@@ -61,7 +61,7 @@ export default async function EditCollectionPage({ params }: { params: Promise<{
           <p className="mt-4 text-sm font-medium text-gray-400">Aucun élément pour le moment.</p>
           <Link
             href={`/dashboard/edit/${collection}/create`}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition-all hover:-translate-y-0.5 hover:shadow-xl"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:-translate-y-0.5 hover:shadow-xl"
           >
             <Plus className="h-4 w-4" /> Ajouter le premier
           </Link>

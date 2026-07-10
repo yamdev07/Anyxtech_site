@@ -72,7 +72,7 @@ export default async function AnalyticsPage() {
           </div>
           <Link
             href="/dashboard"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white/20 hover:border-white/40"
           >
             <ArrowLeft className="h-4 w-4" /> Retour
           </Link>
