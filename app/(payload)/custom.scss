@@ -1,4 +1,6 @@
-/* === AnyxTech Admin — Glassmorphism Dark Theme === */
+/* ═══════════════════════════════════════════════════════════════
+   ANYXTECH ADMIN — ADVANCED GLASSMORPHIC DESIGN SYSTEM
+   ═══════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
@@ -10,16 +12,14 @@ $ink-800: #0b1120;
 $ink-700: #0f172a;
 $ink-600: #131c33;
 
-/* ── Global CSS variables override ── */
+/* ── Global CSS variables ── */
 :root {
   --theme-success-500: #{$brand-light};
   --theme-success-100: rgba(29, 185, 255, 0.15);
   --theme-success-550: #{$brand-light};
-
   --theme-bg: #{$ink-900};
   --theme-bg-soft: #{$ink-800};
 
-  /* Elevation scale: low = dark surfaces, high = text/icons */
   --theme-elevation-0: #{$ink-700};
   --theme-elevation-50: rgba(15, 23, 42, 0.9);
   --theme-elevation-100: rgba(20, 30, 55, 0.95);
@@ -61,26 +61,19 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ── Custom scrollbar ── */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, $brand, $brand-light);
   border-radius: 999px;
   border: 2px solid $ink-900;
 }
 
-/* ── Selection ── */
 ::selection {
   background: rgba(29, 185, 255, 0.3);
   color: inherit;
 }
 
-/* ── Focus ring ── */
 :focus-visible {
   outline: 2px solid $brand-light;
   outline-offset: 2px;
@@ -91,42 +84,83 @@ h1, h2, h3, h4, h5, h6,
 a {
   color: $brand-light;
   transition: color 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    color: lighten($brand-light, 12%);
-  }
+  &:hover { color: lighten($brand-light, 12%); }
 }
 
-/* ── Sidebar / Nav ── */
+/* ═══════════════════════════════════════════════════════════════
+   AURORA MESH BACKGROUND — animated gradient blobs
+   ═══════════════════════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 30%, rgba(31, 66, 155, 0.18), transparent),
+    radial-gradient(ellipse 60% 60% at 85% 15%, rgba(29, 185, 255, 0.12), transparent),
+    radial-gradient(ellipse 50% 70% at 50% 85%, rgba(34, 211, 238, 0.08), transparent);
+  animation: admin-aurora 25s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes admin-aurora {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  50% { background-position: 50% 50%, 50% 50%, 50% 50%; }
+  100% { background-position: 100% 100%, 0% 100%, 80% 0%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR / NAV — Glass morphism with gradient accent
+   ═══════════════════════════════════════════════════════════════ */
 .nav {
-  background: rgba($ink-800, 0.85) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-right: 1px solid rgba(148, 163, 184, 0.08) !important;
+  background: rgba($ink-800, 0.72) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+  position: relative;
+
+  /* Gradient accent strip */
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, $brand, $brand-light, $brand-cyan);
+    z-index: 1;
+  }
 
   .nav-group__toggle {
     color: var(--theme-elevation-500) !important;
-
-    &:hover {
-      color: var(--theme-elevation-800) !important;
-    }
+    &:hover { color: var(--theme-elevation-800) !important; }
   }
 
-  .nav-group__indicator {
-    color: var(--theme-elevation-400) !important;
-  }
+  .nav-group__indicator { color: var(--theme-elevation-400) !important; }
 
   .nav__label {
     color: var(--theme-elevation-800) !important;
+    font-weight: 700;
+    letter-spacing: 0.05em;
   }
 
   .nav__link {
     border-radius: 10px;
     margin: 2px 8px;
     padding: 10px 14px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     color: var(--theme-elevation-500) !important;
     position: relative;
 
@@ -143,10 +177,10 @@ a {
 
   .nav__link--active,
   .nav__link.active {
-    background: linear-gradient(135deg, rgba($brand, 0.3), rgba($brand-light, 0.15)) !important;
+    background: linear-gradient(90deg, rgba($brand, 0.25), rgba($brand-light, 0.12)) !important;
     color: $brand-light !important;
     font-weight: 600;
-    box-shadow: 0 0 20px rgba(29, 185, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(29, 185, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     &::after {
       content: '';
@@ -160,63 +194,60 @@ a {
     }
   }
 
-  .nav__link-indicator {
-    color: var(--theme-elevation-400) !important;
-  }
+  .nav__link-indicator { color: var(--theme-elevation-400) !important; }
 }
 
 /* ── Header / Top bar ── */
 .header {
-  background: rgba($ink-900, 0.8) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.08) !important;
+  background: rgba($ink-900, 0.75) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  position: relative;
+
+  /* Top gradient accent */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $brand, $brand-light, $brand-cyan, $brand-light, $brand);
+    background-size: 200% 100%;
+    animation: admin-shimmer 4s linear infinite;
+    z-index: 1;
+  }
 }
 
-/* ── Dashboard cards ── */
+@keyframes admin-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DASHBOARD CARDS — Glass with gradient border on hover
+   ═══════════════════════════════════════════════════════════════ */
 .dashboard {
   .card,
   .card--clickable {
-    background: rgba($ink-700, 0.5) !important;
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(148, 163, 184, 0.08) !important;
+    background: rgba($ink-700, 0.45) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+    backdrop-filter: blur(16px) saturate(1.3);
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-radius: 16px !important;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
     position: relative;
     overflow: hidden;
 
-    &:hover {
-      border-color: rgba(29, 185, 255, 0.3) !important;
-      box-shadow:
-        0 20px 60px -15px rgba(29, 185, 255, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
-      transform: translateY(-4px) !important;
-    }
-
+    /* Gradient border on hover */
     &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, $brand, $brand-light);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    &:hover::before {
-      opacity: 1;
-    }
-
-    /* Gradient border glow on hover */
-    &::after {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: inherit;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(29, 185, 255, 0.3), transparent 50%, rgba(34, 211, 238, 0.2));
+      background: linear-gradient(135deg, rgba(29, 185, 255, 0.4), transparent 40%, transparent 60%, rgba(34, 211, 238, 0.3));
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
@@ -224,8 +255,35 @@ a {
       opacity: 0;
       transition: opacity 0.4s ease;
     }
-    &:hover::after {
-      opacity: 1;
+
+    /* Radial glow on hover */
+    &::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(29, 185, 255, 0.1), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border-color: rgba(29, 185, 255, 0.2) !important;
+      box-shadow:
+        0 25px 60px -15px rgba(29, 185, 255, 0.12),
+        0 0 0 1px rgba(29, 185, 255, 0.08) !important;
+      transform: translateY(-4px) !important;
+
+      &::before { opacity: 1; }
+      &::after { opacity: 1; }
+    }
+
+    &:hover ~ .card::before,
+    &:hover ~ .card::after {
+      opacity: 0;
     }
   }
 
@@ -241,21 +299,24 @@ a {
   }
 }
 
-/* ── Buttons ── */
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS — Gradient fills with glow
+   ═══════════════════════════════════════════════════════════════ */
 .btn--style-primary:not(:disabled):not(.btn--disabled) {
   background: linear-gradient(135deg, $brand, $brand-light) !important;
   border-color: transparent !important;
   color: #fff !important;
   box-shadow: 0 8px 24px -8px rgba(29, 185, 255, 0.5);
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 50%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 50%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -263,23 +324,20 @@ a {
   &:hover,
   &:focus {
     background: linear-gradient(135deg, lighten($brand, 8%), lighten($brand-light, 8%)) !important;
-    box-shadow: 0 12px 32px -6px rgba(29, 185, 255, 0.7) !important;
-    transform: translateY(-2px);
+    box-shadow: 0 14px 36px -6px rgba(29, 185, 255, 0.7) !important;
+    transform: translateY(-2px) !important;
 
-    &::before {
-      opacity: 1;
-    }
+    &::before { opacity: 1; }
   }
 
-  &:active {
-    transform: translateY(0) scale(0.98);
-  }
+  &:active { transform: translateY(0) scale(0.98) !important; }
 }
 
 .btn--style-secondary {
   background: rgba(29, 185, 255, 0.08) !important;
   border-color: rgba(29, 185, 255, 0.2) !important;
   color: $brand-light !important;
+  border-radius: 10px;
   transition: all 0.25s ease !important;
 
   &:hover {
@@ -293,6 +351,7 @@ a {
   background: rgba(239, 68, 68, 0.12) !important;
   border-color: rgba(239, 68, 68, 0.25) !important;
   color: #f87171 !important;
+  border-radius: 10px;
   transition: all 0.25s ease !important;
 
   &:hover {
@@ -302,21 +361,21 @@ a {
   }
 }
 
-/* ── Form inputs ── */
+/* ═══════════════════════════════════════════════════════════════
+   FORM INPUTS — Glass focus states
+   ═══════════════════════════════════════════════════════════════ */
 .field-input,
 .text-input,
 .textarea,
 .select {
-  background: rgba($ink-700, 0.7) !important;
-  border: 1px solid rgba(148, 163, 184, 0.12) !important;
+  background: rgba($ink-700, 0.6) !important;
+  border: 1px solid rgba(148, 163, 184, 0.1) !important;
   border-radius: 10px !important;
   color: var(--theme-elevation-800) !important;
-  transition: all 0.25s ease !important;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
   font-family: 'Poppins', system-ui, sans-serif !important;
 
-  &:hover {
-    border-color: rgba(148, 163, 184, 0.2) !important;
-  }
+  &:hover { border-color: rgba(148, 163, 184, 0.2) !important; }
 
   &:focus,
   &:focus-within {
@@ -324,33 +383,33 @@ a {
     box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12), 0 4px 12px -4px rgba(29, 185, 255, 0.15) !important;
   }
 
-  &::placeholder {
-    color: var(--theme-elevation-400) !important;
-  }
+  &::placeholder { color: var(--theme-elevation-400) !important; }
 }
 
 /* ── Collection list tables ── */
 .table {
-  border-color: rgba(148, 163, 184, 0.08) !important;
+  border-color: rgba(148, 163, 184, 0.06) !important;
 
   .table-row {
-    border-color: rgba(148, 163, 184, 0.06) !important;
+    border-color: rgba(148, 163, 184, 0.04) !important;
     transition: all 0.2s ease;
 
-    &:hover {
-      background: rgba(29, 185, 255, 0.04) !important;
-    }
+    &:hover { background: rgba(29, 185, 255, 0.04) !important; }
   }
 }
 
-/* ── Pill / badge styling ── */
+/* ── Pill / badge ── */
 .pill {
   background: rgba(29, 185, 255, 0.1) !important;
   color: $brand-light !important;
   border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  letter-spacing: 0.02em;
 }
 
-/* ── Toasts / notifications ── */
+/* ── Toasts ── */
 .toast {
   background: rgba($ink-600, 0.9) !important;
   -webkit-backdrop-filter: blur(16px);
@@ -361,23 +420,26 @@ a {
 }
 
 /* ── Login screen ── */
-.login__brand {
-  margin-bottom: 2rem;
-}
+.login__brand { margin-bottom: 2rem; }
+.login { background: $ink-900 !important; }
 
-.login {
-  background: $ink-900 !important;
-}
-
-/* ── Animations ── */
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
 @keyframes admin-fade-in {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes admin-glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(29, 185, 255, 0.1); }
-  50% { box-shadow: 0 0 40px rgba(29, 185, 255, 0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(29, 185, 255, 0.08); }
+  50% { box-shadow: 0 0 40px rgba(29, 185, 255, 0.18); }
+}
+
+@keyframes admin-orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, 30px) scale(1.05); }
+  66% { transform: translate(-20px, 50px) scale(0.95); }
 }
 
 .dashboard .card {
@@ -389,9 +451,7 @@ a {
     }
   }
 
-  &:hover {
-    animation: none;
-  }
+  &:hover { animation: none; }
 }
 
 /* ── Gradient text utility ── */
@@ -402,21 +462,9 @@ a {
   background-clip: text;
 }
 
-/* ── Subtle noise texture on body ── */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.015;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* ── Payload version badge ── */
-.version {
-  color: rgba(148, 163, 184, 0.4) !important;
-}
+/* ═══════════════════════════════════════════════════════════════
+   PAYLOAD COMPONENT OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
 
 /* ── Tooltip / popover ── */
 .tooltip,
@@ -455,10 +503,191 @@ body::after {
     border-radius: 8px !important;
     transition: all 0.2s ease;
     color: var(--theme-elevation-800) !important;
-
     &:hover {
       background: rgba(29, 185, 255, 0.1) !important;
       color: $brand-light !important;
     }
   }
+}
+
+/* ── Rich text editor ── */
+.field-type-richtext {
+  .tiptap,
+  .ProseMirror {
+    background: rgba($ink-700, 0.5) !important;
+    border: 1px solid rgba(148, 163, 184, 0.1) !important;
+    border-radius: 10px !important;
+    color: var(--theme-elevation-800) !important;
+    transition: all 0.25s ease !important;
+
+    &:focus,
+    &:focus-within {
+      border-color: rgba(29, 185, 255, 0.5) !important;
+      box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12) !important;
+    }
+  }
+}
+
+/* ── Upload / file field ── */
+.field-type-upload {
+  .upload-provider {
+    background: rgba($ink-700, 0.4) !important;
+    border: 1px dashed rgba(148, 163, 184, 0.15) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      border-color: rgba(29, 185, 255, 0.4) !important;
+      background: rgba(29, 185, 255, 0.04) !important;
+    }
+  }
+}
+
+/* ── Relationship field ── */
+.field-type-relationship {
+  .rs__control {
+    background: rgba($ink-700, 0.6) !important;
+    border: 1px solid rgba(148, 163, 184, 0.1) !important;
+    border-radius: 10px !important;
+    transition: all 0.25s ease !important;
+
+    &:hover { border-color: rgba(148, 163, 184, 0.2) !important; }
+    &:focus-within {
+      border-color: rgba(29, 185, 255, 0.5) !important;
+      box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.12) !important;
+    }
+  }
+
+  .rs__menu {
+    background: rgba($ink-600, 0.95) !important;
+    border: 1px solid rgba(148, 163, 184, 0.1) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.5) !important;
+
+    [class*="option"] {
+      transition: all 0.15s ease !important;
+      &:hover { background: rgba(29, 185, 255, 0.1) !important; }
+    }
+  }
+}
+
+/* ── Array / repeater ── */
+.field-type-array {
+  .array-field {
+    border-color: rgba(148, 163, 184, 0.06) !important;
+    &:hover { border-color: rgba(29, 185, 255, 0.2) !important; }
+  }
+  .array-actions button { transition: all 0.2s ease !important; }
+}
+
+/* ── Tabs ── */
+.tabs {
+  .tabs-tab-wrap {
+    .tabs-tab {
+      color: var(--theme-elevation-500) !important;
+      transition: all 0.25s ease !important;
+      border-radius: 8px 8px 0 0 !important;
+      position: relative;
+
+      &:hover { color: $brand-light !important; }
+
+      &--active {
+        color: $brand-light !important;
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, $brand, $brand-light);
+          border-radius: 2px 2px 0 0;
+        }
+      }
+    }
+  }
+}
+
+/* ── Save / publish area ── */
+.doc-controls {
+  background: rgba($ink-800, 0.8) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(148, 163, 184, 0.06) !important;
+}
+
+/* ── Sidebar footer ── */
+.nav__footer {
+  background: rgba($ink-800, 0.5) !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.06) !important;
+}
+
+/* ── Pagination ── */
+.pagination {
+  button {
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+    &:hover { background: rgba(29, 185, 255, 0.1) !important; }
+    &.active {
+      background: linear-gradient(135deg, $brand, $brand-light) !important;
+      color: #fff !important;
+    }
+  }
+}
+
+/* ── Search input ── */
+.header .search {
+  background: rgba($ink-700, 0.5) !important;
+  border: 1px solid rgba(148, 163, 184, 0.08) !important;
+  border-radius: 10px !important;
+  transition: all 0.25s ease !important;
+
+  &:focus-within {
+    border-color: rgba(29, 185, 255, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.08) !important;
+  }
+
+  input {
+    color: var(--theme-elevation-800) !important;
+    &::placeholder { color: var(--theme-elevation-400) !important; }
+  }
+}
+
+/* ── Step / progress ── */
+.step-list {
+  .step {
+    border-color: rgba(148, 163, 184, 0.06) !important;
+    &--has-many-errors { border-color: rgba(239, 68, 68, 0.3) !important; }
+  }
+}
+
+/* ── Code editor ── */
+.code-editor {
+  background: rgba($ink-900, 0.8) !important;
+  border: 1px solid rgba(148, 163, 184, 0.06) !important;
+  border-radius: 10px !important;
+}
+
+/* ── Skeleton loading ── */
+.skeleton {
+  background: linear-gradient(90deg, rgba($ink-700, 0.5) 25%, rgba($ink-600, 0.5) 50%, rgba($ink-700, 0.5) 75%) !important;
+  background-size: 200% 100% !important;
+  animation: shimmer-loading 1.5s ease-in-out infinite !important;
+  border-radius: 8px !important;
+}
+
+@keyframes shimmer-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Payload version badge ── */
+.version { color: rgba(148, 163, 184, 0.4) !important; }
+
+/* ── Action bar / breadcrumb ── */
+.action-bar,
+.breadcrumb {
+  a, button { transition: all 0.2s ease !important; }
 }

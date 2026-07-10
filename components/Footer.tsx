@@ -25,6 +25,7 @@ const navFooter = [
   { label: "Accueil", href: "/" },
   { label: "Société", href: "/societe" },
   { label: "Services", href: "/services" },
+  { label: "Partenaires", href: "/partenaires" },
   { label: "Actualités", href: "/actualites" },
   { label: "Carrières", href: "/carrieres" },
   { label: "Contact", href: "/contact" },
@@ -111,7 +112,7 @@ export default async function Footer() {
               <h3 className="font-display text-sm font-semibold uppercase tracking-wider">
                 Contact
               </h3>
-              <AdminEdit href="/admin/globals/site-settings" label="Modifier" />
+              <AdminEdit href="/dashboard/settings" label="Modifier" />
             </div>
             <ul className="mt-4 space-y-3 text-sm text-soft">
               <li className="flex items-start gap-3">

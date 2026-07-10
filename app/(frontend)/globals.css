@@ -20,6 +20,431 @@
   --card: #0f172a;
 }
 
+/* Dashboard dark theme — deep slate/charcoal with blue accents */
+.dashboard-dark {
+  --bg: #13151A;
+  --bg-soft: #1E222D;
+  --text: #FFFFFF;
+  --text-soft: #9CA3AF;
+  --text-muted: #6B7280;
+  --border: rgba(148, 163, 184, 0.12);
+  --card: #1E212B;
+  --card-hover: #252836;
+  --brand-blue: #4F46E5;
+  --brand-light: #818CF8;
+  --brand-cyan: #22D3EE;
+  --success: #10B981;
+  --danger: #EF4444;
+}
+
+/* Dashboard light theme — clean white with indigo accents */
+.dashboard-light {
+  --bg: #F8FAFC;
+  --bg-soft: #F1F5F9;
+  --text: #0F172A;
+  --text-soft: #475569;
+  --text-muted: #94A3B8;
+  --border: rgba(15, 23, 42, 0.08);
+  --card: #FFFFFF;
+  --card-hover: #F8FAFC;
+  --brand-blue: #4F46E5;
+  --brand-light: #818CF8;
+  --brand-cyan: #06B6D4;
+  --success: #10B981;
+  --danger: #EF4444;
+}
+
+.dashboard-light body,
+.dashboard-light {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Light mode component overrides */
+.dashboard-light .sidebar-glass {
+  background: rgba(255, 255, 255, 0.85);
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-light .sidebar-pill:hover {
+  background: rgba(79, 70, 229, 0.06);
+}
+.dashboard-light .sidebar-pill.active {
+  background: rgba(79, 70, 229, 0.1);
+  color: #4F46E5;
+}
+
+
+
+/* ============================================================
+   LIGHT MODE — override hardcoded dark Tailwind utility classes
+   used inside dash-card, dash-stat, and sidebar areas.
+   Server components cannot use useTheme(), so we apply CSS here.
+   ============================================================ */
+
+/* text-white → dark slate in light mode */
+.dashboard-light .dash-card .text-white,
+.dashboard-light .dash-stat .text-white,
+.dashboard-light .dash-card h1,
+.dashboard-light .dash-card h2,
+.dashboard-light .dash-card h3,
+.dashboard-light .dash-stat h1,
+.dashboard-light .dash-stat h2,
+.dashboard-light .dash-stat h3 {
+  color: #0F172A;
+}
+
+/* Stat value numbers */
+.dashboard-light .dash-stat .text-white.tabular-nums {
+  color: #0F172A;
+}
+
+/* text-gray-400 → gray-600 in light mode for better contrast */
+.dashboard-light .dash-card .text-gray-400,
+.dashboard-light .dash-stat .text-gray-400 {
+  color: #4B5563;
+}
+
+/* Dividers: divide-white/10 → gray-100 */
+.dashboard-light .dash-card .divide-y > * + * {
+  border-top-color: rgba(15, 23, 42, 0.07);
+}
+
+/* Card section header separators: border-white/10 → gray-100 */
+.dashboard-light .dash-card > div[class*="border-b"],
+.dashboard-light .dash-card > section > div[class*="border-b"] {
+  border-bottom-color: rgba(15, 23, 42, 0.07);
+}
+
+/* Progress bar track: bg-white/5 → gray-100 */
+.dashboard-light .dash-card .bg-white\/5,
+.dashboard-light .dash-stat .bg-white\/5 {
+  background-color: #F1F5F9;
+}
+
+/* IP badge: bg-white/10 → gray-100 */
+.dashboard-light .dash-card .bg-white\/10 {
+  background-color: #EFF6FF;
+  color: #3730A3;
+}
+
+/* Hover rows inside cards */
+.dashboard-light .dash-card a:hover,
+.dashboard-light .dash-card div[class*="hover:bg-white/5"]:hover {
+  background-color: rgba(79, 70, 229, 0.04);
+}
+
+/* Message item divider & actions bar */
+.dashboard-light article.dash-card > div[class*="border-b"],
+.dashboard-light article.dash-card > div[class*="border-t"] {
+  border-color: rgba(15, 23, 42, 0.07);
+}
+.dashboard-light article.dash-card > div[class*="bg-white/[0.02]"] {
+  background-color: #F8FAFC;
+}
+
+/* Message item: message body bubble */
+.dashboard-light article.dash-card .whitespace-pre-wrap {
+  background-color: #F1F5F9;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #374151;
+}
+
+.dashboard-light .dash-hero {
+  background: linear-gradient(135deg, #4F46E5 0%, #818CF8 50%, #22D3EE 100%);
+  box-shadow: 0 20px 50px -15px rgba(79, 70, 229, 0.35);
+}
+
+.dashboard-light .back-btn {
+  background: rgba(79, 70, 229, 0.06);
+  border-color: rgba(79, 70, 229, 0.15);
+  color: #4F46E5;
+}
+
+.dashboard-dark .aurora-bg {
+  background: linear-gradient(-45deg, #13151A, #1E222D, #252836, #1E212B);
+  background-size: 400% 400%;
+  animation: aurora 15s ease-in-out infinite;
+}
+
+.dashboard-light .aurora-bg {
+  background: linear-gradient(-45deg, #EEF2FF, #E0E7FF, #DBEAFE, #EDE9FE);
+  background-size: 400% 400%;
+  animation: aurora 15s ease-in-out infinite;
+}
+
+/* Dashboard mesh background — subtle animated gradient blobs (dark) */
+.aurora-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(79, 70, 229, 0.08), transparent),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(34, 211, 238, 0.06), transparent),
+    radial-gradient(ellipse 50% 70% at 50% 80%, rgba(129, 140, 248, 0.05), transparent),
+    var(--bg);
+  animation: mesh-drift 20s ease-in-out infinite alternate;
+}
+
+.dashboard-light .aurora-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(79, 70, 229, 0.04), transparent),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(34, 211, 238, 0.03), transparent),
+    radial-gradient(ellipse 50% 70% at 50% 80%, rgba(129, 140, 248, 0.03), transparent),
+    var(--bg);
+}
+
+@keyframes mesh-drift {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  100% { background-position: 100% 100%, 0% 100%, 80% 0%; }
+}
+
+/* Dashboard glass card (dark) */
+.dash-glass {
+  background: rgba(30, 33, 43, 0.85);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow:
+    0 4px 24px -4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Dashboard card with gradient border on hover (dark) */
+.dash-card {
+  position: relative;
+  background: #1E212B;
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+.dash-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.5), transparent 40%, transparent 60%, rgba(129, 140, 248, 0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.dash-card:hover::before {
+  opacity: 1;
+}
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(79, 70, 229, 0.2);
+}
+
+/* Dashboard card — light mode */
+.dashboard-light .dash-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.08);
+}
+.dashboard-light .dash-card:hover {
+  box-shadow:
+    0 20px 50px -12px rgba(79, 70, 229, 0.12),
+    0 0 0 1px rgba(79, 70, 229, 0.15);
+}
+
+/* Dashboard stat card — bolder variant (dark) */
+.dash-stat {
+  position: relative;
+  background: #1E212B;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+.dash-stat::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.dash-stat:hover::after {
+  opacity: 1;
+}
+.dash-stat:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 25px 60px -15px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(79, 70, 229, 0.25);
+}
+
+/* Stat card — light mode */
+.dashboard-light .dash-stat {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.06);
+}
+.dashboard-light .dash-stat:hover {
+  box-shadow:
+    0 25px 60px -15px rgba(79, 70, 229, 0.14),
+    0 0 0 1px rgba(79, 70, 229, 0.2);
+}
+
+/* Sidebar glass (dark) */
+.sidebar-glass {
+  background: rgba(19, 21, 26, 0.95);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border-right: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Sidebar glass — light mode */
+.dashboard-light .sidebar-glass {
+  background: rgba(255, 255, 255, 0.97);
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 4px 0 24px -4px rgba(15, 23, 42, 0.06);
+}
+
+/* Sidebar nav pill (dark) */
+.sidebar-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  color: var(--text-soft);
+}
+.sidebar-pill:hover {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--text);
+  transform: translateX(2px);
+}
+.sidebar-pill.active {
+  background: rgba(79, 70, 229, 0.15);
+  color: var(--brand-light);
+  font-weight: 600;
+}
+.sidebar-pill.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 3px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(180deg, #4F46E5, #818CF8);
+}
+
+/* Back-to-site button (dark) */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: rgba(79, 70, 229, 0.1);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  color: var(--brand-light);
+  transition: all 0.3s ease;
+}
+.back-btn:hover {
+  background: rgba(79, 70, 229, 0.2);
+  border-color: rgba(129, 140, 248, 0.4);
+  box-shadow: 0 4px 16px -4px rgba(79, 70, 229, 0.3);
+  transform: translateX(-2px);
+}
+
+/* Dashboard hero banner (dark) */
+.dash-hero {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4F46E5 0%, #818CF8 50%, #22D3EE 100%);
+  color: white;
+  box-shadow: 0 20px 50px -15px rgba(79, 70, 229, 0.4);
+}
+.dash-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255, 255, 255, 0.12), transparent),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(34, 211, 238, 0.15), transparent);
+  pointer-events: none;
+}
+.dash-hero::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Quick action gradient button (dark) */
+.dash-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.875rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+.dash-action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dash-action:hover::before {
+  opacity: 1;
+}
+.dash-action:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.4);
+}
+
+/* Scope link color overrides to non-button, non-interactive links inside dashboard */
+.dashboard-dark .dash-card a:not([class]),
+.dashboard-dark .dash-stat a:not([class]) {
+  color: var(--brand-light);
+}
+
+.dashboard-light .dash-card a:not([class]),
+.dashboard-light .dash-stat a:not([class]) {
+  color: #4F46E5;
+}
+
 @layer base {
   * {
     border-color: var(--border);
@@ -191,18 +616,6 @@
     mask-composite: exclude;
     pointer-events: none;
   }
-}
-
-@keyframes text-sheen {
-  to {
-    background-position: 200% center;
-  }
-}
-
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
-  }
 
   /* Champs de formulaire */
   .form-input {
@@ -219,6 +632,23 @@
     border-color: rgba(29, 185, 255, 0.6);
     box-shadow: 0 0 0 3px rgba(29, 185, 255, 0.15);
   }
+}
+
+@keyframes text-sheen {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aurora {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @layer utilities {
@@ -255,4 +685,10 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Block browser translate — hide Google Translate widget only */
+.goog-te-banner-frame,
+.skiptranslate {
+  display: none !important;
 }
