@@ -46,6 +46,16 @@ export async function login(email: string, password: string) {
       collection: "users",
       data: { email, password },
     });
+    if (result.token) {
+      const c = await cookies();
+      c.set("payload-token", result.token, {
+        httpOnly: true,
+        path: "/",
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+    }
     return { ok: true, token: result.token };
   } catch {
     return { ok: false };
