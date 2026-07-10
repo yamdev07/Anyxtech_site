@@ -55,6 +55,24 @@ export default buildConfig({
   // pour que le contenu du site soit visible et modifiable depuis le dashboard.
   onInit: async (payload) => {
     try {
+      const { totalDocs: userCount } = await payload.count({ collection: "users" });
+      if (userCount === 0) {
+        const email = process.env.ADMIN_EMAIL || "admin@anyxtech.com";
+        const password = process.env.ADMIN_PASSWORD || "AnyxTech@2025";
+        const name = process.env.ADMIN_NAME || "Admin";
+
+        await payload.create({
+          collection: "users",
+          data: { email, name, password },
+        });
+
+        console.log("\n========================================");
+        console.log("  Compte admin créé avec succès !");
+        console.log("  Email    :", email);
+        console.log("  Mot de passe :", password);
+        console.log("========================================\n");
+      }
+
       const { totalDocs } = await payload.count({ collection: "services" });
       if (totalDocs === 0) {
         for (let i = 0; i < defaultServices.length; i++) {
@@ -76,7 +94,7 @@ export default buildConfig({
         payload.logger.info(`Seed : ${defaultServices.length} services créés.`);
       }
     } catch (e) {
-      payload.logger.error("Seed services échoué : " + (e as Error).message);
+      payload.logger.error("Seed échoué : " + (e as Error).message);
     }
   },
 });
