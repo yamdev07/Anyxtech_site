@@ -686,3 +686,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Block browser translate */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+.notranslate,
+.goog-te-banner-frame,
+.skiptranslate {
+  display: none !important;
+}

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 import {
   LayoutDashboard,
+  Eye,
   Cog,
   Briefcase,
   Handshake,
@@ -40,6 +41,7 @@ const navGroups: NavGroup[] = [
     items: [
       { label: "Vue d'ensemble", href: "/dashboard", icon: LayoutDashboard },
       { label: "Analytique", href: "/dashboard/analytics", icon: BarChart3 },
+      { label: "Activité", href: "/dashboard/activite", icon: Eye },
     ],
   },
   {
