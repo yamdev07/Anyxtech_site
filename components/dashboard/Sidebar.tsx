@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useTheme } from "./ThemeProvider";
 import {
   LayoutDashboard,
   Cog,
@@ -67,6 +68,8 @@ const navGroups: NavGroup[] = [
 
 export default function Sidebar({ email }: { email?: string | null }) {
   const pathname = usePathname();
+  const { resolvedTheme } = useTheme();
+  const dark = resolvedTheme === "dark";
   const [open, setOpen] = useState(false);
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
@@ -81,19 +84,21 @@ export default function Sidebar({ email }: { email?: string | null }) {
   return (
     <>
       {/* Mobile top bar */}
-      <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-white/10 px-4 py-3 lg:hidden"
+      <div className={`fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b px-4 py-3 lg:hidden ${
+        dark ? "border-white/10" : "border-gray-200"
+      }`}
         style={{
-          background: "rgba(19, 21, 26, 0.9)",
+          background: dark ? "rgba(19, 21, 26, 0.9)" : "rgba(255, 255, 255, 0.9)",
           backdropFilter: "blur(24px) saturate(1.6)",
         }}
       >
-        <Image src="/images/logo-removebg-preview.png" alt="AnyxTech" width={120} height={36} className="h-8 w-auto object-contain brightness-0 invert" />
+        <Image src="/images/logo-removebg-preview.png" alt="AnyxTech" width={120} height={36} className={`h-8 w-auto object-contain ${dark ? "brightness-0 invert" : ""}`} />
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
-          className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5"
+          className={`grid h-10 w-10 place-items-center rounded-xl border ${dark ? "border-white/10 bg-white/5 text-white" : "border-gray-200 bg-gray-100 text-gray-800"}`}
         >
-          {open ? <X className="h-5 w-5 text-white" /> : <Menu className="h-5 w-5 text-white" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
@@ -119,11 +124,11 @@ export default function Sidebar({ email }: { email?: string | null }) {
         <div className="px-5 pt-5 pb-4 space-y-3">
           <Link href="/dashboard" className="flex items-center gap-3 group">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-400 shadow-lg shadow-indigo-500/20 transition-shadow group-hover:shadow-indigo-500/40">
-              <Image src="/images/logo-removebg-preview.png" alt="" width={28} height={28} className="h-7 w-7 object-contain brightness-0 invert" />
+              <Image src="/images/logo-removebg-preview.png" alt="" width={28} height={28} className={`h-7 w-7 object-contain ${dark ? "brightness-0 invert" : ""}`} />
             </div>
             <div>
-              <div className="text-sm font-bold text-white">AnyxTech</div>
-              <div className="text-[10px] font-medium uppercase tracking-widest text-gray-400">Dashboard</div>
+              <div className={`text-sm font-bold ${dark ? "text-white" : "text-gray-900"}`}>AnyxTech</div>
+              <div className={`text-[10px] font-medium uppercase tracking-widest ${dark ? "text-gray-400" : "text-gray-500"}`}>Dashboard</div>
             </div>
           </Link>
           <Link href="/" className="back-btn w-full justify-center">
@@ -132,7 +137,7 @@ export default function Sidebar({ email }: { email?: string | null }) {
           </Link>
         </div>
 
-        <div className="mx-5 h-px bg-white/10" />
+        <div className={`mx-5 h-px ${dark ? "bg-white/10" : "bg-gray-200"}`} />
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
@@ -142,7 +147,9 @@ export default function Sidebar({ email }: { email?: string | null }) {
               <div key={group.label} className="mb-3">
                 <button
                   onClick={() => toggleGroup(group.label)}
-                  className="flex w-full items-center justify-between px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-gray-500 hover:text-gray-300 transition-colors"
+                  className={`flex w-full items-center justify-between px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] transition-colors ${
+                    dark ? "text-gray-500 hover:text-gray-300" : "text-gray-400 hover:text-gray-700"
+                  }`}
                 >
                   {group.label}
                   <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${isCollapsed ? "-rotate-90" : ""}`} />
@@ -158,7 +165,7 @@ export default function Sidebar({ email }: { email?: string | null }) {
                         onClick={() => setOpen(false)}
                         className={`sidebar-pill mb-0.5 ${active ? "active" : ""}`}
                       >
-                        <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-indigo-400" : "text-gray-500"}`} />
+                        <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? (dark ? "text-indigo-400" : "text-indigo-600") : "text-gray-400 dark:text-gray-500"}`} />
                         <span className="flex-1">{n.label}</span>
                       </Link>
                     );
@@ -170,30 +177,38 @@ export default function Sidebar({ email }: { email?: string | null }) {
         </nav>
 
         {/* Footer: user + actions */}
-        <div className="border-t border-white/10 px-4 pt-4 pb-3 space-y-3">
+        <div className={`border-t px-4 pt-4 pb-3 space-y-3 ${dark ? "border-white/10" : "border-gray-200"}`}>
           <div className="flex items-center gap-3 rounded-xl px-3 py-2.5">
             <div className="relative">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-indigo-400 text-sm font-bold text-white shadow-lg shadow-indigo-500/25">
                 {userInitial}
               </div>
-              <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#13151A] bg-indigo-400" />
+              <div className={`absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 bg-indigo-400 ${dark ? "border-[#13151A]" : "border-white"}`} />
             </div>
             <div className="min-w-0 flex-1">
-              <div className="truncate text-[13px] font-semibold text-white">{email || "Admin"}</div>
-              <div className="text-[11px] text-gray-400">Administrateur</div>
+              <div className={`truncate text-[13px] font-semibold ${dark ? "text-white" : "text-gray-900"}`}>{email || "Admin"}</div>
+              <div className={`text-[11px] ${dark ? "text-gray-400" : "text-gray-500"}`}>Administrateur</div>
             </div>
           </div>
           <div className="flex gap-1.5">
             <Link
               href="/"
               target="_blank"
-              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-gray-400 transition-all duration-300 hover:border-indigo-400/40 hover:text-indigo-400 hover:bg-white/10 hover:shadow-md"
+              className={`flex flex-1 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-xs font-medium transition-all duration-300 ${
+                dark
+                  ? "border-white/10 bg-white/5 text-gray-400 hover:border-indigo-400/40 hover:text-indigo-400 hover:bg-white/10 hover:shadow-md"
+                  : "border-gray-200 bg-gray-50 text-gray-600 hover:border-indigo-600/40 hover:text-indigo-600 hover:bg-indigo-50/55 hover:shadow-sm"
+              }`}
             >
               <ExternalLink className="h-3.5 w-3.5" /> Site
             </Link>
             <a
               href="/api/users/logout"
-              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-gray-400 transition-all duration-300 hover:border-red-400/40 hover:text-red-400 hover:bg-red-500/10 hover:shadow-md"
+              className={`flex flex-1 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-xs font-medium transition-all duration-300 ${
+                dark
+                  ? "border-white/10 bg-white/5 text-gray-400 hover:border-red-400/40 hover:text-red-400 hover:bg-red-50/10 hover:shadow-md"
+                  : "border-gray-200 bg-gray-50 text-gray-600 hover:border-red-600/40 hover:text-red-600 hover:bg-red-50 hover:shadow-sm"
+              }`}
             >
               <LogOut className="h-3.5 w-3.5" /> Déconnexion
             </a>
