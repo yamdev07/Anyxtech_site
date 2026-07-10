@@ -29,7 +29,12 @@ export default async function CarrieresPage() {
   const payload = await getPayloadClient();
   const { docs } = await payload.find({
     collection: "jobs",
-    where: { status: { equals: "open" } },
+    where: {
+      and: [
+        { status: { equals: "open" } },
+        { showOnSite: { not_equals: false } },
+      ],
+    },
     sort: "-publishedAt",
     limit: 50,
     depth: 0,
@@ -47,7 +52,7 @@ export default async function CarrieresPage() {
 
       <section className="container-x py-16 md:py-24">
         <div className="mb-8 text-center">
-          <AdminEdit href="/admin/collections/jobs" label="Gérer les offres" />
+          <AdminEdit href="/dashboard/edit/jobs" label="Gérer les offres" />
         </div>
         {jobs.length === 0 ? (
           <Reveal className="mx-auto max-w-xl rounded-3xl border border-[var(--border)] bg-soft p-10 text-center">
