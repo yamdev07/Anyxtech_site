@@ -152,7 +152,7 @@ export default function SettingsEditor({ initial }: { initial: SettingsData }) {
         </button>
         <Link
           href="/dashboard"
-          className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-gray-400 transition-all hover:border-white/20 hover:text-white"
+          className="rounded-xl border border-white/30 bg-white/20 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-black/20 transition-all hover:border-white/50 hover:bg-white/30"
         >
           <ArrowLeft className="h-4 w-4 inline mr-1" /> Annuler
         </Link>

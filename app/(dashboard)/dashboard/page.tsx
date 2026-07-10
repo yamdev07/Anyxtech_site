@@ -178,7 +178,7 @@ export default async function DashboardOverview() {
           <div className="flex items-center gap-2">
             <Link
               href="/dashboard/analytics"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/20 backdrop-blur-sm px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-white/30 hover:border-white/50"
             >
               <BarChart3 className="h-4 w-4" /> Analytique
             </Link>
