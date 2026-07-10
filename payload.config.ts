@@ -66,11 +66,11 @@ export default buildConfig({
           data: { email, name, password },
         });
 
-        console.log("\n========================================");
-        console.log("  Compte admin créé avec succès !");
-        console.log("  Email    :", email);
-        console.log("  Mot de passe :", password);
-        console.log("========================================\n");
+        payload.logger.info("========================================");
+        payload.logger.info("  Compte admin créé avec succès !");
+        payload.logger.info("  Email       : " + email);
+        payload.logger.info("  Mot de passe: " + password);
+        payload.logger.info("========================================");
       }
 
       const { totalDocs } = await payload.count({ collection: "services" });
