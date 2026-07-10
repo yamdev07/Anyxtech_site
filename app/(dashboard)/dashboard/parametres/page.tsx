@@ -41,12 +41,12 @@ export default async function ParametresPage() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <a
-              href="/admin/globals/site-settings"
+            <Link
+              href="/dashboard/settings"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               <Pencil className="h-4 w-4" /> Modifier
-            </a>
+            </Link>
             <Link
               href="/dashboard"
               className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"

@@ -16,7 +16,7 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const user = await getAdminUser();
-  if (!user) redirect("/admin");
+  if (!user) redirect("/dashboard/login");
 
   return (
     <html lang="fr" className={`dashboard-dark ${poppins.variable} ${spaceGrotesk.variable}`}>

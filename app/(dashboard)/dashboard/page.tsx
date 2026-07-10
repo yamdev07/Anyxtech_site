@@ -114,7 +114,7 @@ export default async function DashboardOverview() {
       deltaType: "up" as const,
       gradient: "from-violet-500 to-violet-400",
       glow: "rgba(139, 92, 246, 0.3)",
-      href: "/dashboard/offres",
+      href: "/dashboard/edit/jobs",
     },
     {
       icon: Handshake,
@@ -124,7 +124,7 @@ export default async function DashboardOverview() {
       deltaType: "up" as const,
       gradient: "from-amber-500 to-amber-400",
       glow: "rgba(245, 158, 11, 0.3)",
-      href: "/dashboard/partenaires",
+      href: "/dashboard/edit/partners",
     },
     {
       icon: Newspaper,
@@ -134,7 +134,7 @@ export default async function DashboardOverview() {
       deltaType: "up" as const,
       gradient: "from-cyan-500 to-cyan-400",
       glow: "rgba(6, 182, 212, 0.3)",
-      href: "/dashboard/actualites",
+      href: "/dashboard/edit/news",
     },
     {
       icon: Inbox,
@@ -149,11 +149,11 @@ export default async function DashboardOverview() {
   ];
 
   const quickActions = [
-    { label: "Nouvelle offre", href: "/dashboard/offres", icon: Briefcase, gradient: "from-violet-600 to-violet-500" },
-    { label: "Nouveau partenaire", href: "/dashboard/partenaires", icon: Handshake, gradient: "from-amber-600 to-amber-500" },
-    { label: "Nouvel article", href: "/dashboard/actualites", icon: Newspaper, gradient: "from-cyan-600 to-cyan-500" },
-    { label: "Services", href: "/dashboard/services", icon: FileText, gradient: "from-indigo-600 to-indigo-500" },
-    { label: "Paramètres", href: "/dashboard/parametres", icon: Settings, gradient: "from-slate-500 to-slate-400" },
+    { label: "Nouvelle offre", href: "/dashboard/edit/jobs/create", icon: Briefcase, gradient: "from-violet-600 to-violet-500" },
+    { label: "Nouveau partenaire", href: "/dashboard/edit/partners/create", icon: Handshake, gradient: "from-amber-600 to-amber-500" },
+    { label: "Nouvel article", href: "/dashboard/edit/news/create", icon: Newspaper, gradient: "from-cyan-600 to-cyan-500" },
+    { label: "Services", href: "/dashboard/edit/services", icon: FileText, gradient: "from-indigo-600 to-indigo-500" },
+    { label: "Paramètres", href: "/dashboard/settings", icon: Settings, gradient: "from-slate-500 to-slate-400" },
     { label: "Voir le site", href: "/", icon: ExternalLink, gradient: "from-emerald-600 to-emerald-500", external: true },
   ];
 

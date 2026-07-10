@@ -13,7 +13,6 @@ import {
   Star,
   Inbox,
   Settings,
-  FileText,
   ExternalLink,
   LogOut,
   Menu,
@@ -21,14 +20,12 @@ import {
   BarChart3,
   ChevronDown,
   ArrowLeft,
-  Shield,
 } from "lucide-react";
 
 interface NavItem {
   label: string;
   href: string;
   icon: React.ElementType;
-  badge?: number;
 }
 
 interface NavGroup {
@@ -47,11 +44,11 @@ const navGroups: NavGroup[] = [
   {
     label: "Contenu",
     items: [
-      { label: "Services", href: "/dashboard/services", icon: Cog },
-      { label: "Offres d'emploi", href: "/dashboard/offres", icon: Briefcase },
-      { label: "Partenaires", href: "/dashboard/partenaires", icon: Handshake },
-      { label: "Actualités", href: "/dashboard/actualites", icon: Newspaper },
-      { label: "Témoignages", href: "/dashboard/temoignages", icon: Star },
+      { label: "Services", href: "/dashboard/edit/services", icon: Cog },
+      { label: "Offres d'emploi", href: "/dashboard/edit/jobs", icon: Briefcase },
+      { label: "Partenaires", href: "/dashboard/edit/partners", icon: Handshake },
+      { label: "Actualités", href: "/dashboard/edit/news", icon: Newspaper },
+      { label: "Témoignages", href: "/dashboard/edit/testimonials", icon: Star },
     ],
   },
   {
@@ -63,7 +60,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Configuration",
     items: [
-      { label: "Paramètres du site", href: "/dashboard/parametres", icon: Settings },
+      { label: "Paramètres du site", href: "/dashboard/settings", icon: Settings },
     ],
   },
 ];
@@ -163,11 +160,6 @@ export default function Sidebar({ email }: { email?: string | null }) {
                       >
                         <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-indigo-400" : "text-gray-500"}`} />
                         <span className="flex-1">{n.label}</span>
-                        {n.badge ? (
-                          <span className="rounded-full bg-gradient-to-r from-indigo-500 to-indigo-400 px-2 py-0.5 text-[10px] font-bold text-white">
-                            {n.badge}
-                          </span>
-                        ) : null}
                       </Link>
                     );
                   })}
@@ -200,7 +192,7 @@ export default function Sidebar({ email }: { email?: string | null }) {
               <ExternalLink className="h-3.5 w-3.5" /> Site
             </Link>
             <a
-              href="/admin/logout"
+              href="/api/users/logout"
               className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-gray-400 transition-all duration-300 hover:border-red-400/40 hover:text-red-400 hover:bg-red-500/10 hover:shadow-md"
             >
               <LogOut className="h-3.5 w-3.5" /> Déconnexion

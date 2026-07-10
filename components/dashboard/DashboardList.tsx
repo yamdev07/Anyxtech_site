@@ -65,7 +65,7 @@ export default function DashboardList({
   addLabel?: string;
   emptyText?: string;
 }) {
-  const editBase = `/admin/collections/${collection}`;
+  const editBase = `/dashboard/edit/${collection}`;
   const gradient = gradientMap[collection] || "from-indigo-500 to-indigo-400";
   const IconComponent = iconMap[collection];
 
